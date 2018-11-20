@@ -1,1 +1,475 @@
-<!doctype html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><link rel="shortcut icon" href=/static/favicon.ico><title>ScriptKiddes</title><link href=/static/css/app.c64eadfc8d3abfc9d85514dba4054813.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=/static/js/manifest.992b63bf2abbf3194771.js></script><script type=text/javascript src=/static/js/vendor.e12dc8c9af1f7aa12436.js></script><script type=text/javascript src=/static/js/app.bc036f9167871d39aecf.js></script></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>termux | ScriptKiddes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#336699">
+    
+    
+    <meta name="keywords" content="termux">
+    <meta name="description" content="送给嵌入式协会萌新 by SK#####0x1.准备操作下载termux点击这里安装，打开，等初始化完成(建议挂梯子)初始化完成了会进入一个终端 #####0x2.更新软件包输入1pkg update &amp;amp;&amp;amp; pkg upgrade 回车，等完成 #####0x3.安装vim和gcc1pkg install vim clang 回车 #####0x4.Done完成，这时你需要了解几个">
+<meta name="keywords" content="termux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="termux">
+<meta property="og:url" content="http://yoursite.com/2018/10/01/手机termux编译C源码/index.html">
+<meta property="og:site_name" content="ScriptKiddes">
+<meta property="og:description" content="送给嵌入式协会萌新 by SK#####0x1.准备操作下载termux点击这里安装，打开，等初始化完成(建议挂梯子)初始化完成了会进入一个终端 #####0x2.更新软件包输入1pkg update &amp;amp;&amp;amp; pkg upgrade 回车，等完成 #####0x3.安装vim和gcc1pkg install vim clang 回车 #####0x4.Done完成，这时你需要了解几个">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://asciinema.org/a/W17izXEr2krrzTiY9x9xJTwMc">
+<meta property="og:updated_time" content="2018-10-01T01:51:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="termux">
+<meta name="twitter:description" content="送给嵌入式协会萌新 by SK#####0x1.准备操作下载termux点击这里安装，打开，等初始化完成(建议挂梯子)初始化完成了会进入一个终端 #####0x2.更新软件包输入1pkg update &amp;amp;&amp;amp; pkg upgrade 回车，等完成 #####0x3.安装vim和gcc1pkg install vim clang 回车 #####0x4.Done完成，这时你需要了解几个">
+<meta name="twitter:image" content="https://asciinema.org/a/W17izXEr2krrzTiY9x9xJTwMc">
+    
+        <link rel="alternate" type="application/atom+xml" title="ScriptKiddes" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname"></h5>
+          <a href="mailto:1565328054@qq.com" title="1565328054@qq.com" class="mail">1565328054@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zero-MK" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">termux</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">termux</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-10-01T01:41:55.000Z" itemprop="datePublished" class="page-time">
+  2018-10-01
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#送给嵌入式协会萌新-by-SK"><span class="post-toc-number">1.</span> <span class="post-toc-text">送给嵌入式协会萌新 by SK</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如果看不懂上面的文字描述看一下下面这个终端录像，因为我是用vps，录的时候网有点卡，所以凑合着看吧"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">如果看不懂上面的文字描述看一下下面这个终端录像，因为我是用vps，录的时候网有点卡，所以凑合着看吧</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-手机termux编译C源码"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">termux</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-10-01 09:41:55" datetime="2018-10-01T01:41:55.000Z"  itemprop="datePublished">2018-10-01</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="送给嵌入式协会萌新-by-SK"><a href="#送给嵌入式协会萌新-by-SK" class="headerlink" title="送给嵌入式协会萌新 by SK"></a>送给嵌入式协会萌新 by SK</h1><p>#####0x1.准备操作<br>下载termux<a href="https://www.coolapk.com/apk/com.termux" target="_blank" rel="noopener">点击这里</a><br>安装，打开，等初始化完成(建议挂梯子)初始化完成了会进入一个终端</p>
+<p>#####0x2.更新软件包<br>输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg update &amp;&amp; pkg upgrade</span><br></pre></td></tr></table></figure></p>
+<p>回车，等完成</p>
+<p>#####0x3.安装vim和gcc<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install vim clang</span><br></pre></td></tr></table></figure></p>
+<p>回车</p>
+<p>#####0x4.Done<br>完成，这时你需要了解几个Linux命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd abc #打开abc文件夹</span><br><span class="line">ls #列出当前文件夹内的文件和文件夹</span><br><span class="line">mkdir abc #创建一个名为abc的文件夹</span><br><span class="line">touch abc #创建一个名为abc的文件</span><br><span class="line">vim t.c #使用vim编辑t.c文件(如果t.c不存在会被创建)</span><br></pre></td></tr></table></figure></p>
+<p>#####关于vim的基本操作参见<a href="https://www.jianshu.com/p/5af00815b4e4" target="_blank" rel="noopener">点击这里</a></p>
+<p>=====================================================</p>
+<h2 id="如果看不懂上面的文字描述看一下下面这个终端录像，因为我是用vps，录的时候网有点卡，所以凑合着看吧"><a href="#如果看不懂上面的文字描述看一下下面这个终端录像，因为我是用vps，录的时候网有点卡，所以凑合着看吧" class="headerlink" title="如果看不懂上面的文字描述看一下下面这个终端录像，因为我是用vps，录的时候网有点卡，所以凑合着看吧"></a>如果看不懂上面的文字描述看一下下面这个终端录像，因为我是用vps，录的时候网有点卡，所以凑合着看吧</h2><p>[<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://asciinema.org/a/W17izXEr2krrzTiY9x9xJTwMc" alt="asciicast](https://asciinema.org/a/W17izXEr2krrzTiY9x9xJTwMc.png)" title="">
+                </div>
+                <div class="image-caption">asciicast](https://asciinema.org/a/W17izXEr2krrzTiY9x9xJTwMc.png)</div>
+            </figure></p>
+<p>=====================================================</p>
+<p>关于termux下运行Ubuntu,有个工具可以实现，项目地址:<a href="https://github.com/YadominJinta/atilo" target="_blank" rel="noopener">atilo</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pkg update &amp;&amp; pkg upgrade</span><br><span class="line"></span><br><span class="line">pkg install git curl</span><br><span class="line"></span><br><span class="line">curl https://raw.githubusercontent.com/YadominJinta/atilo/master/atilo -o ~/atilo</span><br><span class="line"></span><br><span class="line">chmod +x atilo</span><br><span class="line"></span><br><span class="line">./atilo install ubuntu</span><br></pre></td></tr></table></figure>
+<p>把上面的按句复制粘贴到termux中执行如果一切顺利执行完后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">startubuntu</span><br></pre></td></tr></table></figure></p>
+<p>就可以启动ubuntu了</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-10-01T01:51:47.000Z" itemprop="dateUpdated">2018-10-01 09:51:47</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="">
+            
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/termux/">termux</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/10/01/手机termux编译C源码/&title=《termux》 — ScriptKiddes&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/10/01/手机termux编译C源码/&title=《termux》 — ScriptKiddes&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/10/01/手机termux编译C源码/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《termux》 — ScriptKiddes&url=http://yoursite.com/2018/10/01/手机termux编译C源码/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/10/01/手机termux编译C源码/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/07/29/TorMetal2018/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">TorMetal2018</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span> &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/10/01/手机termux编译C源码/&title=《termux》 — ScriptKiddes&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/10/01/手机termux编译C源码/&title=《termux》 — ScriptKiddes&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/10/01/手机termux编译C源码/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《termux》 — ScriptKiddes&url=http://yoursite.com/2018/10/01/手机termux编译C源码/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/10/01/手机termux编译C源码/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aUY4CIRAFQO9/afcABuc9GDcZKL42s4pdmCBN9+sVj/fH+Pzv5ytHM4zmHL33toGBgfFYRjLdaOp3PL4vR/58SMXAwDiAMQqxZeQzJ0uWxIaBgYExek1yQMxD/358xMDAwMgZ39PLX8yDgYGB0SaxyUY5d/V2w5UcBgbG1oz81v3///5JfQMDA+NRjHc5knmSY9xcGWAYFQYGxtaMlRJmexxcLzxcLBAGBsamjCSItjyZh9KWFqLvAQMDY1PGXMGyJSVNFckTDAyM0xjrTRJtK9j683rbxcDA2IiRJ6Lr7LbtNVpEDAyMrRnJm5PDXBtoFFbQ6oGBgbE3I98KV8qc6ynxRSqLgYFxAKM9qOWw5OiZlzyHGz0GBsYBjLYwMFeSbC/v8gMlBgbG3oz1poc2oU2Wr02VMTAwzmHMfVh+ZXZvS9lFfQMDA2MjxvfgEkCS0M4dH5e6RTAwMLZjtNdeCWyuzNmmykVhAAMD47GMvKminbotara9IRdJLAYGxgGM5MPy5DOZZy50DAyM0xjtoW1le51LejEwME5mJCniHDXhtUWCaOvHwMDYiPEux12tEu12XFy0YWBgbMfIx0qDRRvKzaFjYGBswZgrKLYbZR5cvljFrwcGBsYWjLsu7tvSwnoqi4GBgdG2QbRtGSszYGBgYLQNYXnLRV4WrfNsDAyMrRltEtseGdvWirx0ioGBcQLjrn6NtsGiTYlvqHhgYGA8j/EHS5JGvCahVBUAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'emmmmmmm';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'Scriptkiddies';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
