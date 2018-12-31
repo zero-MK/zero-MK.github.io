@@ -14,22 +14,22 @@
     
     
     
-    <title>ScriptKiddes</title>
+    <title>l0ser</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="theme-color" content="#336699">
+    <meta name="theme-color" content="#3BA2A2">
     
     
     <meta name="keywords" content="">
     <meta property="og:type" content="website">
-<meta property="og:title" content="ScriptKiddes">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="ScriptKiddes">
+<meta property="og:title" content="l0ser">
+<meta property="og:url" content="http://www.zero-mk.github.io/index.html">
+<meta property="og:site_name" content="l0ser">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ScriptKiddes">
+<meta name="twitter:title" content="l0ser">
     
-        <link rel="alternate" type="application/atom+xml" title="ScriptKiddes" href="/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="l0ser" href="/atom.xml">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -48,7 +48,7 @@
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+    <div class="brand-wrap" style="background-image:url(/)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
           <img src="/img/avatar.jpg">
@@ -77,30 +77,9 @@
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
               <a href="https://github.com/zero-MK" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/custom"  >
-                <i class="icon icon-lg icon-link"></i>
-                测试
               </a>
             </li>
         
@@ -115,7 +94,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">ScriptKiddes</div>
+        <div class="flex-col header-title ellipsis">l0ser</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -137,7 +116,7 @@
 <header class="content-header index-header">
 
     <div class="container fade-scale">
-        <h1 class="title">ScriptKiddes</h1>
+        <h1 class="title">l0ser</h1>
         <h5 class="subtitle">
             
                 
@@ -155,7 +134,225 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-手机termux编译C源码"
+            <article id="post-CTF-pwn-tips-zh_CN"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-12-31 16:39:34" datetime="2018-12-31T08:39:34.000Z"  itemprop="datePublished">2018-12-31</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/12/31/CTF-pwn-tips-zh_CN/">ctf-pwn-tips-zh_CN</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        Catalog
+Overflow
+Find string in gdb
+Binary Service
+Find specific function offset in libc
+Find ‘/bin/sh’ or ‘sh’ in library
+Leak stack address
+Fork problem in gdb
+Secret of a mysterious section - .t...
+    
+
+        <a href="/2018/12/31/CTF-pwn-tips-zh_CN/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ctf-pwn/">ctf-pwn</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-syscall"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-12-20 16:39:34" datetime="2018-12-20T08:39:34.000Z"  itemprop="datePublished">2018-12-20</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/12/20/syscall/">Linux_System_Call_Table</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        x64_system_call:原表位于 : http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/
+
+
+
+%rax
+System call
+%rdi
+%rsi
+%rdx
+%r10
+%r8
+%r9
+
+
+
+
+0
+sys_read
+unsigned int fd
+char *buf
+size_t count
+
+
+
+
+
+...
+    
+
+        <a href="/2018/12/20/syscall/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ctf-pwn/">ctf-pwn</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-FMT"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-12-17 16:39:34" datetime="2018-12-17T08:39:34.000Z"  itemprop="datePublished">2018-12-17</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/12/17/FMT/">格式化字符漏洞</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        32位：读：
+123&apos;%&#123;&#125;$x&apos;.format(index)           // 读4个字节&apos;%&#123;&#125;$p&apos;.format(index)           // 同上面&apos;$&#123;&#125;$s&apos;.format(index)
+写：1234&apos;%&#123;&#125;$n...
+    
+
+        <a href="/2018/12/17/FMT/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ctf-pwn/">ctf-pwn</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-my-ctf-pwn"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-12-15 00:00:34" datetime="2018-12-14T16:00:34.000Z"  itemprop="datePublished">2018-12-15</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/12/15/my-ctf-pwn/">记录我学习pwn</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        学习资源:CTF wiki : https://ctf-wiki.github.io/ctf-wiki/pwn/readme/  (教科书)
+C语言-内存管理基础  : https://www.jianshu.com/p/b2380e47d005  (不会这个,好像,不用玩pwn了)
+PWN选手的自我修养 :  https://r00tk1ts.github.io/2017/09/11/PW...
+    
+
+        <a href="/2018/12/15/my-ctf-pwn/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ctf-pwn/">ctf-pwn</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-termux"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -171,7 +368,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/10/01/手机termux编译C源码/">termux</a>
+      <a class="post-title-link" href="/2018/10/01/termux/">termux</a>
     </h3>
   
 
@@ -181,15 +378,17 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        送给嵌入式协会萌新 by SK#####0x1.准备操作下载termux点击这里安装，打开，等初始化完成(建议挂梯子)初始化完成了会进入一个终端
-#####0x2.更新软件包输入1pkg update &amp;&amp; pkg upgrade
+        0x1.准备操作下载termux点击这里安装，打开，等初始化完成(建议挂梯子)初始化完成了会进入一个终端
+0x2.更新软件包输入
+1pkg update &amp;&amp; pkg upgrade
 回车，等完成
-#####0x3.安装vim和gcc1pkg install vim clang
+0x3.安装vim和gcc1pkg install vim clang
 回车
-#####0x4.Done完成，这时你需要了...
+0x4.Done完成，这时你需要了解几个Linux命令
+1234567cd abc #打开abc文件夹...
     
 
-        <a href="/2018/10/01/手机termux编译C源码/" class="post-more waves-effect waves-button">
+        <a href="/2018/10/01/termux/" class="post-more waves-effect waves-button">
             Continue reading...
         </a>
     </div>
@@ -197,6 +396,54 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/termux/">termux</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Linux"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-09-28 21:39:34" datetime="2018-09-28T13:39:34.000Z"  itemprop="datePublished">2018-09-28</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/09/28/Linux/">Linux</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        关于Linux，说实话我也只是个小白混过许多群，我经常见到一些纯白想着直接用kali成大牛，但一点Linux的基础都没有，连ls,cd都不会你怎么玩?
+我常看的有:
+Linux中国:https://linux.cn/
+先把 Linux 新手应该知道的 26 个命令-技术 给记好，不然你连基本操作都不会玩个鬼的kali，问问题前自已先百度，还是解决不了的,问别人的时候说出你的问题和你的解决方法...
+    
+
+        <a href="/2018/09/28/Linux/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
 
     </div>
     
@@ -245,7 +492,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-Linux的第一课"
+            <article id="post-网络匿名"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -261,47 +508,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/07/28/Linux的第一课/">关于Linux</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        关于学Linux，说实话我也是个白痴混过许多群，我经常见到一些纯白想着直接用kali成大牛，但一点Linux的基础都没有，连ls,cd都不会然后来群里问这个问那个，其实吧那些大佬很烦，我也是小白，我也问过白痴问题，我真心想对那些对Linux白痴说先看看提问的智慧
-Linux的基础命令给记好，不然你连基本操作都不会玩个鬼的kali，在问大佬问问题前自已先百度，问的时候说出你的问题你的做法遇到的...
-    
-
-        <a href="/2018/07/28/Linux的第一课/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-关于网络匿名"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-07-28 21:39:34" datetime="2018-07-28T13:39:34.000Z"  itemprop="datePublished">2018-07-28</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/07/28/关于网络匿名/">关于网络匿名</a>
+      <a class="post-title-link" href="/2018/07/28/网络匿名/">关于网络匿名</a>
     </h3>
   
 
@@ -317,7 +524,7 @@ Linux的基础命令给记好，不然你连基本操作都不会玩个鬼的kal
 它们不会给我...
     
 
-        <a href="/2018/07/28/关于网络匿名/" class="post-more waves-effect waves-button">
+        <a href="/2018/07/28/网络匿名/" class="post-more waves-effect waves-button">
             Continue reading...
         </a>
     </div>
@@ -353,7 +560,7 @@ Linux的基础命令给记好，不然你连基本操作都不会玩个鬼的kal
         </p>
     </div>
     <div class="bottom">
-        <p><span> &copy; 2015 - 2018</span>
+        <p><span> &copy; 2015 - 2019</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
@@ -371,7 +578,7 @@ Linux的基础命令给记好，不然你连基本操作都不会玩个鬼的kal
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/&title=ScriptKiddes&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.zero-mk.github.io/&title=l0ser&pic=http://www.zero-mk.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -381,22 +588,22 @@ Linux的基础命令给记好，不然你连基本操作都不会玩个鬼的kal
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/&title=ScriptKiddes&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.zero-mk.github.io/&title=l0ser&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.zero-mk.github.io/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=ScriptKiddes&url=http://yoursite.com/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=l0ser&url=http://www.zero-mk.github.io/&via=http://www.zero-mk.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.zero-mk.github.io/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -407,7 +614,7 @@ Linux的基础命令给记好，不然你连基本操作都不会玩个鬼的kal
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAAAAAAZai4+AAABW0lEQVR42u3aQQ7DIAxE0dz/0qnUVaUUMjNOF7W/VxVKw8sCMIbjkON8x6r9M/T/PhCwYDVindu4PqO0XNv1vmDBmszaD2y9S/33jQEWLFjC6/QFGBYsWL9muV3CggVrz1KSZmWy0JPvx3J5WLBasCrLbSVRfri+BQvW37JOM9xlOwtYsKax9CLRfhRXtrhGBgELVlPWSpptSvVk+qYvWLBgRUWiynWEL++BBQuW0KUy1BXWsgUWrGEsN2nOQNJRij67wILVlKUUZCvLuVJsks5gYcFqyqqUbt0jE2PqgQVrMMu9fJAdcCqTCCxY01jZQUi2uS2d/MCC1ZpVuXCQlWul1BwWrGGsLOXdd6kv5PVEHBasTqxsUtDTZXcqgQVrMisr/WTbVOkZWLBgyYPcPcMxMgVYsGA9tL1Uik3Lz4AFayQrS5rd1NmYE2DBGsbKrgtkxFI1CxasnqwXXY7FbVPN83MAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwElEQVR42u3aS46EMAwFQO5/aeYACHiOkwwtVVYtNYTKxvInxxGv87Lunrk+/7zbsWLh4uK2uefjulKeD5DskLx1eyRcXNyN3Gpgyg9ZPcyLDRcX98PcBFTdHxcX9xe5z89XD4CLi/t9bp6sJJ/P+xsLazVcXNwGd2zrub+X9HdxcXGHuGdj5a2TWd/FxcXdw60GnWoa9FzGVNusuLi4e7hj4SlpglSvXEQFFS4u7hZu0jad2xZJRjJRUYSLi7uMm7zWYXVC1W2Kg4uL+0/cfiH0jK62ZaPtcHFxJ3GryUc/camWWC/pDi4u7kZuZ1o71rUtX7zAxcXdwp018Og0XsvpDi4u7gJuFZdAy8lKHshwcXE/w62WQ2N7lu+J4OLiLuP2xx75xYs8DWplYbi4uG1uDh1rlc5tmuDi4u7hVomdQUjehH1JiXBxcRdzz+Kqhrx8h0IuhouLu5jbH50m49Kx2U4LjYuL2+Ymwav6b04sD2ZwcXE3cvNSJx+1Js3Z5M4VLi7ul7nJx6pD1oWBDBcXdwu30wwdC3nRqBUXF3cZt1/8VFOZfDCzpFbDxcVtTyuqI9V+p3ZCfxcXF3eE+wfZ6E3URJNW6wAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
@@ -456,10 +663,10 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = 'emmmmmmm';
+            document.title = 'l0ser blog';
             clearTimeout(titleTime);
         } else {
-            document.title = 'Scriptkiddies';
+            document.title = 'l0ser blog';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);
