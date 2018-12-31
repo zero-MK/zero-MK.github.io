@@ -21,18 +21,18 @@
     
     
     <meta name="keywords" content="ctf-pwn">
-    <meta name="description" content="32位：读： 123&amp;apos;%&amp;#123;&amp;#125;$x&amp;apos;.format(index)           // 读4个字节&amp;apos;%&amp;#123;&amp;#125;$p&amp;apos;.format(index)           // 同上面&amp;apos;$&amp;#123;&amp;#125;$s&amp;apos;.format(index) 写：1234&amp;apos;%&amp;#123;&amp;#125;$n&amp;ap">
+    <meta name="description" content="32位：读： 123&apos;%&amp;#123;&amp;#125;$x&apos;.format(index)           // 读4个字节&apos;%&amp;#123;&amp;#125;$p&apos;.format(index)           // 同上面&apos;$&amp;#123;&amp;#125;$s&apos;.format(index) 写：1234&apos;%&amp;#123;&amp;#125;$n&apos;.format(index)           // 解引用，写入四个字">
 <meta name="keywords" content="ctf-pwn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="格式化字符漏洞">
-<meta property="og:url" content="http://www.zero-mk.github.io/2018/12/17/FMT/index.html">
+<meta property="og:url" content="http://zero-mk.github.io/2018/12/17/FMT/index.html">
 <meta property="og:site_name" content="l0ser">
-<meta property="og:description" content="32位：读： 123&amp;apos;%&amp;#123;&amp;#125;$x&amp;apos;.format(index)           // 读4个字节&amp;apos;%&amp;#123;&amp;#125;$p&amp;apos;.format(index)           // 同上面&amp;apos;$&amp;#123;&amp;#125;$s&amp;apos;.format(index) 写：1234&amp;apos;%&amp;#123;&amp;#125;$n&amp;ap">
+<meta property="og:description" content="32位：读： 123&apos;%&amp;#123;&amp;#125;$x&apos;.format(index)           // 读4个字节&apos;%&amp;#123;&amp;#125;$p&apos;.format(index)           // 同上面&apos;$&amp;#123;&amp;#125;$s&apos;.format(index) 写：1234&apos;%&amp;#123;&amp;#125;$n&apos;.format(index)           // 解引用，写入四个字">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-31T18:10:57.419Z">
+<meta property="og:updated_time" content="2018-12-31T18:44:25.379Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="格式化字符漏洞">
-<meta name="twitter:description" content="32位：读： 123&amp;apos;%&amp;#123;&amp;#125;$x&amp;apos;.format(index)           // 读4个字节&amp;apos;%&amp;#123;&amp;#125;$p&amp;apos;.format(index)           // 同上面&amp;apos;$&amp;#123;&amp;#125;$s&amp;apos;.format(index) 写：1234&amp;apos;%&amp;#123;&amp;#125;$n&amp;ap">
+<meta name="twitter:description" content="32位：读： 123&apos;%&amp;#123;&amp;#125;$x&apos;.format(index)           // 读4个字节&apos;%&amp;#123;&amp;#125;$p&apos;.format(index)           // 同上面&apos;$&amp;#123;&amp;#125;$s&apos;.format(index) 写：1234&apos;%&amp;#123;&amp;#125;$n&apos;.format(index)           // 解引用，写入四个字">
     
         <link rel="alternate" type="application/atom+xml" title="l0ser" href="/atom.xml">
     
@@ -169,14 +169,14 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h3 id="32位："><a href="#32位：" class="headerlink" title="32位："></a>32位：</h3><p>读：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&apos;%&#123;&#125;$x&apos;.format(index)           // 读4个字节</span><br><span class="line">&apos;%&#123;&#125;$p&apos;.format(index)           // 同上面</span><br><span class="line">&apos;$&#123;&#125;$s&apos;.format(index)</span><br></pre></td></tr></table></figure>
-<p>写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&apos;%&#123;&#125;$n&apos;.format(index)           // 解引用，写入四个字节</span><br><span class="line">&apos;%&#123;&#125;$hn&apos;.format(index)          // 解引用，写入两个字节</span><br><span class="line">&apos;%&#123;&#125;$hhn&apos;.format(index)         // 解引用，写入一个字节</span><br><span class="line">&apos;%&#123;&#125;$lln&apos;.format(index)         // 解引用，写入八个字节</span><br></pre></td></tr></table></figure></p>
-<h3 id="64位："><a href="#64位：" class="headerlink" title="64位："></a>64位：</h3><p>读：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&apos;%&#123;&#125;$x&apos;.format(index, num)      // 读4个字节</span><br><span class="line">&apos;%&#123;&#125;$lx&apos;.format(index, num)     // 读8个字节</span><br><span class="line">&apos;%&#123;&#125;$p&apos;.format(index)           // 读8个字节</span><br><span class="line">&apos;$&#123;&#125;$s&apos;.format(index)</span><br></pre></td></tr></table></figure></p>
-<p>写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&apos;%&#123;&#125;$n&apos;.format(index)           // 解引用，写入四个字节</span><br><span class="line">&apos;%&#123;&#125;$hn&apos;.format(index)          // 解引用，写入两个字节</span><br><span class="line">&apos;%&#123;&#125;$hhn&apos;.format(index)         // 解引用，写入一个字节</span><br><span class="line">&apos;%&#123;&#125;$lln&apos;.format(index)         // 解引用，写入八个字节</span><br><span class="line">%1$lx: RSI</span><br><span class="line">%2$lx: RDX</span><br><span class="line">%3$lx: RCX</span><br><span class="line">%4$lx: R8</span><br><span class="line">%5$lx: R9</span><br><span class="line">%6$lx: 栈上的第一个QWORD</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">'%&#123;&#125;$x'.format(index)           // 读4个字节</span><br><span class="line">'%&#123;&#125;$p'.format(index)           // 同上面</span><br><span class="line">'$&#123;&#125;$s'.format(index)</span><br></pre></td></tr></table></figure>
+<p>写：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">'%&#123;&#125;$n'.format(index)           // 解引用，写入四个字节</span><br><span class="line">'%&#123;&#125;$hn'.format(index)          // 解引用，写入两个字节</span><br><span class="line">'%&#123;&#125;$hhn'.format(index)         // 解引用，写入一个字节</span><br><span class="line">'%&#123;&#125;$lln'.format(index)         // 解引用，写入八个字节</span><br></pre></td></tr></table></figure></p>
+<h3 id="64位："><a href="#64位：" class="headerlink" title="64位："></a>64位：</h3><p>读：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">'%&#123;&#125;$x'.format(index, num)      // 读4个字节</span><br><span class="line">'%&#123;&#125;$lx'.format(index, num)     // 读8个字节</span><br><span class="line">'%&#123;&#125;$p'.format(index)           // 读8个字节</span><br><span class="line">'$&#123;&#125;$s'.format(index)</span><br></pre></td></tr></table></figure></p>
+<p>写：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">'%&#123;&#125;$n'.format(index)           // 解引用，写入四个字节</span><br><span class="line">'%&#123;&#125;$hn'.format(index)          // 解引用，写入两个字节</span><br><span class="line">'%&#123;&#125;$hhn'.format(index)         // 解引用，写入一个字节</span><br><span class="line">'%&#123;&#125;$lln'.format(index)         // 解引用，写入八个字节</span><br><span class="line">%<span class="number">1</span>$lx: RSI</span><br><span class="line">%<span class="number">2</span>$lx: RDX</span><br><span class="line">%<span class="number">3</span>$lx: RCX</span><br><span class="line">%<span class="number">4</span>$lx: R8</span><br><span class="line">%<span class="number">5</span>$lx: R9</span><br><span class="line">%<span class="number">6</span>$lx: 栈上的第一个QWORD</span><br></pre></td></tr></table></figure></p>
 <h3 id="附加："><a href="#附加：" class="headerlink" title="附加："></a>附加：</h3><p>fmtstr_payload是pwntools提供的函数，用于自动生成格式化字符串。</p>
 <p>fmtstr_payload有两个参数<br>第一个参数是int，用于表示取参数的偏移个数</p>
 <p>第二个参数是字典，字典的意义是往key的地址，写入value的值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fmtstr_payload(7, &#123;printf_got: system_add&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fmtstr_payload(<span class="number">7</span>, &#123;printf_got: system_add&#125;)</span><br></pre></td></tr></table></figure>
 <p>这个函数调用会往printf_got中写入system_add</p>
 
         </div>
@@ -186,7 +186,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-12-31T18:10:57.419Z" itemprop="dateUpdated">2019-01-01 02:10:57</time>
+    Last updated: <time datetime="2018-12-31T18:44:25.379Z" itemprop="dateUpdated">2019-01-01 02:44:25</time>
 </span><br>
 
 
@@ -194,7 +194,7 @@
     </div>
     
     <footer>
-        <a href="http://www.zero-mk.github.io">
+        <a href="http://zero-mk.github.io">
             <img src="/img/avatar.jpg" alt="">
             
         </a>
@@ -216,7 +216,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.zero-mk.github.io/2018/12/17/FMT/&title=《格式化字符漏洞》 — l0ser&pic=http://www.zero-mk.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zero-mk.github.io/2018/12/17/FMT/&title=《格式化字符漏洞》 — l0ser&pic=http://zero-mk.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -226,22 +226,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.zero-mk.github.io/2018/12/17/FMT/&title=《格式化字符漏洞》 — l0ser&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zero-mk.github.io/2018/12/17/FMT/&title=《格式化字符漏洞》 — l0ser&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.zero-mk.github.io/2018/12/17/FMT/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zero-mk.github.io/2018/12/17/FMT/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《格式化字符漏洞》 — l0ser&url=http://www.zero-mk.github.io/2018/12/17/FMT/&via=http://www.zero-mk.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《格式化字符漏洞》 — l0ser&url=http://zero-mk.github.io/2018/12/17/FMT/&via=http://zero-mk.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.zero-mk.github.io/2018/12/17/FMT/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zero-mk.github.io/2018/12/17/FMT/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -346,7 +346,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.zero-mk.github.io/2018/12/17/FMT/&title=《格式化字符漏洞》 — l0ser&pic=http://www.zero-mk.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zero-mk.github.io/2018/12/17/FMT/&title=《格式化字符漏洞》 — l0ser&pic=http://zero-mk.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -356,22 +356,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.zero-mk.github.io/2018/12/17/FMT/&title=《格式化字符漏洞》 — l0ser&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zero-mk.github.io/2018/12/17/FMT/&title=《格式化字符漏洞》 — l0ser&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.zero-mk.github.io/2018/12/17/FMT/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zero-mk.github.io/2018/12/17/FMT/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《格式化字符漏洞》 — l0ser&url=http://www.zero-mk.github.io/2018/12/17/FMT/&via=http://www.zero-mk.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《格式化字符漏洞》 — l0ser&url=http://zero-mk.github.io/2018/12/17/FMT/&via=http://zero-mk.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.zero-mk.github.io/2018/12/17/FMT/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zero-mk.github.io/2018/12/17/FMT/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -382,7 +382,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACQklEQVR42u3a226EMAxFUf7/p+lrpRazj8OMhLN5qtoAWVSy4stx4Ou8uH7/9Wp9vaa+6+FLhgwZr2Wc5XW1pt5Q/Za/d/H3XlJlyJCxAePqxTxckqB54ovvTYYMGTLS4Fivr8Mx+XwyZMiQsRJw64Nd+hsZMmTI6CWx/PBXP38leX4gF5chQ8YLGbzq/v2fP9LfkCFDxqsYZ3ittBN67QG0KxkyZIxm9BqQdUKbbhElqKT9IEOGjNGMekO9kQuecJKiXjzeIUOGjHGMlTGv9JXpXUHJT4YMGUMZabKavoYPW/CPJUOGjN0YQVoYNinTAlyaMN+krzJkyBjHSM+S8RfCzyFH1eD/IEOGjEGMdGk6vJUeK+uwe7NPGTJkjGPw8JeuTMe8SFPzptwmQ4aMoYz44LWQavIAvVRokyFDxlBGGi7TDfHUd2VQTIYMGVMZfPCrN+ZFmgccgIYtZMiQMZrBA2Vv5KKXHqNPJkOGjG0Yva33Bix4/xE1DGTIkDGaEQQ1XGJbb3b2hslkyJCxA+NzcxwkAe6F6X8CrgwZMjZg9LaVlthIaA7KbTJkyNiGwQ95PDiSQ+ERXjdjFjJkyBjH6KWUPN1NxzXSo6oMGTJ2YKRhrpdkpk1K8jmaIVuGDBmvZfDSPAmIvbJ+GnBlyJCxJ4Mf9XrtyXSogo96yJAhQwZfs9L47KW+qJwoQ4aMLRnrRbo0h0bPlyFDxgaMXpOyGRwXAvcDubgMGTJeyOiNOMTlsPJefsZbamrKkCHjfYwfQV+Jh56JcMUAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByklEQVR42u3aUa6DQAhGYfe/ae8KnJ4fhJibM09Na51PHwgDXBde98N6uobf85pYcuXKbXPv4zpTyJZP9zl///jwcuXKXeSSbfhDpo9KDHLlyv0+lwes9Fe5cuX+Dy5JYs7HJLly5X6TS9IUUqmoFVZGzmpy5cptcNPi5sTnkfquXLlyS9w7XOfkIz3qxLvLlSt3hZuWPDppED8a/Uie5MqVO8wlIxS1d9A5ugQhTK5cuWPctC1aG8VIi6QoI5MrV+4AtxaM+PfpWEaQPMmVK3eFixqcIKh12rH81ciVK3eOy5MMUgbttEtRu0WuXLkrXB62SPskLXm0yity5cod4/L0Ig1q5EpedpErV+4+Nx2ZImUOErDi0olcuXJXuP1RiXToqtZw7fVm5cqVW+GSpmlty7RZguq7cuXKXeSmKUgt0UmTHlTllStX7hi3lsqkYe6Fa+TKlTvMvcNV+1daHg3eq1y5cge4/eYoZ/GRC96UlStX7hyXBy+e9HRaqj8eRq5cuYtcHmhqjdXaIFdwC7ly5X6SWyujxOUVuXLlfp5LtuEjX6S1I1eu3E0uL5LysmktCL52VpMrV+778aQY1DilNoohV67cYe4fSAwLCePPCzUAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 

@@ -25,11 +25,11 @@
 <meta name="keywords" content="ctf-pwn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ctf-pwn-tips-zh_CN">
-<meta property="og:url" content="http://www.zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/index.html">
+<meta property="og:url" content="http://zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/index.html">
 <meta property="og:site_name" content="l0ser">
 <meta property="og:description" content="Catalog Overflow Find string in gdb Binary Service Find specific function offset in libc Find ‘/bin/sh’ or ‘sh’ in library Leak stack address Fork problem in gdb Secret of a mysterious section - .tls">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-31T16:24:12.406Z">
+<meta property="og:updated_time" content="2018-12-31T18:43:48.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ctf-pwn-tips-zh_CN">
 <meta name="twitter:description" content="Catalog Overflow Find string in gdb Binary Service Find specific function offset in libc Find ‘/bin/sh’ or ‘sh’ in library Leak stack address Fork problem in gdb Secret of a mysterious section - .tls">
@@ -184,8 +184,8 @@
 <li><a href="#use-printf-to-trigger-malloc-and-free">Use printf to trigger malloc and free</a></li>
 <li><a href="#use-execveat-to-open-a-shell">Use execveat to open a shell</a></li>
 </ul>
-<h2 id="Overflow"><a href="#Overflow" class="headerlink" title="Overflow"></a>Overflow</h2><p>例如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">char buf[40]</span><br><span class="line">signed int num</span><br></pre></td></tr></table></figure></p>
-<h3 id="scanf"><a href="#scanf" class="headerlink" title="scanf"></a>scanf</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scanf(&quot;%s&quot;, buf)</span><br></pre></td></tr></table></figure>
+<h2 id="Overflow"><a href="#Overflow" class="headerlink" title="Overflow"></a>Overflow</h2><p>例如:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> buf[<span class="number">40</span>]</span><br><span class="line"><span class="keyword">signed</span> <span class="keyword">int</span> num</span><br></pre></td></tr></table></figure></p>
+<h3 id="scanf"><a href="#scanf" class="headerlink" title="scanf"></a>scanf</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">scanf</span>(<span class="string">"%s"</span>, buf)</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>%s</code> 没有边界检查</li>
 <li><strong>pwnable</strong></li>
@@ -202,7 +202,7 @@
 <li>但是,它有one-byte-overflow</li>
 <li><strong>pwnable</strong></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scanf(&quot;%d&quot;, &amp;num)</span><br><span class="line">alloca(num)</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;num)</span><br><span class="line">alloca(num)</span><br></pre></td></tr></table></figure>
 <pre><code>* 由于`alloca`从调用者的堆栈框架分配内存，因此有一条` sub esp, eax `指令来实现这一点。
 * 如果我们使num为负，它将有重叠的堆栈帧。
 * E.g. [Seccon CTF quals 2016 cheer_msg](https://github.com/ctfs/write-ups-2016/tree/master/seccon-ctf-quals-2016/exploit/cheer-msg-100)
@@ -213,17 +213,17 @@
 </ul>
 </li>
 </ul>
-<h3 id="gets"><a href="#gets" class="headerlink" title="gets"></a>gets</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gets(buf)</span><br></pre></td></tr></table></figure>
+<h3 id="gets"><a href="#gets" class="headerlink" title="gets"></a>gets</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gets(buf)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>没有检查边界</li>
 <li><strong>pwnable</strong></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fgets(buf, 40, stdin)</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fgets(buf, <span class="number">40</span>, <span class="built_in">stdin</span>)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>它只从输入中获取39个字节，并将NULL字节放在输入的末尾。</li>
 <li><strong>useless</strong></li>
 </ul>
-<h3 id="read"><a href="#read" class="headerlink" title="read"></a>read</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">read(stdin, buf, 40)</span><br></pre></td></tr></table></figure>
+<h3 id="read"><a href="#read" class="headerlink" title="read"></a>read</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">read(<span class="built_in">stdin</span>, buf, <span class="number">40</span>)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>它从输入中获取40字节，并且不将NULL字节放在输入的末尾。</li>
 <li>这看起来很安全，但可能会有 <strong>information leak</strong>.</li>
@@ -409,7 +409,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-12-31T16:24:12.406Z" itemprop="dateUpdated">2019-01-01 00:24:12</time>
+    Last updated: <time datetime="2018-12-31T18:43:48.810Z" itemprop="dateUpdated">2019-01-01 02:43:48</time>
 </span><br>
 
 
@@ -417,7 +417,7 @@
     </div>
     
     <footer>
-        <a href="http://www.zero-mk.github.io">
+        <a href="http://zero-mk.github.io">
             <img src="/img/avatar.jpg" alt="">
             
         </a>
@@ -439,7 +439,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/&title=《ctf-pwn-tips-zh_CN》 — l0ser&pic=http://www.zero-mk.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/&title=《ctf-pwn-tips-zh_CN》 — l0ser&pic=http://zero-mk.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -449,22 +449,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/&title=《ctf-pwn-tips-zh_CN》 — l0ser&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/&title=《ctf-pwn-tips-zh_CN》 — l0ser&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ctf-pwn-tips-zh_CN》 — l0ser&url=http://www.zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/&via=http://www.zero-mk.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ctf-pwn-tips-zh_CN》 — l0ser&url=http://zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/&via=http://zero-mk.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -562,7 +562,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/&title=《ctf-pwn-tips-zh_CN》 — l0ser&pic=http://www.zero-mk.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/&title=《ctf-pwn-tips-zh_CN》 — l0ser&pic=http://zero-mk.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -572,22 +572,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/&title=《ctf-pwn-tips-zh_CN》 — l0ser&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/&title=《ctf-pwn-tips-zh_CN》 — l0ser&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ctf-pwn-tips-zh_CN》 — l0ser&url=http://www.zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/&via=http://www.zero-mk.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ctf-pwn-tips-zh_CN》 — l0ser&url=http://zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/&via=http://zero-mk.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zero-mk.github.io/2018/12/31/CTF-pwn-tips-zh_CN/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -598,7 +598,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACOklEQVR42u3aQQ7CMAwF0d7/0mWLBE3n2wUpyWSFWih+XVix4+PA63xb71fG3/m8+/nNq+vHL5YMGTKmZZzDRb4z/tUVZhwPj02GDBn7MPjjyF0eUJrWL6/LkCFDBgiUhHuTNC/+V4YMGTL6DJKaa2WwDBkyZKRFbPqZ4Pmm87FaXIYMGRMyeNf9/59/cr4hQ4aMqRhnaXXKVxJoHI8MGTKWZqSDFGk6ThtwrYNMGTJkLMpIi0xSmqbFZ62IPcg8mgwZMpZgpMUqafqTP0sTelzcypAhYyFGrZh8qrk//scALEOGjKUZtaxMtpLkpfBA+eGoDBky1mOM215pwuXDXvE75ltDGTJkLMeobct4mZo211Ik6iDKkCFjcgbfxvHhCZ5e+3dlyJCxG6NTXtZCT9t2MmTIkEFC4fvNWtC18QsZMmTswAgq3Xa522/GfXmODBkylmbwkQte4tba+g9sHGXIkLEBgydcki77DHKYKkOGjB0YfMCi1hRLN3zBYQDZq8qQIWMJRpry+GEAHymLA+WTbjJkyFiCwUev+uMXPKw0EhkyZKzNSIe64keHDbUDLBkyZOzG6JSsJGi+NayNmgUnFTJkyJiWwRcJnbfwnh0vkyFDxg6MWuu/dqiZvgjeBJQhQ8YODN4C48H1S9zWyYYMGTK2ZPC76aFm2pi76RrKkCFjYwZJrCQF15L4zSuQIUPGBoz0MIAfc9a2j+MGXKvdJkOGjAkZtdJxnDpJEJ20WzzOlCFDxnyMF3G2LhsxWXOiAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aS07EMBAFQO5/adiCIMN77YAUu7IaDZnYlUXj/ry9xdf7xfX6r9/v/Hz/1efv9992YWBgPJaRLJ8scPWr1/dc7SHfGwYGxjmMq23lYbHdXB7KX+8NAwMDo2W0VxuyMTAwMBJG9NDgzuQAioGBgdEmsbPgm3zzr7k4BgbGAxmzQPk/n/+kv4GBgfEoxizhnAXle3fyZXUMDIytGbNl2tQ0aQa0KTEGBsY5jDbJXBm8uHc4Y1jDw8DAeCAjL/GvBMe28Zkgf+FhYGBsxJg1C1eOiclrqktvGBgYBzDyR+Thcv3FFcU7DAyMrRlJUFsZ5EqKbvmKRUaOgYGxHeMvmo7ttmb4y/8hGBgYWzPuCqY59ebmBAYGxtaMvHyfF8sS5F1dSAwMjHMYyVEsD81tAW7lGwwMjL0ZbbhsByzyV9Cmrz/M4WJgYGzNmB0T8xHVttDWHjQxMDB2ZdwV/vKWZ35wLAI0BgbG1ozXYTFvOtaFsDKhTVbHwMA4h9GGv5Vkdb1g98sBEQMDYzvGrLg2OyC2Rb2i+4qBgXEAIx/8Gg5slbDiVxgYGJsy3strpVXZbq6gYmBgbM1oC2ErJbn8Ba03ODEwMPZj3DUSkTcv21eWHFUxMDBOYKwXv9oxsvYQGQ1bYGBgYJSFs7Yt2jYPhj0KDAyMYxiz5WfDZFGYxsDAOIDRFtSSBHXWYJg1QTEwMPZm5KljfuBrn5mH5tlaGBgYj2V8AKGsS6mgPSueAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
