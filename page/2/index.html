@@ -1,329 +1,1048 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
-
-    
-
-    
-
-
-
-    <meta charset="utf-8">
-    
-    
-    
-    
-    <title>l0ser</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3BA2A2">
-    
-    
-    <meta name="keywords" content="">
-    <meta property="og:type" content="website">
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://zero-mk.github.io">
+  <title>l0ser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="keywords" content="ctf,hack,c,python,pwn">
+<meta property="og:type" content="website">
 <meta property="og:title" content="l0ser">
 <meta property="og:url" content="http://zero-mk.github.io/page/2/index.html">
 <meta property="og:site_name" content="l0ser">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="l0ser">
-    
-        <link rel="alternate" type="application/atom+xml" title="l0ser" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
+  
+    <link rel="alternative" href="/atom.xml" title="l0ser" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+  <style type="text/css">
+  
+    #container.show {
+      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+    }
+  </style>
+  
 
-    <!-- custom head -->
-    
+  
 
 </head>
 
 <body>
-    <div id="loading" class="active"></div>
+  <div id="container" q-class="show:isCtnShow">
+    <canvas id="anm-canvas" class="anm-canvas"></canvas>
+    <div class="left-col" q-class="show:isShow">
+      
+<div class="overlay" style="background: #4d4d4d"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/img/avatar.jpg" class="js-avatar">
+		</a>
+		<hgroup>
+		  <h1 class="header-author"><a href="/"></a></h1>
+		</hgroup>
+		
+		<p class="header-subtitle">Destruction is the coolest thing in the world</p>
+		
 
-    <aside id="menu"  >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname"></h5>
-          <a href="mailto:1565328054@qq.com" title="1565328054@qq.com" class="mail">1565328054@qq.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/zero-MK" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-      </ul>
-    </div>
-  </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">l0ser</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header index-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">l0ser</h1>
-        <h5 class="subtitle">
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+    		
+    			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
             
-                
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
             
-        </h5>
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/zero-MK" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+		        
+					<a class="qq" target="_blank" href="/1565328054" title="qq"><i class="icon-qq"></i></a>
+		        
+					<a class="mail" target="_blank" href="/1565328054@qq.com" title="mail"><i class="icon-mail"></i></a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
     </div>
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
+      
+<nav id="mobile-nav">
+  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+	<div class="btnctn js-mobile-btnctn">
+  		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
+	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/img/avatar.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author js-header-author"></h1>
+			</hgroup>
+			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Destruction is the coolest thing in the world<i class="icon icon-quo-right"></i></p>
+			
+			
+			
+				
+			
+				
+			
+			
+			
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/zero-MK" title="github"><i class="icon-github"></i></a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+			        
+						<a class="qq" target="_blank" href="/1565328054" title="qq"><i class="icon-qq"></i></a>
+			        
+						<a class="mail" target="_blank" href="/1565328054@qq.com" title="mail"><i class="icon-mail"></i></a>
+			        
+				</div>
+			</nav>
 
-    
-
-
-</header>
-
-<div class="container body-wrap">
-
-    <ul class="post-list">
-    
-        <li class="post-list-item fade">
-            <article id="post-网络匿名"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-07-28 21:39:34" datetime="2018-07-28T13:39:34.000Z"  itemprop="datePublished">2018-07-28</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/07/28/网络匿名/">关于网络匿名</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        数字抵制政府和企业的间谍活动在暗网翻出来的，机翻的有点那个啥看看就就，非本人原创
-我们的目标：本指南假装教授安全的冲浪。它不会假装鼓励犯罪。这是一个概念上的指导。个人安全手册。知道一点，它永远不会伤害。
-我们认为，言论自由必须是一项真正的权利。匿名和隐私是一种保证。不幸的是，有人利用这一点来做恶。这个想法是用来对付政府和大公司。这是我们的目标。黑客行为。争取我们在网络中的权利。
-它们不会给我...
-    
-
-        <a href="/2018/07/28/网络匿名/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-    </ul>
-
-    
-<nav id="page-nav">
-    <div class="inner">
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </div>
+			<nav class="header-menu js-header-menu">
+				<ul style="width: 50%">
+				
+				
+					<li style="width: 50%"><a href="/">主页</a></li>
+		        
+					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+		        
+				</ul>
+			</nav>
+		</header>				
+	</div>
+	<div class="mobile-mask" style="display:none" q-show="isShow"></div>
 </nav>
 
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
+      <div id="wrapper" class="body-wrap">
+        <div class="menu-l">
+          <div class="canvas-wrap">
+            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+          </div>
+          <div id="js-content" class="content-ll">
+            
+  
+    <article id="post-my-ctf-pwn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/15/my-ctf-pwn/">记录我学习pwn</a>
+    </h1>
+  
 
+        
+        <a href="/2018/12/15/my-ctf-pwn/" class="archive-article-date">
+  	<time datetime="2018-12-14T16:00:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源:"></a>学习资源:</h3><p>CTF wiki : <a href="https://ctf-wiki.github.io/ctf-wiki/pwn/readme/" target="_blank" rel="noopener">https://ctf-wiki.github.io/ctf-wiki/pwn/readme/</a>  (教科书)</p>
+<p>C语言-内存管理基础  : <a href="https://www.jianshu.com/p/b2380e47d005" target="_blank" rel="noopener">https://www.jianshu.com/p/b2380e47d005</a>  (不会这个,好像,不用玩pwn了)</p>
+<p>PWN选手的自我修养 :  <a href="https://r00tk1ts.github.io/2017/09/11/PWN%E9%80%89%E6%89%8B%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/" target="_blank" rel="noopener">https://r00tk1ts.github.io/2017/09/11/PWN%E9%80%89%E6%89%8B%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/</a></p>
+<p>i春秋的上的Linux pwn入门教程系列 : <a href="https://bbs.ichunqiu.com/forum.php?mod=collection&amp;action=view&amp;ctid=157" target="_blank" rel="noopener">https://bbs.ichunqiu.com/forum.php?mod=collection&amp;action=view&amp;ctid=157</a><br>Bamboofox :  <a href="https://bamboofox.cs.nctu.edu.tw/" target="_blank" rel="noopener">https://bamboofox.cs.nctu.edu.tw/</a>  (说实话,我的pwn起点就是在这里)</p>
+<p>Bamboofox Official Blog : <a href="https://bamboofox.github.io/" target="_blank" rel="noopener">https://bamboofox.github.io/</a>  (国际赛pwn题wp)</p>
+<h3 id="题目和writeup"><a href="#题目和writeup" class="headerlink" title="题目和writeup:"></a>题目和writeup:</h3><p>pwn_repo : <a href="https://github.com/bash-c/pwn_repo" target="_blank" rel="noopener">https://github.com/bash-c/pwn_repo</a>  (很多pwn题,附加writeup,自己慢慢啃)</p>
+<p>pwn_step_in : <a href="https://github.com/ckxckx/pwn_step_in" target="_blank" rel="noopener">https://github.com/ckxckx/pwn_step_in</a>  (分类,渐进)</p>
+<p>国际赛题目 : <a href="https://github.com/ctfs" target="_blank" rel="noopener">https://github.com/ctfs</a> </p>
+<h3 id="书"><a href="#书" class="headerlink" title="书:"></a>书:</h3><p>程序员的自我修养:链接、装载与库 : <a href="https://www.jb51.net/books/180084.html" target="_blank" rel="noopener">https://www.jb51.net/books/180084.html</a>  (名字很佛系,但是,是真干货,强烈建议买一本)</p>
+<p>glibc内存管理ptmalloc源代码分析.pdf : <a href="https://paper.seebug.org/papers/Archive/refs/heap/glibc%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86ptmalloc%E6%BA%90%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90.pdf" target="_blank" rel="noopener">https://paper.seebug.org/papers/Archive/refs/heap/glibc%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86ptmalloc%E6%BA%90%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90.pdf</a></p>
+<p>IBM的汇编开发指南 : <a href="https://www.ibm.com/developerworks/cn/linux/l-assembly/index.html?mhq=AT%26T%20%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97&amp;mhsrc=ibmsearch_d" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/linux/l-assembly/index.html?mhq=AT%26T%20%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97&amp;mhsrc=ibmsearch_d</a></p>
+<p>系统调用表 : 我博客搜索syscall或Linux_System_Call_Table</p>
+<p>系统调用解释 : <a href="https://www.ibm.com/developerworks/cn/linux/kernel/syscall/part1/appendix.html#3" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/linux/kernel/syscall/part1/appendix.html#3</a></p>
+<h3 id="工具"><a href="#工具" class="headerlink" title="工具:"></a>工具:</h3><p>使用docker部署的解题环境 : <a href="https://github.com/skysider/pwndocker" target="_blank" rel="noopener">https://github.com/skysider/pwndocker</a>  (基于<a href="https://github.com/phusion/baseimage-docker" target="_blank" rel="noopener">https://github.com/phusion/baseimage-docker</a>)</p>
 
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
-        </p>
+      
+
+      
     </div>
-    <div class="bottom">
-        <p><span> &copy; 2015 - 2019</span>
-            <span>
-                
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ctf-pwn</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/15/my-ctf-pwn/">展开全文 >></a>
         </p>
+      
+
+      
+      <div class="clearfix"></div>
     </div>
-</footer>
+  </div>
+</article>
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
-
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zero-mk.github.io/page/2/&title=l0ser&pic=http://zero-mk.github.io/img/avatar.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zero-mk.github.io/page/2/&title=l0ser&source=" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zero-mk.github.io/page/2/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=l0ser&url=http://zero-mk.github.io/page/2/&via=http://zero-mk.github.io" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zero-mk.github.io/page/2/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABx0lEQVR42u3aQYrDMAwF0N7/0hmY1UCo+2UlShmeV6GN49cuRPzl1ysex+84f/J3JLPyb1sDFxe3zT2W4/zod9fnp60/P1+vDbi4uPPcdaFJHtT5qYVSiIuL+2XcvDAlOFxc3P/BzZdc3zlad3FxcRvcZPOzV/LWycaNezVcXNwGtxqY3nF9Y76Li4tb5B7FkTdXblkdFxd3hJvEGckCeyVvLyjBxcV9ils9JLF3/CIvcLi4uE9xk+Ajb6PuhafR6xQuLu4ItxpeJIv105oPWylcXNybuVc9LtkIdQ574eLiznCvXSAvXnsvOri4uPPc/qtM3mLZPGCBi4s7wl1P7scf61l5IYtSHFxc3Iu4nRZI/0BGvj/DxcV9lpu3PaqRa14o366Ii4s7wq1OyzdOyV9Qbb7i4uLOcPeiz04DtdrnwcXFfYqbb3v2GiedgYuL+xQ3H8krS9Ju2Wyo4OLijnCrBaVzUKPT4t1sxOLi4ja41eJVLUOdIPXt8SxcXNwRbh50Vu/JQ9iojOLi4n4Zd69BkqxySyHDxcUd5+aLVed+sOHi4g5yk81P0iLtH7m4LBbBxcVtcPcC06QYVaOTPJTBxcW9jfsDNlaAdzhTZjMAAAAASUVORK5CYII=" alt="微信分享二维码">
-</div>
-
-
-
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
             </div>
-            <time class="flex-col time">{date}</time>
         </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
-
+        
+        
+    </div>
+</aside>
 
 
 
 
+  
+    <article id="post-termux" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/01/termux/">termux</a>
+    </h1>
+  
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
+        <a href="/2018/10/01/termux/" class="archive-article-date">
+  	<time datetime="2018-10-01T01:41:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="0x1-准备操作"><a href="#0x1-准备操作" class="headerlink" title="0x1.准备操作"></a>0x1.准备操作</h2><p>下载termux<a href="https://www.coolapk.com/apk/com.termux" target="_blank" rel="noopener">点击这里</a><br>安装，打开，等初始化完成(建议挂梯子)初始化完成了会进入一个终端</p>
+<h2 id="0x2-更新软件包"><a href="#0x2-更新软件包" class="headerlink" title="0x2.更新软件包"></a>0x2.更新软件包</h2><p>输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg update &amp;&amp; pkg upgrade</span><br></pre></td></tr></table></figure>
+<p>回车，等完成</p>
+<h2 id="0x3-安装vim和gcc"><a href="#0x3-安装vim和gcc" class="headerlink" title="0x3.安装vim和gcc"></a>0x3.安装vim和gcc</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install vim clang</span><br></pre></td></tr></table></figure>
+<p>回车</p>
+<h2 id="0x4-Done"><a href="#0x4-Done" class="headerlink" title="0x4.Done"></a>0x4.Done</h2><p>完成，这时你需要了解几个Linux命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> abc <span class="comment">#打开abc文件夹</span></span><br><span class="line">ls <span class="comment">#列出当前文件夹内的文件和文件夹</span></span><br><span class="line">mkdir abc <span class="comment">#创建一个名为abc的文件夹</span></span><br><span class="line">touch abc <span class="comment">#创建一个名为abc的文件</span></span><br><span class="line">vim t.c <span class="comment">#使用vim编辑t.c文件(如果t.c不存在会被创建)</span></span><br><span class="line">gcc t.c <span class="comment">#使用gcc编译t.c文件(编译后的文件为当前目录下的a.out)</span></span><br><span class="line">gcc t.c -o xxx <span class="comment">#使用gcc编译t.c文件  -o xxx 指定编译输出的文件为xxx</span></span><br></pre></td></tr></table></figure>
+<p>关于vim的基本操作参见<a href="https://www.jianshu.com/p/5af00815b4e4" target="_blank" rel="noopener">点击这里</a></p>
+<p>其实termux就是个小型的Linux,玩法很多,自己去看看 <a href="https://wiki.termux.com/wiki/Main_Page" target="_blank" rel="noopener">termux wiki</a></p>
+<p>=====================================================</p>
+<h2 id="如果看不懂上面的文字描述看一下下面这个终端录像，因为我是用vps，录的时候网有点卡，所以凑合着看吧"><a href="#如果看不懂上面的文字描述看一下下面这个终端录像，因为我是用vps，录的时候网有点卡，所以凑合着看吧" class="headerlink" title="如果看不懂上面的文字描述看一下下面这个终端录像，因为我是用vps，录的时候网有点卡，所以凑合着看吧"></a>如果看不懂上面的文字描述看一下下面这个终端录像，因为我是用vps，录的时候网有点卡，所以凑合着看吧</h2><p><a href="https://asciinema.org/a/W17izXEr2krrzTiY9x9xJTwMc" target="_blank" rel="noopener"><img src="https://asciinema.org/a/W17izXEr2krrzTiY9x9xJTwMc.png" alt="asciicast"></a></p>
+<p>=====================================================</p>
+<p>关于termux下运行Ubuntu,有个工具可以实现，项目地址:<a href="https://github.com/YadominJinta/atilo" target="_blank" rel="noopener">atilo</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pkg update &amp;&amp; pkg upgrade</span><br><span class="line"></span><br><span class="line">pkg install git curl</span><br><span class="line"></span><br><span class="line">curl https://raw.githubusercontent.com/YadominJinta/atilo/master/atilo -o ~/atilo</span><br><span class="line"></span><br><span class="line">chmod +x atilo</span><br><span class="line"></span><br><span class="line">./atilo install ubuntu</span><br></pre></td></tr></table></figure>
+<p>把上面的按句复制粘贴到termux中执行如果一切顺利执行完后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">startubuntu</span><br></pre></td></tr></table></figure></p>
+<p>就可以启动ubuntu了</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">termux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/01/termux/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
 
 
 
-<script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = 'l0ser blog';
-            clearTimeout(titleTime);
-        } else {
-            document.title = 'l0ser blog';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
+
+  
+    <article id="post-shellcoding" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/29/shellcoding/">shell编程基础</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/29/shellcoding/" class="archive-article-date">
+  	<time datetime="2018-09-29T13:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-开头"><a href="#1-开头" class="headerlink" title="1 开头"></a>1 开头</h2><p>程序必须以下面的行开始（必须方在文件的第一行）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br></pre></td></tr></table></figure>
+<p>符号#!用来告诉系统它后面的参数是用来执行该文件的程序。在这个例子中我们使用/bin/sh来执行程序。</p>
+<p>当编写脚本完成时，如果要执行该脚本，还必须使其可执行。</p>
+<p>要使编写脚本可执行：</p>
+<p>编译 chmod +x filename 这样才能用./filename<br>来运行</p>
+<h2 id="2-注释"><a href="#2-注释" class="headerlink" title="2 注释"></a>2 注释</h2><p>在进行shell编程时，以#开头的句子表示注释，直到这一行的结束。</p>
+<h2 id="3-变量"><a href="#3-变量" class="headerlink" title="3 变量"></a>3 变量</h2><p>在其他编程语言中您必须使用变量。在shell编程中，所有的变量都由字符串组成，并且您不需要对变量进行声明。要赋值给一个变量，您可以这样写：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">"hello world"</span></span><br></pre></td></tr></table></figure>
+<p>现在打印变量a的内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"A is:"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$a</span></span><br></pre></td></tr></table></figure>
+<p>注意:变量在赋值的时候可以不带<code>$</code>,但是调用的时候要使用<code>$变量名</code></p>
+<p>有时候变量名很容易与其他文字混淆，比如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">num=2</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"this is the <span class="variable">$numnd</span>"</span></span><br></pre></td></tr></table></figure>
+<p>这并不会打印出”this is the 2nd”，而仅仅打印”this is the “，因为shell会去搜索变量numnd的值，但是这个变量时没有值的。可以使用花括号来告诉shell我们要打印的是num变量：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">num=2</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"this is the <span class="variable">$&#123;num&#125;</span>nd"</span></span><br></pre></td></tr></table></figure>
+<p>这将打印： this is the 2nd</p>
+<h2 id="4-环境变量"><a href="#4-环境变量" class="headerlink" title="4 环境变量"></a>4 环境变量</h2><p>由 <strong><em>export </em></strong>关键字处理过的变量叫做环境变量。我们不对环境变量进行讨论，因为通常情况下仅仅在登录脚本中使用环境变量。</p>
+<h2 id="5-Shell命令和流程控制"><a href="#5-Shell命令和流程控制" class="headerlink" title="5 Shell命令和流程控制"></a>5 Shell命令和流程控制</h2><p>在shell脚本中可以使用三类命令：</p>
+<h3 id="1-Unix-命令"><a href="#1-Unix-命令" class="headerlink" title="1)Unix 命令:"></a>1)Unix 命令:</h3><p>虽然在shell脚本中可以使用任意的unix命令，但是还是由一些相对更常用的命令。这些命令通常是用来进行文件和文字操作的。</p>
+<p>常用命令语法及功能</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"some text"</span> <span class="comment">#将文字内容打印在屏幕上</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls: 文件列表</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wc –l file <span class="comment">#计算文件行数</span></span><br><span class="line">wc -w file <span class="comment">#计算文件中的单词数</span></span><br><span class="line">wc -c file 计算文件中的字符数</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp sourcefile destfile #文件拷贝</span><br><span class="line">cp -r 是复制文件夹</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv oldname newname <span class="comment">#重命名文件或移动文件</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm file <span class="comment">#删除文件</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grep ‘pattern’ file <span class="comment">#在文件内搜索字符串</span></span><br><span class="line">比如：grep ’searchstring’ file.txt <span class="comment">#在file.txt中查找searchstring</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cut -b colnum file <span class="comment">#指定欲显示的文件内容范围，并将它们输出到标准输出设备</span></span><br></pre></td></tr></table></figure>
+<p>比如：输出每行第5个到第9个字符<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cut -b5-9 file.txt</span><br></pre></td></tr></table></figure></p>
+<p>千万不要和cat命令混淆，这是两个完全不同的命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat file.txt: 输出文件内容到标准输出设备（屏幕）上</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file somefile: 得到文件类型</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">read</span> var: 提示用户输入，并将输入赋值给变量var</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort file.txt: 对file.txt文件中的行进行排序</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uniq: 删除文本文件中出现的行列比如： sort file.txt | uniq <span class="comment">#不会改变原文件的内容</span></span><br><span class="line">uniq -c :计数每行出现的次数</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expr: 进行数学运算,例如2加3 expr 2 <span class="string">"+"</span> 3</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find: 搜索文件比如：根据文件名搜索find . -name filename -<span class="built_in">print</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tee: 将数据输出到标准输出设备(屏幕) 和文件比如：命令 | tee 输出到</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">basename file: 返回不包含路径的文件名比如： basename /bin/tux <span class="comment">#将返回 tux</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dirname file: 返回文件所在路径比如：dirname /bin/tux <span class="comment">#将返回 /bin</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">head file: 打印文本文件开头几行</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail file : 打印文本文件末尾几行</span><br></pre></td></tr></table></figure>
+<p>sed: Sed是一个基本的查找替换程序。可以从标准输入（比如命令管道）读入文本，并将结果输出到标准输出（屏幕）。该命令采用正则表达式（见参考）进行搜索。不要和shell中的通配符相混淆。比如：将linuxfocus替换为 LinuxFocus ：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat text.file | sed ’s/linuxfocus/LinuxFocus/’ &gt;newtext.file</span><br></pre></td></tr></table></figure></p>
+<p>awk: awk 用来从文本文件中提取字段。缺省地，字段分割符是空格，可以使用-F指定其他分割符。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">catfile.txt | awk -F, ‘&#123;<span class="built_in">print</span> <span class="variable">$1</span> <span class="string">","</span> <span class="variable">$3</span>&#125;’</span><br></pre></td></tr></table></figure></p>
+<p>这里我们使用，作为字段分割符，同时打印第一个和第三个字段。如果该文件内容如下： Adam Bor, 34, IndiaKerryMiller, 22, USA命令输出结果为：Adam Bor, IndiaKerry Miller, USA</p>
+<h3 id="2-概念-管道-重定向和-backtick"><a href="#2-概念-管道-重定向和-backtick" class="headerlink" title="2) 概念: 管道, 重定向和 backtick"></a>2) 概念: 管道, 重定向和 backtick</h3><p>这些不是系统命令，但是他们真的很重要。</p>
+<p>管道 <strong><em>(|)</em></strong> 将<strong><em>一个命令的输出 </em></strong>作为<strong><em>另外一个命令的输入</em></strong>。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep <span class="string">"hello"</span> file.txt | wc -l</span><br></pre></td></tr></table></figure></p>
+<p>在file.txt中搜索包含有”hello”的行并计算其行数。<br>在这里grep命令的输出作为wc命令的输入。当然您可以使用多个命令。</p>
+<p>重定向：将命令的结果输出到文件，而不是标准输出（屏幕）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; 写入文件并覆盖旧文件</span><br><span class="line">&gt;&gt; 加到文件的尾部，保留旧文件内容。</span><br></pre></td></tr></table></figure>
+<p>反短斜线</p>
+<p>使用反短斜线可以将一个命令的输出作为另外一个命令的一个命令行参数。</p>
+<p>命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -mtime -1 -<span class="built_in">type</span> f -<span class="built_in">print</span></span><br></pre></td></tr></table></figure>
+<p>用来查找过去24小时（-mtime –2则表示过去48小时）内修改过的文件。如果您想将所有查找到的文件打一个包，则可以使用以下linux 脚本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">!/bin/sh</span><br><span class="line"><span class="comment">#下面用的(`) 不是 (‘),请看好,(`)是在ESC下面的哪个键</span></span><br><span class="line">tar -zcvf lastmod.tar.gz `find . -mtime -1 -<span class="built_in">type</span> f -<span class="built_in">print</span>`</span><br></pre></td></tr></table></figure>
+<h3 id="3-流程控制"><a href="#3-流程控制" class="headerlink" title="3) 流程控制"></a>3) 流程控制</h3><p>1.if</p>
+<p>“if” 表达式 如果条件为真则执行then后面的部分,学过其它语言的一看就明白了：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 条件; <span class="keyword">then</span></span><br><span class="line"><span class="comment">#if后面条件为真的时候要执行的</span></span><br><span class="line"><span class="keyword">elif</span> 条件; <span class="keyword">then</span></span><br><span class="line"><span class="comment">#elif后面条件为真的时候要执行的</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="comment">#if和elif后面条件都为假的时候要执行的 </span></span><br><span class="line"><span class="keyword">fi</span> <span class="comment">#标志if结束</span></span><br></pre></td></tr></table></figure></p>
+<p>大多数情况下，可以使用测试命令来对条件进行测试。比如可以比较字符串、判断文件是否存在及是否可读等等…<br>通常用” [ ] “来表示条件测试。注意这里的<strong>空格很重要</strong>。要<strong>确保方括号的空格</strong>。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[ -f <span class="string">"somefile"</span> ] ：判断是否是一个文件</span><br><span class="line">[ -x <span class="string">"/bin/ls"</span> ] ：判断/bin/ls是否存在并有可执行权限</span><br><span class="line">[ -n <span class="string">"<span class="variable">$var</span>"</span> ] ：判断<span class="variable">$var</span>变量是否有值</span><br><span class="line">[ <span class="string">"<span class="variable">$a</span>"</span> = <span class="string">"<span class="variable">$b</span>"</span> ] ：判断<span class="variable">$a</span>和<span class="variable">$b</span>是否相等</span><br></pre></td></tr></table></figure></p>
+<p>执行man test可以查看所有测试表达式可以比较和判断的类型。<br>直接执行以下脚本：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">!/bin/sh</span><br><span class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$SHELL</span>"</span> = <span class="string">"/bin/bash"</span> ]; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"您的登录shell是bash"</span></span><br><span class="line"><span class="keyword">elif</span> [ <span class="string">"<span class="variable">$SHELL</span>"</span> = <span class="string">"/bin/zsh"</span> ]</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"您的登录shell是zsh"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"你的登录shell是 <span class="variable">$SHELL</span>"</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p>
+<p>变量<strong>$SHELL</strong>包含了登录shell的名称，我们和/bin/bash进行了比较。</p>
+<p>快捷操作符<br>熟悉C语言的朋友可能会很喜欢下面的表达式：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ -f <span class="string">"/etc/shadow"</span> ] &amp;&amp; <span class="built_in">echo</span> <span class="string">"This computer uses shadow passwors"</span></span><br></pre></td></tr></table></figure></p>
+<p>这里的 <strong> &amp;&amp;</strong><br>就是一个快捷操作符，<strong>如果左边的表达式为真则执行右边的语句</strong>。</p>
+<p>您也可以认为是逻辑运算中的与操作。上例中表示如果/etc/shadow文件存在则打印” This computer uses shadow passwors”。同样或操作<strong>(||)</strong>在shell编程中也是可用的。这里有个例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">!/bin/sh</span><br><span class="line">mailfolder=/var/spool/mail/james</span><br><span class="line">[ -r <span class="string">"<span class="variable">$mailfolder</span>"</span> ]‘ ‘&#123; <span class="built_in">echo</span> <span class="string">"Can not read <span class="variable">$mailfolder</span>"</span> ; <span class="built_in">exit</span> 1; &#125;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$mailfolder</span> has mail from:"</span></span><br><span class="line">grep <span class="string">"^From "</span> <span class="variable">$mailfolder</span></span><br></pre></td></tr></table></figure></p>
+<p>该脚本首先判断mailfolder是否可读。如果可读则打印该文件中的”From” 一行。如果不可读则或操作生效，打印错误信息后脚本退出。这里有个问题，那就是我们必须有两个命令：<br>◆打印错误信息<br>◆退出程序</p>
+<p>我们使用花括号以匿名函数的形式将两个命令放到一起作为一个命令使用。一般函数将在下文提及。<br>不用与和或操作符，我们也可以用if表达式作任何事情，但是使用与或操作符会更便利很多。<br>以上就是Linux脚本编写的基础知识。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/29/shellcoding/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/28/Linux/">Linux</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/28/Linux/" class="archive-article-date">
+  	<time datetime="2018-09-28T13:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于Linux，说实话我也只是个小白<br>混过许多群，我经常见到一些纯白想着直接用kali成大牛，但一点Linux的基础都没有，连ls,cd都不会你怎么玩?</p>
+<p>我常看的有:</p>
+<p>Linux中国:<a href="https://linux.cn/" target="_blank" rel="noopener">https://linux.cn/</a></p>
+<p>先把 <a href="https://linux.cn/article-6160-1.html" target="_blank" rel="noopener">Linux 新手应该知道的 26 个命令-技术 </a>给记好，不然你连基本操作都不会玩个鬼的kali，问问题前自已先百度，还是解决不了的,问别人的时候说出你的问题和你的解决方法,这是问别人问题的方法:<a href="https://github.com/ruby-china/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md" target="_blank" rel="noopener">提问的智慧</a></p>
+<p>学Linux我不建议是先把所有的命令记下来才开始用,边学边练才是正确的方法,至于该去哪里找环境</p>
+<p>安卓手机:我博客有一篇关于termux的文章</p>
+<p>电脑:百度搜:安装Ubuntu虚拟机</p>
+<p>在线环境:</p>
+<p>实验楼:<a href="https://www.shiyanlou.com/courses/?course_type=all&amp;tag=Linux" target="_blank" rel="noopener">https://www.shiyanlou.com/courses/?course_type=all&amp;tag=Linux</a></p>
+<p>还有这个:<a href="https://bellard.org/jslinux/" target="_blank" rel="noopener">https://bellard.org/jslinux/</a></p>
+<p>如果你连看基础命令都没有耐心，那么我教你一个万能命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /*</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/28/Linux/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-TorMetal2018" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/29/TorMetal2018/">TorMetal2018</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/29/TorMetal2018/" class="archive-article-date">
+  	<time datetime="2018-07-29T13:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在暗网翻出来的，机翻的有点那个啥看看就就，非本人原创<br> <strong>介绍</strong><br>本出版物适用于所有Tor用户，他们感到厌倦看到页面掉落而其他人只是垃圾。除了过时的网站。</p>
+<p>我想我们所有进入这里的人都是因为我们厌倦了正常的互联网感染伪人物，他们说他们了解计算机。当他们什么都不知道时，用1000美元的手机支撑着它。当很少了解事情是如何运作的。而他们所做的就是诋毁人们，欺凌和巨魔之间的诋毁，毁灭一切的害虫。在网络成为我们的世界之前，一个充满知识和尊重的世界。当聊天室和论坛，分别知道和分享编程经验，命令和参数时，现在只谈性。在一切都不同之前，即使一个女人进入聊天，也受到尊重，现在被躲在电脑后面的白痴诋毁和冒犯。曾经是学习工具的计算机，</p>
+<p>在我们考虑有连接的容量之前，在流量和等待时间。现在任何愚蠢的人都有20兆字节的人看到色情内容并在社交网络上发布帖子，显示事件何时成为他的生命，这一切都是为了证明自己比其他人更多。实际上它只是一堆中的一个。</p>
+<p>现在我们只能留在Tor网络中，这个网络让我们想起互联网1.0远离每一个可能的老鼠孩子。</p>
+<p>如果您同意您所阅读的内容。那是你的空间。</p>
+<p>介绍<br>经过这么多，我已经设法让你安心思考我的项目。我喜欢的是Hacking，我仍然觉得我无法曝光，我仍然隐藏着，但在地下电脑中创建了一个配置文件。人们可以创造一个人想要的角色，因此可以隐藏在面具之下，假装一个人不是，或者真正是一个人，而不能以任何其他方式解决。有坏事和好事要做。非法人士不会诉诸我，只是为了知道他们的意思，但除了好人之外，还有灰色，我不知道如何处理。如果我注意自己的道德规范，我就会限制自己，我无法学习。如果我放手，我可以参与复杂的事情。那我该怎么办？这是一条独自旅行的道路，因为没有人知道我要做什么。我追求的不仅要学习新的技术问题，但也知道，经过这些黑客的头脑，他们这样做，他们是如何做到这一点。我总是对挑战已经建立的东西感到震惊。质疑去发现真实的动机，因为他真的是应有尽有。没有什么是完美的，但也有很好的理想，但他们却受到人们的运行，每个人都是腐败的，再加上它有更多的缺陷，漏洞，无论是mentrias，弱点，性，食物，酒精，药物等等 每个人都有一些可以利用的，为什么没有完美的系统，因为它们是由不完善的生命创造。黑客攻击不是我们在电视上看到的。目标是研究，以寻找一个薄弱点，如链，它被切割的区域。我想要在那里，利用这个漏洞并违反系统。但这需要知识，时间，耐心，毅力和许多奉献精神。一切都在脑海中，但我需要它平静，安详并且非常专注于我的目标。我想有一个统一的想法，而不是来来回答正确或错误的问题。</p>
+<p>在未知的黑社会中，有一个解放的地形，好的，坏的，并没有那么糟糕。有会议场所，匿名讨论各种主题，特别是黑客和诈骗。谎言和真相。你必须比朋友更关心朋友。围绕这一切，有更多的神秘主义和问题。有一些有趣的社区，但有时他们是想成为黑客的孩子。让我越来越沮丧地让我感到沮丧。联系某人，然后意识到他只是对新奇感到好奇然后消失了。但即便如此，也有非常有趣和有能力的人，但他们不会让自己被触及。唯一的办法就是吸引他们的注意力。但为此，需要一些大事，甚至可能跨越非法行为。我再次感到沮丧。我在一个灰色地带，只有，一方面是没有真正知识的人，另一方面是令人钦佩的人物。除了有一个PGP公钥来联系他们。我的局限是精神上的。</p>
+<p>一开始<br>要从计算机地下世界开始，你必须有一个身份。我想做什么和做什么的投射，以及代表我的一系列问题。然后在思考如何让自己知道。没有什么是容易的，更不用说匿名和隐私了。<br>正常的网络充满了无知和巨魔，在它是一个知识空间之前，一个工具。现在它充满了只会打扰的角色。我别无选择，只能越来越沉浸自己。搜索更多隐藏的网站或其他网络，提高我的技术知识，进入更具精英知识的更独特的地方，而不是像普通互联网那样粗俗。基本上逃避所有认为他们对计算机科学有所了解的人。</p>
+<p>发生了一些事情，这个全球化问题使我们不得不越来越深入。但即便如此，淹没在底部并不容易。那里的人看到你从表面来，并对待你。它们不是清晰的巨魔，当然不是，但它们也不是愚蠢的。进入演示和快速打印游戏。它可以好坏，总是出错。我回到了正常的互联网，人们常常鄙视别人，为了好玩，或仅仅为了感受更多的事实。</p>
+<p>遇到那些不了解典型攻击基础的人，让我走得更远，找到另一个让自己感觉更舒服的地方，让我很沮丧。能够采取另一个职位来学习。即便如此，我觉得有必要创造自己的空间。甚至形成我自己的社区。但这非常困难。首先，你必须了解我，为此，你必须让自己知道，为此，需要花费大量的时间，工作和奉献精神。建立明确的目标，确定要遵循的步骤。我认为这是一项艰巨的任务，但必须这样做。然后遇见黑暗的人，向他们学习，并可能一起执行#operations。但没有任何违法行为，也许只是黑客主义。在互联网深处，必须保持匿名，以保持正确的行为。保持沟通中的隐私。</p>
+<p>黑暗的世界<br>黑客们非常奇怪，我找不到一对情侣。不过，这是一条孤独的道路。与黑暗世界中其他人的关系让我失望。最好的办法是提出挑战或知识清单，以挽救招募人员的过程。我的理想是创造一种力量，一种学习，一种群体理解事物的运作方式。它似乎是我们希望出现的理想世界。</p>
+<p>新知识使我能够思考新的想法，开辟新的视野。道路是双重的，秘诀是来去匆匆，学习善与手。道路是孤独的，即使你需要其他人才能进步。在“客户”和“同事”之间。但谁需要他们？如果总是一条孤独的道路。对手是自己的，必须每天一次又一次地进行质疑和测试。你必须学习免费课程，付款，坚持不懈，不断学习和自学。</p>
+<p>似乎你越前进，你就越孤单。老鼠的孩子现在已经消失了，但他们在哪里好？他们是，但隐藏，他们很少在论坛中展示自己，如果他们是，他们永远不会写。他们使用不同的昵称，以便没有人可以关联它们，更不用说识别它们了。有许多人想要联系他们并变得更加回避。真正的黑客并不出名，那些上电视的人不是黑客，他们使用电脑是愚蠢的。似乎我越接近某事，我走的越远。</p>
+<p>论坛和其他服务正在下降，无论什么原因，你必须在线跟踪。人们也消失了。也许他们迁移到其他网络，i2p，Zeronet或Freenet等。有些人从Jabber / otr身上消失了。发生了奇怪的事。我认为他们失去了兴趣，因为他们来自正常的互联网，当他们来到这里他们看到一个旧的网络。法律问题也是。黑市和主机正在消失。但我想大多数都是Honeypots，FBI安装的网站，或者是真正的网站，用户是秘密代理商。所有的情节都能抓住他们。我也不想念寻找CP的病人。虽然有些地方也会被当局用来拆除他们的网络。这听起来很合理。然后，我们有一个小偷，骗子，堕落者，儿童老鼠，干手，诈骗者和黑客的沙拉。</p>
+<p>TOR中的水平不存在，也没有让我们相信深层网络的着名冰山，也没有马里亚纳群岛，锡安修道院，La Liberte和量子钻头。所有这些都是youtubers的发明，它们可以在垃圾视频中生成访问。</p>
+<p>这些项目<br>我一直认为你可以学到更多，用你的思想占据目标，即使它们很小。现在我有了一个站点，让我可以与更多人联系，从而展示我能做些什么。参与论坛已经让我厌烦，他们总是同样的问题然后那些论坛在那时消失了，那里发布的一切都丢失了。这就是为什么我决定有自己的空间来表达自己。只发布一些真实站点的转储和泄漏的地方，易受SQLi攻击的站点数据库。</p>
+<p>我相信见解自由，因此不应该受到限制，尽管有些人过分了。我当然认为必须有事情的秩序，但这并不意味着受到限制。</p>
+<p>这就是为什么在我的空间中我认为可以自由发布真实入侵的数据而不被评判。此外，我只发布几乎没有相关性的网站，这更多的是声望而非损害。我也明白，应该有一个地方用西班牙语编译所有链接。想法出现并且可以轻松完成的好事。但我们也不应忘记在清晰的网络中存在数字生活。不应该混合的并行项目。</p>
+<p>沮丧<br>找到不知道任何事情的人是多么令人沮丧。我当然指的是Hacking，但不是我相信它们，我真的不知道像127.0.0.1那样基本的东西我总是记得在IRC大战时代的一个“超级”黑客，他说他可以格式化我的磁盘只用我的IP很难。当然，在那之后，127.0.0.1再也没有见过他。笑。我曾经喜欢它，现在当类似的情况再次发生时，我为自己感到难过。</p>
+<p>我想找到真正的黑客，我想我知道它们是什么，但我现在没有好的求职信。这就是为什么我研究TOR网络如何工作的原因，我想到项目，新脚本，我想建立我的武器库，有时候还要和他们中的一些人交谈。我喜欢隐藏服务，我想引起你的注意，以及其他用户。</p>
+<p>关于这个世界的有趣之处在于它是无限的，你可以随时学习，直到你累了。每走一步，我都意识到还有更多的进展。可能性永无止境，道路繁衍。</p>
+<p>我的主要项目是显示我的一些技能，另一个是捕获TOR中的初始流量，甚至将其重定向到我想要的位置。我们的想法是继续垄断用户的注意力，以便吸引真正了解的用户。这就是为什么我还考虑建立一个具有用户名和密码登录的网站。其中只执行POST并返回到表单，因此它不会导致任何事情。我的想法是，它是一种蜜罐，所以他们试图破解它，因此捕获他们写的所有东西，当他们写，记录所有内容，以了解他们如何试图违反访问。另外，我必须继续研究i2p，zeronet和freenet。由于Tor用户正在那里迁移。这类项目的好处在于它们可以保持头脑，</p>
+<p>继续…… 第1章<br>TorMetal 2018 - TorMental是Team Hacking的出版物</p>
+<p>没有回报</p>
+<p>每条道路都有自己的障碍，技术知识和好奇心需要了解更多。每一步都意味着进步，但每一步都会打开更多的大门继续学习。似乎我们永远无法涵盖所有​​内容，因此我们必须指出我们最热衷的最相关和最有趣的内容。现实生活不再像虚拟生活那么重要。世俗事物不再有意义，所有新知识都变得切实可行。次世界和居住在那里的所有人都是业主和主人。在这一点之后没有回报，它没有回报的目的。哪里可以回来？如果现在没有发现上述内容。每一步都更加激烈，在我眼前一切都令人眼花缭乱，一切都令我惊讶。怎么会有如此精彩的计算机，先进和精英思想？</p>
+<p>我也发现用英语全部，我可以利用我们用我们语言想到的一切。除了生成我自己的脚本之外，还可以自动执行某些日常任务或其他“执行”操作的脚本。</p>
+<p>它在推进时被发现，并且在每一步中总会发现更多。对技术的真正品味是无限的，自由的，就像音乐和其他艺术一样。如果我对某事感兴趣，那就完整了。我留下了所有平凡的问题，并致力于我喜欢的事情……黑客攻击。</p>
+<p>￼</p>
+<p>破坏者</p>
+<p>东西让我吃惊，因为我抹掉的一个被Blackware队睡魔的一个desfaceado可见。我所做的就是提高通过旁路外壳到图像上载管理员控制面板（??）。我又来了，第一次拿到钥匙管理，通过转储的网站的用户SQLI漏洞数据库。然后进入网站管理面板尽量抬高C99.php，因为只有上传图片让我起来，我有上传文件停止发送套房套房打嗝后c99.php.jpg，改变c99.php的名字，让他们跑了休息。结果壳上面。<br>见我抹掉被盗这样的，我在发布一个好我的工作 - 知名Tor网络论坛（论坛由消失的方式）。我要做的就是让任何人都可以探索服务器和学习，而不是shell来一个孩子零个伦理和改变我的错误配置指数为他。在此外 ， 这种伪黑客团队，他检查了他的污损，与这样的睡魔我以前叽叽喳喳接触，当我告诉你我是谁？我从来不说了一遍。该#OpWorldAnimal球队，只是没有持久的操作很容易受到XSS页，网址encodeada还藏着一个TinyURL的。什么样的人可以称之为污损？你认为谁欺骗？<br>在环境中，我们有非常困惑的人。我的目的是进入小组并从内部拆除它。但我意识到这不值得。他们是想要或试图成为黑客行为主义者的孩子。</p>
+<p>￼</p>
+<p>服务器服务</p>
+<p>破坏服务器是很少给予的重要奖励。但是当它发生时，感觉就像我用双手触摸天空。建立自己的词典，甚至为此目的准备一个特殊的词典。因为他们正在调整特定目的地的脚本。除了考虑IP问题之外，日夜准备参数化Hydra以缓慢地工作，而不会引起怀疑。当攻击成功时，时间停止，一切都在我的眼前令人眼花缭乱，即使它是低权限用户，也没关系，这是向前迈出的一步，从有问题的服务器获取更多数据。<br>研究所有可能的攻击向量，将每个攻击向量视为最终奖的大门。它没有发生时会令人失望，但获得的经验可以用于未来的项目中。一切都在发生，即使它失败是一个进步，一个黑客世界的进步。还不错的是，它可以在同一个目的而使用得到的东西。如果用户表由SQLI得到你可以在它的Web界面，甚至SSH或ftp服务进行测试，如果他们已经发表。服务和vesiones的旗帜的主题是非常重要的，因为从那里我们可以发现已知漏洞。当这种情况发生时，情绪会更高。这里没有书可以告诉你如何做到这一点。这是一场一对一的战斗。我对服务器，所有技术及其组合都是有效的。你必须在任何地方进行攻击，使用默认密钥安装服务或插件，与用户相同的密码，或者易受字典强力攻击的弱密码，其中所有用户都是已发布密钥的数据库，由MD5中的管理员及以上加密，有时是未加密的。服务和版本问题非常重要，我们必须再次提及。我们甚至可以在为此目的创建的虚拟机实验室中“重新创建”真实场景。这就是为什么我说，我的极限只是精神上的。由于托管主站点中SQLi漏洞的时间，我得到了完整的用户和密码列表。可能性成倍扩大，进入无限的空间，我不能就这么defacear，而是要利用空间上传所有类型的文件，以及修改现有的人产生访问其他或播种某种恶意软件，牛肉，感染访问者已经在使用的网站。限制是精神的…这就是折磨我的东西。</p>
+<p>￼</p>
+<p>反对SysAdmin</p>
+<p>即使不是全部都是工具或自定义脚本，为此目的创建的字典。但进入系统管理员的脑海。她在成立时会发生什么事。当然，他已经有自己的方式，他的风格做事。如果我们能理解并违反它，我们就会成为天才，因为我们都会犯错误，但他肯定也会犯错误。一些默认配置或东西。当然，如果它是一组管理员，那可能会更困难，但你还必须看看他们是否收入不错。这本着名的书说，入侵是一门艺术。欺骗的艺术还在于让组织中的某个人运行一些恶意程序来扩展特权，这些特权并不比用户/管理员更好。计算机安全是一个链条，它是由最薄弱的环节切断的而且几乎总是普通用户什么都不知道，并且受到情绪的引导，使他们的点击次数超过原因。系统管理员，无论他们如何准备，仍然容易犯错误。那时我必须要注意，一些服务或服务器刚刚安装，默认情况下有密钥，可以是网关。别出心裁进场，并超越它一个脚本小子，我要知道所有的工具，并利用它们来实现渗透入系统，如果是，我们必须保持对未来的连接通道，并实现犯目标。寻找攻击向量很有意思，但逐个尝试是很繁琐的。如果我获得访问权限，我必须通过安装后门来保护它。您还可以转动并迁移到其他服务，以避免引起怀疑。或者从那里，尝试攻击另一台服务器。但一切都是狗和猫的游戏，因为永久性会产生更多的日志，因此产生怀疑。反向连接（/meterpreter/reverse_tcp），如果找到了，它会说我连接的地方。这就是为什么我们必须从另一个受到破坏的服务器上做到这一点，我们之前已经违反了这个并且值得信赖。<br>回到后门，只不过是通过创造一个“后门”来确保入口。这似乎很复杂，但事实并非如此。例如，对于网站中的管理员用户，我可以编辑panel.php，以便在密码中我可以做一个’或’miclave。当管理员更改密码时，我将继续输入相同的… miclave。</p>
+<p>￼</p>
+<p>漏网</p>
+<p>该污损是一个社会或政治，但互联网上的要求，只会改变网页的索引，但影响将与受影响的网站的重要性有关。我记得我第一次抹掉之一，它是由于SQLI，有点隐藏的错误，但错误了连接到数据库，这样我就可以拿到钥匙的经理，一个已经在MD5字典（hashkiller。 co.uk），所以我不介意其他键的强度，如果其中一个管理员不小心，你的密码很简单。找到管理面板（robots.txt的）后，我找不到上传上传或bypassear我的外壳，让我想到的唯一的事情，是降低主画面显示，修改，然后再次上传。因为当试图通过shell（c99.php.jpg），系统验证它不是图像，并且不允许我上传它。另一个抹掉记得，当我注入的代码来访问网站管理员，SQLI形式（POST），获取密码哈希管理员，所有的人都在MD5的字典。我设法进入并通过shell，当我浏览服务器时，我意识到它是一个Windows。我能够进入管理员桌面。通过在外壳的索引页是空白的，并没有一个备份来纠正该问题的错误（总是在不断变化的东西之前一定要做一个备份），于是第二天他们恢复了页面，并删除了我的外壳，但并没有改变访问代码，所以我重新输入并上传了一个未被任何已知防病毒软件检测到的shell，我还将其作为更新放在网站的维护文件夹中。php所以对于管理员的眼睛将是难以察觉的。关于可以上传的shell然后从另一个地方复制并删除最初的shell的好处。所以我可以留下来调查更多的Windows服务器，所以我可以恢复到C :.在这里我有几个选项，获取文件山姆尝试通过暴力获取密钥，在桌面上留下一个txt通知入侵，所以我可以留在家里用我的消息打开笔记本当它loguee或者将.exe伪装成adobe或java更新，以便管理员看到它并点击它。在那里，我可以嵌入我想要执行的代码，该实例的总数我是管理员。但与管理员的斗争变得乏味，虽然现在无法检测到防病毒和管理员的shell，这个shell在可以做的事情上很差。我可以做的是，上传c99然后擦除它，总是我再次上传它与可怜的shell不可检测。panel.php中的后门程序已经安装，但是当他们不了解正在发生的事情时，他们会通过一些备份来恢复所有内容，那时我的所有工作都会消失。贝壳和后门。我失去了机会，也失去了土地。系统越难，我就越呆在外面。他们应该做的是让攻击者做他自己的事情，并跟随他的脚步，以捕获他并用一些不可抗拒的文件陷阱他（黑客也很脆弱）。但肯定是由无知的上级的压力restuaran一切和删除日志，追踪一切。对于这种情况，<br>谈论痕迹，痕迹，我的连接是扭曲的，以前我连接到一个可靠的VPN，我随着时间的推移而改变，甚至我的Wi-Fi连接不是我的。所以它应该相对安静。<br>我记得的另一个案例是邻国的公共服务网站，其中有一个有趣的细节。首先让/ admin列表没有正确分配权限，上面没有索引，所以你看到所有文件update.php load.php modify.php等等。可怕的错误。启动它们的所有文件都被重定向到login.php，这很好，验证我们没有输入到应该的位置。其中只有两个允许修改页面和图像的文本。但由于他们在编程方面很出色，因此延迟了负载。换句话说，当加载文件时，它显示了内容，后来发现它不是管理员，它将我重定向到panel.php，没关系。但验证应该在开始时进行，而不是在最后进行。然后我想出了停止加载文件，修改我需要的内容然后释放进入服务器的文件的想法。也就是说，当您验证我们没有管理员凭据时，将事先修改数据。Burp Suite可以实现这一点。为了证明这一点，我在索引文本中更改了重音以验证所有这些都是可能的。关于更新图像，.php是非常严格的，所以选择下载网站的图像，在那里添加一个小白点，然后将其上传到同一个地方。我无法上传shell，它没有让我通过它，但至少我控制了文本和图像。当与我的国家发生冲突时，该项目正在等待处理。也就是说，当您验证我们没有管理员凭据时，将事先修改数据。Burp Suite可以实现这一点。为了证明这一点，我在索引文本中更改了重音以验证所有这些都是可能的。关于更新图像，.php是非常严格的，所以选择下载网站的图像，在那里添加一个小白点，然后将其上传到同一个地方。我无法上传shell，它没有让我通过它，但至少我控制了文本和图像。当与我的国家发生冲突时，该项目正在等待处理。也就是说，当您验证我们没有管理员凭据时，将事先修改数据。Burp Suite可以实现这一点。为了证明这一点，我在索引文本中更改了重音以验证所有这些都是可能的。关于更新图像，.php是非常严格的，所以选择下载网站的图像，在那里添加一个小白点，然后将其上传到同一个地方。我无法上传shell，它没有让我通过它，但至少我控制了文本和图像。当与我的国家发生冲突时，该项目正在等待处理。php是非常严格的，所以选择下载网站的图像，在那里添加一个小白点，然后将其上传到同一个地方。我无法上传shell，它没有让我通过它，但至少我控制了文本和图像。当与我的国家发生冲突时，该项目正在等待处理。php是非常严格的，所以选择下载网站的图像，在那里添加一个小白点，然后将其上传到同一个地方。我无法上传shell，它没有让我通过它，但至少我控制了文本和图像。当与我的国家发生冲突时，该项目正在等待处理。</p>
+<p>￼</p>
+<p>莫拉莱哈</p>
+<p>容易受到伤害的系统是任何叔叔制造的系统。很难妥协更新的WordPress。但是没有人编写的页面是最好的，因为它收费几个小时，客户几乎看不到它的工作原理，它发布了付款，以便它便宜，程序员无视，因此仍然是一个功能但缺乏网站。<br>这里有什么有趣的。它了解事物的运作方式。如何跳过控件。一个优秀的Web程序员会对所有文本条目进行字符控制。在前端。使用html / javascript。使用Burp Suite可以悄悄地跳过这个。由于我加载页面，我输入页面允许输入的内容，我点击发送，Burp Suite停止加载，我修改字段到我的心血来潮，我发布了货物。容易。因此，程序员也应该在后端进行验证，例如使用PHP并检查输入的数据是否正常并可以将它们带到数据库。过滤当然’“ - \ /类似的东西。<br>那么验证前端和后端数据之间的区别是什么？前端在客户端的浏览器中执行，前端在服务器中完成，这将产生往返流量，因此在两侧都可以方便地进行。如果程序员是聪明的，他将在双方验证安全性和效率。如果它更聪明，它将在数据库中创建用户和程序。例如，如果Web列出产品，则不必使用数据库引擎的admin用户，可以将其创建为只读用户。如果攻击者在所有这些验证后到达那里，他就无法注入INSERT INTO，因此数据库不会受到损害。经历这三层是非常复杂的。这里的秘诀是逐个尝试所有文本框，谁说Hacking是程序<a href="http://www.web.com我按Enter并准备好??" target="_blank" rel="noopener">www.web.com我按Enter并准备好??</a>?</p>
+<p>￼</p>
+<p>继续…… 第2章</p>
+<p>TorMetal 2018 - TorMental是Team Hacking的出版物</p>
+<p>狩猎黑客<br>它总是引起我的注意，因为一些黑客破坏了完整的服务器（质量损坏）。特别是Defacer，来自阿根廷的El Libero。他在马尔维纳斯群岛的官方页面上播放了该国的国歌。这种黑客行动使我想要跟随它，甚至跟踪它。首先，我开始寻找新闻，我发现很少，但在通过流行的<a href="http://www.zone-h.org寻找他的污点后，我" target="_blank" rel="noopener">www.zone-h.org寻找他的污点后，我</a>   想找到一些模式或错误带我去他。分析污损x污损。从我所看到的，他是Team Hacker Argentino非常活跃的成员。如果你犯了错误，我可以在youtube上找到视频。例如，当使用着名的外壳C99.php时，它在右上方显示设备的本地IP，因此在尝试定位IP时，我看到它连接的位置以及它在日期之间的连接时间。此外，一名同伴出现在该组的一些污点的签名中，显然背叛了他，并在他的一个粘贴盒中发布了数据。他确认了他所想的，也是为了录像，他还是个十几岁的孩子。我煞费苦心地观看了视频x视频，看到了我所有的资料。暂停并返回以反复查看部分视频。我能够知道他对收藏夹和他用于桌面上图标的程序感兴趣。它也有一个页面，但它不再存在于nic.ar中。他的聪明才智也是粗心的，他的自我与他对抗。 当时他被梳理并抹掉在该国报纸抓获。男孩很辉煌，但他选择了错误的方式。是什么吸引了我的注意的是，完成服务器desfaceo。从我所看到的，这是一个强力攻击，密钥管理FTP。在这种情况下，作为所有网站的密钥，他使用了一个脚本，用他的所有网站替换了所有网站的原始索引。不时的所有页面都配置错误。在那里，我理解为什么在新闻中看到它们从一个时刻到另一个时刻被攻击是常见的，数千页，当然，无论它们是什么，网络的完整服务器都是断开的。道德，自我最终会与我对抗，成就证明了我为此所做的一切好黑客并不出名但总是隐藏起来。换句话说，那些出现在电视上的人……都失败了。</p>
+<p>从当地玩<br>并非所有黑客都在互联网上。例如，它也适用于本地网络。典型的wifis网络，他们有一个相对容易的密码。如果我不知道Wi-Fi的密钥，它可以通过字典强制删除到WPA / WPA2，kali带来着名的rockyou.txt。进入后，扫描显示默认情况下所有设备和典型路由器的经典192.168.0.1/24或192.168.1.1/24。管理员管理员或管理员1234，很少改变它，但如果我仍然没有得到它，当我连接并要求用户名和密码时，它也告诉我品牌和型号。只需在谷歌搜索默认密码，就是这样。访问和控制时，它们通常具有非常基本的配置，因此我们可以正确指定参数，通过DHCP分配IP，扩大范围，DNS，因为我们可以完全控制网络，所以可以更好，更快地帮助网络工作。我们可以看到所有连接的设备，扫描，如果有与SMB或安全VNC团队，默认键连接，即使DVR（服务器监控摄像头）也有保险的默认密钥产品或只是这个地方的名字。如果有共享文件夹，在大多数情况下只能播放音乐，没什么重要的，那就太受欢迎了。所以，你可以把一个邪恶的黑色金属的主题，但当然，我们必须努力多次复制，并把现有的文件是艰苦的，但有趣的名字。我也可以把一个规则，家长控制，我只访问和使用的整个带宽或见好就收某些IP地址我不想要导航（预约DHCP其MAC地址）。</p>
+<p>在具有相同SSID但密码不同的管理不善的地方很常见。如我所说，伸出援助之手并没有任何帮助。由于提供Internet的计算机通过网络挂在另一台上，我可以逐个重新配置。如果我不知道管理员的密码，因为他们改变了它，我可以用他们带来的小按钮实际重置设备，只要他们没有看到我并且没有太多人的移动。然后我默认进入并配置它，以便没有人怀疑使用相同的Wifi名称和密码。它并不总是必须为善。我可以将特定计算机的IP指定为DMZ，以便从公共IP外部攻击的所有内容将其重定向到该计算机，或者我只需在我的计算机上安装Web服务器或使用i2p，我不必在防火墙后面，我也可以使用虚拟主机重定向端口，从而从网络上的任何计算机上发布我想要的端口，我可以从路由器外部或DVR或某些端口的游戏，torrent或等等，如果我想，那么我可以攻击他们或从外面访问。学习和玩乐还有很多工作要做。我可以对网络IP进行持续的拒绝服务（DoS），以便计算机的所有者感到沮丧，或者让主路由器强制重置它，当然因为所有的传出流量都会减慢因特网的速度。互联网经历了那里。洪流或其他等等，如果我想，那么我可以攻击他们或从外面访问。学习和玩乐还有很多工作要做。我可以对网络IP进行持续的拒绝服务（DoS），以便计算机的所有者感到沮丧，或者让主路由器强制重置它，当然因为所有的传出流量都会减慢因特网的速度。互联网经历了那里。洪流或其他等等，如果我想，那么我可以攻击他们或从外面访问。学习和玩乐还有很多工作要做。我可以让服务（DoS）攻击不断到IP网络的计算机的所有者被打乱或主路由器强制重置一遍，当然互联网是变慢了，因为出站流量互联网经历了那里。</p>
+<p>Android有一个非常有趣的漏洞。 如果有现有的Wifi，例如Drugstore Wifi和我的受害者连接。然后，我可以创建一个完全相同的。当你离开商店时，离开这个地方并跟着它。您的手机将连接到我的AP，是一种天然的功能连接到已保存的搜索Wifis。虽然我不能给或互联网，我可以运行Wireshark的，看看使用喇叭。在希望他们的应用程序，同时连接到我，你会不会使用移动电话公司提供的数据的意义上说，我还没有抓到，直到它离开。最简单的方法打，这是一个麦克唐纳，创建一个AP麦克唐纳免费无键，等待人们来连接，这样可以很方便地有一个良好的天线USB AP（在背包里没人会注意到） ，因为在那里我创建了我的恶意Wifi，并且笔记本电脑的板载我连接到该地方的真实互联网。通过这种方式，我的“客户”会导航而不会注意到任何奇怪的东西。</p>
+<p>离开小径</p>
+<p>我们所做的一切都会在操作系统，路由器，ISP和我连接的每台服务器中留下痕迹。始终在服务器上，您必须搜索两个文件。access.log和error.log在第一次所有访问中都已解决，因此它具有该名称。另一个文件注册了所有访问错误。例如，dirbuster，sqlmap和hydra等实用程序在进行测试时会产生许多错误，并且随着我们的IP连续重复，该文件会大大增加。出于这个原因，攻击是手动进行的，或者如果使用工具进行攻击，则可以方便地对其进行参数化，以使其尽可能慢地进行。行政事实应该不断检查日志，所以我的工作不应该引起任何怀疑。这就是为什么有些管理员将这两个文件保存在一个单独的服务器上，这使得擦除我们的轨道变得更加困难。这就是为什么我们必须屏蔽我们的IP，在一些VPN，Tor或其他什么，以及更多的一个在另一个之后。连接到VPN，然后通过Tor。但是许多智能管理员会阻止所有Tor的IP，因为Internet上发布了输出节点列表。它让我别无选择，只能随机串行或并行使用VPN或它们的链。每个层都变得更慢，但增加了更多的安全性，甚至到了使用它们而不重复它们的程度。如果您选择公共VPN或支付，这种付款似乎更好，但他们有注册，有些是通过btc付款，这是一个两难的选择。有很快的日本VPN，但在计算机问题上使用俄罗斯或邻国或弱国法律。这就是为什么在新闻中我们总是看到他们据说从俄罗斯攻击美国。除此之外，我相信在当局之前，公司会张开双腿来提供信息。只有VPN允许黑客攻击其条款和条件。位掩码。<br>通常在入侵之后我将其发布在一个不起眼的论坛中，以便每个人都可以输入并因此在日志中生成更多条目并生成更多跟踪以减轻可能的调查。留下其他人的痕迹还有什么好处。</p>
+<p>其他黑客<br>我总是对黑客故事感兴趣。它们令人兴奋和创新。用新鲜的想法挑战既定的。我可以从一切中学到一些东西。例如Adrian Lamo，他闯入了最大的安全网络。但他的自我背叛了他。他被称为流浪汉黑客。换句话说，它从网吧，酒吧甚至废弃的建筑物中进行了入侵。这是一个很好的例子，使用互联网不是为了我的活动。他未能成为纽约时报的专家顾问。并且还通过背叛私人曼宁与维基解密的开端。黑客的脆弱性是他自己的自负。<br>DarkDante控制了电话，与收音机相关，因此它被称为保时捷的唯一参赛者，也有助于捕获大量的pederastrians。<br>Gary McKinon在美国宇航局和其他政府机构中获得了非陆地军官档案清单。所有人都赞成追随他对不明飞行物的热情。<br>凯文米特尼克是最着名的，他让我们教。“用户是任何安全系统中最薄弱的环节。” 它是网络钓鱼的基础，如果我们开始分析当前的入侵，系统不再被黑客入侵，而是人们的信任。公司投资于基础设施的安全性，而不是为员工提供培训。<br>如果我喜欢当前的黑客时代，他们会有另一种心态，而不是罪犯的心态。除了一些例外，这个主题的电影是好莱坞的典型垃圾。第一代黑客创建，第二代被摧毁和伪造。目前的人有更多的意识。现在地下的场景结束了。</p>
+<p>目前的情景<br>新老黑客现在拥有计算机安全顾问。从法律问题和道德愿景中可以看出一切。有些法律将攻击称为犯罪。整个黑客场景发生了变化。它来自于一个有趣的学习进入过度的地方和大型系统隐藏的顾问，讲师在合同之前进行攻击。<br>黑客本质的味道已经结束了。现在，它有助于互联网2.0中的巨魔，LoT（物联网）的出现，并加强了黑客主义的场景，如匿名。我们甚至可以说自动攻击（美国）最终成为俄罗斯人。<br>希望我们都能理解网络安全意味着什么，人，公司，网络管理员和黑客。</p>
+<p>它将继续…… 第3章<br>TorMetal 2018 - TorMental是Team Hacking的出版物</p>
+<p>从内到外</p>
+<p>入侵并不总是来自外部，也不是来自其他系统。可以安静地对我们安装的系统进行操作。要么评估它的安全性，要么只是练习，学习和学习。有趣的是，你可以从内部审查所有内容，而无需“黑客攻击”任何内容。我是管理员，我可以在内部和即时修改所有内容。进行渗透测试或“Pentest”。我可以直接访问数据库，私人消息，用户表，即使密码在MD5中，我也可以解密它们。使用john或hashcat或hashkiller.co.uk，你就完成了。了解特定用户的活动。有了解密密钥，我可以在他们的facebook，outlook.com和gmail上试试，因为我也有邮件，看看会发生什么。即使这也没必要，因为我可以修改CMS（WordPress）并跳过编码问题并将密码保存为纯文本。它每次都变得越来越难，但它只是跳过加密功能。这就是为什么它非常重要永远不要重复一个键，因为我们不知道我们在哪里注册。有些管理员可以“看到”它。私人消息，用户很少删除它们。因此，建议始终将PGP用于所有类型的通信。我可以监控用户，不满意的人，想要攻击我的系统。我可以添加Last IP表并跟踪它连接的位置。因此，例如分析重复的用户。甚至在连接或思考或我想要的时候设置警报。或者只是修改你的帖子。谁拥有对系统的控制权就可以控制一切。<br>如果我已经控制了其他论坛，我已经被“黑客攻击”，我可以在一个和另一个之间交叉数据。那就是转储（转储）受感染的数据库并进行非常有趣的查询。例如，要查看用户在彼此中的内容，查找相同的密钥，甚至重复IP。SQL就像奇迹一样。在另一个论坛中仍然是SHA-1中的键我可以看到我在我的关键字并在其他系统中尝试它… …宾果游戏。用户总是使用密码几乎是为了同一件事。如果我想更进一步，我可以看到活动很少的用户，登录并向管理员发送消息，然后我删除外发消息。如果您回答我删除收件箱中的邮件，您就完成了。如果原始用户连接，他不应该意识到这一点。<br>如果我想更进一步，我可以在受害用户的另一个论坛上发布一个带有恶意链接的帖子，试图捕获管理员或其他用户的会话cookie。点击链接时要小心。如果发生了某些事情，他们会删除或惩罚该用户。眼睛不会在我身上。如果它是一个旧的论坛，我可以尝试上传一个shell或让管理员欺骗它来执行它。它很少奏效。<br>我记得一个可耻的案例，他们攻击了一个色情网页，有些用户在@ etc.mil或美国官员注册。Mecerido有泄漏（过滤）。</p>
+<p>我也可以冒险进入我工作的公司。因为我可以访问网络和一些系统。我获得了大量的支持，这将是一个小问题的研究，而其他人在Facebook上展示他们的生活是多么美好，并且可以用来证明这一点。</p>
+<p>普通人对计算事物的简单而无知的观点使我们能够从一个系统转移到另一个系统。但在里面。<br>不要感到惊讶，如果我能做到这一点，我就是一个人，国家安全局怎么办？</p>
+<p>￼</p>
+<p>社会工程</p>
+<p>黑客攻击不仅仅是让系统做一些特殊的事情而不是编程。很好的定义 :)系统很难被违反，但不是处理它的人。 这是一个艰难的做法，但同时也很容易。我可以打电话给公司询问某个地区，提出索赔要求并要求提供更多信息，他们会告诉我，你必须有这个数字，证明，等等。同一个受害者正在指导我违反它。我可以请你寄给我一份文件或发给我一份。我可以分析他们的元数据，发送带有javascripts的HTML格式的电子邮件来查找内容。发送链接或受感染的文件，而我们在通话时没有人会过多关注安全性。但这对于防病毒来说更难。总是有管理员，懒惰，准备不足和收入不高，所以他们会依赖于那些工作。这是超级犯罪。模拟员工并致电系统区域以请求重置密码。内部系统总是比外部系统具有更少的保护。建筑维护区域，很少了解计算机，如果我有实习生，我可以让我通过其中一个系统，以前发现。输入员工的网络邮件。人力资源领域充满了问题，我所画的事实是一个非常大的进步。我打电话给某人特别送货，并用一些姓氏字母让我困惑，我的受害者肯定会纠正我，并会在没有意识到的情况下给我更多信息。人力资源领域充满了问题，我所画的事实是一个非常大的进步。我打电话给某人特别送货，并用一些姓氏字母让我困惑，我的受害者肯定会纠正我，并会在没有意识到的情况下给我更多信息。人力资源领域充满了问题，我所画的事实是一个非常大的进步。我打电话给某人特别送货，并用一些姓氏字母让我困惑，我的受害者肯定会纠正我，并会在没有意识到的情况下给我更多信息。<br>谁说Hacking是用电脑完成的？系统很难被破解，但不是处理它的人。易受攻击的是那里。因为最终用户点击了他不应该去的地方，他的信任被欺骗了。</p>
+<p>￼</p>
+<p>感觉力量</p>
+<p>当我进入一个系统时，我感觉到了上帝，哈哈。虽然实际上它是一个对“小弟弟”有自命不凡的语言，但这种感觉是不可阻挡的。当我看到系统管理密钥正常工作时，我的胸部肿胀，心脏停止。<br>在让我失望之后，有些目标没有任何用处。这就像一个魔术，在你知道它是如何工作之后，你会失去乐趣。但是有一所大学改变了我的呼吸。每小时和每小时导航每个文本框，分析所有表格（POST）和GET测试所有基本注射’或’1’=’哈哈’1’=’1’-1 - ‘“\等我找到了一个部分新的，“弱点”，当测试注入时，SQL失败告诉我mysql的典型错误。我准备好了，我知道在哪里注入。测试-1 + union + select + 1.2–所有这些都是手工繁琐的和焦虑现在杀了我，所以我给它参数后，我使用我最喜欢的工具，sqlmap，–random-agent –tor –threads = 2 –time-sec = 10 - delay = 10因此它的工作非常缓慢，因此不会引起怀疑。你的WAF仍然可以实现，所以我需要用–tamper charencode，base64encode，multiplespaces，space2comment只用两个来欺骗你。使用详细模式，您可以看到该工具如何工作并知道它开始失败的位置，这意味着另一方面WAF正在排斥我的攻击，因此我必须停止，更正参数并重新启动命令。这会产生焦虑和压力，因为即使VPN可以看到流量，所以我也必须考虑到这一点，或者只是通过tor释放它，但即使WAF阻止我，我也必须重新启动tor并重新启动一切试。更换螺纹，夯锤或注射和注射之间的时间。这一切都让这段时间过得非常快，但这种情绪让我不能停下来。咖啡帮助我冷静下来，尝试尝试，直到他妈的sqlmap通过WAF，它可以在没有意识到的情况下进行注射，直到结果发现漏洞。这种情绪会带来快乐的飞跃，是的！它很脆弱。好，但很平静，我只有进入的通道门。在再次调整工具的参数之后，我请你带给我所有的数据库–dbs，和uff，它们很多，当然我看到他们有几个项目，一个图书馆，其他门户网站，它是一所大学。将过多数据库放在同一数据库引擎下的致命错误。对于搜索中的文本框，我最终会访问我工作的特定页面之外的所有可用信息。我选择了一个数据库，然后带上你的工作簿 - 表。还是有太多了。已经凌晨3点了，我的收获很少。当管理员在他的床上睡觉时，有人潜入他的系统。 我也看到PhpBB数据库，WordPress，都是混合的。这样做的人并不十分清楚他在做什么。那么现在我把phpbb_users和wp_users的经典表首先带到他们的列–columns，我选择我想要的那些，最后是dumpeo –dump。最有趣的是所有数据库的邮件用户传递。学生或老师的桌子对我不感兴趣，我会变大。不要伤害，但要尽可能多的伤害。如果我想找一个特定的人，我只是喜欢和去。这是黎明，我还在这里和那里盘旋。直到找到一个管理员委员会。我喝了最后一杯咖啡，sindo是时候吃早餐了，虽然我连续吃了很多次早餐。这个表我可以完全转储，因为它总是很小，只有其他一些行。准备好所有这些时间总结为最后输入我按下。如果一切顺利……并且…在我面前闪耀一行。<br>管理员<br>用户密码<br>admin <strong><em>**</em></strong> </p>
+<p>sqlmap有一个内部字典试图解密密钥。不过，我复制它并同时将john和hashcat放在一起工作。已经是早上7点，时间流逝，我不能再忍受了。焦虑让我痛苦，我在网上词典中寻找它。有人必须完成并给我我想要的东西。最后，使用的密码不值得一个好的管理员的位置。这是一种耻辱，但我的主要目标是实现的。现在我可以去大学了。<br>总是在一切，前后都有。首先是要知道我是否能够实现它。后者可能是我成功了，或者最可靠的是它没有发生，我充满了不满和沮丧。我的成功率很低，但是当它给出时……这是一种非常奇怪的快乐，因为普通人没有人能理解它。</p>
+<p>￼</p>
+<p>革命现在开始了</p>
+<p>在一边和另一边旋转了这么多。在我看来，我学到了许多有趣而准确的东西，以逃避政府和大公司的间谍活动。我甚至敢说，完全是匿名的。但这是一把双刃剑，因为有人说不可能是匿名的，我说是的。演示可能导致人们误解并将其用于选择性活动。从这个意义上说，我可以鼓励人们违法。但这不是我的目标，虽然我觉得我必须这样做。让每个人在互联网上自由地处理自己就像一把锤子，可以用于可重复性或者为了伤害。像刀子一样，本身并不坏，它没有伤害，但一切都将取决于使用它的人和它的意图。<br>我觉得我有使命，有使命的帮助。展示政府和大公司所表现出的不同现实。<br>我的目标是让我的想法浮现，出现并帮助创造一种新的集体意识。看待事物的另一种方式。挑战既定的，简单地质疑它而不破坏任何东西。革命没有在街头表现出来，革命是知识分子，现在开始。</p>
+<p>￼</p>
+<p>它将继续…… 第4章</p>
+<p>TorMetal 2018 - TorMental是Team Hacking的出版物</p>
+<p>黑客团队的历史<br>故事以他的名字开头，作为一个群体。但最重要的是，这个名称被认为是容易找到的东西，并且在许多可能出现的结果中被混淆。有时为了隐藏某些东西，你必须简单地展示自己。这个名字的灵感来自意大利安全公司Hacking Team，该公司被计算机安全研究员Phineas Fisher攻击。我很喜欢它，因为它是逐渐参与的，一点一点地推进，所有这一切都来自于在DW（深度网络）中购买的0day。阅读他如何做的步骤是非常令人兴奋和有趣的。只有对我来说，我想把这个名字给予Hacking团队，并将骑士变成knigth，这对于Hacking团队而言。一个愚蠢的问题，因为这听起来像英文错误。或者没有直接的。这个想法是使用一个常用词，绅士用英语，并做一些事情，使它成为我的。像H4ck3r8这样的事情已经发生在我身上。因为那个缺口，因为我的导师，我的第一个跟随的是某个knightX谁拥有一个geocities网站。美好的时光。为了纪念他。<br>虽然我已经使用了几个昵称，但至少为此我们将留下一些绰号。<br>好吧，在我在DW的时候，我厌倦了在论坛上发帖，以至于他们以后就会消失，而且入侵，数据库等都丢失了。我将永远记得发表他的“本周污损”的干相小海湾，他们都是灵魂。但最终，论坛死了，我的所有帖子也都消失了。所以我决定创造自己的空间，独立于一切。发布并能够控制我发布的所有内容。我总是很容易访问数据库，所以我只从低名网站发布，我不想遇到麻烦，只是展示我的技能，并能够在环境中遇到更多更高级别的人。有趣的是，我访问了一些我从未想过可以进入的地方。它对可能发生的事情感到害怕，这就是为什么它就在那里，我不会在那些情况下重复它。很多次偶然。例如，访问数据库时未更新的旧站点我发现存在更多数据库，所有数据库都在同一引擎（数据库服务器）下。然后，通过页面中的漏洞，它最终会破坏该完整服务器的所有数据库。所以可能会有更多的公司，学院等 除了拥有一个用户，您还可以平等地访问所有内容。<br>回到团队的主题，他们似乎感兴趣，但他们离开，其他人来等等。他们贡献了一些东西，他们采取了一些东西，然后他们完全消失了。我的梦想是你可以建立一个联盟，一个讨论各种问题，信息技术，安全，政治和时事的团队。有趣的事情是一起完成的，而不是分开的。总是整体不仅仅是各部分的总和。有助于网络的自由，而不是其中的滥用。我认为，如果所有人共享黑客攻击的网站或系统，您可以跨越所有信息并达到一些重要的目标。有点邪恶，但这有助于人们更好地生活。大公司对地球不感兴趣，更不用说它的居民和资源了。想法永远是好的，只有人们执行它们并且它们是腐败的。所有人都是在没有邪恶的情况下出生的，但在社会中发生了一些自私的事 我们是社会的敌人。</p>
+<p>新社区<br>见到我的新邻居的最好方法是破解他们的wifis，因为付出了丰富的东西并侵入我的私人财产？看看他们连接了哪些设备，大部分是移动设备，分析他们的流量只是为了看垃圾，事情变得不重要。失去时间 现在有很好的覆盖范围的wifis中继器，例如室外，但是其他设备将所有这些WAN连接连接到一个。因为如果我可以使用vaias，我只使用破解的wifi。我也可以选择离我最近的位置。这更有助于匿名。除非网络瘫痪，请关注另一个网络并继续。我也可以按照我的方式旋转它们。一切都是如此简单，比如在角落商店里喝咖啡，询问你的密码，然后以放大的方式从我的地方使用它。即便如此，凭借这些技术，他们已经陷入困境，如果我们参与非法活动，我们将以严重的方式结束，这只是一个时间问题。你在互联网上所做的一切都可以用来对付你。使用非专有的wifi不是问题，因为它是统一费率，但是分析您的流量或尝试进入您的计算机，如果它是入侵，还有更多从计算机获取数据。</p>
+<p>匿名<br>我花时间追逐匿名的人。他们有页面，但大多数都已关闭或过时。谈论他们所说的不再存在。只有关于这个主题的无信息文章。很多虚假信息。直到有一天我给他们，他们真的在一个非常简单的地方。<a href="http://www.anonops.com和几个人一起说英语，我来到一个管理员，他问我几个问题，我通过了所有测试，但不是最后一个。什么是匿名？我的所有答案都没有给出密钥。而这个角色告诉我，这是一个想法。但是，就像所有的想法一样，它是由那些尊严很容易被打破的人管理的，我们都有代价。我的对话者说，" target="_blank" rel="noopener">www.anonops.com和几个人一起说英语，我来到一个管理员，他问我几个问题，我通过了所有测试，但不是最后一个。什么是匿名？我的所有答案都没有给出密钥。而这个角色告诉我，这是一个想法。但是，就像所有的想法一样，它是由那些尊严很容易被打破的人管理的，我们都有代价。我的对话者说，</a> 任何人都可以匿名，只要他们遵循他们的理想。但实际情况是，许多操作都是代表这个小组完成的。但这个想法实现了吗？我认为一切都是垃圾。很多东西都是垃圾。谁是匿名的领导者？没有人回答我，同时也是每个人。#op在一个小组中决定，每个人都平等参与。但是，在youtube上发布的大多数视频都是由老鼠制作的。使用Loquendo非常容易，在背景中使用面具打手势的典型角色。没有人看到他的嘴，因此很容易。所以任何人都可以进行#operation并将其归于Anonymous。这个想法很好，因为它超越了所有地理问题，语言，种族，宗教等。它们无处不在。这很棒，因为有很多人在同名的情况下打击不公正。这听起来不错，但也很吓人。因为有人可能会使用他的名字做错或者说是好的，甚至可能破坏页面并说它是匿名的。这是好事还是坏事？有人有什么好处？善恶？与新闻一样，他们抓获了10名匿名成员。他们真的是黑客？他们来自匿名？他们遵循了一些理想？或者他们是否将其判定为Anonymous，以便突袭听起来会更成功？因此，作为一个简单的计算机罪犯，会徽和流行的声音更严重。历史是由那些赢了，警察赢了的人写的。所以这意味着还有另一个故事，但是，我们无法知道。但小报出版社，博主，youtubers等的所有失真。谁阻止同一当局进行攻击并将其授予Anonymous，所以这个话题在整个互联网上都是病毒式的。匿名的想法虽然好但很危险。作为匿名，一切都是允许的。</p>
+<p>托尔<br>令人印象深刻的是可以完成的事情。例如，使用Tor，您可以指定仅使用特定输出节点。优选RU，CH等 据说美国国家安全局已经采取了许多出口节点，可能来自美国领土，机器人先生从该神话开始。使用特定输出可提供一些额外的安全性。我也可以运行Tor的几个实例，所以不要使用Tor，我可以一次使用Tor几次。这很好，因为使用网络的http / https / socks代理是没有意义的，因为它们受到干扰而且不适用于攻击，因为它们会在短时间内免费阻止我。但我可以使用我自己的“自己的”自定义代理，使用Tor来实现它。我可以根据需要多次复制tor文件夹并正确分配权限我可以进行配置，以便每个实例为俄罗斯留下一个，为中国留下另一个等等。当然我也要重新分配端口，9050,9051,9052等。在此之后，我配置polipo，一个很好的代理，保持我的所有导航，理想的加速DW的页面，privoxy添加一些安全问题，我甚至ping，traceroute和DNS查询使一切都四处走动。我把这个系统的代理作为127.0.0.1:8118的代理，然后我转向privoxy，在privoxy跳到polipo之后，在后者转到Tor的实例。虽然我无法真正看到，但我可以将代理链与TOR实例一起使用，并看到当您进入页面时，一切都在不同的地方。也就是说，html将其下载为Tor的实例，对于另一个人而言，这是一个令人难以置信的页面，其中的条目被打破，以便每个partcita通过一个不同的出口节点。哇。魔术？有了etherape它是一个实时网络分析仪的图形模式可以看出。</p>
+<p>我要走了<br>自从我感到困惑以来已经很久了。当我在做什么和做什么时达到极限，因为我总是做同样的事情。我想我有可能帮助改变一切。但我也感到愚蠢。我想发表我所拥有的一切，但我担心一切都会反对我。我已经有足够的“地方”了。我还想带领一个庞大的人员和服务器团队。但人们要么是自私的，要么是无知的，要么害怕可能发生在他们身上的事情。但将多才多艺的跨学科力量组合在一起会很棒。让事情真的变得严肃起来。</p>
+<p>一切都是孤独的道路，现在是时候曝光了，但我想我会对自己的寂寞感到更加沮丧。我厌倦了和自己说话。这不再起作用，它对我没有帮助。不过，我还会继续……</p>
+<p>TorMetal 2018 - TorMental是Team Hacking的出版物</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/29/TorMetal2018/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-网络匿名" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/28/网络匿名/">关于网络匿名</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/28/网络匿名/" class="archive-article-date">
+  	<time datetime="2018-07-28T13:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数字抵制政府和企业的间谍活动"><a href="#数字抵制政府和企业的间谍活动" class="headerlink" title="数字抵制政府和企业的间谍活动"></a>数字抵制政府和企业的间谍活动</h1><p>在暗网翻出来的，机翻的有点那个啥看看就就，非本人原创</p>
+<p>我们的目标：本指南假装教授安全的冲浪。它不会假装鼓励犯罪。这是一个概念上的指导。个人安全手册。知道一点，它永远不会伤害。</p>
+<p>我们认为，言论自由必须是一项真正的权利。匿名和隐私是一种保证。不幸的是，有人利用这一点来做恶。这个想法是用来对付政府和大公司。这是我们的目标。黑客行为。争取我们在网络中的权利。</p>
+<p>它们不会给我们上网，它是一种抑制和观察的工具。看见一切的眼睛，1984年的“老大哥”。这是一个新的互动数字“圣经”，它自动出现在我们面前。“religosidad”现在发挥政府的作用。间谍活动是在没有被人看到的情况下进行的。他们还将人们的私生活变成了公共事物。比如Facebook。了解人们的品味和欲望。比如谷歌。 不仅如此，他们发送给我们并用广告轰炸我们，建立没有感官的刻板印象的目标。</p>
+<p>计算机安全不仅仅是安装TOR浏览器。这是一个对技术态度，理解它如何运作的问题，因为它们可能会随着时间的推移而发生变化，但如果我们看到信息与个人安全没有改变，我们将一如既往地保持脆弱性。</p>
+<p>本指南旨在证明您可以在网络上拥有匿名配置文件。我们将从硬件转向软件再到我们的习惯。</p>
+<h3 id="硬件-软件级别："><a href="#硬件-软件级别：" class="headerlink" title="硬件/软件级别："></a>硬件/软件级别：</h3><p>首先，您应该为您的匿名任务获得一台笔记本电脑。你必须得到它的二手。如果它是新的或使用无关紧要，您的购买交易无需注册。尝试成为最常见，没有奢侈或浮华的计算机，可以让你识别。什么都不应该与你联系。从来没有，在任何情况下都不应该混合你的现实生活。你在这做什么应该留在这里。照顾好您的匿名个人资料。那么你不应该检查你的Facebook，或你的Gmail等。在这个团队中。</p>
+<p>将密码放在开头，然后放入设置。打开笔记本电脑时，您应该要求输入密码。磁盘必须由您格式化，安装您认为方便的操作系统，但即使这样，也要加密磁盘，pendrives以及您使用的所有内容。操作系统总是要求输入密码，甚至在屏幕保护程序后要求输入密码。不言而喻，它必须是一个强大的密码。团队名称必须尽可能标准。团队总是不得不带着你或者在一个隐蔽的地方，远离你。这取决于你做了什么。</p>
+<p>改变团队的MAC，如果你正在读这个，你必须知道它是什么。盖上相机和麦克风。仍然避免安装驱动程序。据斯诺登说，美国国家安全局可以进入，直到仍然关闭。除非您的VPN / Tor方案为您提供安全保护，否则不应使用此设备连接到Internet连接。此外，您不应该在此计算机上检查您喜欢的页面。同样，如果您希望匿名配置文件与您的真实生活档案保持匿名，则不应混淆您的匿名配置文件。从来没有。</p>
+<p>您最后必须使用Tor浏览器完成导航，但如果您需要使用通用浏览器，通过VPN，或代理socks5或Tor，您必须在隐身模式下使用它。虽然此模式会留下您使用互联网上的常用导航生成的相同跟踪，但隐身模式不会生成本地跟踪，Cookie，历史记录等。</p>
+<p>无论您使用何种操作系统，它都应该是英文版，其时间设置与您的不同。安装了更新的防病毒软件，如果可能的话安装防火墙和防恶魔软件。随着操作系统，它必须更新。安装必不可少的软件，并尽可能减少配置，删除所有不使用的软件，当然这也必须更新。<br>在浏览器中禁用“记住历史记录”。最好使用FireFox或其他开源，即使这样，也始终以隐身模式导航。退出浏览器时，切勿使用密码提醒并删除整个历史记录。如果您使用linux，请禁用bash历史记录，如果您使用Windows，则有许多软件可用于禁用它带来的间谍选项。在浏览器中安装附加组件，在任何地方安装https，而不是javascript，广告拦截器和随机代理。</p>
+<p>此外，您不必拥有可识别您身份的用户名和密码。它不必涉及个人品味，标题，身体特征，更不用说你的名字。顺便说一句，您使用的密码必须是唯一的，并且对于您输入的所有系统都不可重复。此外，它不应该有任何逻辑。例如，Facebook密钥不能fuck.facebook Gmail fuck.gmail等。如果你有逻辑，有人可以猜测甚至猜你的其他键。将替代搜索引擎用于Google。</p>
+<p>使用虚拟机，可以帮助我们，无论是测试来历不明的程序Opara只是上网冲浪有使后VM被删除或恢复回来，留下的各种证据。据CHEMA阿隆索，有恶意软件，可以“跳”虚拟机的主机系统。</p>
+<h3 id="Internet连接级别"><a href="#Internet连接级别" class="headerlink" title="Internet连接级别"></a>Internet连接级别</h3><p>切勿使用自己的Internet连接。使用破裂的wifis（这是非法的）或网吧，图书馆，公共场所。  例如，即使您可以使用USB AP连接到Wifis，它也是理想的选择，因为如果您检测到网络中存在的入侵，您可以快速丢弃该设备。使用VPN，当然还有TOR。有几个连接方案并交替使用它们。仍然尝试每隔一段时间使用新的VPN。 禁用我们的路由器到Internet的日志记录。从其他wifis路由器到我们连接的地方，如果我们能做到的话。<br>ISP可以记录我们的流量，使用https，它不再是保证。仅这一点就可以实现隐私，所以你不知道发生了什么，但是如果你知道我们连接到谷歌那么。VPN的使用将避免ISP，但VPN的人知道我们连接并且有流量，但他们无法破译它。<br>VPN，取决于它是否付费，取决于它所在的国家/地区。它可能记录也可能不记录我们的行为。真的很难知道它。阅读您的隐私政策。谨防美国VPN。<br>连接到网络的所有设备都有一个IP，我们使用的服务越多，无论是VPN，Tor，我们都会添加层，这会使我们更难以联系到我们。作为回报，牺牲速度但获得安全。</p>
+<h3 id="导航级别"><a href="#导航级别" class="headerlink" title="导航级别"></a>导航级别</h3><p>使用Proxies Web并不是一项艰巨的任务，无论代理记录我们的操作多少。例如，它用于测试另一个用户，该用户与我们正在使用的用户不同，并且不会保留在使用相同IP输入到两个不同帐户的系统中。<br>有些系统通过IP进行限制以进行查询。一个简单的Web代理可以跳过这个障碍。 像Tails这样的现场CD可以很好地解决所有问题。但请记住，绝对没有本地记录，但你在网络上做什么。 另外请记住，使用javascript，flash等，您可以找到您的IP，无论您采用的所有匿名超级措施如何。我们自己是最脆弱的一点。</p>
+<h3 id="安全策略级别"><a href="#安全策略级别" class="headerlink" title="安全策略级别"></a>安全策略级别</h3><p>这是最困难的级别。改变习惯，或有两个习惯。一个正常的互联网和另一平行于暗网维权的作用。为了谁捉住了，已经这样做了，他们通过写如何，甚至你的浏览行为，相同的连接方案和重复页面之间的导航最，先进入一本刊物，那么邮件，然后和好。小心点 一切都可以找到你。<br>阅读VPN，代理等的隐私政策。隐私政策。我认为，如果我们读coinciencia，从来没有什么更多的，我们会在网上注册。怎么可能是谷歌，Facebook等 自由吗？<br>不要谈论更多，并照顾所有充分说明的事情。所有被说和“写”的东西都可以用来对付我们。 总是想象有人在看着我们。让我们按照那样做。拥有所需的安全级别是我们的责任。<br>有匿名和一些临时邮件服务。根据我们开发的活动，它可以是一个很好的资源。 请记住，计算机专家基于痕迹，日志和记录的任何内容来指责我们。其余的是逻辑问题而不是技术问题。你不应该发表评论，说明某人可以认识到你的个性，你的意见，打字错误，西班牙语的当地方言等。小心你的写作或写作方式。所有这些问题都可以将您与现实生活情况联系起来。尽可能少地参与。即使种植虚假信息，也会生成与您无关的踪迹。永远不要告诉别人你做了什么。这可能会对你不利。</p>
+<h3 id="最后两个问题"><a href="#最后两个问题" class="headerlink" title="最后两个问题"></a>最后两个问题</h3><p>1.如果我们的电脑或手机落入当局的手中，会发生什么？<br>那不一定会发生。但是如果我们抢劫或丢失一些设备会发生什么。我们在那里拥有什么私人物品，我们不想落入坏人之手？<br>3.如果我们接近并且我们认为我们已经改变了互联网上的某些页面，会发生什么。我们准备好了吗？<br>我们的运营应始终基于之前的问题。</p>
+<p>除了技术观点之外，秘诀就是要有多种习惯，好像我们有多重性格一样。协会的概念非常重要。我们不应该出于任何原因将这两个人物联系起来，既不是真实的，也不是虚拟的，反之亦然。这是每个人都失败并被抓住的地方。封闭的嘴巴最终成为匿名的最佳工具。自我是你的主要敌人。</p>
+<p>对于一个自由思想的网络。知识分子革命现在开始了。</p>
+<h3 id="开放获取游击队的宣言摘录"><a href="#开放获取游击队的宣言摘录" class="headerlink" title="开放获取游击队的宣言摘录"></a>开放获取游击队的宣言摘录</h3><p>我们需要获取信息，无论它存储在何处，制作我们的副本并与世界分享。我们需要将没有复制权的内容添加到此文件中。我们需要购买秘密数据库并将其放在网上。我们需要下载科学期刊并将其上传到文件共享网络。我们需要打一场游击队进行开放存取。</p>
+<p>如果我们足够，在世界各地，我们不仅会发出反对知识私有化的强烈信息 - 我们将使它成为过去。你打算加入我们吗？</p>
+<p>Aaron Swartz<br>2008年7月，Eremo，意大利</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/28/网络匿名/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+  
+
+
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2019 l0ser
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		mathjax: false,
+		isHome: true,
+		isPost: false,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: ,
+		toc_hide_index: true,
+		root: "/",
+		innerArchive: true,
+		showTags: true
+	}
 </script>
 
+<script>!function(t){function n(e){if(r[e])return r[e].exports;var i=r[e]={exports:{},id:e,loaded:!1};return t[e].call(i.exports,i,i.exports,n),i.loaded=!0,i.exports}var r={};n.m=t,n.c=r,n.p="./",n(0)}([function(t,n,r){r(195),t.exports=r(191)},function(t,n,r){var e=r(3),i=r(52),o=r(27),u=r(28),c=r(53),f="prototype",a=function(t,n,r){var s,l,h,v,p=t&a.F,d=t&a.G,y=t&a.S,g=t&a.P,b=t&a.B,m=d?e:y?e[n]||(e[n]={}):(e[n]||{})[f],x=d?i:i[n]||(i[n]={}),w=x[f]||(x[f]={});d&&(r=n);for(s in r)l=!p&&m&&void 0!==m[s],h=(l?m:r)[s],v=b&&l?c(h,e):g&&"function"==typeof h?c(Function.call,h):h,m&&u(m,s,h,t&a.U),x[s]!=h&&o(x,s,v),g&&w[s]!=h&&(w[s]=h)};e.core=i,a.F=1,a.G=2,a.S=4,a.P=8,a.B=16,a.W=32,a.U=64,a.R=128,t.exports=a},function(t,n,r){var e=r(6);t.exports=function(t){if(!e(t))throw TypeError(t+" is not an object!");return t}},function(t,n){var r=t.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=r)},function(t,n){t.exports=function(t){try{return!!t()}catch(t){return!0}}},function(t,n){var r=t.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=r)},function(t,n){t.exports=function(t){return"object"==typeof t?null!==t:"function"==typeof t}},function(t,n,r){var e=r(126)("wks"),i=r(76),o=r(3).Symbol,u="function"==typeof o;(t.exports=function(t){return e[t]||(e[t]=u&&o[t]||(u?o:i)("Symbol."+t))}).store=e},function(t,n){var r={}.hasOwnProperty;t.exports=function(t,n){return r.call(t,n)}},function(t,n,r){var e=r(94),i=r(33);t.exports=function(t){return e(i(t))}},function(t,n,r){t.exports=!r(4)(function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a})},function(t,n,r){var e=r(2),i=r(167),o=r(50),u=Object.defineProperty;n.f=r(10)?Object.defineProperty:function(t,n,r){if(e(t),n=o(n,!0),e(r),i)try{return u(t,n,r)}catch(t){}if("get"in r||"set"in r)throw TypeError("Accessors not supported!");return"value"in r&&(t[n]=r.value),t}},function(t,n,r){t.exports=!r(18)(function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a})},function(t,n,r){var e=r(14),i=r(22);t.exports=r(12)?function(t,n,r){return e.f(t,n,i(1,r))}:function(t,n,r){return t[n]=r,t}},function(t,n,r){var e=r(20),i=r(58),o=r(42),u=Object.defineProperty;n.f=r(12)?Object.defineProperty:function(t,n,r){if(e(t),n=o(n,!0),e(r),i)try{return u(t,n,r)}catch(t){}if("get"in r||"set"in r)throw TypeError("Accessors not supported!");return"value"in r&&(t[n]=r.value),t}},function(t,n,r){var e=r(40)("wks"),i=r(23),o=r(5).Symbol,u="function"==typeof o;(t.exports=function(t){return e[t]||(e[t]=u&&o[t]||(u?o:i)("Symbol."+t))}).store=e},function(t,n,r){var e=r(67),i=Math.min;t.exports=function(t){return t>0?i(e(t),9007199254740991):0}},function(t,n,r){var e=r(46);t.exports=function(t){return Object(e(t))}},function(t,n){t.exports=function(t){try{return!!t()}catch(t){return!0}}},function(t,n,r){var e=r(63),i=r(34);t.exports=Object.keys||function(t){return e(t,i)}},function(t,n,r){var e=r(21);t.exports=function(t){if(!e(t))throw TypeError(t+" is not an object!");return t}},function(t,n){t.exports=function(t){return"object"==typeof t?null!==t:"function"==typeof t}},function(t,n){t.exports=function(t,n){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:n}}},function(t,n){var r=0,e=Math.random();t.exports=function(t){return"Symbol(".concat(void 0===t?"":t,")_",(++r+e).toString(36))}},function(t,n){var r={}.hasOwnProperty;t.exports=function(t,n){return r.call(t,n)}},function(t,n){var r=t.exports={version:"2.4.0"};"number"==typeof __e&&(__e=r)},function(t,n){t.exports=function(t){if("function"!=typeof t)throw TypeError(t+" is not a function!");return t}},function(t,n,r){var e=r(11),i=r(66);t.exports=r(10)?function(t,n,r){return e.f(t,n,i(1,r))}:function(t,n,r){return t[n]=r,t}},function(t,n,r){var e=r(3),i=r(27),o=r(24),u=r(76)("src"),c="toString",f=Function[c],a=(""+f).split(c);r(52).inspectSource=function(t){return f.call(t)},(t.exports=function(t,n,r,c){var f="function"==typeof r;f&&(o(r,"name")||i(r,"name",n)),t[n]!==r&&(f&&(o(r,u)||i(r,u,t[n]?""+t[n]:a.join(String(n)))),t===e?t[n]=r:c?t[n]?t[n]=r:i(t,n,r):(delete t[n],i(t,n,r)))})(Function.prototype,c,function(){return"function"==typeof this&&this[u]||f.call(this)})},function(t,n,r){var e=r(1),i=r(4),o=r(46),u=function(t,n,r,e){var i=String(o(t)),u="<"+n;return""!==r&&(u+=" "+r+'="'+String(e).replace(/"/g,"&quot;")+'"'),u+">"+i+"</"+n+">"};t.exports=function(t,n){var r={};r[t]=n(u),e(e.P+e.F*i(function(){var n=""[t]('"');return n!==n.toLowerCase()||n.split('"').length>3}),"String",r)}},function(t,n,r){var e=r(115),i=r(46);t.exports=function(t){return e(i(t))}},function(t,n,r){var e=r(116),i=r(66),o=r(30),u=r(50),c=r(24),f=r(167),a=Object.getOwnPropertyDescriptor;n.f=r(10)?a:function(t,n){if(t=o(t),n=u(n,!0),f)try{return a(t,n)}catch(t){}if(c(t,n))return i(!e.f.call(t,n),t[n])}},function(t,n,r){var e=r(24),i=r(17),o=r(145)("IE_PROTO"),u=Object.prototype;t.exports=Object.getPrototypeOf||function(t){return t=i(t),e(t,o)?t[o]:"function"==typeof t.constructor&&t instanceof t.constructor?t.constructor.prototype:t instanceof Object?u:null}},function(t,n){t.exports=function(t){if(void 0==t)throw TypeError("Can't call method on  "+t);return t}},function(t,n){t.exports="constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(",")},function(t,n){t.exports={}},function(t,n){t.exports=!0},function(t,n){n.f={}.propertyIsEnumerable},function(t,n,r){var e=r(14).f,i=r(8),o=r(15)("toStringTag");t.exports=function(t,n,r){t&&!i(t=r?t:t.prototype,o)&&e(t,o,{configurable:!0,value:n})}},function(t,n,r){var e=r(40)("keys"),i=r(23);t.exports=function(t){return e[t]||(e[t]=i(t))}},function(t,n,r){var e=r(5),i="__core-js_shared__",o=e[i]||(e[i]={});t.exports=function(t){return o[t]||(o[t]={})}},function(t,n){var r=Math.ceil,e=Math.floor;t.exports=function(t){return isNaN(t=+t)?0:(t>0?e:r)(t)}},function(t,n,r){var e=r(21);t.exports=function(t,n){if(!e(t))return t;var r,i;if(n&&"function"==typeof(r=t.toString)&&!e(i=r.call(t)))return i;if("function"==typeof(r=t.valueOf)&&!e(i=r.call(t)))return i;if(!n&&"function"==typeof(r=t.toString)&&!e(i=r.call(t)))return i;throw TypeError("Can't convert object to primitive value")}},function(t,n,r){var e=r(5),i=r(25),o=r(36),u=r(44),c=r(14).f;t.exports=function(t){var n=i.Symbol||(i.Symbol=o?{}:e.Symbol||{});"_"==t.charAt(0)||t in n||c(n,t,{value:u.f(t)})}},function(t,n,r){n.f=r(15)},function(t,n){var r={}.toString;t.exports=function(t){return r.call(t).slice(8,-1)}},function(t,n){t.exports=function(t){if(void 0==t)throw TypeError("Can't call method on  "+t);return t}},function(t,n,r){var e=r(4);t.exports=function(t,n){return!!t&&e(function(){n?t.call(null,function(){},1):t.call(null)})}},function(t,n,r){var e=r(53),i=r(115),o=r(17),u=r(16),c=r(203);t.exports=function(t,n){var r=1==t,f=2==t,a=3==t,s=4==t,l=6==t,h=5==t||l,v=n||c;return function(n,c,p){for(var d,y,g=o(n),b=i(g),m=e(c,p,3),x=u(b.length),w=0,S=r?v(n,x):f?v(n,0):void 0;x>w;w++)if((h||w in b)&&(d=b[w],y=m(d,w,g),t))if(r)S[w]=y;else if(y)switch(t){case 3:return!0;case 5:return d;case 6:return w;case 2:S.push(d)}else if(s)return!1;return l?-1:a||s?s:S}}},function(t,n,r){var e=r(1),i=r(52),o=r(4);t.exports=function(t,n){var r=(i.Object||{})[t]||Object[t],u={};u[t]=n(r),e(e.S+e.F*o(function(){r(1)}),"Object",u)}},function(t,n,r){var e=r(6);t.exports=function(t,n){if(!e(t))return t;var r,i;if(n&&"function"==typeof(r=t.toString)&&!e(i=r.call(t)))return i;if("function"==typeof(r=t.valueOf)&&!e(i=r.call(t)))return i;if(!n&&"function"==typeof(r=t.toString)&&!e(i=r.call(t)))return i;throw TypeError("Can't convert object to primitive value")}},function(t,n,r){var e=r(5),i=r(25),o=r(91),u=r(13),c="prototype",f=function(t,n,r){var a,s,l,h=t&f.F,v=t&f.G,p=t&f.S,d=t&f.P,y=t&f.B,g=t&f.W,b=v?i:i[n]||(i[n]={}),m=b[c],x=v?e:p?e[n]:(e[n]||{})[c];v&&(r=n);for(a in r)(s=!h&&x&&void 0!==x[a])&&a in b||(l=s?x[a]:r[a],b[a]=v&&"function"!=typeof x[a]?r[a]:y&&s?o(l,e):g&&x[a]==l?function(t){var n=function(n,r,e){if(this instanceof t){switch(arguments.length){case 0:return new t;case 1:return new t(n);case 2:return new t(n,r)}return new t(n,r,e)}return t.apply(this,arguments)};return n[c]=t[c],n}(l):d&&"function"==typeof l?o(Function.call,l):l,d&&((b.virtual||(b.virtual={}))[a]=l,t&f.R&&m&&!m[a]&&u(m,a,l)))};f.F=1,f.G=2,f.S=4,f.P=8,f.B=16,f.W=32,f.U=64,f.R=128,t.exports=f},function(t,n){var r=t.exports={version:"2.4.0"};"number"==typeof __e&&(__e=r)},function(t,n,r){var e=r(26);t.exports=function(t,n,r){if(e(t),void 0===n)return t;switch(r){case 1:return function(r){return t.call(n,r)};case 2:return function(r,e){return t.call(n,r,e)};case 3:return function(r,e,i){return t.call(n,r,e,i)}}return function(){return t.apply(n,arguments)}}},function(t,n,r){var e=r(183),i=r(1),o=r(126)("metadata"),u=o.store||(o.store=new(r(186))),c=function(t,n,r){var i=u.get(t);if(!i){if(!r)return;u.set(t,i=new e)}var o=i.get(n);if(!o){if(!r)return;i.set(n,o=new e)}return o},f=function(t,n,r){var e=c(n,r,!1);return void 0!==e&&e.has(t)},a=function(t,n,r){var e=c(n,r,!1);return void 0===e?void 0:e.get(t)},s=function(t,n,r,e){c(r,e,!0).set(t,n)},l=function(t,n){var r=c(t,n,!1),e=[];return r&&r.forEach(function(t,n){e.push(n)}),e},h=function(t){return void 0===t||"symbol"==typeof t?t:String(t)},v=function(t){i(i.S,"Reflect",t)};t.exports={store:u,map:c,has:f,get:a,set:s,keys:l,key:h,exp:v}},function(t,n,r){"use strict";if(r(10)){var e=r(69),i=r(3),o=r(4),u=r(1),c=r(127),f=r(152),a=r(53),s=r(68),l=r(66),h=r(27),v=r(73),p=r(67),d=r(16),y=r(75),g=r(50),b=r(24),m=r(180),x=r(114),w=r(6),S=r(17),_=r(137),O=r(70),E=r(32),P=r(71).f,j=r(154),F=r(76),M=r(7),A=r(48),N=r(117),T=r(146),I=r(155),k=r(80),L=r(123),R=r(74),C=r(130),D=r(160),U=r(11),W=r(31),G=U.f,B=W.f,V=i.RangeError,z=i.TypeError,q=i.Uint8Array,K="ArrayBuffer",J="Shared"+K,Y="BYTES_PER_ELEMENT",H="prototype",$=Array[H],X=f.ArrayBuffer,Q=f.DataView,Z=A(0),tt=A(2),nt=A(3),rt=A(4),et=A(5),it=A(6),ot=N(!0),ut=N(!1),ct=I.values,ft=I.keys,at=I.entries,st=$.lastIndexOf,lt=$.reduce,ht=$.reduceRight,vt=$.join,pt=$.sort,dt=$.slice,yt=$.toString,gt=$.toLocaleString,bt=M("iterator"),mt=M("toStringTag"),xt=F("typed_constructor"),wt=F("def_constructor"),St=c.CONSTR,_t=c.TYPED,Ot=c.VIEW,Et="Wrong length!",Pt=A(1,function(t,n){return Tt(T(t,t[wt]),n)}),jt=o(function(){return 1===new q(new Uint16Array([1]).buffer)[0]}),Ft=!!q&&!!q[H].set&&o(function(){new q(1).set({})}),Mt=function(t,n){if(void 0===t)throw z(Et);var r=+t,e=d(t);if(n&&!m(r,e))throw V(Et);return e},At=function(t,n){var r=p(t);if(r<0||r%n)throw V("Wrong offset!");return r},Nt=function(t){if(w(t)&&_t in t)return t;throw z(t+" is not a typed array!")},Tt=function(t,n){if(!(w(t)&&xt in t))throw z("It is not a typed array constructor!");return new t(n)},It=function(t,n){return kt(T(t,t[wt]),n)},kt=function(t,n){for(var r=0,e=n.length,i=Tt(t,e);e>r;)i[r]=n[r++];return i},Lt=function(t,n,r){G(t,n,{get:function(){return this._d[r]}})},Rt=function(t){var n,r,e,i,o,u,c=S(t),f=arguments.length,s=f>1?arguments[1]:void 0,l=void 0!==s,h=j(c);if(void 0!=h&&!_(h)){for(u=h.call(c),e=[],n=0;!(o=u.next()).done;n++)e.push(o.value);c=e}for(l&&f>2&&(s=a(s,arguments[2],2)),n=0,r=d(c.length),i=Tt(this,r);r>n;n++)i[n]=l?s(c[n],n):c[n];return i},Ct=function(){for(var t=0,n=arguments.length,r=Tt(this,n);n>t;)r[t]=arguments[t++];return r},Dt=!!q&&o(function(){gt.call(new q(1))}),Ut=function(){return gt.apply(Dt?dt.call(Nt(this)):Nt(this),arguments)},Wt={copyWithin:function(t,n){return D.call(Nt(this),t,n,arguments.length>2?arguments[2]:void 0)},every:function(t){return rt(Nt(this),t,arguments.length>1?arguments[1]:void 0)},fill:function(t){return C.apply(Nt(this),arguments)},filter:function(t){return It(this,tt(Nt(this),t,arguments.length>1?arguments[1]:void 0))},find:function(t){return et(Nt(this),t,arguments.length>1?arguments[1]:void 0)},findIndex:function(t){return it(Nt(this),t,arguments.length>1?arguments[1]:void 0)},forEach:function(t){Z(Nt(this),t,arguments.length>1?arguments[1]:void 0)},indexOf:function(t){return ut(Nt(this),t,arguments.length>1?arguments[1]:void 0)},includes:function(t){return ot(Nt(this),t,arguments.length>1?arguments[1]:void 0)},join:function(t){return vt.apply(Nt(this),arguments)},lastIndexOf:function(t){return st.apply(Nt(this),arguments)},map:function(t){return Pt(Nt(this),t,arguments.length>1?arguments[1]:void 0)},reduce:function(t){return lt.apply(Nt(this),arguments)},reduceRight:function(t){return ht.apply(Nt(this),arguments)},reverse:function(){for(var t,n=this,r=Nt(n).length,e=Math.floor(r/2),i=0;i<e;)t=n[i],n[i++]=n[--r],n[r]=t;return n},some:function(t){return nt(Nt(this),t,arguments.length>1?arguments[1]:void 0)},sort:function(t){return pt.call(Nt(this),t)},subarray:function(t,n){var r=Nt(this),e=r.length,i=y(t,e);return new(T(r,r[wt]))(r.buffer,r.byteOffset+i*r.BYTES_PER_ELEMENT,d((void 0===n?e:y(n,e))-i))}},Gt=function(t,n){return It(this,dt.call(Nt(this),t,n))},Bt=function(t){Nt(this);var n=At(arguments[1],1),r=this.length,e=S(t),i=d(e.length),o=0;if(i+n>r)throw V(Et);for(;o<i;)this[n+o]=e[o++]},Vt={entries:function(){return at.call(Nt(this))},keys:function(){return ft.call(Nt(this))},values:function(){return ct.call(Nt(this))}},zt=function(t,n){return w(t)&&t[_t]&&"symbol"!=typeof n&&n in t&&String(+n)==String(n)},qt=function(t,n){return zt(t,n=g(n,!0))?l(2,t[n]):B(t,n)},Kt=function(t,n,r){return!(zt(t,n=g(n,!0))&&w(r)&&b(r,"value"))||b(r,"get")||b(r,"set")||r.configurable||b(r,"writable")&&!r.writable||b(r,"enumerable")&&!r.enumerable?G(t,n,r):(t[n]=r.value,t)};St||(W.f=qt,U.f=Kt),u(u.S+u.F*!St,"Object",{getOwnPropertyDescriptor:qt,defineProperty:Kt}),o(function(){yt.call({})})&&(yt=gt=function(){return vt.call(this)});var Jt=v({},Wt);v(Jt,Vt),h(Jt,bt,Vt.values),v(Jt,{slice:Gt,set:Bt,constructor:function(){},toString:yt,toLocaleString:Ut}),Lt(Jt,"buffer","b"),Lt(Jt,"byteOffset","o"),Lt(Jt,"byteLength","l"),Lt(Jt,"length","e"),G(Jt,mt,{get:function(){return this[_t]}}),t.exports=function(t,n,r,f){f=!!f;var a=t+(f?"Clamped":"")+"Array",l="Uint8Array"!=a,v="get"+t,p="set"+t,y=i[a],g=y||{},b=y&&E(y),m=!y||!c.ABV,S={},_=y&&y[H],j=function(t,r){var e=t._d;return e.v[v](r*n+e.o,jt)},F=function(t,r,e){var i=t._d;f&&(e=(e=Math.round(e))<0?0:e>255?255:255&e),i.v[p](r*n+i.o,e,jt)},M=function(t,n){G(t,n,{get:function(){return j(this,n)},set:function(t){return F(this,n,t)},enumerable:!0})};m?(y=r(function(t,r,e,i){s(t,y,a,"_d");var o,u,c,f,l=0,v=0;if(w(r)){if(!(r instanceof X||(f=x(r))==K||f==J))return _t in r?kt(y,r):Rt.call(y,r);o=r,v=At(e,n);var p=r.byteLength;if(void 0===i){if(p%n)throw V(Et);if((u=p-v)<0)throw V(Et)}else if((u=d(i)*n)+v>p)throw V(Et);c=u/n}else c=Mt(r,!0),u=c*n,o=new X(u);for(h(t,"_d",{b:o,o:v,l:u,e:c,v:new Q(o)});l<c;)M(t,l++)}),_=y[H]=O(Jt),h(_,"constructor",y)):L(function(t){new y(null),new y(t)},!0)||(y=r(function(t,r,e,i){s(t,y,a);var o;return w(r)?r instanceof X||(o=x(r))==K||o==J?void 0!==i?new g(r,At(e,n),i):void 0!==e?new g(r,At(e,n)):new g(r):_t in r?kt(y,r):Rt.call(y,r):new g(Mt(r,l))}),Z(b!==Function.prototype?P(g).concat(P(b)):P(g),function(t){t in y||h(y,t,g[t])}),y[H]=_,e||(_.constructor=y));var A=_[bt],N=!!A&&("values"==A.name||void 0==A.name),T=Vt.values;h(y,xt,!0),h(_,_t,a),h(_,Ot,!0),h(_,wt,y),(f?new y(1)[mt]==a:mt in _)||G(_,mt,{get:function(){return a}}),S[a]=y,u(u.G+u.W+u.F*(y!=g),S),u(u.S,a,{BYTES_PER_ELEMENT:n,from:Rt,of:Ct}),Y in _||h(_,Y,n),u(u.P,a,Wt),R(a),u(u.P+u.F*Ft,a,{set:Bt}),u(u.P+u.F*!N,a,Vt),u(u.P+u.F*(_.toString!=yt),a,{toString:yt}),u(u.P+u.F*o(function(){new y(1).slice()}),a,{slice:Gt}),u(u.P+u.F*(o(function(){return[1,2].toLocaleString()!=new y([1,2]).toLocaleString()})||!o(function(){_.toLocaleString.call([1,2])})),a,{toLocaleString:Ut}),k[a]=N?A:T,e||N||h(_,bt,T)}}else t.exports=function(){}},function(t,n){var r={}.toString;t.exports=function(t){return r.call(t).slice(8,-1)}},function(t,n,r){var e=r(21),i=r(5).document,o=e(i)&&e(i.createElement);t.exports=function(t){return o?i.createElement(t):{}}},function(t,n,r){t.exports=!r(12)&&!r(18)(function(){return 7!=Object.defineProperty(r(57)("div"),"a",{get:function(){return 7}}).a})},function(t,n,r){"use strict";var e=r(36),i=r(51),o=r(64),u=r(13),c=r(8),f=r(35),a=r(96),s=r(38),l=r(103),h=r(15)("iterator"),v=!([].keys&&"next"in[].keys()),p="keys",d="values",y=function(){return this};t.exports=function(t,n,r,g,b,m,x){a(r,n,g);var w,S,_,O=function(t){if(!v&&t in F)return F[t];switch(t){case p:case d:return function(){return new r(this,t)}}return function(){return new r(this,t)}},E=n+" Iterator",P=b==d,j=!1,F=t.prototype,M=F[h]||F["@@iterator"]||b&&F[b],A=M||O(b),N=b?P?O("entries"):A:void 0,T="Array"==n?F.entries||M:M;if(T&&(_=l(T.call(new t)))!==Object.prototype&&(s(_,E,!0),e||c(_,h)||u(_,h,y)),P&&M&&M.name!==d&&(j=!0,A=function(){return M.call(this)}),e&&!x||!v&&!j&&F[h]||u(F,h,A),f[n]=A,f[E]=y,b)if(w={values:P?A:O(d),keys:m?A:O(p),entries:N},x)for(S in w)S in F||o(F,S,w[S]);else i(i.P+i.F*(v||j),n,w);return w}},function(t,n,r){var e=r(20),i=r(100),o=r(34),u=r(39)("IE_PROTO"),c=function(){},f="prototype",a=function(){var t,n=r(57)("iframe"),e=o.length;for(n.style.display="none",r(93).appendChild(n),n.src="javascript:",t=n.contentWindow.document,t.open(),t.write("<script>document.F=Object<\/script>"),t.close(),a=t.F;e--;)delete a[f][o[e]];return a()};t.exports=Object.create||function(t,n){var r;return null!==t?(c[f]=e(t),r=new c,c[f]=null,r[u]=t):r=a(),void 0===n?r:i(r,n)}},function(t,n,r){var e=r(63),i=r(34).concat("length","prototype");n.f=Object.getOwnPropertyNames||function(t){return e(t,i)}},function(t,n){n.f=Object.getOwnPropertySymbols},function(t,n,r){var e=r(8),i=r(9),o=r(90)(!1),u=r(39)("IE_PROTO");t.exports=function(t,n){var r,c=i(t),f=0,a=[];for(r in c)r!=u&&e(c,r)&&a.push(r);for(;n.length>f;)e(c,r=n[f++])&&(~o(a,r)||a.push(r));return a}},function(t,n,r){t.exports=r(13)},function(t,n,r){var e=r(76)("meta"),i=r(6),o=r(24),u=r(11).f,c=0,f=Object.isExtensible||function(){return!0},a=!r(4)(function(){return f(Object.preventExtensions({}))}),s=function(t){u(t,e,{value:{i:"O"+ ++c,w:{}}})},l=function(t,n){if(!i(t))return"symbol"==typeof t?t:("string"==typeof t?"S":"P")+t;if(!o(t,e)){if(!f(t))return"F";if(!n)return"E";s(t)}return t[e].i},h=function(t,n){if(!o(t,e)){if(!f(t))return!0;if(!n)return!1;s(t)}return t[e].w},v=function(t){return a&&p.NEED&&f(t)&&!o(t,e)&&s(t),t},p=t.exports={KEY:e,NEED:!1,fastKey:l,getWeak:h,onFreeze:v}},function(t,n){t.exports=function(t,n){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:n}}},function(t,n){var r=Math.ceil,e=Math.floor;t.exports=function(t){return isNaN(t=+t)?0:(t>0?e:r)(t)}},function(t,n){t.exports=function(t,n,r,e){if(!(t instanceof n)||void 0!==e&&e in t)throw TypeError(r+": incorrect invocation!");return t}},function(t,n){t.exports=!1},function(t,n,r){var e=r(2),i=r(173),o=r(133),u=r(145)("IE_PROTO"),c=function(){},f="prototype",a=function(){var t,n=r(132)("iframe"),e=o.length;for(n.style.display="none",r(135).appendChild(n),n.src="javascript:",t=n.contentWindow.document,t.open(),t.write("<script>document.F=Object<\/script>"),t.close(),a=t.F;e--;)delete a[f][o[e]];return a()};t.exports=Object.create||function(t,n){var r;return null!==t?(c[f]=e(t),r=new c,c[f]=null,r[u]=t):r=a(),void 0===n?r:i(r,n)}},function(t,n,r){var e=r(175),i=r(133).concat("length","prototype");n.f=Object.getOwnPropertyNames||function(t){return e(t,i)}},function(t,n,r){var e=r(175),i=r(133);t.exports=Object.keys||function(t){return e(t,i)}},function(t,n,r){var e=r(28);t.exports=function(t,n,r){for(var i in n)e(t,i,n[i],r);return t}},function(t,n,r){"use strict";var e=r(3),i=r(11),o=r(10),u=r(7)("species");t.exports=function(t){var n=e[t];o&&n&&!n[u]&&i.f(n,u,{configurable:!0,get:function(){return this}})}},function(t,n,r){var e=r(67),i=Math.max,o=Math.min;t.exports=function(t,n){return t=e(t),t<0?i(t+n,0):o(t,n)}},function(t,n){var r=0,e=Math.random();t.exports=function(t){return"Symbol(".concat(void 0===t?"":t,")_",(++r+e).toString(36))}},function(t,n,r){var e=r(33);t.exports=function(t){return Object(e(t))}},function(t,n,r){var e=r(7)("unscopables"),i=Array.prototype;void 0==i[e]&&r(27)(i,e,{}),t.exports=function(t){i[e][t]=!0}},function(t,n,r){var e=r(53),i=r(169),o=r(137),u=r(2),c=r(16),f=r(154),a={},s={},n=t.exports=function(t,n,r,l,h){var v,p,d,y,g=h?function(){return t}:f(t),b=e(r,l,n?2:1),m=0;if("function"!=typeof g)throw TypeError(t+" is not iterable!");if(o(g)){for(v=c(t.length);v>m;m++)if((y=n?b(u(p=t[m])[0],p[1]):b(t[m]))===a||y===s)return y}else for(d=g.call(t);!(p=d.next()).done;)if((y=i(d,b,p.value,n))===a||y===s)return y};n.BREAK=a,n.RETURN=s},function(t,n){t.exports={}},function(t,n,r){var e=r(11).f,i=r(24),o=r(7)("toStringTag");t.exports=function(t,n,r){t&&!i(t=r?t:t.prototype,o)&&e(t,o,{configurable:!0,value:n})}},function(t,n,r){var e=r(1),i=r(46),o=r(4),u=r(150),c="["+u+"]",f="​",a=RegExp("^"+c+c+"*"),s=RegExp(c+c+"*$"),l=function(t,n,r){var i={},c=o(function(){return!!u[t]()||f[t]()!=f}),a=i[t]=c?n(h):u[t];r&&(i[r]=a),e(e.P+e.F*c,"String",i)},h=l.trim=function(t,n){return t=String(i(t)),1&n&&(t=t.replace(a,"")),2&n&&(t=t.replace(s,"")),t};t.exports=l},function(t,n,r){t.exports={default:r(86),__esModule:!0}},function(t,n,r){t.exports={default:r(87),__esModule:!0}},function(t,n,r){"use strict";function e(t){return t&&t.__esModule?t:{default:t}}n.__esModule=!0;var i=r(84),o=e(i),u=r(83),c=e(u),f="function"==typeof c.default&&"symbol"==typeof o.default?function(t){return typeof t}:function(t){return t&&"function"==typeof c.default&&t.constructor===c.default&&t!==c.default.prototype?"symbol":typeof t};n.default="function"==typeof c.default&&"symbol"===f(o.default)?function(t){return void 0===t?"undefined":f(t)}:function(t){return t&&"function"==typeof c.default&&t.constructor===c.default&&t!==c.default.prototype?"symbol":void 0===t?"undefined":f(t)}},function(t,n,r){r(110),r(108),r(111),r(112),t.exports=r(25).Symbol},function(t,n,r){r(109),r(113),t.exports=r(44).f("iterator")},function(t,n){t.exports=function(t){if("function"!=typeof t)throw TypeError(t+" is not a function!");return t}},function(t,n){t.exports=function(){}},function(t,n,r){var e=r(9),i=r(106),o=r(105);t.exports=function(t){return function(n,r,u){var c,f=e(n),a=i(f.length),s=o(u,a);if(t&&r!=r){for(;a>s;)if((c=f[s++])!=c)return!0}else for(;a>s;s++)if((t||s in f)&&f[s]===r)return t||s||0;return!t&&-1}}},function(t,n,r){var e=r(88);t.exports=function(t,n,r){if(e(t),void 0===n)return t;switch(r){case 1:return function(r){return t.call(n,r)};case 2:return function(r,e){return t.call(n,r,e)};case 3:return function(r,e,i){return t.call(n,r,e,i)}}return function(){return t.apply(n,arguments)}}},function(t,n,r){var e=r(19),i=r(62),o=r(37);t.exports=function(t){var n=e(t),r=i.f;if(r)for(var u,c=r(t),f=o.f,a=0;c.length>a;)f.call(t,u=c[a++])&&n.push(u);return n}},function(t,n,r){t.exports=r(5).document&&document.documentElement},function(t,n,r){var e=r(56);t.exports=Object("z").propertyIsEnumerable(0)?Object:function(t){return"String"==e(t)?t.split(""):Object(t)}},function(t,n,r){var e=r(56);t.exports=Array.isArray||function(t){return"Array"==e(t)}},function(t,n,r){"use strict";var e=r(60),i=r(22),o=r(38),u={};r(13)(u,r(15)("iterator"),function(){return this}),t.exports=function(t,n,r){t.prototype=e(u,{next:i(1,r)}),o(t,n+" Iterator")}},function(t,n){t.exports=function(t,n){return{value:n,done:!!t}}},function(t,n,r){var e=r(19),i=r(9);t.exports=function(t,n){for(var r,o=i(t),u=e(o),c=u.length,f=0;c>f;)if(o[r=u[f++]]===n)return r}},function(t,n,r){var e=r(23)("meta"),i=r(21),o=r(8),u=r(14).f,c=0,f=Object.isExtensible||function(){return!0},a=!r(18)(function(){return f(Object.preventExtensions({}))}),s=function(t){u(t,e,{value:{i:"O"+ ++c,w:{}}})},l=function(t,n){if(!i(t))return"symbol"==typeof t?t:("string"==typeof t?"S":"P")+t;if(!o(t,e)){if(!f(t))return"F";if(!n)return"E";s(t)}return t[e].i},h=function(t,n){if(!o(t,e)){if(!f(t))return!0;if(!n)return!1;s(t)}return t[e].w},v=function(t){return a&&p.NEED&&f(t)&&!o(t,e)&&s(t),t},p=t.exports={KEY:e,NEED:!1,fastKey:l,getWeak:h,onFreeze:v}},function(t,n,r){var e=r(14),i=r(20),o=r(19);t.exports=r(12)?Object.defineProperties:function(t,n){i(t);for(var r,u=o(n),c=u.length,f=0;c>f;)e.f(t,r=u[f++],n[r]);return t}},function(t,n,r){var e=r(37),i=r(22),o=r(9),u=r(42),c=r(8),f=r(58),a=Object.getOwnPropertyDescriptor;n.f=r(12)?a:function(t,n){if(t=o(t),n=u(n,!0),f)try{return a(t,n)}catch(t){}if(c(t,n))return i(!e.f.call(t,n),t[n])}},function(t,n,r){var e=r(9),i=r(61).f,o={}.toString,u="object"==typeof window&&window&&Object.getOwnPropertyNames?Object.getOwnPropertyNames(window):[],c=function(t){try{return i(t)}catch(t){return u.slice()}};t.exports.f=function(t){return u&&"[object Window]"==o.call(t)?c(t):i(e(t))}},function(t,n,r){var e=r(8),i=r(77),o=r(39)("IE_PROTO"),u=Object.prototype;t.exports=Object.getPrototypeOf||function(t){return t=i(t),e(t,o)?t[o]:"function"==typeof t.constructor&&t instanceof t.constructor?t.constructor.prototype:t instanceof Object?u:null}},function(t,n,r){var e=r(41),i=r(33);t.exports=function(t){return function(n,r){var o,u,c=String(i(n)),f=e(r),a=c.length;return f<0||f>=a?t?"":void 0:(o=c.charCodeAt(f),o<55296||o>56319||f+1===a||(u=c.charCodeAt(f+1))<56320||u>57343?t?c.charAt(f):o:t?c.slice(f,f+2):u-56320+(o-55296<<10)+65536)}}},function(t,n,r){var e=r(41),i=Math.max,o=Math.min;t.exports=function(t,n){return t=e(t),t<0?i(t+n,0):o(t,n)}},function(t,n,r){var e=r(41),i=Math.min;t.exports=function(t){return t>0?i(e(t),9007199254740991):0}},function(t,n,r){"use strict";var e=r(89),i=r(97),o=r(35),u=r(9);t.exports=r(59)(Array,"Array",function(t,n){this._t=u(t),this._i=0,this._k=n},function(){var t=this._t,n=this._k,r=this._i++;return!t||r>=t.length?(this._t=void 0,i(1)):"keys"==n?i(0,r):"values"==n?i(0,t[r]):i(0,[r,t[r]])},"values"),o.Arguments=o.Array,e("keys"),e("values"),e("entries")},function(t,n){},function(t,n,r){"use strict";var e=r(104)(!0);r(59)(String,"String",function(t){this._t=String(t),this._i=0},function(){var t,n=this._t,r=this._i;return r>=n.length?{value:void 0,done:!0}:(t=e(n,r),this._i+=t.length,{value:t,done:!1})})},function(t,n,r){"use strict";var e=r(5),i=r(8),o=r(12),u=r(51),c=r(64),f=r(99).KEY,a=r(18),s=r(40),l=r(38),h=r(23),v=r(15),p=r(44),d=r(43),y=r(98),g=r(92),b=r(95),m=r(20),x=r(9),w=r(42),S=r(22),_=r(60),O=r(102),E=r(101),P=r(14),j=r(19),F=E.f,M=P.f,A=O.f,N=e.Symbol,T=e.JSON,I=T&&T.stringify,k="prototype",L=v("_hidden"),R=v("toPrimitive"),C={}.propertyIsEnumerable,D=s("symbol-registry"),U=s("symbols"),W=s("op-symbols"),G=Object[k],B="function"==typeof N,V=e.QObject,z=!V||!V[k]||!V[k].findChild,q=o&&a(function(){return 7!=_(M({},"a",{get:function(){return M(this,"a",{value:7}).a}})).a})?function(t,n,r){var e=F(G,n);e&&delete G[n],M(t,n,r),e&&t!==G&&M(G,n,e)}:M,K=function(t){var n=U[t]=_(N[k]);return n._k=t,n},J=B&&"symbol"==typeof N.iterator?function(t){return"symbol"==typeof t}:function(t){return t instanceof N},Y=function(t,n,r){return t===G&&Y(W,n,r),m(t),n=w(n,!0),m(r),i(U,n)?(r.enumerable?(i(t,L)&&t[L][n]&&(t[L][n]=!1),r=_(r,{enumerable:S(0,!1)})):(i(t,L)||M(t,L,S(1,{})),t[L][n]=!0),q(t,n,r)):M(t,n,r)},H=function(t,n){m(t);for(var r,e=g(n=x(n)),i=0,o=e.length;o>i;)Y(t,r=e[i++],n[r]);return t},$=function(t,n){return void 0===n?_(t):H(_(t),n)},X=function(t){var n=C.call(this,t=w(t,!0));return!(this===G&&i(U,t)&&!i(W,t))&&(!(n||!i(this,t)||!i(U,t)||i(this,L)&&this[L][t])||n)},Q=function(t,n){if(t=x(t),n=w(n,!0),t!==G||!i(U,n)||i(W,n)){var r=F(t,n);return!r||!i(U,n)||i(t,L)&&t[L][n]||(r.enumerable=!0),r}},Z=function(t){for(var n,r=A(x(t)),e=[],o=0;r.length>o;)i(U,n=r[o++])||n==L||n==f||e.push(n);return e},tt=function(t){for(var n,r=t===G,e=A(r?W:x(t)),o=[],u=0;e.length>u;)!i(U,n=e[u++])||r&&!i(G,n)||o.push(U[n]);return o};B||(N=function(){if(this instanceof N)throw TypeError("Symbol is not a constructor!");var t=h(arguments.length>0?arguments[0]:void 0),n=function(r){this===G&&n.call(W,r),i(this,L)&&i(this[L],t)&&(this[L][t]=!1),q(this,t,S(1,r))};return o&&z&&q(G,t,{configurable:!0,set:n}),K(t)},c(N[k],"toString",function(){return this._k}),E.f=Q,P.f=Y,r(61).f=O.f=Z,r(37).f=X,r(62).f=tt,o&&!r(36)&&c(G,"propertyIsEnumerable",X,!0),p.f=function(t){return K(v(t))}),u(u.G+u.W+u.F*!B,{Symbol:N});for(var nt="hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables".split(","),rt=0;nt.length>rt;)v(nt[rt++]);for(var nt=j(v.store),rt=0;nt.length>rt;)d(nt[rt++]);u(u.S+u.F*!B,"Symbol",{for:function(t){return i(D,t+="")?D[t]:D[t]=N(t)},keyFor:function(t){if(J(t))return y(D,t);throw TypeError(t+" is not a symbol!")},useSetter:function(){z=!0},useSimple:function(){z=!1}}),u(u.S+u.F*!B,"Object",{create:$,defineProperty:Y,defineProperties:H,getOwnPropertyDescriptor:Q,getOwnPropertyNames:Z,getOwnPropertySymbols:tt}),T&&u(u.S+u.F*(!B||a(function(){var t=N();return"[null]"!=I([t])||"{}"!=I({a:t})||"{}"!=I(Object(t))})),"JSON",{stringify:function(t){if(void 0!==t&&!J(t)){for(var n,r,e=[t],i=1;arguments.length>i;)e.push(arguments[i++]);return n=e[1],"function"==typeof n&&(r=n),!r&&b(n)||(n=function(t,n){if(r&&(n=r.call(this,t,n)),!J(n))return n}),e[1]=n,I.apply(T,e)}}}),N[k][R]||r(13)(N[k],R,N[k].valueOf),l(N,"Symbol"),l(Math,"Math",!0),l(e.JSON,"JSON",!0)},function(t,n,r){r(43)("asyncIterator")},function(t,n,r){r(43)("observable")},function(t,n,r){r(107);for(var e=r(5),i=r(13),o=r(35),u=r(15)("toStringTag"),c=["NodeList","DOMTokenList","MediaList","StyleSheetList","CSSRuleList"],f=0;f<5;f++){var a=c[f],s=e[a],l=s&&s.prototype;l&&!l[u]&&i(l,u,a),o[a]=o.Array}},function(t,n,r){var e=r(45),i=r(7)("toStringTag"),o="Arguments"==e(function(){return arguments}()),u=function(t,n){try{return t[n]}catch(t){}};t.exports=function(t){var n,r,c;return void 0===t?"Undefined":null===t?"Null":"string"==typeof(r=u(n=Object(t),i))?r:o?e(n):"Object"==(c=e(n))&&"function"==typeof n.callee?"Arguments":c}},function(t,n,r){var e=r(45);t.exports=Object("z").propertyIsEnumerable(0)?Object:function(t){return"String"==e(t)?t.split(""):Object(t)}},function(t,n){n.f={}.propertyIsEnumerable},function(t,n,r){var e=r(30),i=r(16),o=r(75);t.exports=function(t){return function(n,r,u){var c,f=e(n),a=i(f.length),s=o(u,a);if(t&&r!=r){for(;a>s;)if((c=f[s++])!=c)return!0}else for(;a>s;s++)if((t||s in f)&&f[s]===r)return t||s||0;return!t&&-1}}},function(t,n,r){"use strict";var e=r(3),i=r(1),o=r(28),u=r(73),c=r(65),f=r(79),a=r(68),s=r(6),l=r(4),h=r(123),v=r(81),p=r(136);t.exports=function(t,n,r,d,y,g){var b=e[t],m=b,x=y?"set":"add",w=m&&m.prototype,S={},_=function(t){var n=w[t];o(w,t,"delete"==t?function(t){return!(g&&!s(t))&&n.call(this,0===t?0:t)}:"has"==t?function(t){return!(g&&!s(t))&&n.call(this,0===t?0:t)}:"get"==t?function(t){return g&&!s(t)?void 0:n.call(this,0===t?0:t)}:"add"==t?function(t){return n.call(this,0===t?0:t),this}:function(t,r){return n.call(this,0===t?0:t,r),this})};if("function"==typeof m&&(g||w.forEach&&!l(function(){(new m).entries().next()}))){var O=new m,E=O[x](g?{}:-0,1)!=O,P=l(function(){O.has(1)}),j=h(function(t){new m(t)}),F=!g&&l(function(){for(var t=new m,n=5;n--;)t[x](n,n);return!t.has(-0)});j||(m=n(function(n,r){a(n,m,t);var e=p(new b,n,m);return void 0!=r&&f(r,y,e[x],e),e}),m.prototype=w,w.constructor=m),(P||F)&&(_("delete"),_("has"),y&&_("get")),(F||E)&&_(x),g&&w.clear&&delete w.clear}else m=d.getConstructor(n,t,y,x),u(m.prototype,r),c.NEED=!0;return v(m,t),S[t]=m,i(i.G+i.W+i.F*(m!=b),S),g||d.setStrong(m,t,y),m}},function(t,n,r){"use strict";var e=r(27),i=r(28),o=r(4),u=r(46),c=r(7);t.exports=function(t,n,r){var f=c(t),a=r(u,f,""[t]),s=a[0],l=a[1];o(function(){var n={};return n[f]=function(){return 7},7!=""[t](n)})&&(i(String.prototype,t,s),e(RegExp.prototype,f,2==n?function(t,n){return l.call(t,this,n)}:function(t){return l.call(t,this)}))}
+},function(t,n,r){"use strict";var e=r(2);t.exports=function(){var t=e(this),n="";return t.global&&(n+="g"),t.ignoreCase&&(n+="i"),t.multiline&&(n+="m"),t.unicode&&(n+="u"),t.sticky&&(n+="y"),n}},function(t,n){t.exports=function(t,n,r){var e=void 0===r;switch(n.length){case 0:return e?t():t.call(r);case 1:return e?t(n[0]):t.call(r,n[0]);case 2:return e?t(n[0],n[1]):t.call(r,n[0],n[1]);case 3:return e?t(n[0],n[1],n[2]):t.call(r,n[0],n[1],n[2]);case 4:return e?t(n[0],n[1],n[2],n[3]):t.call(r,n[0],n[1],n[2],n[3])}return t.apply(r,n)}},function(t,n,r){var e=r(6),i=r(45),o=r(7)("match");t.exports=function(t){var n;return e(t)&&(void 0!==(n=t[o])?!!n:"RegExp"==i(t))}},function(t,n,r){var e=r(7)("iterator"),i=!1;try{var o=[7][e]();o.return=function(){i=!0},Array.from(o,function(){throw 2})}catch(t){}t.exports=function(t,n){if(!n&&!i)return!1;var r=!1;try{var o=[7],u=o[e]();u.next=function(){return{done:r=!0}},o[e]=function(){return u},t(o)}catch(t){}return r}},function(t,n,r){t.exports=r(69)||!r(4)(function(){var t=Math.random();__defineSetter__.call(null,t,function(){}),delete r(3)[t]})},function(t,n){n.f=Object.getOwnPropertySymbols},function(t,n,r){var e=r(3),i="__core-js_shared__",o=e[i]||(e[i]={});t.exports=function(t){return o[t]||(o[t]={})}},function(t,n,r){for(var e,i=r(3),o=r(27),u=r(76),c=u("typed_array"),f=u("view"),a=!(!i.ArrayBuffer||!i.DataView),s=a,l=0,h="Int8Array,Uint8Array,Uint8ClampedArray,Int16Array,Uint16Array,Int32Array,Uint32Array,Float32Array,Float64Array".split(",");l<9;)(e=i[h[l++]])?(o(e.prototype,c,!0),o(e.prototype,f,!0)):s=!1;t.exports={ABV:a,CONSTR:s,TYPED:c,VIEW:f}},function(t,n){"use strict";var r={versions:function(){var t=window.navigator.userAgent;return{trident:t.indexOf("Trident")>-1,presto:t.indexOf("Presto")>-1,webKit:t.indexOf("AppleWebKit")>-1,gecko:t.indexOf("Gecko")>-1&&-1==t.indexOf("KHTML"),mobile:!!t.match(/AppleWebKit.*Mobile.*/),ios:!!t.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),android:t.indexOf("Android")>-1||t.indexOf("Linux")>-1,iPhone:t.indexOf("iPhone")>-1||t.indexOf("Mac")>-1,iPad:t.indexOf("iPad")>-1,webApp:-1==t.indexOf("Safari"),weixin:-1==t.indexOf("MicroMessenger")}}()};t.exports=r},function(t,n,r){"use strict";var e=r(85),i=function(t){return t&&t.__esModule?t:{default:t}}(e),o=function(){function t(t,n,e){return n||e?String.fromCharCode(n||e):r[t]||t}function n(t){return e[t]}var r={"&quot;":'"',"&lt;":"<","&gt;":">","&amp;":"&","&nbsp;":" "},e={};for(var u in r)e[r[u]]=u;return r["&apos;"]="'",e["'"]="&#39;",{encode:function(t){return t?(""+t).replace(/['<> "&]/g,n).replace(/\r?\n/g,"<br/>").replace(/\s/g,"&nbsp;"):""},decode:function(n){return n?(""+n).replace(/<br\s*\/?>/gi,"\n").replace(/&quot;|&lt;|&gt;|&amp;|&nbsp;|&apos;|&#(\d+);|&#(\d+)/g,t).replace(/\u00a0/g," "):""},encodeBase16:function(t){if(!t)return t;t+="";for(var n=[],r=0,e=t.length;e>r;r++)n.push(t.charCodeAt(r).toString(16).toUpperCase());return n.join("")},encodeBase16forJSON:function(t){if(!t)return t;t=t.replace(/[\u4E00-\u9FBF]/gi,function(t){return escape(t).replace("%u","\\u")});for(var n=[],r=0,e=t.length;e>r;r++)n.push(t.charCodeAt(r).toString(16).toUpperCase());return n.join("")},decodeBase16:function(t){if(!t)return t;t+="";for(var n=[],r=0,e=t.length;e>r;r+=2)n.push(String.fromCharCode("0x"+t.slice(r,r+2)));return n.join("")},encodeObject:function(t){if(t instanceof Array)for(var n=0,r=t.length;r>n;n++)t[n]=o.encodeObject(t[n]);else if("object"==(void 0===t?"undefined":(0,i.default)(t)))for(var e in t)t[e]=o.encodeObject(t[e]);else if("string"==typeof t)return o.encode(t);return t},loadScript:function(t){var n=document.createElement("script");document.getElementsByTagName("body")[0].appendChild(n),n.setAttribute("src",t)},addLoadEvent:function(t){var n=window.onload;"function"!=typeof window.onload?window.onload=t:window.onload=function(){n(),t()}}}}();t.exports=o},function(t,n,r){"use strict";var e=r(17),i=r(75),o=r(16);t.exports=function(t){for(var n=e(this),r=o(n.length),u=arguments.length,c=i(u>1?arguments[1]:void 0,r),f=u>2?arguments[2]:void 0,a=void 0===f?r:i(f,r);a>c;)n[c++]=t;return n}},function(t,n,r){"use strict";var e=r(11),i=r(66);t.exports=function(t,n,r){n in t?e.f(t,n,i(0,r)):t[n]=r}},function(t,n,r){var e=r(6),i=r(3).document,o=e(i)&&e(i.createElement);t.exports=function(t){return o?i.createElement(t):{}}},function(t,n){t.exports="constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(",")},function(t,n,r){var e=r(7)("match");t.exports=function(t){var n=/./;try{"/./"[t](n)}catch(r){try{return n[e]=!1,!"/./"[t](n)}catch(t){}}return!0}},function(t,n,r){t.exports=r(3).document&&document.documentElement},function(t,n,r){var e=r(6),i=r(144).set;t.exports=function(t,n,r){var o,u=n.constructor;return u!==r&&"function"==typeof u&&(o=u.prototype)!==r.prototype&&e(o)&&i&&i(t,o),t}},function(t,n,r){var e=r(80),i=r(7)("iterator"),o=Array.prototype;t.exports=function(t){return void 0!==t&&(e.Array===t||o[i]===t)}},function(t,n,r){var e=r(45);t.exports=Array.isArray||function(t){return"Array"==e(t)}},function(t,n,r){"use strict";var e=r(70),i=r(66),o=r(81),u={};r(27)(u,r(7)("iterator"),function(){return this}),t.exports=function(t,n,r){t.prototype=e(u,{next:i(1,r)}),o(t,n+" Iterator")}},function(t,n,r){"use strict";var e=r(69),i=r(1),o=r(28),u=r(27),c=r(24),f=r(80),a=r(139),s=r(81),l=r(32),h=r(7)("iterator"),v=!([].keys&&"next"in[].keys()),p="keys",d="values",y=function(){return this};t.exports=function(t,n,r,g,b,m,x){a(r,n,g);var w,S,_,O=function(t){if(!v&&t in F)return F[t];switch(t){case p:case d:return function(){return new r(this,t)}}return function(){return new r(this,t)}},E=n+" Iterator",P=b==d,j=!1,F=t.prototype,M=F[h]||F["@@iterator"]||b&&F[b],A=M||O(b),N=b?P?O("entries"):A:void 0,T="Array"==n?F.entries||M:M;if(T&&(_=l(T.call(new t)))!==Object.prototype&&(s(_,E,!0),e||c(_,h)||u(_,h,y)),P&&M&&M.name!==d&&(j=!0,A=function(){return M.call(this)}),e&&!x||!v&&!j&&F[h]||u(F,h,A),f[n]=A,f[E]=y,b)if(w={values:P?A:O(d),keys:m?A:O(p),entries:N},x)for(S in w)S in F||o(F,S,w[S]);else i(i.P+i.F*(v||j),n,w);return w}},function(t,n){var r=Math.expm1;t.exports=!r||r(10)>22025.465794806718||r(10)<22025.465794806718||-2e-17!=r(-2e-17)?function(t){return 0==(t=+t)?t:t>-1e-6&&t<1e-6?t+t*t/2:Math.exp(t)-1}:r},function(t,n){t.exports=Math.sign||function(t){return 0==(t=+t)||t!=t?t:t<0?-1:1}},function(t,n,r){var e=r(3),i=r(151).set,o=e.MutationObserver||e.WebKitMutationObserver,u=e.process,c=e.Promise,f="process"==r(45)(u);t.exports=function(){var t,n,r,a=function(){var e,i;for(f&&(e=u.domain)&&e.exit();t;){i=t.fn,t=t.next;try{i()}catch(e){throw t?r():n=void 0,e}}n=void 0,e&&e.enter()};if(f)r=function(){u.nextTick(a)};else if(o){var s=!0,l=document.createTextNode("");new o(a).observe(l,{characterData:!0}),r=function(){l.data=s=!s}}else if(c&&c.resolve){var h=c.resolve();r=function(){h.then(a)}}else r=function(){i.call(e,a)};return function(e){var i={fn:e,next:void 0};n&&(n.next=i),t||(t=i,r()),n=i}}},function(t,n,r){var e=r(6),i=r(2),o=function(t,n){if(i(t),!e(n)&&null!==n)throw TypeError(n+": can't set as prototype!")};t.exports={set:Object.setPrototypeOf||("__proto__"in{}?function(t,n,e){try{e=r(53)(Function.call,r(31).f(Object.prototype,"__proto__").set,2),e(t,[]),n=!(t instanceof Array)}catch(t){n=!0}return function(t,r){return o(t,r),n?t.__proto__=r:e(t,r),t}}({},!1):void 0),check:o}},function(t,n,r){var e=r(126)("keys"),i=r(76);t.exports=function(t){return e[t]||(e[t]=i(t))}},function(t,n,r){var e=r(2),i=r(26),o=r(7)("species");t.exports=function(t,n){var r,u=e(t).constructor;return void 0===u||void 0==(r=e(u)[o])?n:i(r)}},function(t,n,r){var e=r(67),i=r(46);t.exports=function(t){return function(n,r){var o,u,c=String(i(n)),f=e(r),a=c.length;return f<0||f>=a?t?"":void 0:(o=c.charCodeAt(f),o<55296||o>56319||f+1===a||(u=c.charCodeAt(f+1))<56320||u>57343?t?c.charAt(f):o:t?c.slice(f,f+2):u-56320+(o-55296<<10)+65536)}}},function(t,n,r){var e=r(122),i=r(46);t.exports=function(t,n,r){if(e(n))throw TypeError("String#"+r+" doesn't accept regex!");return String(i(t))}},function(t,n,r){"use strict";var e=r(67),i=r(46);t.exports=function(t){var n=String(i(this)),r="",o=e(t);if(o<0||o==1/0)throw RangeError("Count can't be negative");for(;o>0;(o>>>=1)&&(n+=n))1&o&&(r+=n);return r}},function(t,n){t.exports="\t\n\v\f\r   ᠎             　\u2028\u2029\ufeff"},function(t,n,r){var e,i,o,u=r(53),c=r(121),f=r(135),a=r(132),s=r(3),l=s.process,h=s.setImmediate,v=s.clearImmediate,p=s.MessageChannel,d=0,y={},g="onreadystatechange",b=function(){var t=+this;if(y.hasOwnProperty(t)){var n=y[t];delete y[t],n()}},m=function(t){b.call(t.data)};h&&v||(h=function(t){for(var n=[],r=1;arguments.length>r;)n.push(arguments[r++]);return y[++d]=function(){c("function"==typeof t?t:Function(t),n)},e(d),d},v=function(t){delete y[t]},"process"==r(45)(l)?e=function(t){l.nextTick(u(b,t,1))}:p?(i=new p,o=i.port2,i.port1.onmessage=m,e=u(o.postMessage,o,1)):s.addEventListener&&"function"==typeof postMessage&&!s.importScripts?(e=function(t){s.postMessage(t+"","*")},s.addEventListener("message",m,!1)):e=g in a("script")?function(t){f.appendChild(a("script"))[g]=function(){f.removeChild(this),b.call(t)}}:function(t){setTimeout(u(b,t,1),0)}),t.exports={set:h,clear:v}},function(t,n,r){"use strict";var e=r(3),i=r(10),o=r(69),u=r(127),c=r(27),f=r(73),a=r(4),s=r(68),l=r(67),h=r(16),v=r(71).f,p=r(11).f,d=r(130),y=r(81),g="ArrayBuffer",b="DataView",m="prototype",x="Wrong length!",w="Wrong index!",S=e[g],_=e[b],O=e.Math,E=e.RangeError,P=e.Infinity,j=S,F=O.abs,M=O.pow,A=O.floor,N=O.log,T=O.LN2,I="buffer",k="byteLength",L="byteOffset",R=i?"_b":I,C=i?"_l":k,D=i?"_o":L,U=function(t,n,r){var e,i,o,u=Array(r),c=8*r-n-1,f=(1<<c)-1,a=f>>1,s=23===n?M(2,-24)-M(2,-77):0,l=0,h=t<0||0===t&&1/t<0?1:0;for(t=F(t),t!=t||t===P?(i=t!=t?1:0,e=f):(e=A(N(t)/T),t*(o=M(2,-e))<1&&(e--,o*=2),t+=e+a>=1?s/o:s*M(2,1-a),t*o>=2&&(e++,o/=2),e+a>=f?(i=0,e=f):e+a>=1?(i=(t*o-1)*M(2,n),e+=a):(i=t*M(2,a-1)*M(2,n),e=0));n>=8;u[l++]=255&i,i/=256,n-=8);for(e=e<<n|i,c+=n;c>0;u[l++]=255&e,e/=256,c-=8);return u[--l]|=128*h,u},W=function(t,n,r){var e,i=8*r-n-1,o=(1<<i)-1,u=o>>1,c=i-7,f=r-1,a=t[f--],s=127&a;for(a>>=7;c>0;s=256*s+t[f],f--,c-=8);for(e=s&(1<<-c)-1,s>>=-c,c+=n;c>0;e=256*e+t[f],f--,c-=8);if(0===s)s=1-u;else{if(s===o)return e?NaN:a?-P:P;e+=M(2,n),s-=u}return(a?-1:1)*e*M(2,s-n)},G=function(t){return t[3]<<24|t[2]<<16|t[1]<<8|t[0]},B=function(t){return[255&t]},V=function(t){return[255&t,t>>8&255]},z=function(t){return[255&t,t>>8&255,t>>16&255,t>>24&255]},q=function(t){return U(t,52,8)},K=function(t){return U(t,23,4)},J=function(t,n,r){p(t[m],n,{get:function(){return this[r]}})},Y=function(t,n,r,e){var i=+r,o=l(i);if(i!=o||o<0||o+n>t[C])throw E(w);var u=t[R]._b,c=o+t[D],f=u.slice(c,c+n);return e?f:f.reverse()},H=function(t,n,r,e,i,o){var u=+r,c=l(u);if(u!=c||c<0||c+n>t[C])throw E(w);for(var f=t[R]._b,a=c+t[D],s=e(+i),h=0;h<n;h++)f[a+h]=s[o?h:n-h-1]},$=function(t,n){s(t,S,g);var r=+n,e=h(r);if(r!=e)throw E(x);return e};if(u.ABV){if(!a(function(){new S})||!a(function(){new S(.5)})){S=function(t){return new j($(this,t))};for(var X,Q=S[m]=j[m],Z=v(j),tt=0;Z.length>tt;)(X=Z[tt++])in S||c(S,X,j[X]);o||(Q.constructor=S)}var nt=new _(new S(2)),rt=_[m].setInt8;nt.setInt8(0,2147483648),nt.setInt8(1,2147483649),!nt.getInt8(0)&&nt.getInt8(1)||f(_[m],{setInt8:function(t,n){rt.call(this,t,n<<24>>24)},setUint8:function(t,n){rt.call(this,t,n<<24>>24)}},!0)}else S=function(t){var n=$(this,t);this._b=d.call(Array(n),0),this[C]=n},_=function(t,n,r){s(this,_,b),s(t,S,b);var e=t[C],i=l(n);if(i<0||i>e)throw E("Wrong offset!");if(r=void 0===r?e-i:h(r),i+r>e)throw E(x);this[R]=t,this[D]=i,this[C]=r},i&&(J(S,k,"_l"),J(_,I,"_b"),J(_,k,"_l"),J(_,L,"_o")),f(_[m],{getInt8:function(t){return Y(this,1,t)[0]<<24>>24},getUint8:function(t){return Y(this,1,t)[0]},getInt16:function(t){var n=Y(this,2,t,arguments[1]);return(n[1]<<8|n[0])<<16>>16},getUint16:function(t){var n=Y(this,2,t,arguments[1]);return n[1]<<8|n[0]},getInt32:function(t){return G(Y(this,4,t,arguments[1]))},getUint32:function(t){return G(Y(this,4,t,arguments[1]))>>>0},getFloat32:function(t){return W(Y(this,4,t,arguments[1]),23,4)},getFloat64:function(t){return W(Y(this,8,t,arguments[1]),52,8)},setInt8:function(t,n){H(this,1,t,B,n)},setUint8:function(t,n){H(this,1,t,B,n)},setInt16:function(t,n){H(this,2,t,V,n,arguments[2])},setUint16:function(t,n){H(this,2,t,V,n,arguments[2])},setInt32:function(t,n){H(this,4,t,z,n,arguments[2])},setUint32:function(t,n){H(this,4,t,z,n,arguments[2])},setFloat32:function(t,n){H(this,4,t,K,n,arguments[2])},setFloat64:function(t,n){H(this,8,t,q,n,arguments[2])}});y(S,g),y(_,b),c(_[m],u.VIEW,!0),n[g]=S,n[b]=_},function(t,n,r){var e=r(3),i=r(52),o=r(69),u=r(182),c=r(11).f;t.exports=function(t){var n=i.Symbol||(i.Symbol=o?{}:e.Symbol||{});"_"==t.charAt(0)||t in n||c(n,t,{value:u.f(t)})}},function(t,n,r){var e=r(114),i=r(7)("iterator"),o=r(80);t.exports=r(52).getIteratorMethod=function(t){if(void 0!=t)return t[i]||t["@@iterator"]||o[e(t)]}},function(t,n,r){"use strict";var e=r(78),i=r(170),o=r(80),u=r(30);t.exports=r(140)(Array,"Array",function(t,n){this._t=u(t),this._i=0,this._k=n},function(){var t=this._t,n=this._k,r=this._i++;return!t||r>=t.length?(this._t=void 0,i(1)):"keys"==n?i(0,r):"values"==n?i(0,t[r]):i(0,[r,t[r]])},"values"),o.Arguments=o.Array,e("keys"),e("values"),e("entries")},function(t,n){function r(t,n){t.classList?t.classList.add(n):t.className+=" "+n}t.exports=r},function(t,n){function r(t,n){if(t.classList)t.classList.remove(n);else{var r=new RegExp("(^|\\b)"+n.split(" ").join("|")+"(\\b|$)","gi");t.className=t.className.replace(r," ")}}t.exports=r},function(t,n){function r(){throw new Error("setTimeout has not been defined")}function e(){throw new Error("clearTimeout has not been defined")}function i(t){if(s===setTimeout)return setTimeout(t,0);if((s===r||!s)&&setTimeout)return s=setTimeout,setTimeout(t,0);try{return s(t,0)}catch(n){try{return s.call(null,t,0)}catch(n){return s.call(this,t,0)}}}function o(t){if(l===clearTimeout)return clearTimeout(t);if((l===e||!l)&&clearTimeout)return l=clearTimeout,clearTimeout(t);try{return l(t)}catch(n){try{return l.call(null,t)}catch(n){return l.call(this,t)}}}function u(){d&&v&&(d=!1,v.length?p=v.concat(p):y=-1,p.length&&c())}function c(){if(!d){var t=i(u);d=!0;for(var n=p.length;n;){for(v=p,p=[];++y<n;)v&&v[y].run();y=-1,n=p.length}v=null,d=!1,o(t)}}function f(t,n){this.fun=t,this.array=n}function a(){}var s,l,h=t.exports={};!function(){try{s="function"==typeof setTimeout?setTimeout:r}catch(t){s=r}try{l="function"==typeof clearTimeout?clearTimeout:e}catch(t){l=e}}();var v,p=[],d=!1,y=-1;h.nextTick=function(t){var n=new Array(arguments.length-1);if(arguments.length>1)for(var r=1;r<arguments.length;r++)n[r-1]=arguments[r];p.push(new f(t,n)),1!==p.length||d||i(c)},f.prototype.run=function(){this.fun.apply(null,this.array)},h.title="browser",h.browser=!0,h.env={},h.argv=[],h.version="",h.versions={},h.on=a,h.addListener=a,h.once=a,h.off=a,h.removeListener=a,h.removeAllListeners=a,h.emit=a,h.prependListener=a,h.prependOnceListener=a,h.listeners=function(t){return[]},h.binding=function(t){throw new Error("process.binding is not supported")},h.cwd=function(){return"/"},h.chdir=function(t){throw new Error("process.chdir is not supported")},h.umask=function(){return 0}},function(t,n,r){var e=r(45);t.exports=function(t,n){if("number"!=typeof t&&"Number"!=e(t))throw TypeError(n);return+t}},function(t,n,r){"use strict";var e=r(17),i=r(75),o=r(16);t.exports=[].copyWithin||function(t,n){var r=e(this),u=o(r.length),c=i(t,u),f=i(n,u),a=arguments.length>2?arguments[2]:void 0,s=Math.min((void 0===a?u:i(a,u))-f,u-c),l=1;for(f<c&&c<f+s&&(l=-1,f+=s-1,c+=s-1);s-- >0;)f in r?r[c]=r[f]:delete r[c],c+=l,f+=l;return r}},function(t,n,r){var e=r(79);t.exports=function(t,n){var r=[];return e(t,!1,r.push,r,n),r}},function(t,n,r){var e=r(26),i=r(17),o=r(115),u=r(16);t.exports=function(t,n,r,c,f){e(n);var a=i(t),s=o(a),l=u(a.length),h=f?l-1:0,v=f?-1:1;if(r<2)for(;;){if(h in s){c=s[h],h+=v;break}if(h+=v,f?h<0:l<=h)throw TypeError("Reduce of empty array with no initial value")}for(;f?h>=0:l>h;h+=v)h in s&&(c=n(c,s[h],h,a));return c}},function(t,n,r){"use strict";var e=r(26),i=r(6),o=r(121),u=[].slice,c={},f=function(t,n,r){if(!(n in c)){for(var e=[],i=0;i<n;i++)e[i]="a["+i+"]";c[n]=Function("F,a","return new F("+e.join(",")+")")}return c[n](t,r)};t.exports=Function.bind||function(t){var n=e(this),r=u.call(arguments,1),c=function(){var e=r.concat(u.call(arguments));return this instanceof c?f(n,e.length,e):o(n,e,t)};return i(n.prototype)&&(c.prototype=n.prototype),c}},function(t,n,r){"use strict";var e=r(11).f,i=r(70),o=r(73),u=r(53),c=r(68),f=r(46),a=r(79),s=r(140),l=r(170),h=r(74),v=r(10),p=r(65).fastKey,d=v?"_s":"size",y=function(t,n){var r,e=p(n);if("F"!==e)return t._i[e];for(r=t._f;r;r=r.n)if(r.k==n)return r};t.exports={getConstructor:function(t,n,r,s){var l=t(function(t,e){c(t,l,n,"_i"),t._i=i(null),t._f=void 0,t._l=void 0,t[d]=0,void 0!=e&&a(e,r,t[s],t)});return o(l.prototype,{clear:function(){for(var t=this,n=t._i,r=t._f;r;r=r.n)r.r=!0,r.p&&(r.p=r.p.n=void 0),delete n[r.i];t._f=t._l=void 0,t[d]=0},delete:function(t){var n=this,r=y(n,t);if(r){var e=r.n,i=r.p;delete n._i[r.i],r.r=!0,i&&(i.n=e),e&&(e.p=i),n._f==r&&(n._f=e),n._l==r&&(n._l=i),n[d]--}return!!r},forEach:function(t){c(this,l,"forEach");for(var n,r=u(t,arguments.length>1?arguments[1]:void 0,3);n=n?n.n:this._f;)for(r(n.v,n.k,this);n&&n.r;)n=n.p},has:function(t){return!!y(this,t)}}),v&&e(l.prototype,"size",{get:function(){return f(this[d])}}),l},def:function(t,n,r){var e,i,o=y(t,n);return o?o.v=r:(t._l=o={i:i=p(n,!0),k:n,v:r,p:e=t._l,n:void 0,r:!1},t._f||(t._f=o),e&&(e.n=o),t[d]++,"F"!==i&&(t._i[i]=o)),t},getEntry:y,setStrong:function(t,n,r){s(t,n,function(t,n){this._t=t,this._k=n,this._l=void 0},function(){for(var t=this,n=t._k,r=t._l;r&&r.r;)r=r.p;return t._t&&(t._l=r=r?r.n:t._t._f)?"keys"==n?l(0,r.k):"values"==n?l(0,r.v):l(0,[r.k,r.v]):(t._t=void 0,l(1))},r?"entries":"values",!r,!0),h(n)}}},function(t,n,r){var e=r(114),i=r(161);t.exports=function(t){return function(){if(e(this)!=t)throw TypeError(t+"#toJSON isn't generic");return i(this)}}},function(t,n,r){"use strict";var e=r(73),i=r(65).getWeak,o=r(2),u=r(6),c=r(68),f=r(79),a=r(48),s=r(24),l=a(5),h=a(6),v=0,p=function(t){return t._l||(t._l=new d)},d=function(){this.a=[]},y=function(t,n){return l(t.a,function(t){return t[0]===n})};d.prototype={get:function(t){var n=y(this,t);if(n)return n[1]},has:function(t){return!!y(this,t)},set:function(t,n){var r=y(this,t);r?r[1]=n:this.a.push([t,n])},delete:function(t){var n=h(this.a,function(n){return n[0]===t});return~n&&this.a.splice(n,1),!!~n}},t.exports={getConstructor:function(t,n,r,o){var a=t(function(t,e){c(t,a,n,"_i"),t._i=v++,t._l=void 0,void 0!=e&&f(e,r,t[o],t)});return e(a.prototype,{delete:function(t){if(!u(t))return!1;var n=i(t);return!0===n?p(this).delete(t):n&&s(n,this._i)&&delete n[this._i]},has:function(t){if(!u(t))return!1;var n=i(t);return!0===n?p(this).has(t):n&&s(n,this._i)}}),a},def:function(t,n,r){var e=i(o(n),!0);return!0===e?p(t).set(n,r):e[t._i]=r,t},ufstore:p}},function(t,n,r){t.exports=!r(10)&&!r(4)(function(){return 7!=Object.defineProperty(r(132)("div"),"a",{get:function(){return 7}}).a})},function(t,n,r){var e=r(6),i=Math.floor;t.exports=function(t){return!e(t)&&isFinite(t)&&i(t)===t}},function(t,n,r){var e=r(2);t.exports=function(t,n,r,i){try{return i?n(e(r)[0],r[1]):n(r)}catch(n){var o=t.return;throw void 0!==o&&e(o.call(t)),n}}},function(t,n){t.exports=function(t,n){return{value:n,done:!!t}}},function(t,n){t.exports=Math.log1p||function(t){return(t=+t)>-1e-8&&t<1e-8?t-t*t/2:Math.log(1+t)}},function(t,n,r){"use strict";var e=r(72),i=r(125),o=r(116),u=r(17),c=r(115),f=Object.assign;t.exports=!f||r(4)(function(){var t={},n={},r=Symbol(),e="abcdefghijklmnopqrst";return t[r]=7,e.split("").forEach(function(t){n[t]=t}),7!=f({},t)[r]||Object.keys(f({},n)).join("")!=e})?function(t,n){for(var r=u(t),f=arguments.length,a=1,s=i.f,l=o.f;f>a;)for(var h,v=c(arguments[a++]),p=s?e(v).concat(s(v)):e(v),d=p.length,y=0;d>y;)l.call(v,h=p[y++])&&(r[h]=v[h]);return r}:f},function(t,n,r){var e=r(11),i=r(2),o=r(72);t.exports=r(10)?Object.defineProperties:function(t,n){i(t);for(var r,u=o(n),c=u.length,f=0;c>f;)e.f(t,r=u[f++],n[r]);return t}},function(t,n,r){var e=r(30),i=r(71).f,o={}.toString,u="object"==typeof window&&window&&Object.getOwnPropertyNames?Object.getOwnPropertyNames(window):[],c=function(t){try{return i(t)}catch(t){return u.slice()}};t.exports.f=function(t){return u&&"[object Window]"==o.call(t)?c(t):i(e(t))}},function(t,n,r){var e=r(24),i=r(30),o=r(117)(!1),u=r(145)("IE_PROTO");t.exports=function(t,n){var r,c=i(t),f=0,a=[];for(r in c)r!=u&&e(c,r)&&a.push(r);for(;n.length>f;)e(c,r=n[f++])&&(~o(a,r)||a.push(r));return a}},function(t,n,r){var e=r(72),i=r(30),o=r(116).f;t.exports=function(t){return function(n){for(var r,u=i(n),c=e(u),f=c.length,a=0,s=[];f>a;)o.call(u,r=c[a++])&&s.push(t?[r,u[r]]:u[r]);return s}}},function(t,n,r){var e=r(71),i=r(125),o=r(2),u=r(3).Reflect;t.exports=u&&u.ownKeys||function(t){var n=e.f(o(t)),r=i.f;return r?n.concat(r(t)):n}},function(t,n,r){var e=r(3).parseFloat,i=r(82).trim;t.exports=1/e(r(150)+"-0")!=-1/0?function(t){var n=i(String(t),3),r=e(n);return 0===r&&"-"==n.charAt(0)?-0:r}:e},function(t,n,r){var e=r(3).parseInt,i=r(82).trim,o=r(150),u=/^[\-+]?0[xX]/;t.exports=8!==e(o+"08")||22!==e(o+"0x16")?function(t,n){var r=i(String(t),3);return e(r,n>>>0||(u.test(r)?16:10))}:e},function(t,n){t.exports=Object.is||function(t,n){return t===n?0!==t||1/t==1/n:t!=t&&n!=n}},function(t,n,r){var e=r(16),i=r(149),o=r(46);t.exports=function(t,n,r,u){var c=String(o(t)),f=c.length,a=void 0===r?" ":String(r),s=e(n);if(s<=f||""==a)return c;var l=s-f,h=i.call(a,Math.ceil(l/a.length));return h.length>l&&(h=h.slice(0,l)),u?h+c:c+h}},function(t,n,r){n.f=r(7)},function(t,n,r){"use strict";var e=r(164);t.exports=r(118)("Map",function(t){return function(){return t(this,arguments.length>0?arguments[0]:void 0)}},{get:function(t){var n=e.getEntry(this,t);return n&&n.v},set:function(t,n){return e.def(this,0===t?0:t,n)}},e,!0)},function(t,n,r){r(10)&&"g"!=/./g.flags&&r(11).f(RegExp.prototype,"flags",{configurable:!0,get:r(120)})},function(t,n,r){"use strict";var e=r(164);t.exports=r(118)("Set",function(t){return function(){return t(this,arguments.length>0?arguments[0]:void 0)}},{add:function(t){return e.def(this,t=0===t?0:t,t)}},e)},function(t,n,r){"use strict";var e,i=r(48)(0),o=r(28),u=r(65),c=r(172),f=r(166),a=r(6),s=u.getWeak,l=Object.isExtensible,h=f.ufstore,v={},p=function(t){return function(){return t(this,arguments.length>0?arguments[0]:void 0)}},d={get:function(t){if(a(t)){var n=s(t);return!0===n?h(this).get(t):n?n[this._i]:void 0}},set:function(t,n){return f.def(this,t,n)}},y=t.exports=r(118)("WeakMap",p,d,f,!0,!0);7!=(new y).set((Object.freeze||Object)(v),7).get(v)&&(e=f.getConstructor(p),c(e.prototype,d),u.NEED=!0,i(["delete","has","get","set"],function(t){var n=y.prototype,r=n[t];o(n,t,function(n,i){if(a(n)&&!l(n)){this._f||(this._f=new e);var o=this._f[t](n,i);return"set"==t?this:o}return r.call(this,n,i)})}))},,,,function(t,n){"use strict";function r(){var t=document.querySelector("#page-nav");if(t&&!document.querySelector("#page-nav .extend.prev")&&(t.innerHTML='<a class="extend prev disabled" rel="prev">&laquo; Prev</a>'+t.innerHTML),t&&!document.querySelector("#page-nav .extend.next")&&(t.innerHTML=t.innerHTML+'<a class="extend next disabled" rel="next">Next &raquo;</a>'),yiliaConfig&&yiliaConfig.open_in_new){document.querySelectorAll(".article-entry a:not(.article-more-a)").forEach(function(t){var n=t.getAttribute("target");n&&""!==n||t.setAttribute("target","_blank")})}if(yiliaConfig&&yiliaConfig.toc_hide_index){document.querySelectorAll(".toc-number").forEach(function(t){t.style.display="none"})}var n=document.querySelector("#js-aboutme");n&&0!==n.length&&(n.innerHTML=n.innerText)}t.exports={init:r}},function(t,n,r){"use strict";function e(t){return t&&t.__esModule?t:{default:t}}function i(t,n){var r=/\/|index.html/g;return t.replace(r,"")===n.replace(r,"")}function o(){for(var t=document.querySelectorAll(".js-header-menu li a"),n=window.location.pathname,r=0,e=t.length;r<e;r++){var o=t[r];i(n,o.getAttribute("href"))&&(0,h.default)(o,"active")}}function u(t){for(var n=t.offsetLeft,r=t.offsetParent;null!==r;)n+=r.offsetLeft,r=r.offsetParent;return n}function c(t){for(var n=t.offsetTop,r=t.offsetParent;null!==r;)n+=r.offsetTop,r=r.offsetParent;return n}function f(t,n,r,e,i){var o=u(t),f=c(t)-n;if(f-r<=i){var a=t.$newDom;a||(a=t.cloneNode(!0),(0,d.default)(t,a),t.$newDom=a,a.style.position="fixed",a.style.top=(r||f)+"px",a.style.left=o+"px",a.style.zIndex=e||2,a.style.width="100%",a.style.color="#fff"),a.style.visibility="visible",t.style.visibility="hidden"}else{t.style.visibility="visible";var s=t.$newDom;s&&(s.style.visibility="hidden")}}function a(){var t=document.querySelector(".js-overlay"),n=document.querySelector(".js-header-menu");f(t,document.body.scrollTop,-63,2,0),f(n,document.body.scrollTop,1,3,0)}function s(){document.querySelector("#container").addEventListener("scroll",function(t){a()}),window.addEventListener("scroll",function(t){a()}),a()}var l=r(156),h=e(l),v=r(157),p=(e(v),r(382)),d=e(p),y=r(128),g=e(y),b=r(190),m=e(b),x=r(129);(function(){g.default.versions.mobile&&window.screen.width<800&&(o(),s())})(),(0,x.addLoadEvent)(function(){m.default.init()}),t.exports={}},,,,function(t,n,r){(function(t){"use strict";function n(t,n,r){t[n]||Object[e](t,n,{writable:!0,configurable:!0,value:r})}if(r(381),r(391),r(198),t._babelPolyfill)throw new Error("only one instance of babel-polyfill is allowed");t._babelPolyfill=!0;var e="defineProperty";n(String.prototype,"padLeft","".padStart),n(String.prototype,"padRight","".padEnd),"pop,reverse,shift,keys,values,entries,indexOf,every,some,forEach,map,filter,find,findIndex,includes,join,slice,concat,push,splice,unshift,sort,lastIndexOf,reduce,reduceRight,copyWithin,fill".split(",").forEach(function(t){[][t]&&n(Array,t,Function.call.bind([][t]))})}).call(n,function(){return this}())},,,function(t,n,r){r(210),t.exports=r(52).RegExp.escape},,,,function(t,n,r){var e=r(6),i=r(138),o=r(7)("species");t.exports=function(t){var n;return i(t)&&(n=t.constructor,"function"!=typeof n||n!==Array&&!i(n.prototype)||(n=void 0),e(n)&&null===(n=n[o])&&(n=void 0)),void 0===n?Array:n}},function(t,n,r){var e=r(202);t.exports=function(t,n){return new(e(t))(n)}},function(t,n,r){"use strict";var e=r(2),i=r(50),o="number";t.exports=function(t){if("string"!==t&&t!==o&&"default"!==t)throw TypeError("Incorrect hint");return i(e(this),t!=o)}},function(t,n,r){var e=r(72),i=r(125),o=r(116);t.exports=function(t){var n=e(t),r=i.f;if(r)for(var u,c=r(t),f=o.f,a=0;c.length>a;)f.call(t,u=c[a++])&&n.push(u);return n}},function(t,n,r){var e=r(72),i=r(30);t.exports=function(t,n){for(var r,o=i(t),u=e(o),c=u.length,f=0;c>f;)if(o[r=u[f++]]===n)return r}},function(t,n,r){"use strict";var e=r(208),i=r(121),o=r(26);t.exports=function(){for(var t=o(this),n=arguments.length,r=Array(n),u=0,c=e._,f=!1;n>u;)(r[u]=arguments[u++])===c&&(f=!0);return function(){var e,o=this,u=arguments.length,a=0,s=0;if(!f&&!u)return i(t,r,o);if(e=r.slice(),f)for(;n>a;a++)e[a]===c&&(e[a]=arguments[s++]);for(;u>s;)e.push(arguments[s++]);return i(t,e,o)}}},function(t,n,r){t.exports=r(3)},function(t,n){t.exports=function(t,n){var r=n===Object(n)?function(t){return n[t]}:n;return function(n){return String(n).replace(t,r)}}},function(t,n,r){var e=r(1),i=r(209)(/[\\^$*+?.()|[\]{}]/g,"\\$&");e(e.S,"RegExp",{escape:function(t){return i(t)}})},function(t,n,r){var e=r(1);e(e.P,"Array",{copyWithin:r(160)}),r(78)("copyWithin")},function(t,n,r){"use strict";var e=r(1),i=r(48)(4);e(e.P+e.F*!r(47)([].every,!0),"Array",{every:function(t){return i(this,t,arguments[1])}})},function(t,n,r){var e=r(1);e(e.P,"Array",{fill:r(130)}),r(78)("fill")},function(t,n,r){"use strict";var e=r(1),i=r(48)(2);e(e.P+e.F*!r(47)([].filter,!0),"Array",{filter:function(t){return i(this,t,arguments[1])}})},function(t,n,r){"use strict";var e=r(1),i=r(48)(6),o="findIndex",u=!0;o in[]&&Array(1)[o](function(){u=!1}),e(e.P+e.F*u,"Array",{findIndex:function(t){return i(this,t,arguments.length>1?arguments[1]:void 0)}}),r(78)(o)},function(t,n,r){"use strict";var e=r(1),i=r(48)(5),o="find",u=!0;o in[]&&Array(1)[o](function(){u=!1}),e(e.P+e.F*u,"Array",{find:function(t){return i(this,t,arguments.length>1?arguments[1]:void 0)}}),r(78)(o)},function(t,n,r){"use strict";var e=r(1),i=r(48)(0),o=r(47)([].forEach,!0);e(e.P+e.F*!o,"Array",{forEach:function(t){return i(this,t,arguments[1])}})},function(t,n,r){"use strict";var e=r(53),i=r(1),o=r(17),u=r(169),c=r(137),f=r(16),a=r(131),s=r(154);i(i.S+i.F*!r(123)(function(t){Array.from(t)}),"Array",{from:function(t){var n,r,i,l,h=o(t),v="function"==typeof this?this:Array,p=arguments.length,d=p>1?arguments[1]:void 0,y=void 0!==d,g=0,b=s(h);if(y&&(d=e(d,p>2?arguments[2]:void 0,2)),void 0==b||v==Array&&c(b))for(n=f(h.length),r=new v(n);n>g;g++)a(r,g,y?d(h[g],g):h[g]);else for(l=b.call(h),r=new v;!(i=l.next()).done;g++)a(r,g,y?u(l,d,[i.value,g],!0):i.value);return r.length=g,r}})},function(t,n,r){"use strict";var e=r(1),i=r(117)(!1),o=[].indexOf,u=!!o&&1/[1].indexOf(1,-0)<0;e(e.P+e.F*(u||!r(47)(o)),"Array",{indexOf:function(t){return u?o.apply(this,arguments)||0:i(this,t,arguments[1])}})},function(t,n,r){var e=r(1);e(e.S,"Array",{isArray:r(138)})},function(t,n,r){"use strict";var e=r(1),i=r(30),o=[].join;e(e.P+e.F*(r(115)!=Object||!r(47)(o)),"Array",{join:function(t){return o.call(i(this),void 0===t?",":t)}})},function(t,n,r){"use strict";var e=r(1),i=r(30),o=r(67),u=r(16),c=[].lastIndexOf,f=!!c&&1/[1].lastIndexOf(1,-0)<0;e(e.P+e.F*(f||!r(47)(c)),"Array",{lastIndexOf:function(t){if(f)return c.apply(this,arguments)||0;var n=i(this),r=u(n.length),e=r-1;for(arguments.length>1&&(e=Math.min(e,o(arguments[1]))),e<0&&(e=r+e);e>=0;e--)if(e in n&&n[e]===t)return e||0;return-1}})},function(t,n,r){"use strict";var e=r(1),i=r(48)(1);e(e.P+e.F*!r(47)([].map,!0),"Array",{map:function(t){return i(this,t,arguments[1])}})},function(t,n,r){"use strict";var e=r(1),i=r(131);e(e.S+e.F*r(4)(function(){function t(){}return!(Array.of.call(t)instanceof t)}),"Array",{of:function(){for(var t=0,n=arguments.length,r=new("function"==typeof this?this:Array)(n);n>t;)i(r,t,arguments[t++]);return r.length=n,r}})},function(t,n,r){"use strict";var e=r(1),i=r(162);e(e.P+e.F*!r(47)([].reduceRight,!0),"Array",{reduceRight:function(t){return i(this,t,arguments.length,arguments[1],!0)}})},function(t,n,r){"use strict";var e=r(1),i=r(162);e(e.P+e.F*!r(47)([].reduce,!0),"Array",{reduce:function(t){return i(this,t,arguments.length,arguments[1],!1)}})},function(t,n,r){"use strict";var e=r(1),i=r(135),o=r(45),u=r(75),c=r(16),f=[].slice;e(e.P+e.F*r(4)(function(){i&&f.call(i)}),"Array",{slice:function(t,n){var r=c(this.length),e=o(this);if(n=void 0===n?r:n,"Array"==e)return f.call(this,t,n);for(var i=u(t,r),a=u(n,r),s=c(a-i),l=Array(s),h=0;h<s;h++)l[h]="String"==e?this.charAt(i+h):this[i+h];return l}})},function(t,n,r){"use strict";var e=r(1),i=r(48)(3);e(e.P+e.F*!r(47)([].some,!0),"Array",{some:function(t){return i(this,t,arguments[1])}})},function(t,n,r){"use strict";var e=r(1),i=r(26),o=r(17),u=r(4),c=[].sort,f=[1,2,3];e(e.P+e.F*(u(function(){f.sort(void 0)})||!u(function(){f.sort(null)})||!r(47)(c)),"Array",{sort:function(t){return void 0===t?c.call(o(this)):c.call(o(this),i(t))}})},function(t,n,r){r(74)("Array")},function(t,n,r){var e=r(1);e(e.S,"Date",{now:function(){return(new Date).getTime()}})},function(t,n,r){"use strict";var e=r(1),i=r(4),o=Date.prototype.getTime,u=function(t){return t>9?t:"0"+t};e(e.P+e.F*(i(function(){return"0385-07-25T07:06:39.999Z"!=new Date(-5e13-1).toISOString()})||!i(function(){new Date(NaN).toISOString()})),"Date",{toISOString:function(){
+if(!isFinite(o.call(this)))throw RangeError("Invalid time value");var t=this,n=t.getUTCFullYear(),r=t.getUTCMilliseconds(),e=n<0?"-":n>9999?"+":"";return e+("00000"+Math.abs(n)).slice(e?-6:-4)+"-"+u(t.getUTCMonth()+1)+"-"+u(t.getUTCDate())+"T"+u(t.getUTCHours())+":"+u(t.getUTCMinutes())+":"+u(t.getUTCSeconds())+"."+(r>99?r:"0"+u(r))+"Z"}})},function(t,n,r){"use strict";var e=r(1),i=r(17),o=r(50);e(e.P+e.F*r(4)(function(){return null!==new Date(NaN).toJSON()||1!==Date.prototype.toJSON.call({toISOString:function(){return 1}})}),"Date",{toJSON:function(t){var n=i(this),r=o(n);return"number"!=typeof r||isFinite(r)?n.toISOString():null}})},function(t,n,r){var e=r(7)("toPrimitive"),i=Date.prototype;e in i||r(27)(i,e,r(204))},function(t,n,r){var e=Date.prototype,i="Invalid Date",o="toString",u=e[o],c=e.getTime;new Date(NaN)+""!=i&&r(28)(e,o,function(){var t=c.call(this);return t===t?u.call(this):i})},function(t,n,r){var e=r(1);e(e.P,"Function",{bind:r(163)})},function(t,n,r){"use strict";var e=r(6),i=r(32),o=r(7)("hasInstance"),u=Function.prototype;o in u||r(11).f(u,o,{value:function(t){if("function"!=typeof this||!e(t))return!1;if(!e(this.prototype))return t instanceof this;for(;t=i(t);)if(this.prototype===t)return!0;return!1}})},function(t,n,r){var e=r(11).f,i=r(66),o=r(24),u=Function.prototype,c="name",f=Object.isExtensible||function(){return!0};c in u||r(10)&&e(u,c,{configurable:!0,get:function(){try{var t=this,n=(""+t).match(/^\s*function ([^ (]*)/)[1];return o(t,c)||!f(t)||e(t,c,i(5,n)),n}catch(t){return""}}})},function(t,n,r){var e=r(1),i=r(171),o=Math.sqrt,u=Math.acosh;e(e.S+e.F*!(u&&710==Math.floor(u(Number.MAX_VALUE))&&u(1/0)==1/0),"Math",{acosh:function(t){return(t=+t)<1?NaN:t>94906265.62425156?Math.log(t)+Math.LN2:i(t-1+o(t-1)*o(t+1))}})},function(t,n,r){function e(t){return isFinite(t=+t)&&0!=t?t<0?-e(-t):Math.log(t+Math.sqrt(t*t+1)):t}var i=r(1),o=Math.asinh;i(i.S+i.F*!(o&&1/o(0)>0),"Math",{asinh:e})},function(t,n,r){var e=r(1),i=Math.atanh;e(e.S+e.F*!(i&&1/i(-0)<0),"Math",{atanh:function(t){return 0==(t=+t)?t:Math.log((1+t)/(1-t))/2}})},function(t,n,r){var e=r(1),i=r(142);e(e.S,"Math",{cbrt:function(t){return i(t=+t)*Math.pow(Math.abs(t),1/3)}})},function(t,n,r){var e=r(1);e(e.S,"Math",{clz32:function(t){return(t>>>=0)?31-Math.floor(Math.log(t+.5)*Math.LOG2E):32}})},function(t,n,r){var e=r(1),i=Math.exp;e(e.S,"Math",{cosh:function(t){return(i(t=+t)+i(-t))/2}})},function(t,n,r){var e=r(1),i=r(141);e(e.S+e.F*(i!=Math.expm1),"Math",{expm1:i})},function(t,n,r){var e=r(1),i=r(142),o=Math.pow,u=o(2,-52),c=o(2,-23),f=o(2,127)*(2-c),a=o(2,-126),s=function(t){return t+1/u-1/u};e(e.S,"Math",{fround:function(t){var n,r,e=Math.abs(t),o=i(t);return e<a?o*s(e/a/c)*a*c:(n=(1+c/u)*e,r=n-(n-e),r>f||r!=r?o*(1/0):o*r)}})},function(t,n,r){var e=r(1),i=Math.abs;e(e.S,"Math",{hypot:function(t,n){for(var r,e,o=0,u=0,c=arguments.length,f=0;u<c;)r=i(arguments[u++]),f<r?(e=f/r,o=o*e*e+1,f=r):r>0?(e=r/f,o+=e*e):o+=r;return f===1/0?1/0:f*Math.sqrt(o)}})},function(t,n,r){var e=r(1),i=Math.imul;e(e.S+e.F*r(4)(function(){return-5!=i(4294967295,5)||2!=i.length}),"Math",{imul:function(t,n){var r=65535,e=+t,i=+n,o=r&e,u=r&i;return 0|o*u+((r&e>>>16)*u+o*(r&i>>>16)<<16>>>0)}})},function(t,n,r){var e=r(1);e(e.S,"Math",{log10:function(t){return Math.log(t)/Math.LN10}})},function(t,n,r){var e=r(1);e(e.S,"Math",{log1p:r(171)})},function(t,n,r){var e=r(1);e(e.S,"Math",{log2:function(t){return Math.log(t)/Math.LN2}})},function(t,n,r){var e=r(1);e(e.S,"Math",{sign:r(142)})},function(t,n,r){var e=r(1),i=r(141),o=Math.exp;e(e.S+e.F*r(4)(function(){return-2e-17!=!Math.sinh(-2e-17)}),"Math",{sinh:function(t){return Math.abs(t=+t)<1?(i(t)-i(-t))/2:(o(t-1)-o(-t-1))*(Math.E/2)}})},function(t,n,r){var e=r(1),i=r(141),o=Math.exp;e(e.S,"Math",{tanh:function(t){var n=i(t=+t),r=i(-t);return n==1/0?1:r==1/0?-1:(n-r)/(o(t)+o(-t))}})},function(t,n,r){var e=r(1);e(e.S,"Math",{trunc:function(t){return(t>0?Math.floor:Math.ceil)(t)}})},function(t,n,r){"use strict";var e=r(3),i=r(24),o=r(45),u=r(136),c=r(50),f=r(4),a=r(71).f,s=r(31).f,l=r(11).f,h=r(82).trim,v="Number",p=e[v],d=p,y=p.prototype,g=o(r(70)(y))==v,b="trim"in String.prototype,m=function(t){var n=c(t,!1);if("string"==typeof n&&n.length>2){n=b?n.trim():h(n,3);var r,e,i,o=n.charCodeAt(0);if(43===o||45===o){if(88===(r=n.charCodeAt(2))||120===r)return NaN}else if(48===o){switch(n.charCodeAt(1)){case 66:case 98:e=2,i=49;break;case 79:case 111:e=8,i=55;break;default:return+n}for(var u,f=n.slice(2),a=0,s=f.length;a<s;a++)if((u=f.charCodeAt(a))<48||u>i)return NaN;return parseInt(f,e)}}return+n};if(!p(" 0o1")||!p("0b1")||p("+0x1")){p=function(t){var n=arguments.length<1?0:t,r=this;return r instanceof p&&(g?f(function(){y.valueOf.call(r)}):o(r)!=v)?u(new d(m(n)),r,p):m(n)};for(var x,w=r(10)?a(d):"MAX_VALUE,MIN_VALUE,NaN,NEGATIVE_INFINITY,POSITIVE_INFINITY,EPSILON,isFinite,isInteger,isNaN,isSafeInteger,MAX_SAFE_INTEGER,MIN_SAFE_INTEGER,parseFloat,parseInt,isInteger".split(","),S=0;w.length>S;S++)i(d,x=w[S])&&!i(p,x)&&l(p,x,s(d,x));p.prototype=y,y.constructor=p,r(28)(e,v,p)}},function(t,n,r){var e=r(1);e(e.S,"Number",{EPSILON:Math.pow(2,-52)})},function(t,n,r){var e=r(1),i=r(3).isFinite;e(e.S,"Number",{isFinite:function(t){return"number"==typeof t&&i(t)}})},function(t,n,r){var e=r(1);e(e.S,"Number",{isInteger:r(168)})},function(t,n,r){var e=r(1);e(e.S,"Number",{isNaN:function(t){return t!=t}})},function(t,n,r){var e=r(1),i=r(168),o=Math.abs;e(e.S,"Number",{isSafeInteger:function(t){return i(t)&&o(t)<=9007199254740991}})},function(t,n,r){var e=r(1);e(e.S,"Number",{MAX_SAFE_INTEGER:9007199254740991})},function(t,n,r){var e=r(1);e(e.S,"Number",{MIN_SAFE_INTEGER:-9007199254740991})},function(t,n,r){var e=r(1),i=r(178);e(e.S+e.F*(Number.parseFloat!=i),"Number",{parseFloat:i})},function(t,n,r){var e=r(1),i=r(179);e(e.S+e.F*(Number.parseInt!=i),"Number",{parseInt:i})},function(t,n,r){"use strict";var e=r(1),i=r(67),o=r(159),u=r(149),c=1..toFixed,f=Math.floor,a=[0,0,0,0,0,0],s="Number.toFixed: incorrect invocation!",l="0",h=function(t,n){for(var r=-1,e=n;++r<6;)e+=t*a[r],a[r]=e%1e7,e=f(e/1e7)},v=function(t){for(var n=6,r=0;--n>=0;)r+=a[n],a[n]=f(r/t),r=r%t*1e7},p=function(){for(var t=6,n="";--t>=0;)if(""!==n||0===t||0!==a[t]){var r=String(a[t]);n=""===n?r:n+u.call(l,7-r.length)+r}return n},d=function(t,n,r){return 0===n?r:n%2==1?d(t,n-1,r*t):d(t*t,n/2,r)},y=function(t){for(var n=0,r=t;r>=4096;)n+=12,r/=4096;for(;r>=2;)n+=1,r/=2;return n};e(e.P+e.F*(!!c&&("0.000"!==8e-5.toFixed(3)||"1"!==.9.toFixed(0)||"1.25"!==1.255.toFixed(2)||"1000000000000000128"!==(0xde0b6b3a7640080).toFixed(0))||!r(4)(function(){c.call({})})),"Number",{toFixed:function(t){var n,r,e,c,f=o(this,s),a=i(t),g="",b=l;if(a<0||a>20)throw RangeError(s);if(f!=f)return"NaN";if(f<=-1e21||f>=1e21)return String(f);if(f<0&&(g="-",f=-f),f>1e-21)if(n=y(f*d(2,69,1))-69,r=n<0?f*d(2,-n,1):f/d(2,n,1),r*=4503599627370496,(n=52-n)>0){for(h(0,r),e=a;e>=7;)h(1e7,0),e-=7;for(h(d(10,e,1),0),e=n-1;e>=23;)v(1<<23),e-=23;v(1<<e),h(1,1),v(2),b=p()}else h(0,r),h(1<<-n,0),b=p()+u.call(l,a);return a>0?(c=b.length,b=g+(c<=a?"0."+u.call(l,a-c)+b:b.slice(0,c-a)+"."+b.slice(c-a))):b=g+b,b}})},function(t,n,r){"use strict";var e=r(1),i=r(4),o=r(159),u=1..toPrecision;e(e.P+e.F*(i(function(){return"1"!==u.call(1,void 0)})||!i(function(){u.call({})})),"Number",{toPrecision:function(t){var n=o(this,"Number#toPrecision: incorrect invocation!");return void 0===t?u.call(n):u.call(n,t)}})},function(t,n,r){var e=r(1);e(e.S+e.F,"Object",{assign:r(172)})},function(t,n,r){var e=r(1);e(e.S,"Object",{create:r(70)})},function(t,n,r){var e=r(1);e(e.S+e.F*!r(10),"Object",{defineProperties:r(173)})},function(t,n,r){var e=r(1);e(e.S+e.F*!r(10),"Object",{defineProperty:r(11).f})},function(t,n,r){var e=r(6),i=r(65).onFreeze;r(49)("freeze",function(t){return function(n){return t&&e(n)?t(i(n)):n}})},function(t,n,r){var e=r(30),i=r(31).f;r(49)("getOwnPropertyDescriptor",function(){return function(t,n){return i(e(t),n)}})},function(t,n,r){r(49)("getOwnPropertyNames",function(){return r(174).f})},function(t,n,r){var e=r(17),i=r(32);r(49)("getPrototypeOf",function(){return function(t){return i(e(t))}})},function(t,n,r){var e=r(6);r(49)("isExtensible",function(t){return function(n){return!!e(n)&&(!t||t(n))}})},function(t,n,r){var e=r(6);r(49)("isFrozen",function(t){return function(n){return!e(n)||!!t&&t(n)}})},function(t,n,r){var e=r(6);r(49)("isSealed",function(t){return function(n){return!e(n)||!!t&&t(n)}})},function(t,n,r){var e=r(1);e(e.S,"Object",{is:r(180)})},function(t,n,r){var e=r(17),i=r(72);r(49)("keys",function(){return function(t){return i(e(t))}})},function(t,n,r){var e=r(6),i=r(65).onFreeze;r(49)("preventExtensions",function(t){return function(n){return t&&e(n)?t(i(n)):n}})},function(t,n,r){var e=r(6),i=r(65).onFreeze;r(49)("seal",function(t){return function(n){return t&&e(n)?t(i(n)):n}})},function(t,n,r){var e=r(1);e(e.S,"Object",{setPrototypeOf:r(144).set})},function(t,n,r){"use strict";var e=r(114),i={};i[r(7)("toStringTag")]="z",i+""!="[object z]"&&r(28)(Object.prototype,"toString",function(){return"[object "+e(this)+"]"},!0)},function(t,n,r){var e=r(1),i=r(178);e(e.G+e.F*(parseFloat!=i),{parseFloat:i})},function(t,n,r){var e=r(1),i=r(179);e(e.G+e.F*(parseInt!=i),{parseInt:i})},function(t,n,r){"use strict";var e,i,o,u=r(69),c=r(3),f=r(53),a=r(114),s=r(1),l=r(6),h=r(26),v=r(68),p=r(79),d=r(146),y=r(151).set,g=r(143)(),b="Promise",m=c.TypeError,x=c.process,w=c[b],x=c.process,S="process"==a(x),_=function(){},O=!!function(){try{var t=w.resolve(1),n=(t.constructor={})[r(7)("species")]=function(t){t(_,_)};return(S||"function"==typeof PromiseRejectionEvent)&&t.then(_)instanceof n}catch(t){}}(),E=function(t,n){return t===n||t===w&&n===o},P=function(t){var n;return!(!l(t)||"function"!=typeof(n=t.then))&&n},j=function(t){return E(w,t)?new F(t):new i(t)},F=i=function(t){var n,r;this.promise=new t(function(t,e){if(void 0!==n||void 0!==r)throw m("Bad Promise constructor");n=t,r=e}),this.resolve=h(n),this.reject=h(r)},M=function(t){try{t()}catch(t){return{error:t}}},A=function(t,n){if(!t._n){t._n=!0;var r=t._c;g(function(){for(var e=t._v,i=1==t._s,o=0;r.length>o;)!function(n){var r,o,u=i?n.ok:n.fail,c=n.resolve,f=n.reject,a=n.domain;try{u?(i||(2==t._h&&I(t),t._h=1),!0===u?r=e:(a&&a.enter(),r=u(e),a&&a.exit()),r===n.promise?f(m("Promise-chain cycle")):(o=P(r))?o.call(r,c,f):c(r)):f(e)}catch(t){f(t)}}(r[o++]);t._c=[],t._n=!1,n&&!t._h&&N(t)})}},N=function(t){y.call(c,function(){var n,r,e,i=t._v;if(T(t)&&(n=M(function(){S?x.emit("unhandledRejection",i,t):(r=c.onunhandledrejection)?r({promise:t,reason:i}):(e=c.console)&&e.error&&e.error("Unhandled promise rejection",i)}),t._h=S||T(t)?2:1),t._a=void 0,n)throw n.error})},T=function(t){if(1==t._h)return!1;for(var n,r=t._a||t._c,e=0;r.length>e;)if(n=r[e++],n.fail||!T(n.promise))return!1;return!0},I=function(t){y.call(c,function(){var n;S?x.emit("rejectionHandled",t):(n=c.onrejectionhandled)&&n({promise:t,reason:t._v})})},k=function(t){var n=this;n._d||(n._d=!0,n=n._w||n,n._v=t,n._s=2,n._a||(n._a=n._c.slice()),A(n,!0))},L=function(t){var n,r=this;if(!r._d){r._d=!0,r=r._w||r;try{if(r===t)throw m("Promise can't be resolved itself");(n=P(t))?g(function(){var e={_w:r,_d:!1};try{n.call(t,f(L,e,1),f(k,e,1))}catch(t){k.call(e,t)}}):(r._v=t,r._s=1,A(r,!1))}catch(t){k.call({_w:r,_d:!1},t)}}};O||(w=function(t){v(this,w,b,"_h"),h(t),e.call(this);try{t(f(L,this,1),f(k,this,1))}catch(t){k.call(this,t)}},e=function(t){this._c=[],this._a=void 0,this._s=0,this._d=!1,this._v=void 0,this._h=0,this._n=!1},e.prototype=r(73)(w.prototype,{then:function(t,n){var r=j(d(this,w));return r.ok="function"!=typeof t||t,r.fail="function"==typeof n&&n,r.domain=S?x.domain:void 0,this._c.push(r),this._a&&this._a.push(r),this._s&&A(this,!1),r.promise},catch:function(t){return this.then(void 0,t)}}),F=function(){var t=new e;this.promise=t,this.resolve=f(L,t,1),this.reject=f(k,t,1)}),s(s.G+s.W+s.F*!O,{Promise:w}),r(81)(w,b),r(74)(b),o=r(52)[b],s(s.S+s.F*!O,b,{reject:function(t){var n=j(this);return(0,n.reject)(t),n.promise}}),s(s.S+s.F*(u||!O),b,{resolve:function(t){if(t instanceof w&&E(t.constructor,this))return t;var n=j(this);return(0,n.resolve)(t),n.promise}}),s(s.S+s.F*!(O&&r(123)(function(t){w.all(t).catch(_)})),b,{all:function(t){var n=this,r=j(n),e=r.resolve,i=r.reject,o=M(function(){var r=[],o=0,u=1;p(t,!1,function(t){var c=o++,f=!1;r.push(void 0),u++,n.resolve(t).then(function(t){f||(f=!0,r[c]=t,--u||e(r))},i)}),--u||e(r)});return o&&i(o.error),r.promise},race:function(t){var n=this,r=j(n),e=r.reject,i=M(function(){p(t,!1,function(t){n.resolve(t).then(r.resolve,e)})});return i&&e(i.error),r.promise}})},function(t,n,r){var e=r(1),i=r(26),o=r(2),u=(r(3).Reflect||{}).apply,c=Function.apply;e(e.S+e.F*!r(4)(function(){u(function(){})}),"Reflect",{apply:function(t,n,r){var e=i(t),f=o(r);return u?u(e,n,f):c.call(e,n,f)}})},function(t,n,r){var e=r(1),i=r(70),o=r(26),u=r(2),c=r(6),f=r(4),a=r(163),s=(r(3).Reflect||{}).construct,l=f(function(){function t(){}return!(s(function(){},[],t)instanceof t)}),h=!f(function(){s(function(){})});e(e.S+e.F*(l||h),"Reflect",{construct:function(t,n){o(t),u(n);var r=arguments.length<3?t:o(arguments[2]);if(h&&!l)return s(t,n,r);if(t==r){switch(n.length){case 0:return new t;case 1:return new t(n[0]);case 2:return new t(n[0],n[1]);case 3:return new t(n[0],n[1],n[2]);case 4:return new t(n[0],n[1],n[2],n[3])}var e=[null];return e.push.apply(e,n),new(a.apply(t,e))}var f=r.prototype,v=i(c(f)?f:Object.prototype),p=Function.apply.call(t,v,n);return c(p)?p:v}})},function(t,n,r){var e=r(11),i=r(1),o=r(2),u=r(50);i(i.S+i.F*r(4)(function(){Reflect.defineProperty(e.f({},1,{value:1}),1,{value:2})}),"Reflect",{defineProperty:function(t,n,r){o(t),n=u(n,!0),o(r);try{return e.f(t,n,r),!0}catch(t){return!1}}})},function(t,n,r){var e=r(1),i=r(31).f,o=r(2);e(e.S,"Reflect",{deleteProperty:function(t,n){var r=i(o(t),n);return!(r&&!r.configurable)&&delete t[n]}})},function(t,n,r){"use strict";var e=r(1),i=r(2),o=function(t){this._t=i(t),this._i=0;var n,r=this._k=[];for(n in t)r.push(n)};r(139)(o,"Object",function(){var t,n=this,r=n._k;do{if(n._i>=r.length)return{value:void 0,done:!0}}while(!((t=r[n._i++])in n._t));return{value:t,done:!1}}),e(e.S,"Reflect",{enumerate:function(t){return new o(t)}})},function(t,n,r){var e=r(31),i=r(1),o=r(2);i(i.S,"Reflect",{getOwnPropertyDescriptor:function(t,n){return e.f(o(t),n)}})},function(t,n,r){var e=r(1),i=r(32),o=r(2);e(e.S,"Reflect",{getPrototypeOf:function(t){return i(o(t))}})},function(t,n,r){function e(t,n){var r,c,s=arguments.length<3?t:arguments[2];return a(t)===s?t[n]:(r=i.f(t,n))?u(r,"value")?r.value:void 0!==r.get?r.get.call(s):void 0:f(c=o(t))?e(c,n,s):void 0}var i=r(31),o=r(32),u=r(24),c=r(1),f=r(6),a=r(2);c(c.S,"Reflect",{get:e})},function(t,n,r){var e=r(1);e(e.S,"Reflect",{has:function(t,n){return n in t}})},function(t,n,r){var e=r(1),i=r(2),o=Object.isExtensible;e(e.S,"Reflect",{isExtensible:function(t){return i(t),!o||o(t)}})},function(t,n,r){var e=r(1);e(e.S,"Reflect",{ownKeys:r(177)})},function(t,n,r){var e=r(1),i=r(2),o=Object.preventExtensions;e(e.S,"Reflect",{preventExtensions:function(t){i(t);try{return o&&o(t),!0}catch(t){return!1}}})},function(t,n,r){var e=r(1),i=r(144);i&&e(e.S,"Reflect",{setPrototypeOf:function(t,n){i.check(t,n);try{return i.set(t,n),!0}catch(t){return!1}}})},function(t,n,r){function e(t,n,r){var f,h,v=arguments.length<4?t:arguments[3],p=o.f(s(t),n);if(!p){if(l(h=u(t)))return e(h,n,r,v);p=a(0)}return c(p,"value")?!(!1===p.writable||!l(v)||(f=o.f(v,n)||a(0),f.value=r,i.f(v,n,f),0)):void 0!==p.set&&(p.set.call(v,r),!0)}var i=r(11),o=r(31),u=r(32),c=r(24),f=r(1),a=r(66),s=r(2),l=r(6);f(f.S,"Reflect",{set:e})},function(t,n,r){var e=r(3),i=r(136),o=r(11).f,u=r(71).f,c=r(122),f=r(120),a=e.RegExp,s=a,l=a.prototype,h=/a/g,v=/a/g,p=new a(h)!==h;if(r(10)&&(!p||r(4)(function(){return v[r(7)("match")]=!1,a(h)!=h||a(v)==v||"/a/i"!=a(h,"i")}))){a=function(t,n){var r=this instanceof a,e=c(t),o=void 0===n;return!r&&e&&t.constructor===a&&o?t:i(p?new s(e&&!o?t.source:t,n):s((e=t instanceof a)?t.source:t,e&&o?f.call(t):n),r?this:l,a)};for(var d=u(s),y=0;d.length>y;)!function(t){t in a||o(a,t,{configurable:!0,get:function(){return s[t]},set:function(n){s[t]=n}})}(d[y++]);l.constructor=a,a.prototype=l,r(28)(e,"RegExp",a)}r(74)("RegExp")},function(t,n,r){r(119)("match",1,function(t,n,r){return[function(r){"use strict";var e=t(this),i=void 0==r?void 0:r[n];return void 0!==i?i.call(r,e):new RegExp(r)[n](String(e))},r]})},function(t,n,r){r(119)("replace",2,function(t,n,r){return[function(e,i){"use strict";var o=t(this),u=void 0==e?void 0:e[n];return void 0!==u?u.call(e,o,i):r.call(String(o),e,i)},r]})},function(t,n,r){r(119)("search",1,function(t,n,r){return[function(r){"use strict";var e=t(this),i=void 0==r?void 0:r[n];return void 0!==i?i.call(r,e):new RegExp(r)[n](String(e))},r]})},function(t,n,r){r(119)("split",2,function(t,n,e){"use strict";var i=r(122),o=e,u=[].push,c="split",f="length",a="lastIndex";if("c"=="abbc"[c](/(b)*/)[1]||4!="test"[c](/(?:)/,-1)[f]||2!="ab"[c](/(?:ab)*/)[f]||4!="."[c](/(.?)(.?)/)[f]||"."[c](/()()/)[f]>1||""[c](/.?/)[f]){var s=void 0===/()??/.exec("")[1];e=function(t,n){var r=String(this);if(void 0===t&&0===n)return[];if(!i(t))return o.call(r,t,n);var e,c,l,h,v,p=[],d=(t.ignoreCase?"i":"")+(t.multiline?"m":"")+(t.unicode?"u":"")+(t.sticky?"y":""),y=0,g=void 0===n?4294967295:n>>>0,b=new RegExp(t.source,d+"g");for(s||(e=new RegExp("^"+b.source+"$(?!\\s)",d));(c=b.exec(r))&&!((l=c.index+c[0][f])>y&&(p.push(r.slice(y,c.index)),!s&&c[f]>1&&c[0].replace(e,function(){for(v=1;v<arguments[f]-2;v++)void 0===arguments[v]&&(c[v]=void 0)}),c[f]>1&&c.index<r[f]&&u.apply(p,c.slice(1)),h=c[0][f],y=l,p[f]>=g));)b[a]===c.index&&b[a]++;return y===r[f]?!h&&b.test("")||p.push(""):p.push(r.slice(y)),p[f]>g?p.slice(0,g):p}}else"0"[c](void 0,0)[f]&&(e=function(t,n){return void 0===t&&0===n?[]:o.call(this,t,n)});return[function(r,i){var o=t(this),u=void 0==r?void 0:r[n];return void 0!==u?u.call(r,o,i):e.call(String(o),r,i)},e]})},function(t,n,r){"use strict";r(184);var e=r(2),i=r(120),o=r(10),u="toString",c=/./[u],f=function(t){r(28)(RegExp.prototype,u,t,!0)};r(4)(function(){return"/a/b"!=c.call({source:"a",flags:"b"})})?f(function(){var t=e(this);return"/".concat(t.source,"/","flags"in t?t.flags:!o&&t instanceof RegExp?i.call(t):void 0)}):c.name!=u&&f(function(){return c.call(this)})},function(t,n,r){"use strict";r(29)("anchor",function(t){return function(n){return t(this,"a","name",n)}})},function(t,n,r){"use strict";r(29)("big",function(t){return function(){return t(this,"big","","")}})},function(t,n,r){"use strict";r(29)("blink",function(t){return function(){return t(this,"blink","","")}})},function(t,n,r){"use strict";r(29)("bold",function(t){return function(){return t(this,"b","","")}})},function(t,n,r){"use strict";var e=r(1),i=r(147)(!1);e(e.P,"String",{codePointAt:function(t){return i(this,t)}})},function(t,n,r){"use strict";var e=r(1),i=r(16),o=r(148),u="endsWith",c=""[u];e(e.P+e.F*r(134)(u),"String",{endsWith:function(t){var n=o(this,t,u),r=arguments.length>1?arguments[1]:void 0,e=i(n.length),f=void 0===r?e:Math.min(i(r),e),a=String(t);return c?c.call(n,a,f):n.slice(f-a.length,f)===a}})},function(t,n,r){"use strict";r(29)("fixed",function(t){return function(){return t(this,"tt","","")}})},function(t,n,r){"use strict";r(29)("fontcolor",function(t){return function(n){return t(this,"font","color",n)}})},function(t,n,r){"use strict";r(29)("fontsize",function(t){return function(n){return t(this,"font","size",n)}})},function(t,n,r){var e=r(1),i=r(75),o=String.fromCharCode,u=String.fromCodePoint;e(e.S+e.F*(!!u&&1!=u.length),"String",{fromCodePoint:function(t){for(var n,r=[],e=arguments.length,u=0;e>u;){if(n=+arguments[u++],i(n,1114111)!==n)throw RangeError(n+" is not a valid code point");r.push(n<65536?o(n):o(55296+((n-=65536)>>10),n%1024+56320))}return r.join("")}})},function(t,n,r){"use strict";var e=r(1),i=r(148),o="includes";e(e.P+e.F*r(134)(o),"String",{includes:function(t){return!!~i(this,t,o).indexOf(t,arguments.length>1?arguments[1]:void 0)}})},function(t,n,r){"use strict";r(29)("italics",function(t){return function(){return t(this,"i","","")}})},function(t,n,r){"use strict";var e=r(147)(!0);r(140)(String,"String",function(t){this._t=String(t),this._i=0},function(){var t,n=this._t,r=this._i;return r>=n.length?{value:void 0,done:!0}:(t=e(n,r),this._i+=t.length,{value:t,done:!1})})},function(t,n,r){"use strict";r(29)("link",function(t){return function(n){return t(this,"a","href",n)}})},function(t,n,r){var e=r(1),i=r(30),o=r(16);e(e.S,"String",{raw:function(t){for(var n=i(t.raw),r=o(n.length),e=arguments.length,u=[],c=0;r>c;)u.push(String(n[c++])),c<e&&u.push(String(arguments[c]));return u.join("")}})},function(t,n,r){var e=r(1);e(e.P,"String",{repeat:r(149)})},function(t,n,r){"use strict";r(29)("small",function(t){return function(){return t(this,"small","","")}})},function(t,n,r){"use strict";var e=r(1),i=r(16),o=r(148),u="startsWith",c=""[u];e(e.P+e.F*r(134)(u),"String",{startsWith:function(t){var n=o(this,t,u),r=i(Math.min(arguments.length>1?arguments[1]:void 0,n.length)),e=String(t);return c?c.call(n,e,r):n.slice(r,r+e.length)===e}})},function(t,n,r){"use strict";r(29)("strike",function(t){return function(){return t(this,"strike","","")}})},function(t,n,r){"use strict";r(29)("sub",function(t){return function(){return t(this,"sub","","")}})},function(t,n,r){"use strict";r(29)("sup",function(t){return function(){return t(this,"sup","","")}})},function(t,n,r){"use strict";r(82)("trim",function(t){return function(){return t(this,3)}})},function(t,n,r){"use strict";var e=r(3),i=r(24),o=r(10),u=r(1),c=r(28),f=r(65).KEY,a=r(4),s=r(126),l=r(81),h=r(76),v=r(7),p=r(182),d=r(153),y=r(206),g=r(205),b=r(138),m=r(2),x=r(30),w=r(50),S=r(66),_=r(70),O=r(174),E=r(31),P=r(11),j=r(72),F=E.f,M=P.f,A=O.f,N=e.Symbol,T=e.JSON,I=T&&T.stringify,k="prototype",L=v("_hidden"),R=v("toPrimitive"),C={}.propertyIsEnumerable,D=s("symbol-registry"),U=s("symbols"),W=s("op-symbols"),G=Object[k],B="function"==typeof N,V=e.QObject,z=!V||!V[k]||!V[k].findChild,q=o&&a(function(){return 7!=_(M({},"a",{get:function(){return M(this,"a",{value:7}).a}})).a})?function(t,n,r){var e=F(G,n);e&&delete G[n],M(t,n,r),e&&t!==G&&M(G,n,e)}:M,K=function(t){var n=U[t]=_(N[k]);return n._k=t,n},J=B&&"symbol"==typeof N.iterator?function(t){return"symbol"==typeof t}:function(t){return t instanceof N},Y=function(t,n,r){return t===G&&Y(W,n,r),m(t),n=w(n,!0),m(r),i(U,n)?(r.enumerable?(i(t,L)&&t[L][n]&&(t[L][n]=!1),r=_(r,{enumerable:S(0,!1)})):(i(t,L)||M(t,L,S(1,{})),t[L][n]=!0),q(t,n,r)):M(t,n,r)},H=function(t,n){m(t);for(var r,e=g(n=x(n)),i=0,o=e.length;o>i;)Y(t,r=e[i++],n[r]);return t},$=function(t,n){return void 0===n?_(t):H(_(t),n)},X=function(t){var n=C.call(this,t=w(t,!0));return!(this===G&&i(U,t)&&!i(W,t))&&(!(n||!i(this,t)||!i(U,t)||i(this,L)&&this[L][t])||n)},Q=function(t,n){if(t=x(t),n=w(n,!0),t!==G||!i(U,n)||i(W,n)){var r=F(t,n);return!r||!i(U,n)||i(t,L)&&t[L][n]||(r.enumerable=!0),r}},Z=function(t){for(var n,r=A(x(t)),e=[],o=0;r.length>o;)i(U,n=r[o++])||n==L||n==f||e.push(n);return e},tt=function(t){for(var n,r=t===G,e=A(r?W:x(t)),o=[],u=0;e.length>u;)!i(U,n=e[u++])||r&&!i(G,n)||o.push(U[n]);return o};B||(N=function(){if(this instanceof N)throw TypeError("Symbol is not a constructor!");var t=h(arguments.length>0?arguments[0]:void 0),n=function(r){this===G&&n.call(W,r),i(this,L)&&i(this[L],t)&&(this[L][t]=!1),q(this,t,S(1,r))};return o&&z&&q(G,t,{configurable:!0,set:n}),K(t)},c(N[k],"toString",function(){return this._k}),E.f=Q,P.f=Y,r(71).f=O.f=Z,r(116).f=X,r(125).f=tt,o&&!r(69)&&c(G,"propertyIsEnumerable",X,!0),p.f=function(t){return K(v(t))}),u(u.G+u.W+u.F*!B,{Symbol:N});for(var nt="hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables".split(","),rt=0;nt.length>rt;)v(nt[rt++]);for(var nt=j(v.store),rt=0;nt.length>rt;)d(nt[rt++]);u(u.S+u.F*!B,"Symbol",{for:function(t){return i(D,t+="")?D[t]:D[t]=N(t)},keyFor:function(t){if(J(t))return y(D,t);throw TypeError(t+" is not a symbol!")},useSetter:function(){z=!0},useSimple:function(){z=!1}}),u(u.S+u.F*!B,"Object",{create:$,defineProperty:Y,defineProperties:H,getOwnPropertyDescriptor:Q,getOwnPropertyNames:Z,getOwnPropertySymbols:tt}),T&&u(u.S+u.F*(!B||a(function(){var t=N();return"[null]"!=I([t])||"{}"!=I({a:t})||"{}"!=I(Object(t))})),"JSON",{stringify:function(t){if(void 0!==t&&!J(t)){for(var n,r,e=[t],i=1;arguments.length>i;)e.push(arguments[i++]);return n=e[1],"function"==typeof n&&(r=n),!r&&b(n)||(n=function(t,n){if(r&&(n=r.call(this,t,n)),!J(n))return n}),e[1]=n,I.apply(T,e)}}}),N[k][R]||r(27)(N[k],R,N[k].valueOf),l(N,"Symbol"),l(Math,"Math",!0),l(e.JSON,"JSON",!0)},function(t,n,r){"use strict";var e=r(1),i=r(127),o=r(152),u=r(2),c=r(75),f=r(16),a=r(6),s=r(3).ArrayBuffer,l=r(146),h=o.ArrayBuffer,v=o.DataView,p=i.ABV&&s.isView,d=h.prototype.slice,y=i.VIEW,g="ArrayBuffer";e(e.G+e.W+e.F*(s!==h),{ArrayBuffer:h}),e(e.S+e.F*!i.CONSTR,g,{isView:function(t){return p&&p(t)||a(t)&&y in t}}),e(e.P+e.U+e.F*r(4)(function(){return!new h(2).slice(1,void 0).byteLength}),g,{slice:function(t,n){if(void 0!==d&&void 0===n)return d.call(u(this),t);for(var r=u(this).byteLength,e=c(t,r),i=c(void 0===n?r:n,r),o=new(l(this,h))(f(i-e)),a=new v(this),s=new v(o),p=0;e<i;)s.setUint8(p++,a.getUint8(e++));return o}}),r(74)(g)},function(t,n,r){var e=r(1);e(e.G+e.W+e.F*!r(127).ABV,{DataView:r(152).DataView})},function(t,n,r){r(55)("Float32",4,function(t){return function(n,r,e){return t(this,n,r,e)}})},function(t,n,r){r(55)("Float64",8,function(t){return function(n,r,e){return t(this,n,r,e)}})},function(t,n,r){r(55)("Int16",2,function(t){return function(n,r,e){return t(this,n,r,e)}})},function(t,n,r){r(55)("Int32",4,function(t){return function(n,r,e){return t(this,n,r,e)}})},function(t,n,r){r(55)("Int8",1,function(t){return function(n,r,e){return t(this,n,r,e)}})},function(t,n,r){r(55)("Uint16",2,function(t){return function(n,r,e){return t(this,n,r,e)}})},function(t,n,r){r(55)("Uint32",4,function(t){return function(n,r,e){return t(this,n,r,e)}})},function(t,n,r){r(55)("Uint8",1,function(t){return function(n,r,e){return t(this,n,r,e)}})},function(t,n,r){r(55)("Uint8",1,function(t){return function(n,r,e){return t(this,n,r,e)}},!0)},function(t,n,r){"use strict";var e=r(166);r(118)("WeakSet",function(t){return function(){return t(this,arguments.length>0?arguments[0]:void 0)}},{add:function(t){return e.def(this,t,!0)}},e,!1,!0)},function(t,n,r){"use strict";var e=r(1),i=r(117)(!0);e(e.P,"Array",{includes:function(t){return i(this,t,arguments.length>1?arguments[1]:void 0)}}),r(78)("includes")},function(t,n,r){var e=r(1),i=r(143)(),o=r(3).process,u="process"==r(45)(o);e(e.G,{asap:function(t){var n=u&&o.domain;i(n?n.bind(t):t)}})},function(t,n,r){var e=r(1),i=r(45);e(e.S,"Error",{isError:function(t){return"Error"===i(t)}})},function(t,n,r){var e=r(1);e(e.P+e.R,"Map",{toJSON:r(165)("Map")})},function(t,n,r){var e=r(1);e(e.S,"Math",{iaddh:function(t,n,r,e){var i=t>>>0,o=n>>>0,u=r>>>0;return o+(e>>>0)+((i&u|(i|u)&~(i+u>>>0))>>>31)|0}})},function(t,n,r){var e=r(1);e(e.S,"Math",{imulh:function(t,n){var r=65535,e=+t,i=+n,o=e&r,u=i&r,c=e>>16,f=i>>16,a=(c*u>>>0)+(o*u>>>16);return c*f+(a>>16)+((o*f>>>0)+(a&r)>>16)}})},function(t,n,r){var e=r(1);e(e.S,"Math",{isubh:function(t,n,r,e){var i=t>>>0,o=n>>>0,u=r>>>0;return o-(e>>>0)-((~i&u|~(i^u)&i-u>>>0)>>>31)|0}})},function(t,n,r){var e=r(1);e(e.S,"Math",{umulh:function(t,n){var r=65535,e=+t,i=+n,o=e&r,u=i&r,c=e>>>16,f=i>>>16,a=(c*u>>>0)+(o*u>>>16);return c*f+(a>>>16)+((o*f>>>0)+(a&r)>>>16)}})},function(t,n,r){"use strict";var e=r(1),i=r(17),o=r(26),u=r(11);r(10)&&e(e.P+r(124),"Object",{__defineGetter__:function(t,n){u.f(i(this),t,{get:o(n),enumerable:!0,configurable:!0})}})},function(t,n,r){"use strict";var e=r(1),i=r(17),o=r(26),u=r(11);r(10)&&e(e.P+r(124),"Object",{__defineSetter__:function(t,n){u.f(i(this),t,{set:o(n),enumerable:!0,configurable:!0})}})},function(t,n,r){var e=r(1),i=r(176)(!0);e(e.S,"Object",{entries:function(t){return i(t)}})},function(t,n,r){var e=r(1),i=r(177),o=r(30),u=r(31),c=r(131);e(e.S,"Object",{getOwnPropertyDescriptors:function(t){for(var n,r=o(t),e=u.f,f=i(r),a={},s=0;f.length>s;)c(a,n=f[s++],e(r,n));return a}})},function(t,n,r){"use strict";var e=r(1),i=r(17),o=r(50),u=r(32),c=r(31).f;r(10)&&e(e.P+r(124),"Object",{__lookupGetter__:function(t){var n,r=i(this),e=o(t,!0);do{if(n=c(r,e))return n.get}while(r=u(r))}})},function(t,n,r){"use strict";var e=r(1),i=r(17),o=r(50),u=r(32),c=r(31).f;r(10)&&e(e.P+r(124),"Object",{__lookupSetter__:function(t){var n,r=i(this),e=o(t,!0);do{if(n=c(r,e))return n.set}while(r=u(r))}})},function(t,n,r){var e=r(1),i=r(176)(!1);e(e.S,"Object",{values:function(t){return i(t)}})},function(t,n,r){"use strict";var e=r(1),i=r(3),o=r(52),u=r(143)(),c=r(7)("observable"),f=r(26),a=r(2),s=r(68),l=r(73),h=r(27),v=r(79),p=v.RETURN,d=function(t){return null==t?void 0:f(t)},y=function(t){var n=t._c;n&&(t._c=void 0,n())},g=function(t){return void 0===t._o},b=function(t){g(t)||(t._o=void 0,y(t))},m=function(t,n){a(t),this._c=void 0,this._o=t,t=new x(this);try{var r=n(t),e=r;null!=r&&("function"==typeof r.unsubscribe?r=function(){e.unsubscribe()}:f(r),this._c=r)}catch(n){return void t.error(n)}g(this)&&y(this)};m.prototype=l({},{unsubscribe:function(){b(this)}});var x=function(t){this._s=t};x.prototype=l({},{next:function(t){var n=this._s;if(!g(n)){var r=n._o;try{var e=d(r.next);if(e)return e.call(r,t)}catch(t){try{b(n)}finally{throw t}}}},error:function(t){var n=this._s;if(g(n))throw t;var r=n._o;n._o=void 0;try{var e=d(r.error);if(!e)throw t;t=e.call(r,t)}catch(t){try{y(n)}finally{throw t}}return y(n),t},complete:function(t){var n=this._s;if(!g(n)){var r=n._o;n._o=void 0;try{var e=d(r.complete);t=e?e.call(r,t):void 0}catch(t){try{y(n)}finally{throw t}}return y(n),t}}});var w=function(t){s(this,w,"Observable","_f")._f=f(t)};l(w.prototype,{subscribe:function(t){return new m(t,this._f)},forEach:function(t){var n=this;return new(o.Promise||i.Promise)(function(r,e){f(t);var i=n.subscribe({next:function(n){try{return t(n)}catch(t){e(t),i.unsubscribe()}},error:e,complete:r})})}}),l(w,{from:function(t){var n="function"==typeof this?this:w,r=d(a(t)[c]);if(r){var e=a(r.call(t));return e.constructor===n?e:new n(function(t){return e.subscribe(t)})}return new n(function(n){var r=!1;return u(function(){if(!r){try{if(v(t,!1,function(t){if(n.next(t),r)return p})===p)return}catch(t){if(r)throw t;return void n.error(t)}n.complete()}}),function(){r=!0}})},of:function(){for(var t=0,n=arguments.length,r=Array(n);t<n;)r[t]=arguments[t++];return new("function"==typeof this?this:w)(function(t){var n=!1;return u(function(){if(!n){for(var e=0;e<r.length;++e)if(t.next(r[e]),n)return;t.complete()}}),function(){n=!0}})}}),h(w.prototype,c,function(){return this}),e(e.G,{Observable:w}),r(74)("Observable")},function(t,n,r){var e=r(54),i=r(2),o=e.key,u=e.set;e.exp({defineMetadata:function(t,n,r,e){u(t,n,i(r),o(e))}})},function(t,n,r){var e=r(54),i=r(2),o=e.key,u=e.map,c=e.store;e.exp({deleteMetadata:function(t,n){var r=arguments.length<3?void 0:o(arguments[2]),e=u(i(n),r,!1);if(void 0===e||!e.delete(t))return!1;if(e.size)return!0;var f=c.get(n);return f.delete(r),!!f.size||c.delete(n)}})},function(t,n,r){var e=r(185),i=r(161),o=r(54),u=r(2),c=r(32),f=o.keys,a=o.key,s=function(t,n){var r=f(t,n),o=c(t);if(null===o)return r;var u=s(o,n);return u.length?r.length?i(new e(r.concat(u))):u:r};o.exp({getMetadataKeys:function(t){return s(u(t),arguments.length<2?void 0:a(arguments[1]))}})},function(t,n,r){var e=r(54),i=r(2),o=r(32),u=e.has,c=e.get,f=e.key,a=function(t,n,r){if(u(t,n,r))return c(t,n,r);var e=o(n);return null!==e?a(t,e,r):void 0};e.exp({getMetadata:function(t,n){return a(t,i(n),arguments.length<3?void 0:f(arguments[2]))}})},function(t,n,r){var e=r(54),i=r(2),o=e.keys,u=e.key;e.exp({getOwnMetadataKeys:function(t){
+return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var e=r(54),i=r(2),o=e.get,u=e.key;e.exp({getOwnMetadata:function(t,n){return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){var e=r(54),i=r(2),o=r(32),u=e.has,c=e.key,f=function(t,n,r){if(u(t,n,r))return!0;var e=o(n);return null!==e&&f(t,e,r)};e.exp({hasMetadata:function(t,n){return f(t,i(n),arguments.length<3?void 0:c(arguments[2]))}})},function(t,n,r){var e=r(54),i=r(2),o=e.has,u=e.key;e.exp({hasOwnMetadata:function(t,n){return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){var e=r(54),i=r(2),o=r(26),u=e.key,c=e.set;e.exp({metadata:function(t,n){return function(r,e){c(t,n,(void 0!==e?i:o)(r),u(e))}}})},function(t,n,r){var e=r(1);e(e.P+e.R,"Set",{toJSON:r(165)("Set")})},function(t,n,r){"use strict";var e=r(1),i=r(147)(!0);e(e.P,"String",{at:function(t){return i(this,t)}})},function(t,n,r){"use strict";var e=r(1),i=r(46),o=r(16),u=r(122),c=r(120),f=RegExp.prototype,a=function(t,n){this._r=t,this._s=n};r(139)(a,"RegExp String",function(){var t=this._r.exec(this._s);return{value:t,done:null===t}}),e(e.P,"String",{matchAll:function(t){if(i(this),!u(t))throw TypeError(t+" is not a regexp!");var n=String(this),r="flags"in f?String(t.flags):c.call(t),e=new RegExp(t.source,~r.indexOf("g")?r:"g"+r);return e.lastIndex=o(t.lastIndex),new a(e,n)}})},function(t,n,r){"use strict";var e=r(1),i=r(181);e(e.P,"String",{padEnd:function(t){return i(this,t,arguments.length>1?arguments[1]:void 0,!1)}})},function(t,n,r){"use strict";var e=r(1),i=r(181);e(e.P,"String",{padStart:function(t){return i(this,t,arguments.length>1?arguments[1]:void 0,!0)}})},function(t,n,r){"use strict";r(82)("trimLeft",function(t){return function(){return t(this,1)}},"trimStart")},function(t,n,r){"use strict";r(82)("trimRight",function(t){return function(){return t(this,2)}},"trimEnd")},function(t,n,r){r(153)("asyncIterator")},function(t,n,r){r(153)("observable")},function(t,n,r){var e=r(1);e(e.S,"System",{global:r(3)})},function(t,n,r){for(var e=r(155),i=r(28),o=r(3),u=r(27),c=r(80),f=r(7),a=f("iterator"),s=f("toStringTag"),l=c.Array,h=["NodeList","DOMTokenList","MediaList","StyleSheetList","CSSRuleList"],v=0;v<5;v++){var p,d=h[v],y=o[d],g=y&&y.prototype;if(g){g[a]||u(g,a,l),g[s]||u(g,s,d),c[d]=l;for(p in e)g[p]||i(g,p,e[p],!0)}}},function(t,n,r){var e=r(1),i=r(151);e(e.G+e.B,{setImmediate:i.set,clearImmediate:i.clear})},function(t,n,r){var e=r(3),i=r(1),o=r(121),u=r(207),c=e.navigator,f=!!c&&/MSIE .\./.test(c.userAgent),a=function(t){return f?function(n,r){return t(o(u,[].slice.call(arguments,2),"function"==typeof n?n:Function(n)),r)}:t};i(i.G+i.B+i.F*f,{setTimeout:a(e.setTimeout),setInterval:a(e.setInterval)})},function(t,n,r){r(330),r(269),r(271),r(270),r(273),r(275),r(280),r(274),r(272),r(282),r(281),r(277),r(278),r(276),r(268),r(279),r(283),r(284),r(236),r(238),r(237),r(286),r(285),r(256),r(266),r(267),r(257),r(258),r(259),r(260),r(261),r(262),r(263),r(264),r(265),r(239),r(240),r(241),r(242),r(243),r(244),r(245),r(246),r(247),r(248),r(249),r(250),r(251),r(252),r(253),r(254),r(255),r(317),r(322),r(329),r(320),r(312),r(313),r(318),r(323),r(325),r(308),r(309),r(310),r(311),r(314),r(315),r(316),r(319),r(321),r(324),r(326),r(327),r(328),r(231),r(233),r(232),r(235),r(234),r(220),r(218),r(224),r(221),r(227),r(229),r(217),r(223),r(214),r(228),r(212),r(226),r(225),r(219),r(222),r(211),r(213),r(216),r(215),r(230),r(155),r(302),r(307),r(184),r(303),r(304),r(305),r(306),r(287),r(183),r(185),r(186),r(342),r(331),r(332),r(337),r(340),r(341),r(335),r(338),r(336),r(339),r(333),r(334),r(288),r(289),r(290),r(291),r(292),r(295),r(293),r(294),r(296),r(297),r(298),r(299),r(301),r(300),r(343),r(369),r(372),r(371),r(373),r(374),r(370),r(375),r(376),r(354),r(357),r(353),r(351),r(352),r(355),r(356),r(346),r(368),r(377),r(345),r(347),r(349),r(348),r(350),r(359),r(360),r(362),r(361),r(364),r(363),r(365),r(366),r(367),r(344),r(358),r(380),r(379),r(378),t.exports=r(52)},function(t,n){function r(t,n){if("string"==typeof n)return t.insertAdjacentHTML("afterend",n);var r=t.nextSibling;return r?t.parentNode.insertBefore(n,r):t.parentNode.appendChild(n)}t.exports=r},,,,,,,,,function(t,n,r){(function(n,r){!function(n){"use strict";function e(t,n,r,e){var i=n&&n.prototype instanceof o?n:o,u=Object.create(i.prototype),c=new p(e||[]);return u._invoke=s(t,r,c),u}function i(t,n,r){try{return{type:"normal",arg:t.call(n,r)}}catch(t){return{type:"throw",arg:t}}}function o(){}function u(){}function c(){}function f(t){["next","throw","return"].forEach(function(n){t[n]=function(t){return this._invoke(n,t)}})}function a(t){function n(r,e,o,u){var c=i(t[r],t,e);if("throw"!==c.type){var f=c.arg,a=f.value;return a&&"object"==typeof a&&m.call(a,"__await")?Promise.resolve(a.__await).then(function(t){n("next",t,o,u)},function(t){n("throw",t,o,u)}):Promise.resolve(a).then(function(t){f.value=t,o(f)},u)}u(c.arg)}function e(t,r){function e(){return new Promise(function(e,i){n(t,r,e,i)})}return o=o?o.then(e,e):e()}"object"==typeof r&&r.domain&&(n=r.domain.bind(n));var o;this._invoke=e}function s(t,n,r){var e=P;return function(o,u){if(e===F)throw new Error("Generator is already running");if(e===M){if("throw"===o)throw u;return y()}for(r.method=o,r.arg=u;;){var c=r.delegate;if(c){var f=l(c,r);if(f){if(f===A)continue;return f}}if("next"===r.method)r.sent=r._sent=r.arg;else if("throw"===r.method){if(e===P)throw e=M,r.arg;r.dispatchException(r.arg)}else"return"===r.method&&r.abrupt("return",r.arg);e=F;var a=i(t,n,r);if("normal"===a.type){if(e=r.done?M:j,a.arg===A)continue;return{value:a.arg,done:r.done}}"throw"===a.type&&(e=M,r.method="throw",r.arg=a.arg)}}}function l(t,n){var r=t.iterator[n.method];if(r===g){if(n.delegate=null,"throw"===n.method){if(t.iterator.return&&(n.method="return",n.arg=g,l(t,n),"throw"===n.method))return A;n.method="throw",n.arg=new TypeError("The iterator does not provide a 'throw' method")}return A}var e=i(r,t.iterator,n.arg);if("throw"===e.type)return n.method="throw",n.arg=e.arg,n.delegate=null,A;var o=e.arg;return o?o.done?(n[t.resultName]=o.value,n.next=t.nextLoc,"return"!==n.method&&(n.method="next",n.arg=g),n.delegate=null,A):o:(n.method="throw",n.arg=new TypeError("iterator result is not an object"),n.delegate=null,A)}function h(t){var n={tryLoc:t[0]};1 in t&&(n.catchLoc=t[1]),2 in t&&(n.finallyLoc=t[2],n.afterLoc=t[3]),this.tryEntries.push(n)}function v(t){var n=t.completion||{};n.type="normal",delete n.arg,t.completion=n}function p(t){this.tryEntries=[{tryLoc:"root"}],t.forEach(h,this),this.reset(!0)}function d(t){if(t){var n=t[w];if(n)return n.call(t);if("function"==typeof t.next)return t;if(!isNaN(t.length)){var r=-1,e=function n(){for(;++r<t.length;)if(m.call(t,r))return n.value=t[r],n.done=!1,n;return n.value=g,n.done=!0,n};return e.next=e}}return{next:y}}function y(){return{value:g,done:!0}}var g,b=Object.prototype,m=b.hasOwnProperty,x="function"==typeof Symbol?Symbol:{},w=x.iterator||"@@iterator",S=x.asyncIterator||"@@asyncIterator",_=x.toStringTag||"@@toStringTag",O="object"==typeof t,E=n.regeneratorRuntime;if(E)return void(O&&(t.exports=E));E=n.regeneratorRuntime=O?t.exports:{},E.wrap=e;var P="suspendedStart",j="suspendedYield",F="executing",M="completed",A={},N={};N[w]=function(){return this};var T=Object.getPrototypeOf,I=T&&T(T(d([])));I&&I!==b&&m.call(I,w)&&(N=I);var k=c.prototype=o.prototype=Object.create(N);u.prototype=k.constructor=c,c.constructor=u,c[_]=u.displayName="GeneratorFunction",E.isGeneratorFunction=function(t){var n="function"==typeof t&&t.constructor;return!!n&&(n===u||"GeneratorFunction"===(n.displayName||n.name))},E.mark=function(t){return Object.setPrototypeOf?Object.setPrototypeOf(t,c):(t.__proto__=c,_ in t||(t[_]="GeneratorFunction")),t.prototype=Object.create(k),t},E.awrap=function(t){return{__await:t}},f(a.prototype),a.prototype[S]=function(){return this},E.AsyncIterator=a,E.async=function(t,n,r,i){var o=new a(e(t,n,r,i));return E.isGeneratorFunction(n)?o:o.next().then(function(t){return t.done?t.value:o.next()})},f(k),k[_]="Generator",k.toString=function(){return"[object Generator]"},E.keys=function(t){var n=[];for(var r in t)n.push(r);return n.reverse(),function r(){for(;n.length;){var e=n.pop();if(e in t)return r.value=e,r.done=!1,r}return r.done=!0,r}},E.values=d,p.prototype={constructor:p,reset:function(t){if(this.prev=0,this.next=0,this.sent=this._sent=g,this.done=!1,this.delegate=null,this.method="next",this.arg=g,this.tryEntries.forEach(v),!t)for(var n in this)"t"===n.charAt(0)&&m.call(this,n)&&!isNaN(+n.slice(1))&&(this[n]=g)},stop:function(){this.done=!0;var t=this.tryEntries[0],n=t.completion;if("throw"===n.type)throw n.arg;return this.rval},dispatchException:function(t){function n(n,e){return o.type="throw",o.arg=t,r.next=n,e&&(r.method="next",r.arg=g),!!e}if(this.done)throw t;for(var r=this,e=this.tryEntries.length-1;e>=0;--e){var i=this.tryEntries[e],o=i.completion;if("root"===i.tryLoc)return n("end");if(i.tryLoc<=this.prev){var u=m.call(i,"catchLoc"),c=m.call(i,"finallyLoc");if(u&&c){if(this.prev<i.catchLoc)return n(i.catchLoc,!0);if(this.prev<i.finallyLoc)return n(i.finallyLoc)}else if(u){if(this.prev<i.catchLoc)return n(i.catchLoc,!0)}else{if(!c)throw new Error("try statement without catch or finally");if(this.prev<i.finallyLoc)return n(i.finallyLoc)}}}},abrupt:function(t,n){for(var r=this.tryEntries.length-1;r>=0;--r){var e=this.tryEntries[r];if(e.tryLoc<=this.prev&&m.call(e,"finallyLoc")&&this.prev<e.finallyLoc){var i=e;break}}i&&("break"===t||"continue"===t)&&i.tryLoc<=n&&n<=i.finallyLoc&&(i=null);var o=i?i.completion:{};return o.type=t,o.arg=n,i?(this.method="next",this.next=i.finallyLoc,A):this.complete(o)},complete:function(t,n){if("throw"===t.type)throw t.arg;return"break"===t.type||"continue"===t.type?this.next=t.arg:"return"===t.type?(this.rval=this.arg=t.arg,this.method="return",this.next="end"):"normal"===t.type&&n&&(this.next=n),A},finish:function(t){for(var n=this.tryEntries.length-1;n>=0;--n){var r=this.tryEntries[n];if(r.finallyLoc===t)return this.complete(r.completion,r.afterLoc),v(r),A}},catch:function(t){for(var n=this.tryEntries.length-1;n>=0;--n){var r=this.tryEntries[n];if(r.tryLoc===t){var e=r.completion;if("throw"===e.type){var i=e.arg;v(r)}return i}}throw new Error("illegal catch attempt")},delegateYield:function(t,n,r){return this.delegate={iterator:d(t),resultName:n,nextLoc:r},"next"===this.method&&(this.arg=g),A}}}("object"==typeof n?n:"object"==typeof window?window:"object"==typeof self?self:this)}).call(n,function(){return this}(),r(158))}])</script><script src="/./main.0cf68a.js"></script><script>!function(){!function(e){var t=document.createElement("script");document.getElementsByTagName("body")[0].appendChild(t),t.setAttribute("src",e)}("/slider.e37972.js")}()</script>
 
 
+    
+<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
+  <div class="tools-nav header-menu">
+    
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+    
+
+    <ul style="width: 70%">
+    
+    
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      
+        
+    </ul>
+  </div>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all" q-show="innerArchive">
+        <div class="search-wrap">
+          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
+          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
+          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">tag:</p>
+          <label class="search-switch">
+            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
+          </label>
+          <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ctf-pwn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ctf-misc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">dcoker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">termux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pwntools</a>
+              </li>
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <ul class="search-ul">
+          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            3、在根目录_config.yml里添加配置：
+<pre style="font-size: 12px;" q-show="jsonFail">
+  jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: false
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
+</pre>
+          </p>
+          <li class="search-li" q-repeat="items" q-show="isShow">
+            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+            <p class="search-time">
+              <i class="icon-calendar icon"></i>
+              <span q-text="date|dateformat"></span>
+            </p>
+            <p class="search-tag">
+              <i class="icon-price-tags icon"></i>
+              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+          </li>
+        </ul>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">差不多算个废人吧,热衷于计算机,但一事无成</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
 </body>
 </html>
