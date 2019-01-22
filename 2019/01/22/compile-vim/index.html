@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zero-mk.github.io">
-  <title>Archives: 2018 | l0ser</title>
+  <title>编译最新vim并支持python | l0ser</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="l0ser">
-<meta property="og:url" content="http://zero-mk.github.io/archives/2018/index.html">
+  <meta name="description" content="每次看到vim不支持Python的时候，心情是崩溃的，要自己compile，Linux下的编译都烦，上次编译edb，emmmm，心理阴影，废话不多说，言归正传 vim --version查看vim支持，前面有+的都是支持的，有-的都是不支持的，可以看到-python3 ，-python3  123456789101112131415161718192021222324252627282930313">
+<meta name="keywords" content="compile,vim">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译最新vim并支持python">
+<meta property="og:url" content="http://zero-mk.github.io/2019/01/22/compile-vim/index.html">
 <meta property="og:site_name" content="l0ser">
+<meta property="og:description" content="每次看到vim不支持Python的时候，心情是崩溃的，要自己compile，Linux下的编译都烦，上次编译edb，emmmm，心理阴影，废话不多说，言归正传 vim --version查看vim支持，前面有+的都是支持的，有-的都是不支持的，可以看到-python3 ，-python3  123456789101112131415161718192021222324252627282930313">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-22T16:51:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="l0ser">
+<meta name="twitter:title" content="编译最新vim并支持python">
+<meta name="twitter:description" content="每次看到vim不支持Python的时候，心情是崩溃的，要自己compile，Linux下的编译都烦，上次编译edb，emmmm，心理阴影，废话不多说，言归正传 vim --version查看vim支持，前面有+的都是支持的，有-的都是不支持的，可以看到-python3 ，-python3  123456789101112131415161718192021222324252627282930313">
   
     <link rel="alternative" href="/atom.xml" title="l0ser" type="application/atom+xml">
   
@@ -154,342 +159,177 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-compile-vim" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      编译最新vim并支持python
+    </h1>
+  
+
+        
+        <a href="/2019/01/22/compile-vim/" class="archive-article-date">
+  	<time datetime="2019-01-22T14:37:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>每次看到vim不支持Python的时候，心情是崩溃的，要自己compile，Linux下的编译都烦，上次编译edb，emmmm，心理阴影，废话不多说，言归正传</p>
+<p><code>vim --version</code>查看vim支持，前面有+的都是支持的，有-的都是不支持的，可以看到-python3 ，-python3 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247 ~<span class="comment"># vim --version</span></span><br><span class="line">VIM - Vi IMproved 8.1 (2018 May 18, compiled Jan 05 2019 20:53:12)</span><br><span class="line">Included patches: 1-693</span><br><span class="line">Modified by team+vim@tracker.debian.org</span><br><span class="line">Compiled by team+vim@tracker.debian.org</span><br><span class="line">Huge version without GUI.  Features included (+) or not (-):</span><br><span class="line">+acl               +extra_search      +mouse_netterm     +tag_old_static</span><br><span class="line">+arabic            +farsi             +mouse_sgr         -tag_any_white</span><br><span class="line">+autocmd           +file_in_path      -mouse_sysmouse    -tcl</span><br><span class="line">+autochdir         +find_in_path      +mouse_urxvt       +termguicolors</span><br><span class="line">-autoservername    +<span class="built_in">float</span>             +mouse_xterm       +terminal</span><br><span class="line">-balloon_eval      +folding           +multi_byte        +terminfo</span><br><span class="line">+balloon_eval_term -footer            +multi_lang        +termresponse</span><br><span class="line">-browse            +fork()            -mzscheme          +textobjects</span><br><span class="line">++builtin_terms    +gettext           +netbeans_intg     +textprop</span><br><span class="line">+byte_offset       -hangul_input      +num64             +timers</span><br><span class="line">+channel           +iconv             +packages          +title</span><br><span class="line">+cindent           +insert_expand     +path_extra        -toolbar</span><br><span class="line">-clientserver      +job               -perl              +user_commands</span><br><span class="line">-clipboard         +jumplist          +persistent_undo   +vartabs</span><br><span class="line">+cmdline_compl     +keymap            +postscript        +vertsplit</span><br><span class="line">+cmdline_hist      +lambda            +printer           +virtualedit</span><br><span class="line">+cmdline_info      +langmap           +profile           +visual</span><br><span class="line">+comments          +libcall           -python            +visualextra</span><br><span class="line">+conceal           +linebreak         -python3           +viminfo</span><br><span class="line">+cryptv            +lispindent        +quickfix          +vreplace</span><br><span class="line">+cscope            +listcmds          +reltime           +wildignore</span><br><span class="line">+cursorbind        +localmap          +rightleft         +wildmenu</span><br><span class="line">+cursorshape       -lua               -ruby              +windows</span><br><span class="line">+dialog_con        +menu              +scrollbind        +writebackup</span><br><span class="line">+diff              +mksession         +signs             -X11</span><br><span class="line">+digraphs          +modify_fname      +smartindent       -xfontset</span><br><span class="line">-dnd               +mouse             +startuptime       -xim</span><br><span class="line">-ebcdic            -mouseshape        +statusline        -xpm</span><br><span class="line">+emacs_tags        +mouse_dec         -sun_workshop      -xsmp</span><br><span class="line">+<span class="built_in">eval</span>              +mouse_gpm         +syntax            -xterm_clipboard</span><br><span class="line">+ex_extra          -mouse_jsbterm     +tag_binary        -xterm_save</span><br><span class="line">   system vimrc file: <span class="string">"<span class="variable">$VIM</span>/vimrc"</span></span><br><span class="line">     user vimrc file: <span class="string">"<span class="variable">$HOME</span>/.vimrc"</span></span><br><span class="line"> 2nd user vimrc file: <span class="string">"~/.vim/vimrc"</span></span><br><span class="line">      user exrc file: <span class="string">"<span class="variable">$HOME</span>/.exrc"</span></span><br><span class="line">       defaults file: <span class="string">"<span class="variable">$VIMRUNTIME</span>/defaults.vim"</span></span><br><span class="line">  fall-back <span class="keyword">for</span> <span class="variable">$VIM</span>: <span class="string">"/usr/share/vim"</span></span><br><span class="line">Compilation: gcc -c -I. -Iproto -DHAVE_CONFIG_H   -Wdate-time  -g -O2 -fdebug-prefix-map=/build/vim-SsPCMM/vim-8.1.0693=. -fstack-protector-strong -Wformat -Werror=format-security -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1</span><br><span class="line">Linking: gcc   -Wl,-z,relro -Wl,-z,now -Wl,--as-needed -o vim        -lm -ltinfo -lnsl  -lselinux -lacl -lattr -lgpm -ldl</span><br></pre></td></tr></table></figure>
+<h3 id="0x1-现在，把最新源码从vim的Github仓库下来"><a href="#0x1-现在，把最新源码从vim的Github仓库下来" class="headerlink" title="0x1.现在，把最新源码从vim的Github仓库下来"></a>0x1.现在，把最新源码从<a href="https://link.jianshu.com/?t=https://github.com/vim/vim" target="_blank" rel="noopener">vim的Github仓库</a>下来</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/vim/vim.git</span><br></pre></td></tr></table></figure>
+<h3 id="0x2-安装依赖"><a href="#0x2-安装依赖" class="headerlink" title="0x2.安装依赖"></a>0x2.安装依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python-dev python3-dev libncurses5-dev</span><br></pre></td></tr></table></figure>
+<h3 id="0x3-编译"><a href="#0x3-编译" class="headerlink" title="0x3.编译"></a>0x3.编译</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd vim #进入你刚刚clone下来的vim</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make clean #清除上一次的编译</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --with-features=huge --<span class="built_in">enable</span>-python3interp --<span class="built_in">enable</span>-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu/ --<span class="built_in">enable</span>-rubyinterp --<span class="built_in">enable</span>-luainterp --<span class="built_in">enable</span>-perlinterp --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu/ --<span class="built_in">enable</span>-multibyte --<span class="built_in">enable</span>-cscope --prefix=/usr/<span class="built_in">local</span>/vim/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install #编译并安装到上面--prefix参数指定的位置</span><br></pre></td></tr></table></figure>
+<p>现在编译和安装OK了，接下来就是怎么启动的问题</p>
+<h3 id="0x4-设置启动命令"><a href="#0x4-设置启动命令" class="headerlink" title="0x4.设置启动命令"></a>0x4.设置启动命令</h3><p>我们现在执行vim –version看看</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247 /u/l/v/bin<span class="comment"># vim --version</span></span><br><span class="line">VIM - Vi IMproved 8.1 (2018 May 18, compiled Jan 05 2019 20:53:12)</span><br><span class="line">Included patches: 1-693</span><br><span class="line">Modified by team+vim@tracker.debian.org</span><br><span class="line">Compiled by team+vim@tracker.debian.org</span><br><span class="line">Huge version without GUI.  Features included (+) or not (-):</span><br><span class="line">+acl               +extra_search      +mouse_netterm     +tag_old_static</span><br><span class="line">+arabic            +farsi             +mouse_sgr         -tag_any_white</span><br><span class="line">+autocmd           +file_in_path      -mouse_sysmouse    -tcl</span><br><span class="line">+autochdir         +find_in_path      +mouse_urxvt       +termguicolors</span><br><span class="line">-autoservername    +<span class="built_in">float</span>             +mouse_xterm       +terminal</span><br><span class="line">-balloon_eval      +folding           +multi_byte        +terminfo</span><br><span class="line">+balloon_eval_term -footer            +multi_lang        +termresponse</span><br><span class="line">-browse            +fork()            -mzscheme          +textobjects</span><br><span class="line">++builtin_terms    +gettext           +netbeans_intg     +textprop</span><br><span class="line">+byte_offset       -hangul_input      +num64             +timers</span><br><span class="line">+channel           +iconv             +packages          +title</span><br><span class="line">+cindent           +insert_expand     +path_extra        -toolbar</span><br><span class="line">-clientserver      +job               -perl              +user_commands</span><br><span class="line">-clipboard         +jumplist          +persistent_undo   +vartabs</span><br><span class="line">+cmdline_compl     +keymap            +postscript        +vertsplit</span><br><span class="line">+cmdline_hist      +lambda            +printer           +virtualedit</span><br><span class="line">+cmdline_info      +langmap           +profile           +visual</span><br><span class="line">+comments          +libcall           -python            +visualextra</span><br><span class="line">+conceal           +linebreak         -python3           +viminfo</span><br><span class="line">+cryptv            +lispindent        +quickfix          +vreplace</span><br><span class="line">+cscope            +listcmds          +reltime           +wildignore</span><br><span class="line">+cursorbind        +localmap          +rightleft         +wildmenu</span><br><span class="line">+cursorshape       -lua               -ruby              +windows</span><br><span class="line">+dialog_con        +menu              +scrollbind        +writebackup</span><br><span class="line">+diff              +mksession         +signs             -X11</span><br><span class="line">+digraphs          +modify_fname      +smartindent       -xfontset</span><br><span class="line">-dnd               +mouse             +startuptime       -xim</span><br><span class="line">-ebcdic            -mouseshape        +statusline        -xpm</span><br><span class="line">+emacs_tags        +mouse_dec         -sun_workshop      -xsmp</span><br><span class="line">+<span class="built_in">eval</span>              +mouse_gpm         +syntax            -xterm_clipboard</span><br><span class="line">+ex_extra          -mouse_jsbterm     +tag_binary        -xterm_save</span><br><span class="line">   system vimrc file: <span class="string">"<span class="variable">$VIM</span>/vimrc"</span></span><br><span class="line">     user vimrc file: <span class="string">"<span class="variable">$HOME</span>/.vimrc"</span></span><br><span class="line"> 2nd user vimrc file: <span class="string">"~/.vim/vimrc"</span></span><br><span class="line">      user exrc file: <span class="string">"<span class="variable">$HOME</span>/.exrc"</span></span><br><span class="line">       defaults file: <span class="string">"<span class="variable">$VIMRUNTIME</span>/defaults.vim"</span></span><br><span class="line">  fall-back <span class="keyword">for</span> <span class="variable">$VIM</span>: <span class="string">"/usr/share/vim"</span></span><br><span class="line">Compilation: gcc -c -I. -Iproto -DHAVE_CONFIG_H   -Wdate-time  -g -O2 -fdebug-prefix-map=/build/vim-SsPCMM/vim-8.1.0693=. -fstack-protector-strong -Wformat -Werror=format-security -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1</span><br><span class="line">Linking: gcc   -Wl,-z,relro -Wl,-z,now -Wl,--as-needed -o vim        -lm -ltinfo -lnsl  -lselinux -lacl -lattr -lgpm -ldl</span><br></pre></td></tr></table></figure>
+<p>你会惊奇的发现，-python，-python3，心生疑问，我刚刚不是重新编译了一个支持python的vim了吗，现在怎么还是不支持。其实是我们刚刚指定安装到—prefix指定的路径去了（我是指定了/usr/local/vim），我们去看看</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247 /u/l/vim<span class="comment"># cd /usr/local/vim/bin</span></span><br><span class="line">root@cca41a231247 /u/l/v/bin<span class="comment"># ls</span></span><br><span class="line">ex@  rview@  rvim@  view@  vim*  vimdiff@  vimtutor*  xxd*</span><br><span class="line">root@cca41a231247 /u/l/v/bin<span class="comment"># ./vim --version</span></span><br><span class="line">VIM - Vi IMproved 8.1 (2018 May 18, compiled Jan 22 2019 15:28:12)</span><br><span class="line">Included patches: 1-739</span><br><span class="line">Compiled by root@cca41a231247</span><br><span class="line">Huge version without GUI.  Features included (+) or not (-):</span><br><span class="line">+acl               +extra_search      +mouse_netterm     +tag_old_static</span><br><span class="line">+arabic            +farsi             +mouse_sgr         -tag_any_white</span><br><span class="line">+autocmd           +file_in_path      -mouse_sysmouse    -tcl</span><br><span class="line">+autochdir         +find_in_path      +mouse_urxvt       +termguicolors</span><br><span class="line">-autoservername    +<span class="built_in">float</span>             +mouse_xterm       +terminal</span><br><span class="line">-balloon_eval      +folding           +multi_byte        +terminfo</span><br><span class="line">+balloon_eval_term -footer            +multi_lang        +termresponse</span><br><span class="line">-browse            +fork()            -mzscheme          +textobjects</span><br><span class="line">++builtin_terms    -gettext           +netbeans_intg     +textprop</span><br><span class="line">+byte_offset       -hangul_input      +num64             +timers</span><br><span class="line">+channel           +iconv             +packages          +title</span><br><span class="line">+cindent           +insert_expand     +path_extra        -toolbar</span><br><span class="line">-clientserver      +job               -perl              +user_commands</span><br><span class="line">-clipboard         +jumplist          +persistent_undo   +vartabs</span><br><span class="line">+cmdline_compl     +keymap            +postscript        +vertsplit</span><br><span class="line">+cmdline_hist      +lambda            +printer           +virtualedit</span><br><span class="line">+cmdline_info      +langmap           +profile           +visual</span><br><span class="line">+comments          +libcall           +python/dyn        +visualextra</span><br><span class="line">+conceal           +linebreak         +python3/dyn       +viminfo</span><br><span class="line">+cryptv            +lispindent        +quickfix          +vreplace</span><br><span class="line">+cscope            +listcmds          +reltime           +wildignore</span><br><span class="line">+cursorbind        +localmap          +rightleft         +wildmenu</span><br><span class="line">+cursorshape       -lua               +ruby              +windows</span><br><span class="line">+dialog_con        +menu              +scrollbind        +writebackup</span><br><span class="line">+diff              +mksession         +signs             -X11</span><br><span class="line">+digraphs          +modify_fname      +smartindent       -xfontset</span><br><span class="line">-dnd               +mouse             +startuptime       -xim</span><br><span class="line">-ebcdic            -mouseshape        +statusline        -xpm</span><br><span class="line">+emacs_tags        +mouse_dec         -sun_workshop      -xsmp</span><br><span class="line">+<span class="built_in">eval</span>              -mouse_gpm         +syntax            -xterm_clipboard</span><br><span class="line">+ex_extra          -mouse_jsbterm     +tag_binary        -xterm_save</span><br><span class="line">   system vimrc file: <span class="string">"<span class="variable">$VIM</span>/vimrc"</span></span><br><span class="line">     user vimrc file: <span class="string">"<span class="variable">$HOME</span>/.vimrc"</span></span><br><span class="line"> 2nd user vimrc file: <span class="string">"~/.vim/vimrc"</span></span><br><span class="line">      user exrc file: <span class="string">"<span class="variable">$HOME</span>/.exrc"</span></span><br><span class="line">       defaults file: <span class="string">"<span class="variable">$VIMRUNTIME</span>/defaults.vim"</span></span><br><span class="line">  fall-back <span class="keyword">for</span> <span class="variable">$VIM</span>: <span class="string">"/usr/local/vim/share/vim"</span></span><br><span class="line">Compilation: gcc -c -I. -Iproto -DHAVE_CONFIG_H     -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1</span><br><span class="line">Linking: gcc   -L. -Wl,-z,relro -Wl,-z,now -fstack-protector -rdynamic -Wl,-<span class="built_in">export</span>-dynamic  -L/usr/<span class="built_in">local</span>/lib -Wl,--as-needed -o vim        -lm -ltinfo -lnsl    -ldl       -lruby-2.5 -lpthread -lgmp -ldl -lcrypt -lm</span><br></pre></td></tr></table></figure>
+<p>这不就是了嘛，每次都用绝对路径打开，不方便，现在有两种方法解决这种尴尬</p>
+<h4 id="1-设置环境变量"><a href="#1-设置环境变量" class="headerlink" title="1.设置环境变量"></a>1.设置环境变量</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247 /u/l/v/bin<span class="comment"># env |grep PATH #查看PATH变量</span></span><br><span class="line">PATH=/usr/<span class="built_in">local</span>/sbin:/usr/<span class="built_in">local</span>/bin:/usr/sbin:/usr/bin:/sbin:/bin</span><br></pre></td></tr></table></figure>
+<p>现在我们临时修改</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247:~<span class="comment"># export PATH=/usr/local/vim/bin:$PATH</span></span><br><span class="line">root@cca41a231247:~<span class="comment"># env | grep PATH</span></span><br><span class="line">PATH=/usr/<span class="built_in">local</span>/vim/bin:/usr/<span class="built_in">local</span>/sbin:/usr/<span class="built_in">local</span>/bin:/usr/sbin:/usr/bin:/sbin:/bin</span><br><span class="line">_=/usr/bin/env</span><br></pre></td></tr></table></figure>
+<p>可以看到/usr/local/vim/bin已经加到PATH变量中，现在<code>vim --version</code>看看</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247:~<span class="comment"># vim --version</span></span><br><span class="line">VIM - Vi IMproved 8.1 (2018 May 18, compiled Jan 22 2019 15:28:12)</span><br><span class="line">Included patches: 1-739</span><br><span class="line">Compiled by root@cca41a231247</span><br><span class="line">Huge version without GUI.  Features included (+) or not (-):</span><br><span class="line">+acl               +extra_search      +mouse_netterm     +tag_old_static</span><br><span class="line">+arabic            +farsi             +mouse_sgr         -tag_any_white</span><br><span class="line">+autocmd           +file_in_path      -mouse_sysmouse    -tcl</span><br><span class="line">+autochdir         +find_in_path      +mouse_urxvt       +termguicolors</span><br><span class="line">-autoservername    +<span class="built_in">float</span>             +mouse_xterm       +terminal</span><br><span class="line">-balloon_eval      +folding           +multi_byte        +terminfo</span><br><span class="line">+balloon_eval_term -footer            +multi_lang        +termresponse</span><br><span class="line">-browse            +fork()            -mzscheme          +textobjects</span><br><span class="line">++builtin_terms    -gettext           +netbeans_intg     +textprop</span><br><span class="line">+byte_offset       -hangul_input      +num64             +timers</span><br><span class="line">+channel           +iconv             +packages          +title</span><br><span class="line">+cindent           +insert_expand     +path_extra        -toolbar</span><br><span class="line">-clientserver      +job               -perl              +user_commands</span><br><span class="line">-clipboard         +jumplist          +persistent_undo   +vartabs</span><br><span class="line">+cmdline_compl     +keymap            +postscript        +vertsplit</span><br><span class="line">+cmdline_hist      +lambda            +printer           +virtualedit</span><br><span class="line">+cmdline_info      +langmap           +profile           +visual</span><br><span class="line">+comments          +libcall           +python/dyn        +visualextra</span><br><span class="line">+conceal           +linebreak         +python3/dyn       +viminfo</span><br><span class="line">+cryptv            +lispindent        +quickfix          +vreplace</span><br><span class="line">+cscope            +listcmds          +reltime           +wildignore</span><br><span class="line">+cursorbind        +localmap          +rightleft         +wildmenu</span><br><span class="line">+cursorshape       -lua               +ruby              +windows</span><br><span class="line">+dialog_con        +menu              +scrollbind        +writebackup</span><br><span class="line">+diff              +mksession         +signs             -X11</span><br><span class="line">+digraphs          +modify_fname      +smartindent       -xfontset</span><br><span class="line">-dnd               +mouse             +startuptime       -xim</span><br><span class="line">-ebcdic            -mouseshape        +statusline        -xpm</span><br><span class="line">+emacs_tags        +mouse_dec         -sun_workshop      -xsmp</span><br><span class="line">+<span class="built_in">eval</span>              -mouse_gpm         +syntax            -xterm_clipboard</span><br><span class="line">+ex_extra          -mouse_jsbterm     +tag_binary        -xterm_save</span><br><span class="line">   system vimrc file: <span class="string">"<span class="variable">$VIM</span>/vimrc"</span></span><br><span class="line">     user vimrc file: <span class="string">"<span class="variable">$HOME</span>/.vimrc"</span></span><br><span class="line"> 2nd user vimrc file: <span class="string">"~/.vim/vimrc"</span></span><br><span class="line">      user exrc file: <span class="string">"<span class="variable">$HOME</span>/.exrc"</span></span><br><span class="line">       defaults file: <span class="string">"<span class="variable">$VIMRUNTIME</span>/defaults.vim"</span></span><br><span class="line">  fall-back <span class="keyword">for</span> <span class="variable">$VIM</span>: <span class="string">"/usr/local/vim/share/vim"</span></span><br><span class="line">Compilation: gcc -c -I. -Iproto -DHAVE_CONFIG_H     -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1</span><br><span class="line">Linking: gcc   -L. -Wl,-z,relro -Wl,-z,now -fstack-protector -rdynamic -Wl,-<span class="built_in">export</span>-dynamic  -L/usr/<span class="built_in">local</span>/lib -Wl,--as-needed -o vim        -lm -ltinfo -lnsl    -ldl       -lruby-2.5 -lpthread -lgmp -ldl -lcrypt -lm</span><br></pre></td></tr></table></figure>
+<p>现在PATH只在当前shell生效，退出再登录就失效。要永久生效，方法有好几种，我列举两种，其他的，自行baidu</p>
+<h5 id="方法一：【对所有用户生效-永久的-】在-etc-profile文件末尾另起一行，添加一句"><a href="#方法一：【对所有用户生效-永久的-】在-etc-profile文件末尾另起一行，添加一句" class="headerlink" title="方法一：【对所有用户生效(永久的)】在/etc/profile文件末尾另起一行，添加一句"></a>方法一：【对所有用户生效(永久的)】在/etc/profile文件末尾另起一行，添加一句</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/vim/bin:$PATH</span><br></pre></td></tr></table></figure>
+<h5 id="方法二：【对所有用户生效-永久的-】在用户目录下的-bashrc文件（-bashrc）末尾另起一行，添加一句"><a href="#方法二：【对所有用户生效-永久的-】在用户目录下的-bashrc文件（-bashrc）末尾另起一行，添加一句" class="headerlink" title="方法二：【对所有用户生效(永久的)】在用户目录下的.bashrc文件（~/.bashrc）末尾另起一行，添加一句"></a>方法二：【对所有用户生效(永久的)】在用户目录下的.bashrc文件（~/.bashrc）末尾另起一行，添加一句</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/vim/bin:$PATH</span><br></pre></td></tr></table></figure>
+<h4 id="2-ln链接"><a href="#2-ln链接" class="headerlink" title="2.ln链接"></a>2.ln链接</h4><p>这个就很简单了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247:/# ln -s /usr/local/vim/bin/vim /bin/vimn #链接/usr/local/vim/bin/vim到/bin/vimn</span><br></pre></td></tr></table></figure>
+<p>现在执行vimn就是等于在执行/usr/local/vim/bin/vim</p>
+<h3 id="0x5-完工-amp-amp-补充"><a href="#0x5-完工-amp-amp-补充" class="headerlink" title="0x5.完工&amp;&amp;补充"></a>0x5.完工&amp;&amp;补充</h3><p>关于上面./configure那一句的说明：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">--with-features=huge  支持最大特性</span><br><span class="line">--enable-rubyinterp  打开对ruby编写的插件的支持</span><br><span class="line">--enable-pythoninterp  打开对python编写的插件的支持</span><br><span class="line">--enable-python3interp  打开对python3编写的插件的支持</span><br><span class="line">--enable-luainterp  打开对lua编写的插件的支持</span><br><span class="line">--enable-perlinterp  打开对perl编写的插件的支持</span><br><span class="line">--enable-multibyte  打开多字节支持，可以在Vim中输入中文</span><br><span class="line">--enable-cscope  打开对cscope的支持</span><br><span class="line">--with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu/ 指定python路径</span><br><span class="line">--with-python-config-dir=/usr/lib/python3.7/config-3.7m-x86_64-linux-gnu/ 指定python3路径</span><br><span class="line">--prefix=/usr/local/vim：指定将要安装到的路径</span><br></pre></td></tr></table></figure>
+<p>上面提到的python的路径的获取方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247 ~<span class="comment"># cd /usr/lib/ &amp;&amp; ls |grep python</span></span><br><span class="line">python2.7</span><br><span class="line">python3</span><br><span class="line">python3.6</span><br><span class="line">python3.7</span><br></pre></td></tr></table></figure>
+<p>看到有python2.7，python3，python3.6，python3.7选一个，python3的路径一般是python3.x，python一样是python2.x，你cd进去找到config-xxxxx-linux-gnu/，cd进去，然后pwd就可以得到路径，看我操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247 ~<span class="comment"># cd /usr/lib/ &amp;&amp; ls |grep python</span></span><br><span class="line">python2.7</span><br><span class="line">python3</span><br><span class="line">python3.6</span><br><span class="line">python3.7</span><br><span class="line">root@cca41a231247 /u/lib<span class="comment"># cd python3.7</span></span><br><span class="line">root@cca41a231247 /u/l/python3.7<span class="comment"># cd config-3.7m-x86_64-linux-gnu/</span></span><br><span class="line">root@cca41a231247 /u/l/p/config-3.7m-x86_64-linux-gnu<span class="comment"># pwd</span></span><br><span class="line">/usr/lib/python3.7/config-3.7m-x86_64-linux-gnu</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/31/CTF-pwn-tips-zh_CN/" class="archive-article-date">
-  	<time datetime="2018-12-31T08:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/31/CTF-pwn-tips-zh_CN/">ctf-pwn-tips-zh_CN</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ctf-pwn</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">compile,vim</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACI0lEQVR42u3a0W7DIAwF0Pz/T3fSniYtza7tZFLh8BQ1LXB4cAH7OOL2+m7vPv/59vWrXff27rfHEw0DA+NjGa/LlgxWfZsvWTI3DAyMfRiT7pJhqsuUzw0DAwOj13WyWbymYmBgYEwCbnLg7AXif/3fwMDA+EBGsnWrXqLlF2d5sL7hLI6BgfGBjPkwzz0/mN/AwMD4EEbv+iz/PE8YjGaFgYGxNOP62isfIHk7L934IxxjYGBsySh0EScDqmmAwpEVAwNjA0b1aiwvnuhdnOV4DAyMtRm9K/hJ4UUe1pNUAQYGxm6M54avbhlvqBbBwMDYjJEMlm8Tq2mG6BkDA2MbRg6469DbW6yTTzAwMJZmJNu1/Jg6X5Rq2MXAwNiNMSm/qB47e9/EwMDYmZH/IE9M9jaUkwXFwMBYlTEp5OpdmVWXIwq4GBgYGzAmk8vjXu/qv1zXhoGBsRwj2jMWw25vCaqlaSe9YWBgbMBI2ry064lSDAwMjLUZeTjrBeVeOvOoNgwMjA0Y+eZvMvW7Ds8nPWNgYCzNyJOL1QGqPfQOzxgYGDswXsWWB9Pec57sPPnfwMDAWJTxxKG0uqWrLgQGBsaejFFJVnyhf9cG9O1mFAMDYwNGEmSvg2OSquwdfaNNIQYGBkax2GI+xfwoi4GBgVElVS/pquVlf+Q3MDAwlmbkBRC9qeThuFqEgYGBsQOjunWbpBOSNEBvWTEwMBZlfAHTS2C+7dkYoAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/20/syscall/" class="archive-article-date">
-  	<time datetime="2018-12-20T08:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-20</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/22/git-config/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/20/syscall/">Linux_System_Call_Table</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ctf-pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/17/FMT/" class="archive-article-date">
-  	<time datetime="2018-12-17T08:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/17/FMT/">格式化字符漏洞</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ctf-pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/15/my-ctf-pwn/" class="archive-article-date">
-  	<time datetime="2018-12-14T16:00:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/15/my-ctf-pwn/">记录我学习pwn</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ctf-pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/01/termux/" class="archive-article-date">
-  	<time datetime="2018-10-01T01:41:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/01/termux/">termux</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">termux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/29/shellcoding/" class="archive-article-date">
-  	<time datetime="2018-09-29T13:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/29/shellcoding/">shell编程基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/28/Linux/" class="archive-article-date">
-  	<time datetime="2018-09-28T13:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/28/Linux/">Linux</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/29/TorMetal2018/" class="archive-article-date">
-  	<time datetime="2018-07-29T13:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/29/TorMetal2018/">TorMetal2018</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/28/网络匿名/" class="archive-article-date">
-  	<time datetime="2018-07-28T13:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/28/网络匿名/">关于网络匿名</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -512,8 +352,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

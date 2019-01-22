@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zero-mk.github.io">
-  <title>l0ser</title>
+  <title>git | l0ser</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="l0ser">
-<meta property="og:url" content="http://zero-mk.github.io/index.html">
+  <meta name="description" content="原文：https://www.cnblogs.com/Small-music/p/9075681.html#git git 命令123456789101112131415161718192021222324252627282930语法：　　git [--version] [--help] [-C &amp;lt;path&amp;gt;] [-c &amp;lt;name&amp;gt;=&amp;lt;value&amp;gt;]">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git">
+<meta property="og:url" content="http://zero-mk.github.io/2019/01/22/git-config/index.html">
 <meta property="og:site_name" content="l0ser">
+<meta property="og:description" content="原文：https://www.cnblogs.com/Small-music/p/9075681.html#git git 命令123456789101112131415161718192021222324252627282930语法：　　git [--version] [--help] [-C &amp;lt;path&amp;gt;] [-c &amp;lt;name&amp;gt;=&amp;lt;value&amp;gt;]">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-22T14:15:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="l0ser">
+<meta name="twitter:title" content="git">
+<meta name="twitter:description" content="原文：https://www.cnblogs.com/Small-music/p/9075681.html#git git 命令123456789101112131415161718192021222324252627282930语法：　　git [--version] [--help] [-C &amp;lt;path&amp;gt;] [-c &amp;lt;name&amp;gt;=&amp;lt;value&amp;gt;]">
   
     <link rel="alternative" href="/atom.xml" title="l0ser" type="application/atom+xml">
   
@@ -154,121 +159,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-compile-vim" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-git-config" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/compile-vim/">编译最新vim并支持python</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/22/compile-vim/" class="archive-article-date">
-  	<time datetime="2019-01-22T14:37:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>每次看到vim不支持Python的时候，心情是崩溃的，要自己compile，Linux下的编译都烦，上次编译edb，emmmm，心理阴影，废话不多说，言归正传</p>
-<p><code>vim --version</code>查看vim支持，前面有+的都是支持的，有-的都是不支持的，可以看到-python3 ，-python3 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247 ~<span class="comment"># vim --version</span></span><br><span class="line">VIM - Vi IMproved 8.1 (2018 May 18, compiled Jan 05 2019 20:53:12)</span><br><span class="line">Included patches: 1-693</span><br><span class="line">Modified by team+vim@tracker.debian.org</span><br><span class="line">Compiled by team+vim@tracker.debian.org</span><br><span class="line">Huge version without GUI.  Features included (+) or not (-):</span><br><span class="line">+acl               +extra_search      +mouse_netterm     +tag_old_static</span><br><span class="line">+arabic            +farsi             +mouse_sgr         -tag_any_white</span><br><span class="line">+autocmd           +file_in_path      -mouse_sysmouse    -tcl</span><br><span class="line">+autochdir         +find_in_path      +mouse_urxvt       +termguicolors</span><br><span class="line">-autoservername    +<span class="built_in">float</span>             +mouse_xterm       +terminal</span><br><span class="line">-balloon_eval      +folding           +multi_byte        +terminfo</span><br><span class="line">+balloon_eval_term -footer            +multi_lang        +termresponse</span><br><span class="line">-browse            +fork()            -mzscheme          +textobjects</span><br><span class="line">++builtin_terms    +gettext           +netbeans_intg     +textprop</span><br><span class="line">+byte_offset       -hangul_input      +num64             +timers</span><br><span class="line">+channel           +iconv             +packages          +title</span><br><span class="line">+cindent           +insert_expand     +path_extra        -toolbar</span><br><span class="line">-clientserver      +job               -perl              +user_commands</span><br><span class="line">-clipboard         +jumplist          +persistent_undo   +vartabs</span><br><span class="line">+cmdline_compl     +keymap            +postscript        +vertsplit</span><br><span class="line">+cmdline_hist      +lambda            +printer           +virtualedit</span><br><span class="line">+cmdline_info      +langmap           +profile           +visual</span><br><span class="line">+comments          +libcall           -python            +visualextra</span><br><span class="line">+conceal           +linebreak         -python3           +viminfo</span><br><span class="line">+cryptv            +lispindent        +quickfix          +vreplace</span><br><span class="line">+cscope            +listcmds          +reltime           +wildignore</span><br><span class="line">+cursorbind        +localmap          +rightleft         +wildmenu</span><br><span class="line">+cursorshape       -lua               -ruby              +windows</span><br><span class="line">+dialog_con        +menu              +scrollbind        +writebackup</span><br><span class="line">+diff              +mksession         +signs             -X11</span><br><span class="line">+digraphs          +modify_fname      +smartindent       -xfontset</span><br><span class="line">-dnd               +mouse             +startuptime       -xim</span><br><span class="line">-ebcdic            -mouseshape        +statusline        -xpm</span><br><span class="line">+emacs_tags        +mouse_dec         -sun_workshop      -xsmp</span><br><span class="line">+<span class="built_in">eval</span>              +mouse_gpm         +syntax            -xterm_clipboard</span><br><span class="line">+ex_extra          -mouse_jsbterm     +tag_binary        -xterm_save</span><br><span class="line">   system vimrc file: <span class="string">"<span class="variable">$VIM</span>/vimrc"</span></span><br><span class="line">     user vimrc file: <span class="string">"<span class="variable">$HOME</span>/.vimrc"</span></span><br><span class="line"> 2nd user vimrc file: <span class="string">"~/.vim/vimrc"</span></span><br><span class="line">      user exrc file: <span class="string">"<span class="variable">$HOME</span>/.exrc"</span></span><br><span class="line">       defaults file: <span class="string">"<span class="variable">$VIMRUNTIME</span>/defaults.vim"</span></span><br><span class="line">  fall-back <span class="keyword">for</span> <span class="variable">$VIM</span>: <span class="string">"/usr/share/vim"</span></span><br><span class="line">Compilation: gcc -c -I. -Iproto -DHAVE_CONFIG_H   -Wdate-time  -g -O2 -fdebug-prefix-map=/build/vim-SsPCMM/vim-8.1.0693=. -fstack-protector-strong -Wformat -Werror=format-security -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1</span><br><span class="line">Linking: gcc   -Wl,-z,relro -Wl,-z,now -Wl,--as-needed -o vim        -lm -ltinfo -lnsl  -lselinux -lacl -lattr -lgpm -ldl</span><br></pre></td></tr></table></figure>
-<h3 id="0x1-现在，把最新源码从vim的Github仓库下来"><a href="#0x1-现在，把最新源码从vim的Github仓库下来" class="headerlink" title="0x1.现在，把最新源码从vim的Github仓库下来"></a>0x1.现在，把最新源码从<a href="https://link.jianshu.com/?t=https://github.com/vim/vim" target="_blank" rel="noopener">vim的Github仓库</a>下来</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/vim/vim.git</span><br></pre></td></tr></table></figure>
-<h3 id="0x2-安装依赖"><a href="#0x2-安装依赖" class="headerlink" title="0x2.安装依赖"></a>0x2.安装依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python-dev python3-dev libncurses5-dev</span><br></pre></td></tr></table></figure>
-<h3 id="0x3-编译"><a href="#0x3-编译" class="headerlink" title="0x3.编译"></a>0x3.编译</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd vim #进入你刚刚clone下来的vim</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make clean #清除上一次的编译</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --with-features=huge --<span class="built_in">enable</span>-python3interp --<span class="built_in">enable</span>-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu/ --<span class="built_in">enable</span>-rubyinterp --<span class="built_in">enable</span>-luainterp --<span class="built_in">enable</span>-perlinterp --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu/ --<span class="built_in">enable</span>-multibyte --<span class="built_in">enable</span>-cscope --prefix=/usr/<span class="built_in">local</span>/vim/</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install #编译并安装到上面--prefix参数指定的位置</span><br></pre></td></tr></table></figure>
-<p>现在编译和安装OK了，接下来就是怎么启动的问题</p>
-<h3 id="0x4-设置启动命令"><a href="#0x4-设置启动命令" class="headerlink" title="0x4.设置启动命令"></a>0x4.设置启动命令</h3><p>我们现在执行vim –version看看</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247 /u/l/v/bin<span class="comment"># vim --version</span></span><br><span class="line">VIM - Vi IMproved 8.1 (2018 May 18, compiled Jan 05 2019 20:53:12)</span><br><span class="line">Included patches: 1-693</span><br><span class="line">Modified by team+vim@tracker.debian.org</span><br><span class="line">Compiled by team+vim@tracker.debian.org</span><br><span class="line">Huge version without GUI.  Features included (+) or not (-):</span><br><span class="line">+acl               +extra_search      +mouse_netterm     +tag_old_static</span><br><span class="line">+arabic            +farsi             +mouse_sgr         -tag_any_white</span><br><span class="line">+autocmd           +file_in_path      -mouse_sysmouse    -tcl</span><br><span class="line">+autochdir         +find_in_path      +mouse_urxvt       +termguicolors</span><br><span class="line">-autoservername    +<span class="built_in">float</span>             +mouse_xterm       +terminal</span><br><span class="line">-balloon_eval      +folding           +multi_byte        +terminfo</span><br><span class="line">+balloon_eval_term -footer            +multi_lang        +termresponse</span><br><span class="line">-browse            +fork()            -mzscheme          +textobjects</span><br><span class="line">++builtin_terms    +gettext           +netbeans_intg     +textprop</span><br><span class="line">+byte_offset       -hangul_input      +num64             +timers</span><br><span class="line">+channel           +iconv             +packages          +title</span><br><span class="line">+cindent           +insert_expand     +path_extra        -toolbar</span><br><span class="line">-clientserver      +job               -perl              +user_commands</span><br><span class="line">-clipboard         +jumplist          +persistent_undo   +vartabs</span><br><span class="line">+cmdline_compl     +keymap            +postscript        +vertsplit</span><br><span class="line">+cmdline_hist      +lambda            +printer           +virtualedit</span><br><span class="line">+cmdline_info      +langmap           +profile           +visual</span><br><span class="line">+comments          +libcall           -python            +visualextra</span><br><span class="line">+conceal           +linebreak         -python3           +viminfo</span><br><span class="line">+cryptv            +lispindent        +quickfix          +vreplace</span><br><span class="line">+cscope            +listcmds          +reltime           +wildignore</span><br><span class="line">+cursorbind        +localmap          +rightleft         +wildmenu</span><br><span class="line">+cursorshape       -lua               -ruby              +windows</span><br><span class="line">+dialog_con        +menu              +scrollbind        +writebackup</span><br><span class="line">+diff              +mksession         +signs             -X11</span><br><span class="line">+digraphs          +modify_fname      +smartindent       -xfontset</span><br><span class="line">-dnd               +mouse             +startuptime       -xim</span><br><span class="line">-ebcdic            -mouseshape        +statusline        -xpm</span><br><span class="line">+emacs_tags        +mouse_dec         -sun_workshop      -xsmp</span><br><span class="line">+<span class="built_in">eval</span>              +mouse_gpm         +syntax            -xterm_clipboard</span><br><span class="line">+ex_extra          -mouse_jsbterm     +tag_binary        -xterm_save</span><br><span class="line">   system vimrc file: <span class="string">"<span class="variable">$VIM</span>/vimrc"</span></span><br><span class="line">     user vimrc file: <span class="string">"<span class="variable">$HOME</span>/.vimrc"</span></span><br><span class="line"> 2nd user vimrc file: <span class="string">"~/.vim/vimrc"</span></span><br><span class="line">      user exrc file: <span class="string">"<span class="variable">$HOME</span>/.exrc"</span></span><br><span class="line">       defaults file: <span class="string">"<span class="variable">$VIMRUNTIME</span>/defaults.vim"</span></span><br><span class="line">  fall-back <span class="keyword">for</span> <span class="variable">$VIM</span>: <span class="string">"/usr/share/vim"</span></span><br><span class="line">Compilation: gcc -c -I. -Iproto -DHAVE_CONFIG_H   -Wdate-time  -g -O2 -fdebug-prefix-map=/build/vim-SsPCMM/vim-8.1.0693=. -fstack-protector-strong -Wformat -Werror=format-security -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1</span><br><span class="line">Linking: gcc   -Wl,-z,relro -Wl,-z,now -Wl,--as-needed -o vim        -lm -ltinfo -lnsl  -lselinux -lacl -lattr -lgpm -ldl</span><br></pre></td></tr></table></figure>
-<p>你会惊奇的发现，-python，-python3，心生疑问，我刚刚不是重新编译了一个支持python的vim了吗，现在怎么还是不支持。其实是我们刚刚指定安装到—prefix指定的路径去了（我是指定了/usr/local/vim），我们去看看</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247 /u/l/vim<span class="comment"># cd /usr/local/vim/bin</span></span><br><span class="line">root@cca41a231247 /u/l/v/bin<span class="comment"># ls</span></span><br><span class="line">ex@  rview@  rvim@  view@  vim*  vimdiff@  vimtutor*  xxd*</span><br><span class="line">root@cca41a231247 /u/l/v/bin<span class="comment"># ./vim --version</span></span><br><span class="line">VIM - Vi IMproved 8.1 (2018 May 18, compiled Jan 22 2019 15:28:12)</span><br><span class="line">Included patches: 1-739</span><br><span class="line">Compiled by root@cca41a231247</span><br><span class="line">Huge version without GUI.  Features included (+) or not (-):</span><br><span class="line">+acl               +extra_search      +mouse_netterm     +tag_old_static</span><br><span class="line">+arabic            +farsi             +mouse_sgr         -tag_any_white</span><br><span class="line">+autocmd           +file_in_path      -mouse_sysmouse    -tcl</span><br><span class="line">+autochdir         +find_in_path      +mouse_urxvt       +termguicolors</span><br><span class="line">-autoservername    +<span class="built_in">float</span>             +mouse_xterm       +terminal</span><br><span class="line">-balloon_eval      +folding           +multi_byte        +terminfo</span><br><span class="line">+balloon_eval_term -footer            +multi_lang        +termresponse</span><br><span class="line">-browse            +fork()            -mzscheme          +textobjects</span><br><span class="line">++builtin_terms    -gettext           +netbeans_intg     +textprop</span><br><span class="line">+byte_offset       -hangul_input      +num64             +timers</span><br><span class="line">+channel           +iconv             +packages          +title</span><br><span class="line">+cindent           +insert_expand     +path_extra        -toolbar</span><br><span class="line">-clientserver      +job               -perl              +user_commands</span><br><span class="line">-clipboard         +jumplist          +persistent_undo   +vartabs</span><br><span class="line">+cmdline_compl     +keymap            +postscript        +vertsplit</span><br><span class="line">+cmdline_hist      +lambda            +printer           +virtualedit</span><br><span class="line">+cmdline_info      +langmap           +profile           +visual</span><br><span class="line">+comments          +libcall           +python/dyn        +visualextra</span><br><span class="line">+conceal           +linebreak         +python3/dyn       +viminfo</span><br><span class="line">+cryptv            +lispindent        +quickfix          +vreplace</span><br><span class="line">+cscope            +listcmds          +reltime           +wildignore</span><br><span class="line">+cursorbind        +localmap          +rightleft         +wildmenu</span><br><span class="line">+cursorshape       -lua               +ruby              +windows</span><br><span class="line">+dialog_con        +menu              +scrollbind        +writebackup</span><br><span class="line">+diff              +mksession         +signs             -X11</span><br><span class="line">+digraphs          +modify_fname      +smartindent       -xfontset</span><br><span class="line">-dnd               +mouse             +startuptime       -xim</span><br><span class="line">-ebcdic            -mouseshape        +statusline        -xpm</span><br><span class="line">+emacs_tags        +mouse_dec         -sun_workshop      -xsmp</span><br><span class="line">+<span class="built_in">eval</span>              -mouse_gpm         +syntax            -xterm_clipboard</span><br><span class="line">+ex_extra          -mouse_jsbterm     +tag_binary        -xterm_save</span><br><span class="line">   system vimrc file: <span class="string">"<span class="variable">$VIM</span>/vimrc"</span></span><br><span class="line">     user vimrc file: <span class="string">"<span class="variable">$HOME</span>/.vimrc"</span></span><br><span class="line"> 2nd user vimrc file: <span class="string">"~/.vim/vimrc"</span></span><br><span class="line">      user exrc file: <span class="string">"<span class="variable">$HOME</span>/.exrc"</span></span><br><span class="line">       defaults file: <span class="string">"<span class="variable">$VIMRUNTIME</span>/defaults.vim"</span></span><br><span class="line">  fall-back <span class="keyword">for</span> <span class="variable">$VIM</span>: <span class="string">"/usr/local/vim/share/vim"</span></span><br><span class="line">Compilation: gcc -c -I. -Iproto -DHAVE_CONFIG_H     -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1</span><br><span class="line">Linking: gcc   -L. -Wl,-z,relro -Wl,-z,now -fstack-protector -rdynamic -Wl,-<span class="built_in">export</span>-dynamic  -L/usr/<span class="built_in">local</span>/lib -Wl,--as-needed -o vim        -lm -ltinfo -lnsl    -ldl       -lruby-2.5 -lpthread -lgmp -ldl -lcrypt -lm</span><br></pre></td></tr></table></figure>
-<p>这不就是了嘛，每次都用绝对路径打开，不方便，现在有两种方法解决这种尴尬</p>
-<h4 id="1-设置环境变量"><a href="#1-设置环境变量" class="headerlink" title="1.设置环境变量"></a>1.设置环境变量</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247 /u/l/v/bin<span class="comment"># env |grep PATH #查看PATH变量</span></span><br><span class="line">PATH=/usr/<span class="built_in">local</span>/sbin:/usr/<span class="built_in">local</span>/bin:/usr/sbin:/usr/bin:/sbin:/bin</span><br></pre></td></tr></table></figure>
-<p>现在我们临时修改</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247:~<span class="comment"># export PATH=/usr/local/vim/bin:$PATH</span></span><br><span class="line">root@cca41a231247:~<span class="comment"># env | grep PATH</span></span><br><span class="line">PATH=/usr/<span class="built_in">local</span>/vim/bin:/usr/<span class="built_in">local</span>/sbin:/usr/<span class="built_in">local</span>/bin:/usr/sbin:/usr/bin:/sbin:/bin</span><br><span class="line">_=/usr/bin/env</span><br></pre></td></tr></table></figure>
-<p>可以看到/usr/local/vim/bin已经加到PATH变量中，现在<code>vim --version</code>看看</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247:~<span class="comment"># vim --version</span></span><br><span class="line">VIM - Vi IMproved 8.1 (2018 May 18, compiled Jan 22 2019 15:28:12)</span><br><span class="line">Included patches: 1-739</span><br><span class="line">Compiled by root@cca41a231247</span><br><span class="line">Huge version without GUI.  Features included (+) or not (-):</span><br><span class="line">+acl               +extra_search      +mouse_netterm     +tag_old_static</span><br><span class="line">+arabic            +farsi             +mouse_sgr         -tag_any_white</span><br><span class="line">+autocmd           +file_in_path      -mouse_sysmouse    -tcl</span><br><span class="line">+autochdir         +find_in_path      +mouse_urxvt       +termguicolors</span><br><span class="line">-autoservername    +<span class="built_in">float</span>             +mouse_xterm       +terminal</span><br><span class="line">-balloon_eval      +folding           +multi_byte        +terminfo</span><br><span class="line">+balloon_eval_term -footer            +multi_lang        +termresponse</span><br><span class="line">-browse            +fork()            -mzscheme          +textobjects</span><br><span class="line">++builtin_terms    -gettext           +netbeans_intg     +textprop</span><br><span class="line">+byte_offset       -hangul_input      +num64             +timers</span><br><span class="line">+channel           +iconv             +packages          +title</span><br><span class="line">+cindent           +insert_expand     +path_extra        -toolbar</span><br><span class="line">-clientserver      +job               -perl              +user_commands</span><br><span class="line">-clipboard         +jumplist          +persistent_undo   +vartabs</span><br><span class="line">+cmdline_compl     +keymap            +postscript        +vertsplit</span><br><span class="line">+cmdline_hist      +lambda            +printer           +virtualedit</span><br><span class="line">+cmdline_info      +langmap           +profile           +visual</span><br><span class="line">+comments          +libcall           +python/dyn        +visualextra</span><br><span class="line">+conceal           +linebreak         +python3/dyn       +viminfo</span><br><span class="line">+cryptv            +lispindent        +quickfix          +vreplace</span><br><span class="line">+cscope            +listcmds          +reltime           +wildignore</span><br><span class="line">+cursorbind        +localmap          +rightleft         +wildmenu</span><br><span class="line">+cursorshape       -lua               +ruby              +windows</span><br><span class="line">+dialog_con        +menu              +scrollbind        +writebackup</span><br><span class="line">+diff              +mksession         +signs             -X11</span><br><span class="line">+digraphs          +modify_fname      +smartindent       -xfontset</span><br><span class="line">-dnd               +mouse             +startuptime       -xim</span><br><span class="line">-ebcdic            -mouseshape        +statusline        -xpm</span><br><span class="line">+emacs_tags        +mouse_dec         -sun_workshop      -xsmp</span><br><span class="line">+<span class="built_in">eval</span>              -mouse_gpm         +syntax            -xterm_clipboard</span><br><span class="line">+ex_extra          -mouse_jsbterm     +tag_binary        -xterm_save</span><br><span class="line">   system vimrc file: <span class="string">"<span class="variable">$VIM</span>/vimrc"</span></span><br><span class="line">     user vimrc file: <span class="string">"<span class="variable">$HOME</span>/.vimrc"</span></span><br><span class="line"> 2nd user vimrc file: <span class="string">"~/.vim/vimrc"</span></span><br><span class="line">      user exrc file: <span class="string">"<span class="variable">$HOME</span>/.exrc"</span></span><br><span class="line">       defaults file: <span class="string">"<span class="variable">$VIMRUNTIME</span>/defaults.vim"</span></span><br><span class="line">  fall-back <span class="keyword">for</span> <span class="variable">$VIM</span>: <span class="string">"/usr/local/vim/share/vim"</span></span><br><span class="line">Compilation: gcc -c -I. -Iproto -DHAVE_CONFIG_H     -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1</span><br><span class="line">Linking: gcc   -L. -Wl,-z,relro -Wl,-z,now -fstack-protector -rdynamic -Wl,-<span class="built_in">export</span>-dynamic  -L/usr/<span class="built_in">local</span>/lib -Wl,--as-needed -o vim        -lm -ltinfo -lnsl    -ldl       -lruby-2.5 -lpthread -lgmp -ldl -lcrypt -lm</span><br></pre></td></tr></table></figure>
-<p>现在PATH只在当前shell生效，退出再登录就失效。要永久生效，方法有好几种，我列举两种，其他的，自行baidu</p>
-<h5 id="方法一：【对所有用户生效-永久的-】在-etc-profile文件末尾另起一行，添加一句"><a href="#方法一：【对所有用户生效-永久的-】在-etc-profile文件末尾另起一行，添加一句" class="headerlink" title="方法一：【对所有用户生效(永久的)】在/etc/profile文件末尾另起一行，添加一句"></a>方法一：【对所有用户生效(永久的)】在/etc/profile文件末尾另起一行，添加一句</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/vim/bin:$PATH</span><br></pre></td></tr></table></figure>
-<h5 id="方法二：【对所有用户生效-永久的-】在用户目录下的-bashrc文件（-bashrc）末尾另起一行，添加一句"><a href="#方法二：【对所有用户生效-永久的-】在用户目录下的-bashrc文件（-bashrc）末尾另起一行，添加一句" class="headerlink" title="方法二：【对所有用户生效(永久的)】在用户目录下的.bashrc文件（~/.bashrc）末尾另起一行，添加一句"></a>方法二：【对所有用户生效(永久的)】在用户目录下的.bashrc文件（~/.bashrc）末尾另起一行，添加一句</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/vim/bin:$PATH</span><br></pre></td></tr></table></figure>
-<h4 id="2-ln链接"><a href="#2-ln链接" class="headerlink" title="2.ln链接"></a>2.ln链接</h4><p>这个就很简单了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247:/# ln -s /usr/local/vim/bin/vim /bin/vimn #链接/usr/local/vim/bin/vim到/bin/vimn</span><br></pre></td></tr></table></figure>
-<p>现在执行vimn就是等于在执行/usr/local/vim/bin/vim</p>
-<h3 id="0x5-完工-amp-amp-补充"><a href="#0x5-完工-amp-amp-补充" class="headerlink" title="0x5.完工&amp;&amp;补充"></a>0x5.完工&amp;&amp;补充</h3><p>关于上面./configure那一句的说明：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">--with-features=huge  支持最大特性</span><br><span class="line">--enable-rubyinterp  打开对ruby编写的插件的支持</span><br><span class="line">--enable-pythoninterp  打开对python编写的插件的支持</span><br><span class="line">--enable-python3interp  打开对python3编写的插件的支持</span><br><span class="line">--enable-luainterp  打开对lua编写的插件的支持</span><br><span class="line">--enable-perlinterp  打开对perl编写的插件的支持</span><br><span class="line">--enable-multibyte  打开多字节支持，可以在Vim中输入中文</span><br><span class="line">--enable-cscope  打开对cscope的支持</span><br><span class="line">--with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu/ 指定python路径</span><br><span class="line">--with-python-config-dir=/usr/lib/python3.7/config-3.7m-x86_64-linux-gnu/ 指定python3路径</span><br><span class="line">--prefix=/usr/local/vim：指定将要安装到的路径</span><br></pre></td></tr></table></figure>
-<p>上面提到的python的路径的获取方法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247 ~<span class="comment"># cd /usr/lib/ &amp;&amp; ls |grep python</span></span><br><span class="line">python2.7</span><br><span class="line">python3</span><br><span class="line">python3.6</span><br><span class="line">python3.7</span><br></pre></td></tr></table></figure>
-<p>看到有python2.7，python3，python3.6，python3.7选一个，python3的路径一般是python3.x，python一样是python2.x，你cd进去找到config-xxxxx-linux-gnu/，cd进去，然后pwd就可以得到路径，看我操作</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247 ~<span class="comment"># cd /usr/lib/ &amp;&amp; ls |grep python</span></span><br><span class="line">python2.7</span><br><span class="line">python3</span><br><span class="line">python3.6</span><br><span class="line">python3.7</span><br><span class="line">root@cca41a231247 /u/lib<span class="comment"># cd python3.7</span></span><br><span class="line">root@cca41a231247 /u/l/python3.7<span class="comment"># cd config-3.7m-x86_64-linux-gnu/</span></span><br><span class="line">root@cca41a231247 /u/l/p/config-3.7m-x86_64-linux-gnu<span class="comment"># pwd</span></span><br><span class="line">/usr/lib/python3.7/config-3.7m-x86_64-linux-gnu</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">compile,vim</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/22/compile-vim/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-git-config" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/git-config/">git</a>
+    <h1 class="article-title" itemprop="name">
+      git
     </h1>
   
 
@@ -338,16 +236,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/22/git-config/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJElEQVR42u3a0WrDMAwF0P7/T2cvexh0Sa+kbBD7+KmE1vFxQViWXq94HD9G8uR9nM12PefNAwMD47GM5PVnT66p79/M8dWtwcDA2IFxFsGqS8kDa++bp88xMDAwLr+TjOvl9t6LgYGBkYTI6xkmaTAGBgZGL4lN0s5kQfN3YWBg7MbIb93///Of1DcwMDAexTiKY867dz3fM2NgYCzN6KWg+WEuKWTmieuHcikGBsaijEmbRa/xonep92EeDAyMDRjzYsCkMNDbrF8CLgYGxqKMfLn5ovONqIb+wo0gBgbGcoxe+Dt7fbLEyZyFYyIGBsYSjF6bxTx/7CXMp/8DBgbGBozqAbH6mnnjxYctxsDAWJrRK1gmsElAz7cDAwNjN0aeOpavwMbXdoWiJgYGxqKMIxh5Utq7hssT4+alGwYGxhKMyYGvV2DIiwTlZgsMDIyFGMlrkoPgXS0U1WwbAwNjT0ayrOpVWi8lLrRuYGBgLM3o/eCu67b5UXLkxsDAeCxj3jDRK1VOnmBgYGDMiwG9ZLicTmNgYGzAyA9t5VBY7fvo/QoDA2NRxlEc1Zav/FfNxBUDA2MDxiTY9T73Cpm9AicGBsZKjLwYmezEpGksD7gYGBh7MnqBbw6rHvuazRYYGBgbM6qXbnmqnGxKoWcEAwNjM8ZdN13Vi7mbAy4GBsYDGXmRctJ+kc9QLoJiYGAszcjDZd5IMZ+nWpzAwMBYlPEFOE+odnoVgaUAAAAASUVORK5CYII=" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/01/22/compile-vim/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          编译最新vim并支持python
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/01/18/about-pwn-assembly/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">about_pwn_assembly</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -367,1029 +333,14 @@
 
 
 
-
-  
-    <article id="post-about-pwn-assembly" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/18/about-pwn-assembly/">about_pwn_assembly</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/18/about-pwn-assembly/" class="archive-article-date">
-  	<time datetime="2019-01-18T08:22:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>关于学pwn的汇编基础,其实我之前汇编基础不是很好,勉强能读懂一点,很多时候还是很乱,在这里分享一下我的学习方法吧</p>
-<p> IDA逆向分析出的源码</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setvbuf(<span class="built_in">stdout</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>);</span><br><span class="line">setvbuf(<span class="built_in">stdin</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">gets(&amp;s);</span><br></pre></td></tr></table></figure>
-<p>汇编代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">80484f9:	83 ec 34             	sub    $0x34,%esp</span><br><span class="line">80484fc:	a1 44 a0 04 08       	mov    0x804a044,%eax</span><br><span class="line">8048501:	6a 00                	push   $0x0</span><br><span class="line">8048503:	6a 02                	push   $0x2</span><br><span class="line">8048505:	6a 00                	push   $0x0</span><br><span class="line">8048507:	50                   	push   %eax</span><br><span class="line">8048508:	e8 c3 fe ff ff       	call   80483d0 &lt;setvbuf@plt&gt;</span><br><span class="line">804850d:	83 c4 10             	add    $0x10,%esp</span><br><span class="line">8048510:	a1 40 a0 04 08       	mov    0x804a040,%eax</span><br><span class="line">8048515:	6a 00                	push   $0x0</span><br><span class="line">8048517:	6a 01                	push   $0x1</span><br><span class="line">8048519:	6a 00                	push   $0x0</span><br><span class="line">804851b:	50                   	push   %eax</span><br><span class="line">804851c:	e8 af fe ff ff       	call   80483d0 &lt;setvbuf@plt&gt;</span><br><span class="line">8048521:	83 c4 10             	add    $0x10,%esp</span><br><span class="line">8048524:	83 ec 0c             	sub    $0xc,%esp</span><br><span class="line">8048527:	8d 45 cc             	lea    -0x34(%ebp),%eax</span><br><span class="line">804852a:	50                   	push   %eax</span><br><span class="line">804852b:	e8 60 fe ff ff       	call   8048390 &lt;gets@plt&gt;</span><br><span class="line">8048530:	83 c4 10             	add    $0x10,%esp</span><br></pre></td></tr></table></figure>
-<p> <img src="/2019/01/18/about-pwn-assembly/assembly.PNG" alt=""></p>
-<p>pwn的主要工作是在Linux上完成的,但是我们又要用在IDA,又要在Linux下调试,来回切换很麻烦,所以,你要是能读懂汇编,那问题就简单了,直接objdump -a,看一下汇编,OK</p>
-<p>回正题</p>
-<p>观察上面我给的图,我画线链接的就是汇编与源码</p>
-<p>拿第一句<code>setvbuf(stdout,0,2,0);</code>来说,不难看出</p>
-<p>setvbuf函数的三个参数分别是stdout,0,2,0</p>
-<p>栈是先进后出的,所以,会先push第四个参数(0)到stack上,依次是第三个(2),第二个(0),第一个(stdout)</p>
-<p>对应的汇编代码是:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">80484f9:	83 ec 34             	sub    $0x34,%esp #在栈上开出一个大小为0x34的空间</span><br><span class="line">80484fc:	a1 44 a0 04 08       	mov    0x804a044,%eax </span><br><span class="line">8048501:	6a 00                	push   $0x0 #往stack上放0</span><br><span class="line">8048503:	6a 02                	push   $0x2 #往stack上放2</span><br><span class="line">8048505:	6a 00                	push   $0x0 #往stack上放0</span><br><span class="line">8048507:	50                   	push   %eax #stdout</span><br><span class="line">8048508:	e8 c3 fe ff ff       	call   80483d0 &lt;setvbuf@plt&gt; #参数压好了就是call函数了</span><br></pre></td></tr></table></figure>
-<p>IDA的分析:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.text:080484FC ; 5:   setvbuf(stdout, 0, 2, 0);</span><br><span class="line">.text:080484FC                 mov     eax, ds:stdout@@GLIBC_2_0</span><br><span class="line">.text:08048501                 push    0               ; n</span><br><span class="line">.text:08048503                 push    2               ; modes</span><br><span class="line">.text:08048505                 push    0               ; buf</span><br><span class="line">.text:08048507                 push    eax             ; stream</span><br><span class="line">.text:08048508                 call    _setvbuf</span><br></pre></td></tr></table></figure>
-<p>每一次写题目都这样对照,你的读汇编能力就很快得到提升</p>
-<p>这里注意的是,x86的传参是直接把参数push到stack上然后call函数,但是x64却不是,x64 的传参是</p>
-<p>当参数少于7个时， 参数从左到右放入寄存器: rdi, rsi, rdx, rcx, r8, r9</p>
-<p>参数个数大于 7 个的时候(拿F函数来举例)<br>F(a, b, c, d, e, f, g, h);<br>a-&gt;%rdi, b-&gt;%rsi, c-&gt;%rdx, d-&gt;%rcx, e-&gt;%r8, f-&gt;%r9<br>h-&gt;8(%esp)<br>g-&gt;(%esp)<br>call F</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ctf-pwn,assembly</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/18/about-pwn-assembly/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-汇编英文全称" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>汇编指令的英文全称<br>一、数据传送指令<br>1.通用数据传送指令. </p>
-<p>MOV—-&gt; move<br>MOVSX—-&gt;extended move with sign data<br>MOVZX—-&gt;extended move with zero data<br>PUSH—-&gt;push<br>POP—-&gt;pop<br>PUSHA—-&gt;push all<br>POPA—-&gt;pop all<br>PUSHAD—-&gt;push all data<br>POPAD—-&gt;pop all data<br>BSWAP—-&gt;byte swap<br>XCHG—-&gt;exchange<br>CMPXCHG—-&gt;compare and change<br>XADD—-&gt;exchange and add<br>XLAT—-&gt;translate<br>2.输入输出端口传送指令.<br>IN—-&gt;input<br>OUT—-&gt;output<br>3.目的地址传送指令.<br>LEA—-&gt;load effective address<br>LDS—-&gt;load DS<br>LES—-&gt;load ES<br>LFS—-&gt;load FS<br>LGS—-&gt;load GS<br>LSS—-&gt;load SS<br>4.标志传送指令.<br>LAHF—-&gt;load AH from flag<br>SAHF—-&gt;save AH to flag<br>PUSHF—-&gt;push flag<br>POPF—-&gt;pop flag<br>PUSHD—-&gt;push dflag<br>POPD—-&gt;pop dflag<br>二、算术运算指令<br>ADD—-&gt;add<br>ADC—-&gt;add with carry<br>INC—-&gt;increase 1<br>AAA—-&gt;ascii add with adjust<br>DAA—-&gt;decimal add with adjust<br>SUB—-&gt;substract<br>SBB—-&gt;substract with borrow<br>DEC—-&gt;decrease 1<br>NEC—-&gt;negative<br>CMP—-&gt;compare<br>AAS—-&gt;ascii adjust on substract<br>DAS—-&gt;decimal adjust on substract<br>MUL—-&gt;multiplication<br>IMUL—-&gt;integer multiplication<br>AAM—-&gt;ascii adjust on multiplication<br>DIV—-&gt;divide<br>IDIV—-&gt;integer divide<br>AAD—-&gt;ascii adjust on divide<br>CBW—-&gt;change byte to word<br>CWD—-&gt;change word to double word<br>CWDE—-&gt;change word to double word with sign to EAX<br>CDQ—-&gt;change double word to quadrate word<br>三、逻辑运算指令<br>AND—-&gt;and<br>OR—-&gt;or<br>XOR—-&gt;xor   Exclusive OR<br>NOT—-&gt;not<br>TEST—-&gt;test<br>SHL—-&gt;shift left<br>SAL—-&gt;arithmatic shift left算术<br>SHR—-&gt;shift right<br>SAR—-&gt;arithmatic shift right<br>ROL—-&gt;rotate left<br>ROR—-&gt;rotate right<br>RCL—-&gt;rotate left with carry<br>RCR—-&gt;rotate right with carry<br>四、串指令<br>MOVS—-&gt;move string<br>CMPS—-&gt;compare string<br>SCAS—-&gt;scan string<br>LODS—-&gt;load string<br>STOS—-&gt;store string<br>REP—-&gt;repeat<br>REPE—-&gt;repeat when equal<br>REPZ—-&gt;repeat when zero flag<br>REPNE—-&gt;repeat when not equal<br>REPNZ—-&gt;repeat when zero flag<br>REPC—-&gt;repeat when carry flag<br>REPNC—-&gt;repeat when not carry flag<br>五、程序转移指令<br>1&gt;无条件转移指令(长转移)<br>JMP—-&gt;jump<br>CALL—-&gt;call<br>RET—-&gt;return<br>RETF—-&gt;return far<br>2&gt;条件转移指令(短转移,-128到+127的距离内)<br>JAE—-&gt;jump when above or equal<br>JNB—-&gt;jump when not below<br>JB—-&gt;jump when below<br>JNAE—-&gt;jump when not above or equal<br>JBE—-&gt;jump when below or equal<br>JNA—-&gt;jump when not above<br>JG—-&gt;jump when greater<br>JNLE—-&gt;jump when not less or equal<br>JGE—-&gt;jump when greater or equal<br>JNL—-&gt;jump when not less<br>JL—-&gt;jump when less<br>JNGE—-&gt;jump when not greater or equal<br>JLE—-&gt;jump when less or equal<br>JNG—-&gt;jump when not greater<br>JE—-&gt;jump when equal<br>JZ—-&gt;jump when has zero flag<br>JNE—-&gt;jump when not equal<br>JNZ—-&gt;jump when not has zero flag<br>JC—-&gt;jump when has carry flag<br>JNC—-&gt;jump when not has carry flag<br>JNO—-&gt;jump when not has overflow flag<br>JNP—-&gt;jump when not has parity flag<br>JPO—-&gt;jump when parity flag is odd<br>JNS—-&gt;jump when not has sign flag<br>JO—-&gt;jump when has overflow flag<br>JP—-&gt;jump when has parity flag<br>JPE—-&gt;jump when parity flag is even<br>JS—-&gt;jump when has sign flag<br>3&gt;循环控制指令(短转移)<br>LOOP—-&gt;loop<br>LOOPE—-&gt;loop equal<br>LOOPZ—-&gt;loop zero<br>LOOPNE—-&gt;loop not equal<br>LOOPNZ—-&gt;loop not zero<br>JCXZ—-&gt;jump when CX is zero<br>JECXZ—-&gt;jump when ECX is zero<br>4&gt;中断指令<br>INT—-&gt;interrupt<br>INTO—-&gt;overflow interrupt<br>IRET—-&gt;interrupt return<br>5&gt;处理器控制指令<br>HLT—-&gt;halt<br>WAIT—-&gt;wait<br>ESC—-&gt;escape<br>LOCK—-&gt;lock<br>NOP—-&gt;no operation<br>STC—-&gt;set carry<br>CLC—-&gt;clear carry<br>CMC—-&gt;carry make change<br>STD—-&gt;set direction<br>CLD—-&gt;clear direction<br>STI—-&gt;set interrupt<br>CLI—-&gt;clear interrupt<br>六、伪指令<br>DW—-&gt;definw word<br>PROC—-&gt;procedure<br>ENDP—-&gt;end of procedure<br>SEGMENT—-&gt;segment<br>ASSUME—-&gt;assume<br>ENDS—-&gt;end segment<br>END—-&gt;end</p>
-<p>Move)<br>MOVC (Move Code)<br>MOVX (Move External)<br>XCH     (Exchange)<br>PUSH<br>POP<br>AJMP   (Absolute Jump)<br>LJMP    (Long Jump)<br>SJMP    (Short Jump)<br>JMP      (Jump Indirect)<br>JZ         (Jump Zero)<br>JNZ      (Jump Not Zero)<br>JC         (Jump if Carry)<br>JNC      (Jump if Not Carry)<br>JB         (Jump if Bit is set)<br>JNB      (Jump if Not Bit)<br>JBC       (If Bit is set and Clear Bit)<br>CJNE    (Compare and Jump if Not Equal)<br>DJNZ    (Decrement and Jump if Not Zero)<br>ACALL (Absolute Call)<br>LCALL  (Long Call)<br>RET       (Return)<br>NOP      (No Operation)<br>ADD<br>ADDC  (Add with Carry)<br>SUBB   (Substract with Borrow)<br>MUL     (Multiply)<br>DIV       (Divide)<br>INC      (Increment)<br>DEC     (Decrement)<br>ANL     (Logical AND)<br>ORL     (Logical OR)<br>XRL     (Logical Exclusive OR)<br>CPL     (Complement)<br>CLR     (Clear)<br>SEBT   (Set Bit)<br>RL        (Rotate Left)<br>RR        (Rotate Right)<br>RLC     (Rotate Left throught the Carry flag)<br>RRC     (Rotate Right throught the Carry flag)<br>XCHD<br>SWAP<br>DA       (Decimal Adjust)</p>
-<p>ORG    (Origin)<br>DB       (Define Byte)<br>DW      (Define Word)<br>EQU     (Equal)<br>DATA<br>XDATA (External Data)<br>BIT<br>END</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/17/汇编英文全称/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-docker" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/15/docker/">docker</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/15/docker/" class="archive-article-date">
-  	<time datetime="2019-01-14T19:39:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="0x0前言"><a href="#0x0前言" class="headerlink" title="0x0前言"></a>0x0前言</h2><p>前言</p>
-<p>前几天上了黑苹果,想着直接用docker布置个pwn解题环境就好了,不想再用VM装kali了,于是就开始了折腾docker,忙完,写写总结</p>
-<p>关于docker的学习,我是看 <a href="https://yeasy.gitbooks.io/docker_practice/content/" target="_blank" rel="noopener">Docker —— 从入门到实践</a> 很好的一本书,也不多,看完你对docker的理解会提升一个等级,当然,如果你是docker高手当我没说</p>
-<h2 id="0x1安装docker"><a href="#0x1安装docker" class="headerlink" title="0x1安装docker"></a>0x1安装docker</h2><h4 id="1-用brew安装"><a href="#1-用brew安装" class="headerlink" title="1.用brew安装"></a>1.用brew安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install docker</span><br></pre></td></tr></table></figure>
-<h4 id="2-自己上官网下载二进制文件"><a href="#2-自己上官网下载二进制文件" class="headerlink" title="2.自己上官网下载二进制文件"></a>2.自己上官网下载二进制文件</h4><p><a href="https://hub.docker.com/editions/community/docker-ce-desktop-mac" target="_blank" rel="noopener">get docker for Mac</a></p>
-<h2 id="0x2部署环境"><a href="#0x2部署环境" class="headerlink" title="0x2部署环境"></a>0x2部署环境</h2><p>我参考了<a href="https://github.com/skysider/pwndocker" target="_blank" rel="noopener">pwndocker</a>自己瞎改了,用的是kali的镜像</p>
-<p>我的垃圾Dockerfile:</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> kalilinux/kali-linux-docker</span><br><span class="line"><span class="keyword">MAINTAINER</span> l0ser &lt;<span class="number">1565328054</span>@qq.com&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">#关于镜像源,没必要改,因为,kali源会根据你的IP重定向源</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"deb http://http.kali.org/kali kali-rolling main contrib non-free"</span> &gt; /etc/apt/sources.list &amp;&amp; \</span></span><br><span class="line"><span class="bash">    <span class="built_in">echo</span> <span class="string">"deb-src http://http.kali.org/kali kali-rolling main contrib non-free"</span> &gt;&gt; /etc/apt/sources.list</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">RUN dpkg --add-architecture i386 &amp;&amp; \</span></span><br><span class="line"><span class="bash">    apt-get -y update &amp;&amp; \</span></span><br><span class="line"><span class="bash">    apt install -y \</span></span><br><span class="line"><span class="bash">    libc6:i386 \</span></span><br><span class="line"><span class="bash">    libc6-dbg:i386 \</span></span><br><span class="line"><span class="bash">    libc6-dbg \</span></span><br><span class="line"><span class="bash">    lib32stdc++6 \</span></span><br><span class="line"><span class="bash">    g++-multilib \</span></span><br><span class="line"><span class="bash">    cmake \</span></span><br><span class="line"><span class="bash">    ipython \</span></span><br><span class="line"><span class="bash">    vim \</span></span><br><span class="line"><span class="bash">    net-tools \</span></span><br><span class="line"><span class="bash">    libffi-dev \</span></span><br><span class="line"><span class="bash">    libssl-dev \</span></span><br><span class="line"><span class="bash">    python-dev \</span></span><br><span class="line"><span class="bash">    python3-dev \</span></span><br><span class="line"><span class="bash">    python-pip \</span></span><br><span class="line"><span class="bash">    python3-pip \</span></span><br><span class="line"><span class="bash">    build-essential \</span></span><br><span class="line"><span class="bash">    ruby \</span></span><br><span class="line"><span class="bash">    tmux \</span></span><br><span class="line"><span class="bash">    strace \</span></span><br><span class="line"><span class="bash">    ltrace \</span></span><br><span class="line"><span class="bash">    nasm \</span></span><br><span class="line"><span class="bash">    wget \</span></span><br><span class="line"><span class="bash">    radare2 \</span></span><br><span class="line"><span class="bash">    gdb \</span></span><br><span class="line"><span class="bash">    gdb-multiarch \</span></span><br><span class="line"><span class="bash">    netcat \</span></span><br><span class="line"><span class="bash">    socat \</span></span><br><span class="line"><span class="bash">    git \</span></span><br><span class="line"><span class="bash">    patchelf \</span></span><br><span class="line"><span class="bash">    gawk \</span></span><br><span class="line"><span class="bash">    file \</span></span><br><span class="line"><span class="bash">    binwalk \</span></span><br><span class="line"><span class="bash">    ctags \</span></span><br><span class="line"><span class="bash">    silversearcher-ag \</span></span><br><span class="line"><span class="bash">    bison \</span></span><br><span class="line"><span class="bash">    metasploit-framework \</span></span><br><span class="line"><span class="bash">    nmap \</span></span><br><span class="line"><span class="bash">    sqlmap \</span></span><br><span class="line"><span class="bash">    peepdf --fix-missing</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">RUN pip install --upgrade pip &amp;&amp; \</span></span><br><span class="line"><span class="bash">    pip install --upgrade setuptools &amp;&amp; \</span></span><br><span class="line"><span class="bash">    pip install --no-cache-dir \</span></span><br><span class="line"><span class="bash">    ROPgadget \</span></span><br><span class="line"><span class="bash">    pwntools \</span></span><br><span class="line"><span class="bash">    zio \</span></span><br><span class="line"><span class="bash">    lief \</span></span><br><span class="line"><span class="bash">    smmap2 \</span></span><br><span class="line"><span class="bash">    z3-solver \</span></span><br><span class="line"><span class="bash">    apscheduler \</span></span><br><span class="line"><span class="bash">    flake8 \</span></span><br><span class="line"><span class="bash">    yapf &amp;&amp; \</span></span><br><span class="line"><span class="bash">    pip install --upgrade pwntools</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">RUN pip install --upgrade pip3 &amp;&amp; \</span></span><br><span class="line"><span class="bash">    pip3 install --no-cache-dir \</span></span><br><span class="line"><span class="bash">    ropper \</span></span><br><span class="line"><span class="bash">    unicorn \</span></span><br><span class="line"><span class="bash">    capstone \</span></span><br><span class="line"><span class="bash">    angr </span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">RUN <span class="built_in">cd</span> <span class="variable">$HOME</span>/ctf-tools &amp;&amp; git <span class="built_in">clone</span> https://github.com/longld/peda.git ~/peda &amp;&amp; \</span></span><br><span class="line"><span class="bash">    <span class="built_in">echo</span> <span class="string">"source /root/ctf-tools/peda/peda.py"</span> &gt;&gt; ~/.gdbinit</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment">#配置vim自动代码补全</span></span></span><br><span class="line"><span class="bash">RUN git <span class="built_in">clone</span> https://github.com/wklken/k-vim.git &amp;&amp; \</span></span><br><span class="line"><span class="bash">    <span class="built_in">cd</span> k-vim &amp;&amp; sh -x install.sh</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">ENV DEBIAN_FRONTEND noninteractive</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">RUN <span class="built_in">set</span> -x \</span></span><br><span class="line"><span class="bash">    &amp;&amp; apt-get -yqq update \</span></span><br><span class="line"><span class="bash">    &amp;&amp; apt-get -yqq dist-upgrade \</span></span><br><span class="line"><span class="bash">    &amp;&amp; apt-get clean</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">CMD [<span class="string">"bash"</span>]</span></span><br></pre></td></tr></table></figure>
-<p>用法:复制,建立一个文件夹再在里面新建一个Dockerfile文件,把上面的代码粘贴进去</p>
-<p>在文件夹目录下运行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dcoker build -t pwn .</span><br></pre></td></tr></table></figure>
-<p>等构建完成</p>
-<h2 id="0x3docker常用操作"><a href="#0x3docker常用操作" class="headerlink" title="0x3docker常用操作"></a>0x3docker常用操作</h2><p>查看镜像(<code>docker images</code>)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@VM-0-17-ubuntu:~# docker images</span><br><span class="line">REPOSITORY                    TAG        IMAGE ID            CREATED             SIZE</span><br><span class="line">kalilinux/kali-linux-docker   latest     f26f3ae90aee        2 months ago        1.57GB</span><br></pre></td></tr></table></figure>
-<p>现在我们要运行kalilinux/kali-linux-docker这个镜像可以(docker run -it [REPOSITORY/IMAGE ID] /bin/bash)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@VM-0-17-ubuntu:~# docker run -it kalilinux/kali-linux-docker /bin/bash</span><br><span class="line">root@0d6c7f4d1060:/#</span><br></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@VM-0-17-ubuntu:~# docker run -it f26f3ae90aee /bin/bash</span><br><span class="line">root@0d6c7f4d1060:/#</span><br></pre></td></tr></table></figure>
-<p><code>docker run -it xxxxx /bin/bash</code>的意思是运行xxxxx容器的/bin/bash,也就是shell,就可以进行交互</p>
-<p>如果运行交互的时候要后台运行回到主机可以</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">按下 ctrl + p + q就可以后台运行</span><br></pre></td></tr></table></figure>
-<p>后台运行的容器要怎么重新回到里面,我的做法是(<code>docker attach aca5c32a9cec</code>)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@aca5c32a9cec:/# </span><br><span class="line">root@VM-0-17-ubuntu:~# docker ps -a</span><br><span class="line">CONTAINER ID   IMAGE    COMMAND   CREATED          STATUS   PORTS      NAMES</span><br><span class="line">aca5c32a9cec   f26f     &quot;bash&quot;    24 seconds ago     Up                thirsty_mccarthy</span><br><span class="line"></span><br><span class="line">root@VM-0-17-ubuntu:~# docker attach aca5c32a9cec</span><br><span class="line"></span><br><span class="line">root@aca5c32a9cec:/#</span><br></pre></td></tr></table></figure>
-<p>很多时候我们需要修该容器的文件内容,但是每次exit容器后你所做的更改是不会保存的所以(<code>docker commit [CONTAINER ID]</code>)这样操作的话会生成另一个容器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">root@aca5c32a9cec:/# read escape sequence</span><br><span class="line">root@VM-0-17-ubuntu:~# docker ps -a</span><br><span class="line">CONTAINER ID   IMAGE    COMMAND   CREATED          STATUS   PORTS      NAMES</span><br><span class="line">aca5c32a9cec   f26f     &quot;bash&quot;    24 seconds ago     Up                thirsty_mccarthy </span><br><span class="line"></span><br><span class="line">root@VM-0-17-ubuntu:~# docker commit aca5c32a9cec</span><br><span class="line">sha256:1ba3be34808075ed328fd5932026872a6bba41b801886eb57d40cfc98705d913</span><br><span class="line"></span><br><span class="line">root@VM-0-17-ubuntu:~# docker images</span><br><span class="line">REPOSITORY                   TAG         IMAGE ID            CREATED             SIZE</span><br><span class="line">&lt;none&gt;                       &lt;none&gt;      1ba3be348080        12 seconds ago      1.57GB</span><br><span class="line">kalilinux/kali-linux-docker  latest       f26f3ae90aee       2 months ago        1.57GB</span><br><span class="line"></span><br><span class="line">root@VM-0-17-ubuntu:~#</span><br></pre></td></tr></table></figure>
-<p>我平常是(<code>docker commit [CONTAINER ID]原容器REPOSITORY</code>)这样就不会生成新容器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">root@aca5c32a9cec:/# read escape sequence</span><br><span class="line">root@VM-0-17-ubuntu:~# docker ps -a</span><br><span class="line">CONTAINER ID   IMAGE    COMMAND   CREATED          STATUS   PORTS      NAMES</span><br><span class="line">aca5c32a9cec   f26f     &quot;bash&quot;    24 seconds ago     Up                thirsty_mccarthy </span><br><span class="line"></span><br><span class="line">root@VM-0-17-ubuntu:~# docker commit aca5c32a9cec</span><br><span class="line">sha256:1ba3be34808075ed328fd5932026872a6bba41b801886eb57d40cfc98705d913</span><br><span class="line"></span><br><span class="line">root@VM-0-17-ubuntu:~# docker images</span><br><span class="line">REPOSITORY                   TAG         IMAGE ID            CREATED             SIZE </span><br><span class="line">kalilinux/kali-linux-docker  latest       f26f3ae90aee       12 seconds ago      1.57GB</span><br><span class="line"></span><br><span class="line">root@VM-0-17-ubuntu:~#</span><br></pre></td></tr></table></figure>
-<p>暂时写到这吧,凌晨3点了</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">dcoker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/15/docker/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-my-Mac-config" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/13/my-Mac-config/">写写关于我折腾Mac</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/13/my-Mac-config/" class="archive-article-date">
-  	<time datetime="2019-01-13T05:19:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>写写关于我(瞎)折腾Mac</p>
-<h3 id="0x1-安装包管理"><a href="#0x1-安装包管理" class="headerlink" title="0x1.安装包管理"></a>0x1.安装包管理</h3><p>当然，装好系统后第一件事当然是装包管理，我装的是<a href="https://brew.sh/" target="_blank" rel="noopener">brew</a>，一句安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
-<p>什么？装完了不会用？自己看看<a href="https://docs.brew.sh/" target="_blank" rel="noopener">brew文档</a><br>关于brew遇到<a href="https://gist.github.com/irazasyed/7732946" target="_blank" rel="noopener">Permissions Denied</a>问题的时候，自己点击看看Issues上他们提供的方法，我是直接<br>    sudo chown -R $(whoami) $(brew –prefix)/*</p>
-<h3 id="0x2-安装docker"><a href="#0x2-安装docker" class="headerlink" title="0x2.安装docker"></a>0x2.安装docker</h3><h4 id="1-用brew安装"><a href="#1-用brew安装" class="headerlink" title="1.用brew安装"></a>1.用brew安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install docker</span><br></pre></td></tr></table></figure>
-<h4 id="2-自己上官网下载二进制文件"><a href="#2-自己上官网下载二进制文件" class="headerlink" title="2.自己上官网下载二进制文件"></a>2.自己上官网下载二进制文件</h4><p><a href="https://hub.docker.com/editions/community/docker-ce-desktop-mac" target="_blank" rel="noopener">get docker for Mac</a></p>
-<h3 id="0x3-美化shell（zsh和fish自己选一个）"><a href="#0x3-美化shell（zsh和fish自己选一个）" class="headerlink" title="0x3.美化shell（zsh和fish自己选一个）"></a>0x3.美化shell（zsh和fish自己选一个）</h3><p>官方终端比Linux的终端好看一点，但是，配色好像不符合胃口，自己搞吧</p>
-<h4 id="1-oh-my-zsh"><a href="#1-oh-my-zsh" class="headerlink" title="1.oh-my-zsh"></a>1.<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">oh-my-zsh</a></h4><p>官方提供了wget和curl两种获取安装</p>
-<h5 id="1-curl"><a href="#1-curl" class="headerlink" title="1.curl"></a>1.curl</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure>
-<h5 id="2-wget"><a href="#2-wget" class="headerlink" title="2.wget"></a>2.wget</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"<span class="variable">$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)</span>"</span></span><br></pre></td></tr></table></figure>
-<p>装完后自己换配色方案：<a href="https://github.com/robbyrussell/oh-my-zsh/wiki/themes" target="_blank" rel="noopener">theme</a><br>让zsh命令补全，有个插件：<a href="http://mimosa-pudica.net/zsh-incremental.html" target="_blank" rel="noopener">incr</a>，我的操作是<a href="http://mimosa-pudica.net/src/incr-0.2.zsh" target="_blank" rel="noopener">下载</a>6，然后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> incr*.zsh</span><br></pre></td></tr></table></figure></p>
-<h4 id="2-fish-shell"><a href="#2-fish-shell" class="headerlink" title="2.fish shell"></a>2.fish shell</h4><p>这个装个<a href="https://github.com/oh-my-fish/oh-my-fish" target="_blank" rel="noopener">on-my-fish</a>,同样一句<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://get.oh-my.fish | fish</span><br><span class="line">omf <span class="built_in">help</span></span><br></pre></td></tr></table></figure></p>
-<p>关于主题配色: <a href="https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md" target="_blank" rel="noopener">themes</a><br>中文文档: <a href="https://github.com/oh-my-fish/oh-my-fish/tree/master/docs/zh-CN" target="_blank" rel="noopener">docs</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Mac</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/13/my-Mac-config/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-汇编速查表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/12/汇编速查表/">汇编速查</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/12/汇编速查表/" class="archive-article-date">
-  	<time datetime="2019-01-12T05:19:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>指令  功能
-AAA 调整加
-AAD 调整除
-AAM 调整乘
-AAS 调整减
-ADC 进位加
-ADD 加
-AND 与
-ARPL    调整优先级
-BOUND   检查数组
-BSF 位右扫描
-BSR 位左扫描
-BSWAP   交换字节
-BT  位测试
-BTC 位测试求反
-BTR 位测试清零
-BTS 位测试置一
-CALL    过程调用
-CBW 转换字节
-CDQ 转换双字
-CLC 进位清零
-CLD 方向清零
-CLI 中断清零
-CLTS    任务清除
-CMC 进位求反
-CMOVA   高于传送
-CMOVB   低于传送
-CMOVE   相等传送
-CMOVG   大于传送
-CMOVL   小于传送
-CMOVNA  不高于传送
-CMOVNB  不低于传送
-CMOVNE  不等传送
-CMOVNG  不大于传送
-CMOVNL  不小于传送
-CMOVNO  不溢出传送
-CMOVNP  非奇偶传送
-CMOVNS  非负传送
-CMOVO   溢出传送
-CMOVP   奇偶传送
-CMOVS   负号传送
-CMP 比较
-CMPSB   比较字节串
-CMPSD   比较双字串
-CMPSW   比较字串
-CMPXCHG 比较交换
-CMPXCHG486  比较交换486
-CMPXCHG8B   比较交换8字节
-CPUID   CPU标识
-CWD 转换字
-CWDE    扩展字
-DAA 调整加十
-DAS 调整减十
-DEC 减一
-DIV 除
-ENTER   建立堆栈帧
-HLT 停
-IDIV    符号整除
-IMUL    符号乘法
-IN  端口输入
-INC 加一
-INSB    端口输入字节串
-INSD    端口输入双字串
-INSW    端口输入字串
-JA  高于跳转
-JB  低于跳转
-JBE 不高于跳转
-JCXZ    计数一六零跳转
-JE  相等跳转
-JECXZ   计数三二零跳转
-JG  大于跳转
-JL  小于跳转
-JMP 跳转
-JMPE    跳转扩展
-JNB 不低于跳转
-JNE 不等跳转
-JNG 不大于跳转
-JNL 不小于跳转
-JNO 不溢出跳转
-JNP 非奇偶跳转
-JNS 非负跳转
-JO  溢出跳转
-JP  奇偶跳转
-JS  负号跳转
-LAHF    加载标志低八
-LAR 加载访问权限
-LDS 加载数据段
-LEA 加载有效地址
-LEAVE   清除过程堆栈
-LES 加载附加段
-LFS 加载标志段
-LGDT    加载全局描述符
-LGS 加载全局段
-LIDT    加载中断描述符
-LMSW    加载状态字
-LOADALL 加载所有
-LOADALL286  加载所有286
-LOCK    锁
-LODSB   加载源变址字节串
-LODSD   加载源变址双字串
-LODSW   加载源变址字串
-LOOP    计数循环
-LOOPE   相等循环
-LOOPNE  不等循环
-LOOPNZ  非零循环
-LOOPZ   为零循环
-LSL 加载段界限
-LSS 加载堆栈段
-LTR 加载任务
-MONITOR 监视
-MOV 传送
-MOVSB   传送字节串
-MOVSD   传送双字串
-MOVSW   传送字串
-MOVSX   符号传送
-MOVZX   零传送
-MUL 乘
-MWAIT   
-NEG 求补
-NOP 空
-NOT 非
-OR  或
-OUT 端口输出
-OUTSB   端口输出字节串
-OUTSD   端口输出双字串
-OUTSW   端口输出字串
-POP 出栈
-POPA    全部出栈
-POPF    标志出栈
-PUSH    压栈
-PUSHA   全部压栈
-PUSHF   标志压栈
-RCL 进位循环左移
-RCR 进位循环右移
-RDMSR   读专用模式
-RDPMC   读执行监视计数
-RDSHR   
-RDTSC   读时间戳计数
-REP 重复
-REPE    相等重复
-REPNE   不等重复
-RET 过程返回
-RETF    远过程返回
-RETN    近过程返回
-ROL 循环左移
-ROR 循环右移
-RSM 恢复系统管理
-SAHF    恢复标志低八
-SAL 算术左移
-SALC    
-SAR 算术右移
-SBB 借位减
-SCASB   扫描字节串
-SCASD   扫描双字串
-SCASW   扫描字串
-SETA    高于置位
-SETB    低于置位
-SETE    相等置位
-SETG    大于置位
-SETL    小于置位
-SETNA   不高于置位
-SETNB   不低于置位
-SETNE   不等置位
-SETNG   不大于置位
-SETNL   不小于置位
-SETNO   不溢出置位
-SETNP   非奇偶置位
-SETNS   非负置位
-SETO    溢出置位
-SETP    奇偶置位
-SETS    负号置位
-SGDT    保存全局描述符
-SHL 逻辑左移
-SHLD    双精度左移
-SHR 逻辑右移
-SHRD    双精度右移
-SIDT    保存中断描述符
-SLDT    保存局部描述符
-SMI 
-SMINT   
-SMINTOLD    
-SMSW    保存状态字
-STC 进位设置
-STD 方向设置
-STI 中断设置
-STOSB   保存字节串
-STOSD   保存双字串
-STOSW   保存字串
-STR 保存任务
-SUB 减
-SYSCALL 系统调用
-SYSENTER    系统进入
-SYSEXIT 系统退出
-SYSRET  系统返回
-TEST    数测试
-UD0 未定义指令0
-UD1 未定义指令1
-UD2 未定义指令2
-UMOV    
-VERW    校验写
-WAIT    等
-WBINVD  回写无效高速缓存
-WRMSR   写专用模式
-WRSHR   
-XADD    交换加
-XBTS    
-XCHG    交换
-XLAT    换码
-XOR 异或
-XSTORE  
-EMMS    媒体空MMX状态
-F2XM1   浮点栈顶绝对值
-FADD    浮点加
-FADDP   浮点加出栈
-FBLD    浮点加载十数
-FBSTP   浮点保存十数出栈
-FCHS    浮点正负求反
-FCLEX   浮点检查错误清除
-FCMOVB  浮点低于传送
-FCMOVBE 浮点不高于传送
-FCMOVE  浮点相等传送
-FCMOVNB 浮点不低于传送
-FCMOVNBE    浮点高于传送
-FCMOVNE 浮点不等传送
-FCMOVNU 浮点有序传送
-FCMOVU  浮点无序传送
-FCOM    浮点比较
-FCOMI   浮点比较加载标志
-FCOMIP  浮点比较加载标志出栈
-FCOMP   浮点比较出栈
-FCOMPP  浮点比较出栈二
-FCOS    浮点余弦
-FDECSTP 浮点栈针减一
-FDISI   浮点检查禁止中断
-FDIV    浮点除
-FDIVP   浮点除出栈
-FDIVR   浮点反除
-FDIVRP  浮点反除出栈
-FENI    浮点检查禁止中断二
-FFREE   浮点释放
-FFREEP  浮点释放出栈
-FIADD   浮点加整数
-FICOM   浮点比较整数
-FICOMP  浮点比较整数出栈
-FIDIV   浮点除整数
-FIDIVR  浮点反除
-FILD    浮点加载整数
-FIMUL   浮点乘整数
-FINCSTP 浮点栈针加一
-FINIT   浮点检查初始化
-FIST    浮点保存整数
-FISTP   浮点保存整数出栈
-FISTTP  
-FISUB   浮点减整数
-FISUBR  浮点反减整数
-FLD 浮点加载数
-FLD1    浮点加载一
-FLDCW   浮点加载控制器
-FLDENV  浮点加载环境
-FLDL2E  浮点加载L2E
-FLDL2T  浮点加载L2T
-FLDLG2  浮点加载LG2
-FLDLN2  浮点加载LN2
-FLDPI   浮点加载PI
-FLDZ    浮点加载零
-FMUL    浮点乘
-FMULP   浮点乘出栈
-FNCLEX  浮点不检查错误清除
-FNDISI  浮点不检查禁止中断
-FNENI   浮点不检查禁止中断二
-FNINIT  浮点不检查初始化
-FNOP    浮点空
-FNSAVE  浮点不检查保存状态
-FNSTCW  浮点不检查保存控制器
-FNSTENV 浮点不检查保存环境
-FNSTSW  浮点不检查保存状态器
-FPATAN  浮点部分反正切
-FPREM   浮点部分余数
-FPREM1  浮点部分余数二
-FPTAN   浮点部分正切
-FRNDINT 浮点舍入求整
-FRSTOR  浮点恢复状态
-FSAVE   浮点检查保存状态
-FSCALE  浮点比例运算
-FSETPM  浮点设置保护
-FSIN    浮点正弦
-FSINCOS 浮点正余弦
-FSQRT   浮点平方根
-FST 浮点保存
-FSTCW   浮点检查保存控制器
-FSTENV  浮点检查保存环境
-FSTP    浮点保存出栈
-FSTSW   浮点检查保存状态器
-FSUB    浮点减
-FSUBP   浮点减出栈
-FSUBR   浮点反减
-FSUBRP  浮点反减出栈
-FTST    浮点比零
-FUCOM   浮点无序比较
-FUCOMI  浮点反比加载标志
-FUCOMIP 浮点反比加载标志出栈
-FUCOMP  浮点无序比较出栈
-FUCOMPP 浮点无序比较出栈二
-FWAIT   浮点等
-FXAM    浮点检查
-FXCH    浮点交换
-FXTRACT 浮点分解
-FYL2X   浮点求L2X
-FYL2XP1 浮点求L2XP1
-MOVED   媒体双字传送
-MOVEQ   媒体四字传送
-PACKSSDW    媒体符号双字压缩
-PACKSSWB    媒体符号字压缩
-PACKUSWB    媒体无符号字压缩
-PADDB   媒体截断字节加
-PADDD   媒体截断双字加
-PADDSB  媒体符号饱和字节加
-PADDSIW 
-PADDSW  媒体符号饱和字加
-PADDUSB 媒体无符号饱和字节加
-PADDUSW 媒体无符号饱和字加
-PADDW   媒体截断字加
-PAND    媒体与
-PANDN   媒体与非
-PAVEB   
-PCMPEQB 媒体字节比等
-PCMPEQD 媒体双字比等
-PCMPEQW 媒体字比等
-PCMPGTB 媒体字节比大
-PCMPGTD 媒体双字比大
-PCMPGTW 媒体字比大
-PDISTIB 
-PMACHRIW    
-PMADDWD 
-PMAGW   
-PMULHRIW    
-PMULHRWC    
-PMULHW  
-PMVGEZB 
-PMVLZB  
-PMVNZB  
-PMVZB   
-POR 媒体或
-PSLLD   媒体双字左移
-PSLLQ   媒体四字左移
-PSLLW   媒体字左移
-PSRAD   媒体双字算术右移
-PSRAW   媒体字算术右移
-PSRLD   媒体双字右移
-PSRLQ   媒体四字右移
-PSRLW   媒体字右移
-PSUBB   媒体截断字节减
-PSUBSB  媒体符号饱和字节减
-PSUBSIW 
-PSUBSW  媒体符号饱和字减
-PSUBUSB 媒体无符号饱和字节减
-PSUBUSW 媒体无符号饱和字减
-PSUBW   媒体截断字减
-PUNPCKHBW   媒体字节高位解压
-PUNPCKHDQ   媒体双字高位解压
-PUNPCKHWD   媒体字高位解压
-PUNPCKLBW   媒体字节低位解压
-PUNPCKLDQ   媒体双字低位解压
-PUNPCKLWD   媒体字低位解压
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Mac</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/12/汇编速查表/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mac-os" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/12/Mac-os/">机械革命z2黑苹果</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/12/Mac-os/" class="archive-article-date">
-  	<time datetime="2019-01-11T16:45:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这两天pwn关于heap的那部分看吐了，就折腾一下我这破电脑装个黑苹果</p>
-<p>配置表：<br>电脑：机械革命 深海幽灵Z2<br>CPU：i7-8750h(2.2GHz)<br>内建GPU：Intel核芯显卡<br>显示芯片：GTX1050Ti<br>显存容量：独立4GB<br>显存类型：GDDR5</p>
-<p>其实也不难，我用的<a href="https://blog.daliansky.net/" target="_blank" rel="noopener">黑小兵</a>的<a href="https://blog.daliansky.net/macOS-Mojave-10.14.2-18C54-official-version-with-Clover-4792-original-image.html" target="_blank" rel="noopener">【黑果小兵】macOS Mojave 10.14.2 18C54 正式版 with Clover 4792原版镜像</a><br>教程和EFI在群里，就不搬出来了（防止版权纠纷），进不去还是怎么的私信我<br><img src="/2019/01/12/Mac-os/qq.PNG" alt=""><br><img src="/2019/01/12/Mac-os/file.PNG" alt=""><br>大概的步骤：<br>下好镜像：<a href="https://mirrors.dtops.cc/iso/MacOS/daliansky_macos/" target="_blank" rel="noopener">dmg</a><br>U盘烧录：我用的是TransMac（这一步要注意把U盘格式化成Mac formost）然后烧录就好<br>ESP分区操作：先挂载ESP分区，把下载好的EFI解压放进去<br>安装：装系统正常流程<br>装完后重启，真正的折腾才刚刚开始，开始驱动什么的各种麻烦折腾（好好享受）</p>
-<p>注意：Mac无法直接读写ntfs盘，需要借助一个小工具（Tuxera Disk Manager）</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Mac</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/12/Mac-os/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-install-Linux" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/08/install-Linux/">安装Linux实体机的各种坑</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/08/install-Linux/" class="archive-article-date">
-  	<time datetime="2019-01-08T10:19:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这几天折腾kali,ubutu,parrot实体机遇到各种坑,记录一下</p>
-<p>我这破电脑之前实体机死活不成.昨天我找到解决方法了</p>
-<h1 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu:"></a>Ubuntu:</h1><p>出现Ubuntu的选择画面时按 e 进入编辑界面.在 <code>quite splash</code> 后面输入 <code>acpi=off</code> </p>
-<p>安装完成开机装显卡驱动,解决问题,步骤:</p>
-<h2 id="查看显卡信息"><a href="#查看显卡信息" class="headerlink" title="查看显卡信息:"></a>查看显卡信息:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ubuntu-drivers devices</span><br><span class="line"></span><br><span class="line">vendor   : NVIDIA Corporation</span><br><span class="line">modalias : xxxxxxxxxxxxxxxxxxx</span><br><span class="line">driver   : nvidia-xxx - distro non-free recommended <span class="comment">#注意这一行的nvidia-xxx(xxx是三个数字),例如:nvidia-390,那么下面安装驱动那一步就是sudo apt install nvidia-390</span></span><br><span class="line">driver   : xserver-xorg-video-nouveau - distro free <span class="built_in">builtin</span></span><br></pre></td></tr></table></figure>
-<h2 id="添加ppa源"><a href="#添加ppa源" class="headerlink" title="添加ppa源:"></a>添加ppa源:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:graphics-drivers/ppa</span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
-<h2 id="安装驱动"><a href="#安装驱动" class="headerlink" title="安装驱动:"></a>安装驱动:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install nvidia-390</span><br></pre></td></tr></table></figure>
-<h2 id="装完重启-输入以下命令验证"><a href="#装完重启-输入以下命令验证" class="headerlink" title="装完重启,输入以下命令验证:"></a>装完重启,输入以下命令验证:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-ism</span><br></pre></td></tr></table></figure>
-<p>或者是用hashcat -I看看,又或者是进设置的关于Ubuntu界面查看</p>
-<h1 id="kali"><a href="#kali" class="headerlink" title="kali:"></a>kali:</h1><p>前面的跟Ubuntu差不多</p>
-<p>开机时在引导界面按’e’就能看到像下面的(我是复制虚拟机的,反正不影响)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">load_video</span><br><span class="line">insmod gzio</span><br><span class="line">if [ x$grub_platform = xxen ]; then insmod xzio; insmod lzopio; fi</span><br><span class="line">insmod part_msdos</span><br><span class="line">insmod ext2</span><br><span class="line">set root='hd0,msdos1'</span><br><span class="line">if [ x$feature_platform_search_hint = xy ]; then</span><br><span class="line">  search --no-floppy --fs-uuid --set=root --hint-bios=hd0,msdos1 --hint-efi=hd0,msdos1 --hint-baremetal=ahci0,msdos1  930acde8-73cc-4e4b-81b0-bc253f1cac97</span><br><span class="line">else</span><br><span class="line">  search --no-floppy --fs-uuid --set=root 930acde8-73cc-4e4b-81b0-bc253f1cac97</span><br><span class="line">fi</span><br><span class="line">echo    '载入 Linux 4.18.0-kali2-amd64 ...'</span><br><span class="line">linux   /boot/vmlinuz-4.18.0-kali2-amd64 root=UUID=930acde8-73cc-4e4b-81b0-bc253f1cac97 ro initrd=/install/initrd.gz quiet</span><br><span class="line">echo    '载入初始化内存盘...'</span><br><span class="line">initrd  /boot/initrd.img-4.18.0-kali2-amd64</span><br></pre></td></tr></table></figure>
-<p>找到:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">linux/boot/vmlinuz-4.18.0-kali2-amd64 root=UUID=930acde8-73cc-4e4b-81b0-bc253f1cac97 ro initrd=/install/initrd.gz quiet</span><br></pre></td></tr></table></figure>
-<p>然后在”quiet”后面添加</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acpi=off</span><br></pre></td></tr></table></figure>
-<p>按F10引导,成功进入桌面,然后就是安装显卡驱动(反正我kali的N卡驱动到现在都没装上)</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/08/install-Linux/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-crc32" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/01/crc32/">python的zlib.crc32</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/01/crc32/" class="archive-article-date">
-  	<time datetime="2019-01-01T14:47:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>很多的ctf misc题可以用crc32碰撞解出来,就像gxnnctf2018的一道misc题,解压得到一堆压缩包,一个一个爆破很费时间,随便打开一个压缩包可以观察出,flag.txt只有三个字符,三个字符的crc32碰撞几乎是秒解</p>
-<p><img src="/2019/01/01/crc32/crc32.PNG" alt=""></p>
-<p>python的zlib库里就有crc32校验的模块:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> zlib</span><br><span class="line">In [<span class="number">2</span>]:  hex(zlib.crc32(<span class="string">"078"</span>)&amp;<span class="number">0xffffffff</span>)</span><br><span class="line">Out[<span class="number">2</span>]: <span class="string">'0x632f2428'</span></span><br></pre></td></tr></table></figure>
-<p>crc32爆破脚本:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> zlib</span><br><span class="line"></span><br><span class="line">crc32code = raw_input(<span class="string">'crc32 : '</span>)</span><br><span class="line"><span class="comment">#这个脚本是爆破3位数字的,所以是xrange(0,100),其他的自己照葫芦画瓢</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">0</span>,<span class="number">100</span>):                      </span><br><span class="line">    buf = str(i).rjust(<span class="number">3</span>,<span class="string">'0'</span>)                      </span><br><span class="line">    <span class="keyword">if</span> zlib.crc32(buf) &amp; <span class="number">0xffffffff</span> == int(crc32code,<span class="number">16</span>): </span><br><span class="line">        <span class="keyword">print</span> <span class="string">'[*]'</span>,buf</span><br></pre></td></tr></table></figure>
-<p>用来解上面题目:</p>
-<p><img src="/2019/01/01/crc32/crc32_1.PNG" alt="crc32_1"></p>
-<p>完善一下脚本批量解出每个压缩包的flag.txt的内容,发现对着ascii码都能转成可见字符,再base64解码就得到flag,在这里我就不放出来了,自己照葫芦画瓢</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ctf-misc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/01/crc32/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1412,8 +363,8 @@ PUNPCKLWD   媒体字低位解压
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
