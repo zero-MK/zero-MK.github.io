@@ -156,6 +156,97 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-linux-bash" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/23/linux-bash/">linux骚姿势(“.“和”!“在bash中的用法)</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/23/linux-bash/" class="archive-article-date">
+  	<time datetime="2019-01-23T15:56:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>记录一下学到的Linux新姿势</p>
+<h3 id="“-”"><a href="#“-”" class="headerlink" title="“.”"></a>“.”</h3><p>参考：<a href="https://linux.cn/article-10465-1.html" target="_blank" rel="noopener">https://linux.cn/article-10465-1.html</a></p>
+<h4 id="0x1，表示当前目录"><a href="#0x1，表示当前目录" class="headerlink" title="0x1，表示当前目录(.)"></a>0x1，表示当前目录(.)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@fc844e891ecf:/<span class="comment"># ls ./</span></span><br><span class="line">bin   dev  home   lib	 lib64	 media	opt   root  sbin  sys  usr</span><br><span class="line">boot  etc  k-vim  lib32  libx32  mnt	proc  run   srv   tmp  var</span><br><span class="line">root@fc844e891ecf:/<span class="comment"># ls .</span></span><br><span class="line">bin   dev  home   lib	 lib64	 media	opt   root  sbin  sys  usr</span><br><span class="line">boot  etc  k-vim  lib32  libx32  mnt	proc  run   srv   tmp  var</span><br><span class="line">root@fc844e891ecf:/<span class="comment"># pwd .</span></span><br><span class="line">/</span><br></pre></td></tr></table></figure>
+<h4 id="0x2-隐藏文件-xxx"><a href="#0x2-隐藏文件-xxx" class="headerlink" title="0x2,隐藏文件(.xxx)"></a>0x2,隐藏文件(.xxx)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@fc844e891ecf:~<span class="comment"># ls</span></span><br><span class="line">bin  ctf-tools	peda  vim</span><br><span class="line">root@fc844e891ecf:~<span class="comment"># mkdir .test</span></span><br><span class="line">root@fc844e891ecf:~<span class="comment"># ls</span></span><br><span class="line">bin  ctf-tools	peda  vim</span><br><span class="line">root@fc844e891ecf:~<span class="comment"># ls -a</span></span><br><span class="line">. .. .<span class="built_in">test</span> bin  ctf-tools	peda  vim</span><br></pre></td></tr></table></figure>
+<h4 id="0x3-指向当前目录的父级"><a href="#0x3-指向当前目录的父级" class="headerlink" title="0x3,指向当前目录的父级(..)"></a>0x3,指向当前目录的父级(..)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@fc844e891ecf:~# pwd</span><br><span class="line">/root</span><br><span class="line">root@fc844e891ecf:~# cd ..</span><br><span class="line">root@fc844e891ecf:/# pwd</span><br><span class="line">/</span><br></pre></td></tr></table></figure>
+<h4 id="0x4-等价source命令"><a href="#0x4-等价source命令" class="headerlink" title="0x4,等价source命令(.)"></a>0x4,等价source命令(.)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@fc844e891ecf:/# .</span><br><span class="line">bash: .: filename argument required</span><br><span class="line">.: usage: . filename [arguments]</span><br><span class="line">root@fc844e891ecf:/# source</span><br><span class="line">bash: source: filename argument required</span><br><span class="line">source: usage: source filename [arguments]</span><br></pre></td></tr></table></figure>
+<h4 id="0x5-用于构建序列"><a href="#0x5-用于构建序列" class="headerlink" title="0x5,用于构建序列({..})"></a>0x5,用于构建序列({..})</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@fc844e891ecf:/# echo &#123;1..3&#125; #从左边的值开始，计数到右边的值</span><br><span class="line">1 2 3</span><br><span class="line">root@fc844e891ecf:/# echo &#123;1..10..2&#125; #从左边的值开始，计数到右边的值,步数为2</span><br><span class="line">1 3 5 7 9</span><br><span class="line">root@fc844e891ecf:/# echo test_&#123;1..10&#125; #生成以test_开头的序列</span><br><span class="line">test_1 test_2 test_3 test_4 test_5 test_6 test_7 test_8 test_9 test_10</span><br><span class="line">root@fc844e891ecf:/# echo &#123;a..z&#125; #生成a到z的序列</span><br><span class="line">a b c d e f g h i j k l m n o p q r s t u v w x y z</span><br></pre></td></tr></table></figure>
+<h3 id="“-”-1"><a href="#“-”-1" class="headerlink" title="“!”"></a>“!”</h3><p>参考：<a href="https://mp.weixin.qq.com/s/Au4doF454gte2K5sVt4qYQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/Au4doF454gte2K5sVt4qYQ</a></p>
+<h4 id="0x1-执行上一条命令-代表执行的上一条命令"><a href="#0x1-执行上一条命令-代表执行的上一条命令" class="headerlink" title="0x1,执行上一条命令(!!代表执行的上一条命令)"></a>0x1,执行上一条命令(!!代表执行的上一条命令)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@fc844e891ecf:/# ls</span><br><span class="line">bin   dev  home   lib	 lib64	 media	opt   root  sbin  sys  usr</span><br><span class="line">boot  etc  k-vim  lib32  libx32  mnt	proc  run   srv   tmp  var</span><br><span class="line">root@fc844e891ecf:/# !!</span><br><span class="line">ls</span><br><span class="line">bin   dev  home   lib	 lib64	 media	opt   root  sbin  sys  usr</span><br><span class="line">boot  etc  k-vim  lib32  libx32  mnt	proc  run   srv   tmp  var</span><br></pre></td></tr></table></figure>
+<h4 id="0x2-使用上个命令第一个或最后一个的参数执行命令"><a href="#0x2-使用上个命令第一个或最后一个的参数执行命令" class="headerlink" title="0x2,使用上个命令第一个或最后一个的参数执行命令"></a>0x2,使用上个命令第一个或最后一个的参数执行命令</h4><h5 id="第一个参数"><a href="#第一个参数" class="headerlink" title="第一个参数(!^)"></a>第一个参数(!^)</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">root@9d070a1a1e07:~<span class="comment"># ls -al /usr</span></span><br><span class="line">total 48</span><br><span class="line">drwxr-xr-x 1 root root  4096 Jan 19 11:50 .</span><br><span class="line">drwxr-xr-x 1 root root  4096 Jan 24 06:04 ..</span><br><span class="line">drwxr-xr-x 1 root root  4096 Jan 22 14:51 bin</span><br><span class="line">drwxr-xr-x 2 root root  4096 Oct 30  2017 games</span><br><span class="line">drwxr-xr-x 1 root root  4096 Jan 22 14:51 include</span><br><span class="line">drwxr-xr-x 1 root root  4096 Jan 19 16:04 lib</span><br><span class="line">还有，省略。。。</span><br><span class="line">root@9d070a1a1e07:~<span class="comment"># ls !^ ./</span></span><br><span class="line">ls -al ./</span><br><span class="line">total 72</span><br><span class="line">drwx------  1 root root 4096 Jan 24 06:13 .</span><br><span class="line">drwxr-xr-x  1 root root 4096 Jan 24 06:04 ..</span><br><span class="line">-rw-r--r--  1 root root  570 Oct 30  2017 .bashrc</span><br><span class="line">drwx------  1 root root 4096 Jan 21 12:02 .cache</span><br><span class="line">drwx------  3 root root 4096 Jan 19 15:35 .config</span><br><span class="line">drwxr-xr-x  2 root root 4096 Jan 22 14:19 .dotfiles</span><br><span class="line">-rw-------  1 root root    8 Jan 19 15:41 .gdb_history</span><br><span class="line">-rw-r--r--  1 root root   36 Jan 19 13:18 .gdbinit</span><br></pre></td></tr></table></figure>
+<h5 id="最后一个参数"><a href="#最后一个参数" class="headerlink" title="最后一个参数(!$)"></a>最后一个参数(!$)</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">root@9d070a1a1e07:~<span class="comment"># ls -al /usr</span></span><br><span class="line">total 48</span><br><span class="line">drwxr-xr-x 1 root root  4096 Jan 19 11:50 .</span><br><span class="line">drwxr-xr-x 1 root root  4096 Jan 24 06:04 ..</span><br><span class="line">drwxr-xr-x 1 root root  4096 Jan 22 14:51 bin</span><br><span class="line">drwxr-xr-x 2 root root  4096 Oct 30  2017 games</span><br><span class="line">drwxr-xr-x 1 root root  4096 Jan 22 14:51 include</span><br><span class="line">略。。。</span><br><span class="line">root@9d070a1a1e07:~<span class="comment"># cd !$</span></span><br><span class="line"><span class="built_in">cd</span> /usr</span><br><span class="line">root@9d070a1a1e07:/usr<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<h4 id="0x3-执行上条命令不带上最后一个参数"><a href="#0x3-执行上条命令不带上最后一个参数" class="headerlink" title="0x3,执行上条命令不带上最后一个参数(!:-)"></a>0x3,执行上条命令不带上最后一个参数(!:-)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">root@9d070a1a1e07:/<span class="comment"># ls -l /lib/</span></span><br><span class="line">total 36</span><br><span class="line">lrwxrwxrwx 1 root root   21 Jan 19 11:51 cpp -&gt; /etc/alternatives/cpp</span><br><span class="line">drwxr-xr-x 2 root root 4096 Jan 19 11:49 i386-linux-gnu</span><br><span class="line">drwxr-xr-x 1 root root 4096 Jun  1  2018 ifupdown</span><br><span class="line">drwxr-xr-x 1 root root 4096 Oct 21 19:00 init</span><br><span class="line">lrwxrwxrwx 1 root root   25 Dec  5 18:50 ld-linux.so.2 -&gt; i386-linux-gnu/ld-2.28.so</span><br><span class="line">略。。。</span><br><span class="line">root@9d070a1a1e07:/<span class="comment"># !:-</span></span><br><span class="line">ls -l</span><br><span class="line">total 72</span><br><span class="line">drwxr-xr-x   1 root root 4096 Jan 22 16:40 bin</span><br><span class="line">drwxr-xr-x   2 root root 4096 Oct 30  2017 boot</span><br><span class="line">drwxr-xr-x   5 root root  360 Jan 24 06:04 dev</span><br><span class="line">drwxr-xr-x   1 root root 4096 Jan 24 06:04 etc</span><br><span class="line">略。。。</span><br></pre></td></tr></table></figure>
+<h3 id="0x4-使用上条命令的所有参数"><a href="#0x4-使用上条命令的所有参数" class="headerlink" title="0x4,使用上条命令的所有参数"></a>0x4,使用上条命令的所有参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@9d070a1a1e07:~<span class="comment"># fin ./vim -name "*.py"</span></span><br><span class="line">bash: fin: <span class="built_in">command</span> not found</span><br><span class="line">root@9d070a1a1e07:~<span class="comment"># find !*</span></span><br><span class="line">find ./vim -name <span class="string">"*.py"</span></span><br><span class="line">./vim/runtime/tools/demoserver.py</span><br><span class="line">./vim/src/dehqx.py</span><br><span class="line">./vim/src/testdir/pythonx/failing.py</span><br></pre></td></tr></table></figure>
+<h4 id="0x5-指定使用上条命令的第几个参数-命令名-参数号"><a href="#0x5-指定使用上条命令的第几个参数-命令名-参数号" class="headerlink" title="0x5,指定使用上条命令的第几个参数(![命令名]:[参数号])"></a>0x5,指定使用上条命令的第几个参数(![命令名]:[参数号])</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@9d070a1a1e07:~<span class="comment"># find ./vim -name "*.py"</span></span><br><span class="line">./vim/runtime/tools/demoserver.py</span><br><span class="line">./vim/src/dehqx.py</span><br><span class="line">./vim/src/testdir/pythonx/failing.py</span><br><span class="line">root@9d070a1a1e07:~<span class="comment"># cd !find:1 &amp;&amp; ls</span></span><br><span class="line"><span class="built_in">cd</span> ./vim &amp;&amp; ls</span><br><span class="line">CONTRIBUTING.md  Makefile   README.txt	appveyor.yml  farsi  nsis     runtime  tools	     vimtutor.bat</span><br><span class="line">Filelist	 README.md  READMEdir	configure     mvim   pixmaps  src      uninstal.txt  vimtutor.com</span><br><span class="line">root@9d070a1a1e07:~/vim<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<h4 id="0x6-执行history中的命令-命令前的序号"><a href="#0x6-执行history中的命令-命令前的序号" class="headerlink" title="0x6,执行history中的命令(![命令前的序号])"></a>0x6,执行history中的命令(![命令前的序号])</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@9d070a1a1e07:/<span class="comment"># history</span></span><br><span class="line">    1  <span class="built_in">cd</span> ..</span><br><span class="line">    2  <span class="built_in">cd</span> /</span><br><span class="line">    3  ls</span><br><span class="line">    4  <span class="built_in">history</span></span><br><span class="line">root@9d070a1a1e07:/<span class="comment"># !3</span></span><br><span class="line">ls</span><br><span class="line">bin  boot  dev	etc  home  k-vim  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var</span><br></pre></td></tr></table></figure>
+<h4 id="0x7-按照关键字执行历史命令执行上一条以关键字开头的命令"><a href="#0x7-按照关键字执行历史命令执行上一条以关键字开头的命令" class="headerlink" title="0x7,按照关键字执行历史命令执行上一条以关键字开头的命令(!)"></a>0x7,按照关键字执行历史命令执行上一条以关键字开头的命令(!)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@9d070a1a1e07:~<span class="comment"># echo "test"</span></span><br><span class="line"><span class="built_in">test</span></span><br><span class="line">root@9d070a1a1e07:~<span class="comment"># !echo</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"test"</span></span><br><span class="line"><span class="built_in">test</span></span><br><span class="line">root@9d070a1a1e07:~<span class="comment"># !?test?</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"test"</span></span><br><span class="line"><span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<h4 id="0x8-替换上一条命令的参数"><a href="#0x8-替换上一条命令的参数" class="headerlink" title="0x8,替换上一条命令的参数"></a>0x8,替换上一条命令的参数</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@9d070a1a1e07:~<span class="comment"># find ./* -name "make"</span></span><br><span class="line">root@9d070a1a1e07:~<span class="comment"># !!:gs/make/Makefile</span></span><br><span class="line">find ./* -name <span class="string">"Makefile"</span></span><br><span class="line">./vim/runtime/doc/Makefile</span><br><span class="line">./vim/runtime/indent/Makefile</span><br><span class="line">./vim/runtime/macros/maze/Makefile</span><br><span class="line">./vim/runtime/tutor/Makefile</span><br><span class="line">./vim/Makefile</span><br><span class="line">略。。。</span><br></pre></td></tr></table></figure>
+<h4 id="0x9-逻辑非"><a href="#0x9-逻辑非" class="headerlink" title="0x9,逻辑非"></a>0x9,逻辑非</h4><p>略</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux bash</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/23/linux-bash/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-compile-vim" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -221,7 +312,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">compile,vim</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">compile vim</a>
         		</li>
       		
 		</ul>
@@ -422,7 +513,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ctf-pwn,assembly</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ctf-pwn assembly</a>
         		</li>
       		
 		</ul>
@@ -1092,17 +1183,6 @@ PUNPCKLWD   媒体字低位解压
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Mac</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -1304,91 +1384,9 @@ PUNPCKLWD   媒体字低位解压
 
 
   
-    <article id="post-crc32" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/01/crc32/">python的zlib.crc32</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/01/crc32/" class="archive-article-date">
-  	<time datetime="2019-01-01T14:47:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>很多的ctf misc题可以用crc32碰撞解出来,就像gxnnctf2018的一道misc题,解压得到一堆压缩包,一个一个爆破很费时间,随便打开一个压缩包可以观察出,flag.txt只有三个字符,三个字符的crc32碰撞几乎是秒解</p>
-<p><img src="/2019/01/01/crc32/crc32.PNG" alt=""></p>
-<p>python的zlib库里就有crc32校验的模块:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> zlib</span><br><span class="line">In [<span class="number">2</span>]:  hex(zlib.crc32(<span class="string">"078"</span>)&amp;<span class="number">0xffffffff</span>)</span><br><span class="line">Out[<span class="number">2</span>]: <span class="string">'0x632f2428'</span></span><br></pre></td></tr></table></figure>
-<p>crc32爆破脚本:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> zlib</span><br><span class="line"></span><br><span class="line">crc32code = raw_input(<span class="string">'crc32 : '</span>)</span><br><span class="line"><span class="comment">#这个脚本是爆破3位数字的,所以是xrange(0,100),其他的自己照葫芦画瓢</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">0</span>,<span class="number">100</span>):                      </span><br><span class="line">    buf = str(i).rjust(<span class="number">3</span>,<span class="string">'0'</span>)                      </span><br><span class="line">    <span class="keyword">if</span> zlib.crc32(buf) &amp; <span class="number">0xffffffff</span> == int(crc32code,<span class="number">16</span>): </span><br><span class="line">        <span class="keyword">print</span> <span class="string">'[*]'</span>,buf</span><br></pre></td></tr></table></figure>
-<p>用来解上面题目:</p>
-<p><img src="/2019/01/01/crc32/crc32_1.PNG" alt="crc32_1"></p>
-<p>完善一下脚本批量解出每个压缩包的flag.txt的内容,发现对着ascii码都能转成可见字符,再base64解码就得到flag,在这里我就不放出来了,自己照葫芦画瓢</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ctf-misc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/01/crc32/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1483,23 +1481,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ctf-pwn,assembly</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ctf-pwn</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ctf-misc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">dcoker</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1507,7 +1493,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">dcoker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux bash</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1515,7 +1505,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compile,vim</a>
+                <a href="javascript:void(0)" class="js-tag color4">ctf-misc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ctf-pwn assembly</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">compile vim</a>
               </li>
              
               <li class="article-tag-list-item">
