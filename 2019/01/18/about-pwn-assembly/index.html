@@ -6,24 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zero-mk.github.io">
-  <title>about_pwn_assembly | l0ser</title>
+  <title>about_pwn_assembly | Datura stramonium L.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="关于学pwn的汇编基础,其实我之前汇编基础不是很好,勉强能读懂一点,很多时候还是很乱,在这里分享一下我的学习方法吧  IDA逆向分析出的源码 123setvbuf(stdout, 0, 2, 0);setvbuf(stdin, 0, 1, 0);gets(&amp;amp;s); 汇编代码: 123456789101112131415161718192080484f9:	83 ec 34">
 <meta name="keywords" content="ctf-pwn assembly">
 <meta property="og:type" content="article">
 <meta property="og:title" content="about_pwn_assembly">
 <meta property="og:url" content="http://zero-mk.github.io/2019/01/18/about-pwn-assembly/index.html">
-<meta property="og:site_name" content="l0ser">
+<meta property="og:site_name" content="Datura stramonium L.">
 <meta property="og:description" content="关于学pwn的汇编基础,其实我之前汇编基础不是很好,勉强能读懂一点,很多时候还是很乱,在这里分享一下我的学习方法吧  IDA逆向分析出的源码 123setvbuf(stdout, 0, 2, 0);setvbuf(stdin, 0, 1, 0);gets(&amp;amp;s); 汇编代码: 123456789101112131415161718192080484f9:	83 ec 34">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://zero-mk.github.io/2019/01/18/about-pwn-assembly/assembly.PNG">
-<meta property="og:updated_time" content="2019-01-23T15:58:44.000Z">
+<meta property="og:updated_time" content="2019-01-23T15:58:44.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="about_pwn_assembly">
 <meta name="twitter:description" content="关于学pwn的汇编基础,其实我之前汇编基础不是很好,勉强能读懂一点,很多时候还是很乱,在这里分享一下我的学习方法吧  IDA逆向分析出的源码 123setvbuf(stdout, 0, 2, 0);setvbuf(stdin, 0, 1, 0);gets(&amp;amp;s); 汇编代码: 123456789101112131415161718192080484f9:	83 ec 34">
 <meta name="twitter:image" content="http://zero-mk.github.io/2019/01/18/about-pwn-assembly/assembly.PNG">
   
-    <link rel="alternative" href="/atom.xml" title="l0ser" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Datura stramonium L." type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -56,15 +56,13 @@
 		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">Destruction is the coolest thing in the world</p>
+		<p class="header-subtitle">Life is the noisy caress,But the quiet loneliness</p>
 		
 
 		<nav class="header-menu">
 			<ul>
 			
 				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/tags/随笔/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -116,11 +114,9 @@
 			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Destruction is the coolest thing in the world<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Life is the noisy caress,But the quiet loneliness<i class="icon icon-quo-right"></i></p>
 			
 			
-			
-				
 			
 				
 			
@@ -144,9 +140,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 100%"><a href="/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -284,7 +278,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/01/22/git-config/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/01/22/git/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -338,7 +332,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 l0ser
+    		&copy; 2019 Datura stramonium L.
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -425,11 +419,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+                <a href="javascript:void(0)" class="js-tag color2">ctf-pwn assembly</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ctf-misc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -441,19 +443,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">termux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ctf-misc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ctf-pwn assembly</a>
+                <a href="javascript:void(0)" class="js-tag color2">termux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -528,7 +522,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">差不多算个废人吧,热衷于计算机,但一事无成</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">没技术，没钱，没长相，只有一颗疲惫不堪的心</div>
   	  	
     	</section>
     
