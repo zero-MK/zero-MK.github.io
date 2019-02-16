@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Datura stramonium L.">
 <meta property="og:description" content="学习资源:CTF wiki : https://ctf-wiki.github.io/ctf-wiki/pwn/readme/  (教科书) C语言-内存管理基础  : https://www.jianshu.com/p/b2380e47d005  (不会这个,好像,不用玩pwn了) PWN选手的自我修养 :  https://r00tk1ts.github.io/2017/09/11/PWN%E">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-31T18:13:30.375Z">
+<meta property="og:updated_time" content="2019-02-05T11:54:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记录我学习pwn">
 <meta name="twitter:description" content="学习资源:CTF wiki : https://ctf-wiki.github.io/ctf-wiki/pwn/readme/  (教科书) C语言-内存管理基础  : https://www.jianshu.com/p/b2380e47d005  (不会这个,好像,不用玩pwn了) PWN选手的自我修养 :  https://r00tk1ts.github.io/2017/09/11/PWN%E">
@@ -178,6 +178,9 @@
 <p>PWN选手的自我修养 :  <a href="https://r00tk1ts.github.io/2017/09/11/PWN%E9%80%89%E6%89%8B%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/" target="_blank" rel="noopener">https://r00tk1ts.github.io/2017/09/11/PWN%E9%80%89%E6%89%8B%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/</a></p>
 <p>i春秋的上的Linux pwn入门教程系列 : <a href="https://bbs.ichunqiu.com/forum.php?mod=collection&amp;action=view&amp;ctid=157" target="_blank" rel="noopener">https://bbs.ichunqiu.com/forum.php?mod=collection&amp;action=view&amp;ctid=157</a><br>Bamboofox :  <a href="https://bamboofox.cs.nctu.edu.tw/" target="_blank" rel="noopener">https://bamboofox.cs.nctu.edu.tw/</a>  (说实话,我的pwn起点就是在这里)</p>
 <p>Bamboofox Official Blog : <a href="https://bamboofox.github.io/" target="_blank" rel="noopener">https://bamboofox.github.io/</a>  (国际赛pwn题wp)</p>
+<p>how2heap ：<a href="https://github.com/shellphish/how2heap" target="_blank" rel="noopener">https://github.com/shellphish/how2heap</a> (讲堆的，入门吧，主要是代码为例，英语)</p>
+<p>某大佬的how2heap笔记：<a href="https://0x3f97.github.io/category/#/how2heap" target="_blank" rel="noopener">https://0x3f97.github.io/category/#/how2heap</a></p>
+<p>某大佬对堆的解析：<a href="https://0x3f97.github.io/heap-exploitation/2017/12/06/glibc-heap-analysis/" target="_blank" rel="noopener">https://0x3f97.github.io/heap-exploitation/2017/12/06/glibc-heap-analysis/</a> </p>
 <h3 id="题目和writeup"><a href="#题目和writeup" class="headerlink" title="题目和writeup:"></a>题目和writeup:</h3><p>pwn_repo : <a href="https://github.com/bash-c/pwn_repo" target="_blank" rel="noopener">https://github.com/bash-c/pwn_repo</a>  (很多pwn题,附加writeup,自己慢慢啃)</p>
 <p>pwn_step_in : <a href="https://github.com/ckxckx/pwn_step_in" target="_blank" rel="noopener">https://github.com/ckxckx/pwn_step_in</a>  (分类,渐进)</p>
 <p>国际赛题目 : <a href="https://github.com/ctfs" target="_blank" rel="noopener">https://github.com/ctfs</a> </p>
@@ -186,6 +189,7 @@
 <p>IBM的汇编开发指南 : <a href="https://www.ibm.com/developerworks/cn/linux/l-assembly/index.html?mhq=AT%26T%20%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97&amp;mhsrc=ibmsearch_d" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/linux/l-assembly/index.html?mhq=AT%26T%20%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97&amp;mhsrc=ibmsearch_d</a></p>
 <p>系统调用表 : 我博客搜索syscall或Linux_System_Call_Table</p>
 <p>系统调用解释 : <a href="https://www.ibm.com/developerworks/cn/linux/kernel/syscall/part1/appendix.html#3" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/linux/kernel/syscall/part1/appendix.html#3</a></p>
+<p> 免费的计算机编程类中文书籍： <a href="https://github.com/justjavac/free-programming-books-zh_CN" target="_blank" rel="noopener">https://github.com/justjavac/free-programming-books-zh_CN</a></p>
 <h3 id="工具"><a href="#工具" class="headerlink" title="工具:"></a>工具:</h3><p>使用docker部署的解题环境 : <a href="https://github.com/skysider/pwndocker" target="_blank" rel="noopener">https://github.com/skysider/pwndocker</a>  (基于<a href="https://github.com/phusion/baseimage-docker" target="_blank" rel="noopener">https://github.com/phusion/baseimage-docker</a>)</p>
 
       
@@ -407,11 +411,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ctf-pwn</a>
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+                <a href="javascript:void(0)" class="js-tag color3">ctf-pwn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -427,15 +431,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">dcoker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux bash</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -447,7 +443,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">dcoker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pwntools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pwn</a>
               </li>
              
               <li class="article-tag-list-item">

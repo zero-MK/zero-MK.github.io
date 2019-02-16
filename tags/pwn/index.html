@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zero-mk.github.io">
-  <title>pwntools的命令行工具pwn | Datura stramonium L.</title>
+  <title>Tag: pwn | Datura stramonium L.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="注:我只是翻译(机翻加个人使用然后修正)玩玩的,可能会有错,看看就好,有错的地方请私信我:1565328054@qq.com十分感谢 Pwntools 附带了一些有用的命令行实用程序 pwnPwntools 命令行界面123usage: pwn [-h]           &amp;#123;asm,checksec,constgrep,cyclic,debug,disasm,disablenx,elf">
-<meta name="keywords" content="pwntools">
-<meta property="og:type" content="article">
-<meta property="og:title" content="pwntools的命令行工具pwn">
-<meta property="og:url" content="http://zero-mk.github.io/2019/01/01/pwntools-Command Line Tools/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Datura stramonium L.">
+<meta property="og:url" content="http://zero-mk.github.io/tags/pwn/index.html">
 <meta property="og:site_name" content="Datura stramonium L.">
-<meta property="og:description" content="注:我只是翻译(机翻加个人使用然后修正)玩玩的,可能会有错,看看就好,有错的地方请私信我:1565328054@qq.com十分感谢 Pwntools 附带了一些有用的命令行实用程序 pwnPwntools 命令行界面123usage: pwn [-h]           &amp;#123;asm,checksec,constgrep,cyclic,debug,disasm,disablenx,elf">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-01T06:45:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="pwntools的命令行工具pwn">
-<meta name="twitter:description" content="注:我只是翻译(机翻加个人使用然后修正)玩玩的,可能会有错,看看就好,有错的地方请私信我:1565328054@qq.com十分感谢 Pwntools 附带了一些有用的命令行实用程序 pwnPwntools 命令行界面123usage: pwn [-h]           &amp;#123;asm,checksec,constgrep,cyclic,debug,disasm,disablenx,elf">
+<meta name="twitter:title" content="Datura stramonium L.">
   
     <link rel="alternative" href="/atom.xml" title="Datura stramonium L." type="application/atom+xml">
   
@@ -153,367 +148,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-pwntools-Command Line Tools" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      pwntools的命令行工具pwn
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/02/04/howheap-learn/" class="archive-article-date">
+  	<time datetime="2019-02-04T07:31:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-04</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/02/04/howheap-learn/">how2heap学习</a>
     </h1>
   
 
-        
-        <a href="/2019/01/01/pwntools-Command Line Tools/" class="archive-article-date">
-  	<time datetime="2019-01-01T06:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>注:我只是翻译(机翻加个人使用然后修正)玩玩的,可能会有错,看看就好,有错的地方请私信我:<a href="mailto:1565328054@qq.com" target="_blank" rel="noopener">1565328054@qq.com</a>十分感谢</strong></p>
-<p>Pwntools 附带了一些有用的命令行实用程序</p>
-<h2 id="pwn"><a href="#pwn" class="headerlink" title="pwn"></a>pwn</h2><p>Pwntools 命令行界面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">usage: pwn [-h]</span><br><span class="line">           &#123;asm,checksec,constgrep,cyclic,debug,disasm,disablenx,elfdiff,elfpatch,errno,hex,phd,pwnstrip,scramble,shellcraft,template,unhex,update&#125;</span><br><span class="line">           ...</span><br></pre></td></tr></table></figure></p>
-<p>显示这个帮助信息，然后退出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-h, --help</span><br></pre></td></tr></table></figure></p>
-<p>### </p>
-<h3 id="pwn-asm-汇编器"><a href="#pwn-asm-汇编器" class="headerlink" title="pwn asm (汇编器)"></a>pwn asm (汇编器)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">usage: pwn asm [-h] [-f &#123;raw,hex,string,elf&#125;] [-o file] [-c context]</span><br><span class="line">               [-v AVOID] [-n] [-z] [-d] [-e ENCODER] [-i INFILE] [-r]</span><br><span class="line">               [line [line ...]]</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">line</span><br></pre></td></tr></table></figure>
-<p>要组装的代码行。 如果没有提供，请使用 stdin</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-h, --help</span><br></pre></td></tr></table></figure>
-<p>显示这个帮助信息，然后退出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-f &#123;raw,hex,string,elf&#125;, --format &#123;raw,hex,string,elf&#125;</span><br></pre></td></tr></table></figure>
-<p>输出格式(对于 ttys，默认为十六进制，否则为原始类型)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-o &lt;file&gt;, --output &lt;file&gt;</span><br></pre></td></tr></table></figure>
-<p>输出文件(默认为 stdout)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-c &#123;16,32,64,android,cgc,freebsd,linux,windows,powerpc64,aarch64,sparc64,powerpc,mips64,msp430,thumb,amd64,sparc,alpha,s390,i386,m68k,mips,ia64,cris,vax,avr,arm,little,big,el,le,be,eb&#125;, --context &#123;16,32,64,android,cgc,freebsd,linux,windows,powerpc64,aarch64,sparc64,powerpc,mips64,msp430,thumb,amd64,sparc,alpha,s390,i386,m68k,mips,ia64,cris,vax,avr,arm,little,big,el,le,be,eb&#125;</span><br></pre></td></tr></table></figure>
-<p>指定生成的shellcode的 操作系统 / 架构 / 字节序(大端小端) / 位数 (默认是: linux/i386), 从: [‘16’, ‘32’, ‘64’, ‘android’, ‘cgc’, ‘freebsd’, ‘linux’, ‘windows’, ‘powerpc64’, ‘aarch64’, ‘sparc64’, ‘powerpc’, ‘mips64’, ‘msp430’, ‘thumb’, ‘amd64’, ‘sparc’, ‘alpha’, ‘s390’, ‘i386’, ‘m68k’, ‘mips’, ‘ia64’, ‘cris’, ‘vax’, ‘avr’, ‘arm’, ‘little’, ‘big’, ‘el’, ‘le’, ‘be’, ‘eb’]中选择</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-v &lt;avoid&gt;, --avoid &lt;avoid&gt;</span><br></pre></td></tr></table></figure>
-<p>对 shellcode 进行编码 (provided as hex; default: 000a)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-n, --newline</span><br></pre></td></tr></table></figure>
-<p>将 shell 代码编码以避免换行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-z, --zero</span><br></pre></td></tr></table></figure>
-<p>对 shell 代码进行编码，以避免NULL byte</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-d, --debug</span><br></pre></td></tr></table></figure>
-<p>使用GDB 调试 shellcode</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-e &lt;encoder&gt;, --encoder &lt;encoder&gt;</span><br></pre></td></tr></table></figure>
-<p>指定编码器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-i &lt;infile&gt;, --infile &lt;infile&gt;</span><br></pre></td></tr></table></figure>
-<p>指定输入文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-r, --run</span><br></pre></td></tr></table></figure>
-<p>运行输出</p>
-<h3 id="pwn-disasm-反汇编器"><a href="#pwn-disasm-反汇编器" class="headerlink" title="pwn disasm  (反汇编器)"></a>pwn disasm  (反汇编器)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">usage: pwn disasm [-h] [-c arch_or_os] [-a address] [--color] [--no-color]</span><br><span class="line">                  [hex [hex ...]]</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hex</span><br></pre></td></tr></table></figure>
-<p>Hex-string to disasemble. If none are supplied, then it uses stdin in non-hex mode.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-h, --help</span><br></pre></td></tr></table></figure>
-<p>显示这个帮助信息，然后退出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-c &#123;16,32,64,android,cgc,freebsd,linux,windows,powerpc64,aarch64,sparc64,powerpc,mips64,msp430,thumb,amd64,sparc,alpha,s390,i386,m68k,mips,ia64,cris,vax,avr,arm,little,big,el,le,be,eb&#125;, --context &#123;16,32,64,android,cgc,freebsd,linux,windows,powerpc64,aarch64,sparc64,powerpc,mips64,msp430,thumb,amd64,sparc,alpha,s390,i386,m68k,mips,ia64,cris,vax,avr,arm,little,big,el,le,be,eb&#125;</span><br></pre></td></tr></table></figure>
-<p>指定生成的shellcode的 操作系统 / 架构 / 字节序(大端小端) / 位数 (默认是: linux/i386), 从: [‘16’, ‘32’, ‘64’, ‘android’, ‘cgc’, ‘freebsd’, ‘linux’, ‘windows’, ‘powerpc64’, ‘aarch64’, ‘sparc64’, ‘powerpc’, ‘mips64’, ‘msp430’, ‘thumb’, ‘amd64’, ‘sparc’, ‘alpha’, ‘s390’, ‘i386’, ‘m68k’, ‘mips’, ‘ia64’, ‘cris’, ‘vax’, ‘avr’, ‘arm’, ‘little’, ‘big’, ‘el’, ‘le’, ‘be’, ‘eb’]中选择</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-a &lt;address&gt;, --address &lt;address&gt;</span><br></pre></td></tr></table></figure>
-<p>基址</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--color</span><br></pre></td></tr></table></figure>
-<p>彩色输出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--no-color</span><br></pre></td></tr></table></figure>
-<p>禁用颜色输出</p>
-<h3 id="pwn-checksec-检查elf安全机制"><a href="#pwn-checksec-检查elf安全机制" class="headerlink" title="pwn checksec  (检查elf安全机制)"></a>pwn checksec  (检查elf安全机制)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usage: pwn checksec [-h] [--file [elf [elf ...]]] [elf [elf ...]]</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">elf</span><br></pre></td></tr></table></figure>
-<p>要检查的文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-h, --help</span><br></pre></td></tr></table></figure>
-<p>显示这个帮助信息，然后退出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--file &lt;elf&gt;</span><br></pre></td></tr></table></figure>
-<p>要检查的文件(是否与 checksec.sh 兼容)</p>
-<h3 id="pwn-cyclic-测溢出点"><a href="#pwn-cyclic-测溢出点" class="headerlink" title="pwn cyclic  (测溢出点)"></a>pwn cyclic  (测溢出点)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">usage: pwn cyclic [-h] [-a alphabet] [-n length] [-c context]</span><br><span class="line">                  [-l lookup_value]</span><br><span class="line">                  [count]</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">count</span><br></pre></td></tr></table></figure>
-<p>要打印的字符数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-h, --help</span><br></pre></td></tr></table></figure>
-<p>显示这个帮助信息，然后退出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-a &lt;alphabet&gt;, --alphabet &lt;alphabet&gt;</span><br></pre></td></tr></table></figure>
-<p>循环模式中使用的字母表(默认为所有小写字母)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-n &lt;length&gt;, --length &lt;length&gt;</span><br></pre></td></tr></table></figure>
-<p>指定子序列的大小 (defaults to 4).<br><strong>-c {16,32,64,android,cgc,freebsd,linux,windows,powerpc64,aarch64,sparc64,powerpc,mips64,msp430,thumb,amd64,sparc,alpha,s390,i386,m68k,mips,ia64,cris,vax,avr,arm,little,big,el,le,be,eb}, –context {16,32,64,android,cgc,freebsd,linux,windows,powerpc64,aarch64,sparc64,powerpc,mips64,msp430,thumb,amd64,sparc,alpha,s390,i386,m68k,mips,ia64,cris,vax,avr,arm,little,big,el,le,be,eb}</strong><br>指定生成的shellcode的 操作系统 / 架构 / 字节序(大端小端) / 位数 (默认是: linux/i386), 从: [‘16’, ‘32’, ‘64’, ‘android’, ‘cgc’, ‘freebsd’, ‘linux’, ‘windows’, ‘powerpc64’, ‘aarch64’, ‘sparc64’, ‘powerpc’, ‘mips64’, ‘msp430’, ‘thumb’, ‘amd64’, ‘sparc’, ‘alpha’, ‘s390’, ‘i386’, ‘m68k’, ‘mips’, ‘ia64’, ‘cris’, ‘vax’, ‘avr’, ‘arm’, ‘little’, ‘big’, ‘el’, ‘le’, ‘be’, ‘eb’]中选择</p>
-<p><strong>-l &lt;lookup_value&gt;, -o &lt;lookup_value&gt;, –offset &lt;lookup_value&gt;, –lookup &lt;lookup_value&gt;</strong><br>Do a lookup instead printing the alphabet</p>
-<h3 id="pwn-hex-数据转十六进制"><a href="#pwn-hex-数据转十六进制" class="headerlink" title="pwn hex  (数据转十六进制)"></a>pwn hex  (数据转十六进制)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usage: pwn hex [-h] [data [data ...]]</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data</span><br></pre></td></tr></table></figure>
-<p>数据转换为十六进制</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-h, --help</span><br></pre></td></tr></table></figure>
-<p>显示这个帮助信息，然后退出</p>
-<h3 id="pwn-unhex-解码十六进制"><a href="#pwn-unhex-解码十六进制" class="headerlink" title="pwn unhex  (解码十六进制)"></a>pwn unhex  (解码十六进制)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usage: pwn unhex [-h] [hex [hex ...]]</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hex</span><br></pre></td></tr></table></figure>
-<p>要解码的十六进制字节</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-h, --help</span><br></pre></td></tr></table></figure>
-<p>显示这个帮助信息，然后退出</p>
-<h3 id="pwn-update-更新pwntools"><a href="#pwn-update-更新pwntools" class="headerlink" title="pwn update  (更新pwntools)"></a>pwn update  (更新pwntools)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usage: pwn update [-h] [--install] [--pre]</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-h, --help</span><br></pre></td></tr></table></figure>
-<p>显示这个帮助信息，然后退出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--install</span><br></pre></td></tr></table></figure>
-<p>自动安装更新。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--pre</span><br></pre></td></tr></table></figure>
-<p>检查预发行版本。</p>
-<h3 id="pwn-phd-dump出efl的hex有点像xxd"><a href="#pwn-phd-dump出efl的hex有点像xxd" class="headerlink" title="pwn phd  (dump出efl的hex有点像xxd)"></a>pwn phd  (dump出efl的hex有点像xxd)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">usage: pwn phd [-h] [-w WIDTH] [-l [HIGHLIGHT [HIGHLIGHT ...]]] [-s SKIP]</span><br><span class="line">               [-c COUNT] [-o OFFSET] [--color [&#123;always,never,auto&#125;]]</span><br><span class="line">               [file]</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file</span><br></pre></td></tr></table></figure>
-<p>file 转换到 hex。 如果丢失，从 stdin 读取。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-h, --help</span><br></pre></td></tr></table></figure>
-<p>显示这个帮助信息，然后退出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-w &lt;width&gt;, --width &lt;width&gt;</span><br></pre></td></tr></table></figure>
-<p>每行字节数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-l &lt;highlight&gt;, --highlight &lt;highlight&gt;</span><br></pre></td></tr></table></figure>
-<p>要高亮的字节。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-s &lt;skip&gt;, --skip &lt;skip&gt;</span><br></pre></td></tr></table></figure>
-<p>跳过多少字节。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-c &lt;count&gt;, --count &lt;count&gt;</span><br></pre></td></tr></table></figure>
-<p>只显示这么多字节。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-o &lt;offset&gt;, --offset &lt;offset&gt;</span><br></pre></td></tr></table></figure>
-<p>左栏中的地址从这个地址开始。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--color &#123;always,never,auto&#125;</span><br></pre></td></tr></table></figure>
-<p>使输出着色。 当”auto”输出正好是着色时，标准输出是 TTY。 默认是自动的。</p>
-<h3 id="pwn-disablenx-检查elf安全机制"><a href="#pwn-disablenx-检查elf安全机制" class="headerlink" title="pwn disablenx  (检查elf安全机制)"></a>pwn disablenx  (检查elf安全机制)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">usage: pwn disablenx [-h] elf [elf ...]</span><br><span class="line"></span><br><span class="line">l0ser@DESKTOP-N2FHDCM:/mnt/k/pwn/gxnnctf/pwn_x64$ pwn disablenx pwn</span><br><span class="line">[*] &apos;/mnt/k/pwn/gxnnctf/pwn_x64/pwn&apos;</span><br><span class="line">    Arch:     amd64-64-little</span><br><span class="line">    RELRO:    Partial RELRO</span><br><span class="line">    Stack:    No canary found</span><br><span class="line">    NX:       NX enabled</span><br><span class="line">    PIE:      No PIE (0x400000)</span><br><span class="line">[*] &apos;/mnt/k/pwn/gxnnctf/pwn_x64/pwn&apos;</span><br><span class="line">    Arch:     amd64-64-little</span><br><span class="line">    RELRO:    Partial RELRO</span><br><span class="line">    Stack:    No canary found</span><br><span class="line">    NX:       NX disabled</span><br><span class="line">    PIE:      No PIE (0x400000)</span><br><span class="line">    RWX:      Has RWX segments</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">elf</span><br></pre></td></tr></table></figure>
-<p>要检查的文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-h, --help</span><br></pre></td></tr></table></figure>
-<p>显示这个帮助信息</p>
-<h3 id="pwn-shellcraft-shellcode生成器"><a href="#pwn-shellcraft-shellcode生成器" class="headerlink" title="pwn shellcraft  (shellcode生成器)"></a>pwn shellcraft  (shellcode生成器)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">usage: pwn shellcraft [-h] [-?] [-o file] [-f format] [-d] [-b] [-a]</span><br><span class="line">                      [-v AVOID] [-n] [-z] [-r] [--color] [--no-color]</span><br><span class="line">                      [--syscalls] [--address ADDRESS] [-l] [-s]</span><br><span class="line">                      [shellcode] [arg [arg ...]]</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shellcode</span><br></pre></td></tr></table></figure>
-<p>你想要的shellcode</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arg</span><br></pre></td></tr></table></figure>
-<p>Argument to the chosen shellcode</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-h, --help</span><br></pre></td></tr></table></figure>
-<p>显示这个帮助信息，然后退出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-?, --show</span><br></pre></td></tr></table></figure>
-<p>打印出shellcode文件内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-o &lt;file&gt;, --out &lt;file&gt;</span><br></pre></td></tr></table></figure>
-<p>Output file (default: stdout)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-f &#123;r,raw,s,str,string,c,h,hex,a,asm,assembly,p,i,hexii,e,elf,d,escaped,default&#125;, --format &#123;r,raw,s,str,string,c,h,hex,a,asm,assembly,p,i,hexii,e,elf,d,escaped,default&#125;</span><br></pre></td></tr></table></figure>
-<p>输出格式(默认值: 十六进制) ，选择{ e } lf，{ r } aw，{ s } tring，{ c }-style array，{ h } ex string，hex { i } ，{ a } ssembly code，{ p } reccssed code，escape { d } hex string</p>
-<p><strong>-d, –debug</strong><br>使用gdb调试shellcode</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-b, --before</span><br></pre></td></tr></table></figure>
-<p>在代码之前插入调试陷阱(debug trap)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-a, --after</span><br></pre></td></tr></table></figure>
-<p>在代码之后插入调试陷阱(debug trap)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-v &lt;avoid&gt;, --avoid &lt;avoid&gt;</span><br></pre></td></tr></table></figure>
-<p>对 shell 代码进行编码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-n, --newline</span><br></pre></td></tr></table></figure>
-<p>将 shell 代码编码以避免换行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-z, --zero</span><br></pre></td></tr></table></figure>
-<p>对 shell 代码进行编码，以避免NIULL bytes</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-r, --run</span><br></pre></td></tr></table></figure>
-<p>Run output</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--color</span><br></pre></td></tr></table></figure>
-<p>Color output</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--no-color</span><br></pre></td></tr></table></figure>
-<p>Disable color output</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--syscalls</span><br></pre></td></tr></table></figure>
-<p>列出系统调用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--address &lt;address&gt;</span><br></pre></td></tr></table></figure>
-<p>加载地址</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-l, --list</span><br></pre></td></tr></table></figure>
-<p>列出可用的shellcode，也可选择提供一个过滤器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-s, --shared</span><br></pre></td></tr></table></figure>
-<p>生成的 ELF 是一个共享库</p>
-<h3 id="pwn-template"><a href="#pwn-template" class="headerlink" title="pwn template"></a>pwn template</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">usage: pwn template [-h] [--host HOST] [--port PORT] [--user USER]</span><br><span class="line">                    [--pass PASSWORD] [--path PATH] [--quiet]</span><br><span class="line">                    [exe]</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exe</span><br></pre></td></tr></table></figure>
-<p>目标二进制文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-h, --help</span><br></pre></td></tr></table></figure>
-<p>显示这个帮助信息，然后退出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--host &lt;host&gt;</span><br></pre></td></tr></table></figure>
-<p>远程主机 / SSH 服务器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--port &lt;port&gt;</span><br></pre></td></tr></table></figure>
-<p>远程端口 / SSH 端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--user &lt;user&gt;</span><br></pre></td></tr></table></figure>
-<p>SSH 用户名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--pass &lt;password&gt;</span><br></pre></td></tr></table></figure>
-<p>SSH 密码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--path &lt;path&gt;</span><br></pre></td></tr></table></figure>
-<p>ssh 服务器上文件的远程路径</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--quiet</span><br></pre></td></tr></table></figure>
-<p>较少冗长的模板注释</p>
-<h3 id="pwn-elfdiff"><a href="#pwn-elfdiff" class="headerlink" title="pwn elfdiff"></a>pwn elfdiff</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usage: pwn elfdiff [-h] a b</span><br></pre></td></tr></table></figure>
-<p><strong>a</strong><br><strong>b</strong><br>对比a , b两个elf文件<br><strong>-h, –help</strong><br>显示这个帮助信息，然后退出</p>
-<h3 id="pwn-pwnstrip"><a href="#pwn-pwnstrip" class="headerlink" title="pwn pwnstrip"></a>pwn pwnstrip</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usage: pwn pwnstrip [-h] [-b] [-p FUNCTION] [-o OUTPUT] file</span><br></pre></td></tr></table></figure>
-<p><strong>file</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-h, --help</span><br></pre></td></tr></table></figure>
-<p>显示这个帮助信息，然后退出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-b, --build-id</span><br></pre></td></tr></table></figure>
-<p>Strip build ID</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-p &lt;function&gt;, --patch &lt;function&gt;</span><br></pre></td></tr></table></figure>
-<p>Patch function</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-o &lt;output&gt;, --output &lt;output&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="pwn-constgrep"><a href="#pwn-constgrep" class="headerlink" title="pwn constgrep"></a>pwn constgrep</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">usage: pwn constgrep [-h] [-e constant] [-i] [-m] [-c arch_or_os]</span><br><span class="line">                     [regex] [constant]</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">regex</span><br></pre></td></tr></table></figure>
-<p>要求匹配常量的正则表达式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">constant</span><br></pre></td></tr></table></figure>
-<p>要找的常量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-h, --help</span><br></pre></td></tr></table></figure>
-<p>显示这个帮助信息，然后退出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-e &lt;constant&gt;, --exact &lt;constant&gt;</span><br></pre></td></tr></table></figure>
-<p>对常量执行精确匹配，而不是搜索正则表达式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-i, --case-insensitive</span><br></pre></td></tr></table></figure>
-<p>搜索不区分大小写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-m, --mask-mode</span><br></pre></td></tr></table></figure>
-<p>不要搜索特定的常量值，而是搜索不严格包含比给定值少的位的值。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-c &#123;16,32,64,android,cgc,freebsd,linux,windows,powerpc64,aarch64,sparc64,powerpc,mips64,msp430,thumb,amd64,sparc,alpha,s390,i386,m68k,mips,ia64,cris,vax,avr,arm,little,big,el,le,be,eb&#125;, --context &#123;16,32,64,android,cgc,freebsd,linux,windows,powerpc64,aarch64,sparc64,powerpc,mips64,msp430,thumb,amd64,sparc,alpha,s390,i386,m68k,mips,ia64,cris,vax,avr,arm,little,big,el,le,be,eb&#125;</span><br></pre></td></tr></table></figure>
-<p>指定生成的shellcode的 操作系统 / 架构 / 字节序(大端小端) / 位数 (默认是: linux/i386), 从: [‘16’, ‘32’, ‘64’, ‘android’, ‘cgc’, ‘freebsd’, ‘linux’, ‘windows’, ‘powerpc64’, ‘aarch64’, ‘sparc64’, ‘powerpc’, ‘mips64’, ‘msp430’, ‘thumb’, ‘amd64’, ‘sparc’, ‘alpha’, ‘s390’, ‘i386’, ‘m68k’, ‘mips’, ‘ia64’, ‘cris’, ‘vax’, ‘avr’, ‘arm’, ‘little’, ‘big’, ‘el’, ‘le’, ‘be’, ‘eb’]中选择</p>
-<h3 id="pwn-debug"><a href="#pwn-debug" class="headerlink" title="pwn debug"></a>pwn debug</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">usage: pwn debug [-h] [-x GDBSCRIPT] [--pid PID] [-c context]</span><br><span class="line">                 [--exec EXECUTABLE] [--process PROCESS_NAME]</span><br><span class="line">                 [--sysroot SYSROOT]</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-h, --help</span><br></pre></td></tr></table></figure>
-<p>显示这个帮助信息，然后退出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-x &lt;gdbscript&gt;</span><br></pre></td></tr></table></figure>
-<p>从该文件执行 GDB 命令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--pid &lt;pid&gt;</span><br></pre></td></tr></table></figure>
-<p>PID to attach to</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-c &#123;16,32,64,android,cgc,freebsd,linux,windows,powerpc64,aarch64,sparc64,powerpc,mips64,msp430,thumb,amd64,sparc,alpha,s390,i386,m68k,mips,ia64,cris,vax,avr,arm,little,big,el,le,be,eb&#125;, --context &#123;16,32,64,android,cgc,freebsd,linux,windows,powerpc64,aarch64,sparc64,powerpc,mips64,msp430,thumb,amd64,sparc,alpha,s390,i386,m68k,mips,ia64,cris,vax,avr,arm,little,big,el,le,be,eb&#125;</span><br></pre></td></tr></table></figure>
-<p>指定生成的shellcode的 操作系统 / 架构 / 字节序(大端小端) / 位数 (默认是: linux/i386), 从: [‘16’, ‘32’, ‘64’, ‘android’, ‘cgc’, ‘freebsd’, ‘linux’, ‘windows’, ‘powerpc64’, ‘aarch64’, ‘sparc64’, ‘powerpc’, ‘mips64’, ‘msp430’, ‘thumb’, ‘amd64’, ‘sparc’, ‘alpha’, ‘s390’, ‘i386’, ‘m68k’, ‘mips’, ‘ia64’, ‘cris’, ‘vax’, ‘avr’, ‘arm’, ‘little’, ‘big’, ‘el’, ‘le’, ‘be’, ‘eb’]中选择</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--exec &lt;executable&gt;</span><br></pre></td></tr></table></figure>
-<p>要调试的文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--process &lt;process_name&gt;</span><br></pre></td></tr></table></figure>
-<p>要attach的进程的名称(例如”bash”)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--sysroot &lt;sysroot&gt;</span><br></pre></td></tr></table></figure>
-<p>GDB sysroot path</p>
-<h3 id="pwn-elfpatch"><a href="#pwn-elfpatch" class="headerlink" title="pwn elfpatch"></a>pwn elfpatch</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usage: pwn elfpatch [-h]</span><br></pre></td></tr></table></figure>
-<p><strong>-h, –help</strong><br>显示这个帮助信息，然后退出</p>
-<h3 id="pwn-errno"><a href="#pwn-errno" class="headerlink" title="pwn errno"></a>pwn errno</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usage: pwn errno [-h] error</span><br></pre></td></tr></table></figure>
-<p><strong>error</strong><br>错误消息或值<br><strong>-h, –help</strong><br>显示这个帮助信息，然后退出</p>
-<p>###<br>pwn scramble<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">usage: pwn scramble [-h] [-f &#123;raw,hex,string,elf&#125;] [-o file] [-c context] [-p]</span><br><span class="line">                    [-v AVOID] [-n] [-z] [-d]</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-h, --help</span><br></pre></td></tr></table></figure>
-<p>显示这个帮助信息，然后退出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-f &#123;raw,hex,string,elf&#125;, --format &#123;raw,hex,string,elf&#125;</span><br></pre></td></tr></table></figure>
-<p>输出格式(对于 ttys，默认为十六进制，否则为原始数据)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-o &lt;file&gt;, --output &lt;file&gt;</span><br></pre></td></tr></table></figure>
-<p>输出文件(默认为 stdout)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-c &#123;16,32,64,android,cgc,freebsd,linux,windows,powerpc64,aarch64,sparc64,powerpc,mips64,msp430,thumb,amd64,sparc,alpha,s390,i386,m68k,mips,ia64,cris,vax,avr,arm,little,big,el,le,be,eb&#125;, --context &#123;16,32,64,android,cgc,freebsd,linux,windows,powerpc64,aarch64,sparc64,powerpc,mips64,msp430,thumb,amd64,sparc,alpha,s390,i386,m68k,mips,ia64,cris,vax,avr,arm,little,big,el,le,be,eb&#125;</span><br></pre></td></tr></table></figure>
-<p>指定生成的shellcode的 操作系统 / 架构 / 字节序(大端小端) / 位数 (默认是: linux/i386), 从: [‘16’, ‘32’, ‘64’, ‘android’, ‘cgc’, ‘freebsd’, ‘linux’, ‘windows’, ‘powerpc64’, ‘aarch64’, ‘sparc64’, ‘powerpc’, ‘mips64’, ‘msp430’, ‘thumb’, ‘amd64’, ‘sparc’, ‘alpha’, ‘s390’, ‘i386’, ‘m68k’, ‘mips’, ‘ia64’, ‘cris’, ‘vax’, ‘avr’, ‘arm’, ‘little’, ‘big’, ‘el’, ‘le’, ‘be’, ‘eb’]中选择</p>
-<p><strong>-p, –alphanumeric</strong><br>Encode the shellcode with an alphanumeric encoder</p>
-<p><strong>-v <avoid>, –avoid <avoid></avoid></avoid></strong><br>对 shell 代码进行编码</p>
-<p><strong>-n, –newline</strong><br>将 shell 代码编码以避免换行</p>
-<p><strong>-z, –zero</strong><br>对 shell 代码进行编码，以避免NIULL bytes</p>
-<p><strong>-d, –debug</strong><br>使用gdb调试shellcode</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pwntools</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pwn</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACs0lEQVR42u3a0U7DMAwF0P3/T4PEExKku7brMaHTp2mUNidIibnO4xFfH1/X98+n6+dvnX56fc/pm8fGhYeHh9ca+vVwr1+W4E+TNR/Pk0nEw8PDW+NVN4MT+/TM+QZQvQcPDw/vHXj5lpBsEsk04eHh4f0PXnXod4ULeHh4eO/GmyzivfCiFzcsZi14eHh4MW+yKP/V5/X+Hh4eHl6r1ZQ3/vMnX9/ZG9XxXXh4eHgLvKQ11dskJq2vXmxR+I8BDw8Pb8zLDw1cR7QJqXqEq7rNRNOBh4eHN+DlzftkuNUtZF5kP3kyHh4e3gt5efPp3iw52UjybQkPDw9vm5cvzb3ooXoYqxoBH1MWPDw8vJfw8tckhXK+bZSL5uvfxcPDw1vjJYv1JK7NN5vJRB9Lajw8PLw1Xh7FTu6cNMbKUQgeHh7eAq+3ZE8ijHkDLApw8fDw8NZ4eQOsujT3yvFJVPHLePDw8PAWePki2xtEHuOWg4binwQPDw/vLt58G+g1zKpT2YyP8fDw8BZ41wt3bxFPnjYJaqvlNR4eHt4GrxoiTErhKuzmMAIPDw9vIcadRLHV+KDaWqtONx4eHt4eL7l6Taz8mclbEl6UteDh4eGNea+JIaqRbj4ePDw8vFfy5u35hNQ7ttUrrJMSHw8PD2/CmyzZSYBbBVzjy+PBw8PDW+bdVUb3yt9eiPwkvMDDw8Nb4CUldV4u52X05ADBpD2Gh4eHN+d9FK+8DdY7mNWbvuOmgoeHh7fAy69esFstnfN4dz6JeHh4eBNe9WjUPN6tTln+9/nlezw8PLw13qR91dsMescOyjEuHh4e3p/ykjw4b2hN3l6YaDw8PLy34SWkXv+td9zqeD8eHh7eGi8PAvKiNvk+iTB6b8fDw8Pb480bYJPTXpPGWLObh4eHh9fnfQJoVRg8JurP7QAAAABJRU5ErkJggg==" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/01/01/crc32/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          python的zlib.crc32
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/12/31/CTF-pwn-tips-zh_CN/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ctf-pwn-tips-zh_CN</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -536,9 +224,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
