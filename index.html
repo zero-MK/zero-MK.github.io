@@ -321,7 +321,7 @@
 </li>
 </ul>
 <p>（<a href="#Ghidra安装指南">返回页首</a>）</p>
-<h2 id="Ghidra安装目录布局"><a href="#Ghidra安装目录布局" class="headerlink" title="Ghidra安装目录布局"></a>Ghidra安装目录布局</h2><p>安装 Ghidra 后，可运行的软件将被解压缩到我们将称为 <em><ghidrainstalldir></ghidrainstalldir></em> 的新目录。下面是对分发文件的提取完成后可以在 <em><ghidrainstalldir></ghidrainstalldir></em> 中找到的顶级目录和文件的描述。</p>
+<h2 id="Ghidra安装目录布局"><a href="#Ghidra安装目录布局" class="headerlink" title="Ghidra安装目录布局"></a>Ghidra安装目录布局</h2><p>安装 Ghidra 后，可运行的软件将被解压缩到我们将称为 <em>&lt;GhidraInstallDir&gt;</em> 的新目录。下面是对分发文件的提取完成后可以在 <em>&lt;GhidraInstallDir&gt;</em> 中找到的顶级目录和文件的描述。</p>
 <table>
 <thead>
 <tr>
@@ -366,25 +366,25 @@
 </table>
 <p>（<a href="#Ghidra安装指南">返回页首</a>）</p>
 <h2 id="运行Ghidra"><a href="#运行Ghidra" class="headerlink" title="运行Ghidra"></a>运行Ghidra</h2><h3 id="GUI模式"><a href="#GUI模式" class="headerlink" title="GUI模式"></a>GUI模式</h3><ol>
-<li><p>导航到<em><ghidrainstalldir></ghidrainstalldir></em></p>
+<li><p>导航到<em>&lt;GhidraInstallDir&gt;</em></p>
 </li>
 <li><p>运行<em>ghidraRun.bat</em>（Windows）或 <em>ghidraRun</em>（Linux或macOS）</p>
 <p>如果 Ghidra 无法启动，请参阅 <a href="#故障排除和帮助">“故障排除和帮助”</a>部分。</p>
 </li>
 </ol>
-<h3 id="Ghidra服务器"><a href="#Ghidra服务器" class="headerlink" title="Ghidra服务器"></a>Ghidra服务器</h3><p>Ghidra 可以支持多个用户在一个项目上一起工作。各个 Ghidra 用户启动并处理他们自己的特定 Ghidra 项目的本地副本，检查更改到包含该存储库的所有提交的公共存储库。有关安装/配置 Ghidra Server 的详细信息，请参阅  <em><ghidrainstalldir></ghidrainstalldir></em> /server/svrREADME.html 文件。</p>
-<h3 id="Headless-Batch-模式"><a href="#Headless-Batch-模式" class="headerlink" title="Headless (Batch) 模式"></a>Headless (Batch) 模式</h3><p>Ghidra 传统上以 GUI 模式运行。但是，它也能够使用命令行在Headless (Batch) 模式下运行。有关更多信息，请参阅 <em><ghidrainstalldir></ghidrainstalldir></em> /support/analyzeHeadlessREADME.html 文件。</p>
+<h3 id="Ghidra服务器"><a href="#Ghidra服务器" class="headerlink" title="Ghidra服务器"></a>Ghidra服务器</h3><p>Ghidra 可以支持多个用户在一个项目上一起工作。各个 Ghidra 用户启动并处理他们自己的特定 Ghidra 项目的本地副本，检查更改到包含该存储库的所有提交的公共存储库。有关安装/配置 Ghidra Server 的详细信息，请参阅  <em>&lt;GhidraInstallDir&gt;</em> /server/svrREADME.html 文件。</p>
+<h3 id="Headless-Batch-模式"><a href="#Headless-Batch-模式" class="headerlink" title="Headless (Batch) 模式"></a>Headless (Batch) 模式</h3><p>Ghidra 传统上以 GUI 模式运行。但是，它也能够使用命令行在Headless (Batch) 模式下运行。有关更多信息，请参阅 <em>&lt;GhidraInstallDir&gt;</em> /support/analyzeHeadlessREADME.html 文件。</p>
 <h3 id="运行单个-Jar"><a href="#运行单个-Jar" class="headerlink" title="运行单个 Jar"></a>运行单个 Jar</h3><p>通常， Ghidra 作为整个目录结构安装，允许模块化包含或删除功能集，还提供许多可以扩展或配置的文件。但是，有时将 Ghidra 的全部或部分子集压缩到单个 jar 文件中会牺牲配置选项。这使得 Ghidra 更容易在Headless (Batch)操作的命令行运行，或者用作另一个 Java 应用程序的逆向工程功能库。</p>
-<p>可以使用<em><ghidrainstalldir></ghidrainstalldir></em>/support/buildGhidraJar 脚本创建单个 ghidra.jar 文件 。</p>
+<p>可以使用<em>&lt;GhidraInstallDir&gt;</em>/support/buildGhidraJar 脚本创建单个 ghidra.jar 文件 。</p>
 <p>（<a href="#Ghidra安装指南">返回页首</a>）</p>
 <h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>扩展是可选组件，可以：</p>
 <ul>
 <li>通过实验性或用户贡献的 Ghidra 插件或分析器扩展 Ghidra 的功能。</li>
 <li>将其他工具与 Ghidra 集成，例如 Eclipse 或 IDA Pro 。</li>
 </ul>
-<p>Ghidra 附带了以下可供使用的扩展（默认情况下不装载），可在 <em><ghidrainstalldir></ghidrainstalldir></em>/Extensions 目录中找到。</p>
+<p>Ghidra 附带了以下可供使用的扩展（默认情况下不装载），可在 <em>&lt;GhidraInstallDir&gt;</em>/Extensions 目录中找到。</p>
 <ul>
-<li><strong>Eclipse：</strong>用于预先存在的 Eclipse 安装 GhidraDev Eclipse 插件。有关安装和使用 GhidraDev Eclipse 插件的信息，请参阅 <em><ghidrainstalldir></ghidrainstalldir></em>/Extensions/Eclipse/GhidraDev/GhidraDev_README.html。</li>
+<li><strong>Eclipse：</strong>用于预先存在的 Eclipse 安装 GhidraDev Eclipse 插件。有关安装和使用 GhidraDev Eclipse 插件的信息，请参阅 <em>&lt;GhidraInstallDir&gt;</em>/Extensions/Eclipse/GhidraDev/GhidraDev_README.html。</li>
 <li><strong>Ghidra：</strong> Ghidra扩展（以前称为 contribs ）。有关更多信息，请参阅 <a href="#Ghidra扩展说明">Ghidra扩展说明</a>。</li>
 <li><strong>IDAPro：</strong>用于让 Ghidra 使用 IDAPro 插件/装载器。</li>
 </ul>
@@ -396,14 +396,14 @@
 <li>重新启动 Ghidra 以使更改生效</li>
 </ol>
 </li>
-<li><p>如果用户没有对 <em><ghidrainstalldir></ghidrainstalldir></em> 的写入权限，则安装或卸载 Ghidra 扩展可能会失败。如果用户从共享安装位置运行 Ghidra ，则可能会发生这种情况。在这种情况下， Ghidra 安装目录的所有者将负责管理Ghidra 特定安装所使用的 Ghidra 扩展。</p>
+<li><p>如果用户没有对 <em>&lt;GhidraInstallDir&gt;</em> 的写入权限，则安装或卸载 Ghidra 扩展可能会失败。如果用户从共享安装位置运行 Ghidra ，则可能会发生这种情况。在这种情况下， Ghidra 安装目录的所有者将负责管理Ghidra 特定安装所使用的 Ghidra 扩展。</p>
 </li>
 <li><p>当 Ghidra GUI 不可用时，可以手动安装和卸载 Ghidra 扩展。如果系统管理员代表用户管理共享 Ghidra 安装的 Ghidra 扩展，或者用户希望将扩展安装到 headlessly 使用的 Ghidra 安装中，则可能需要这样做。</p>
 </li>
 </ul>
-<p>  要在这些情况下安装扩展，只需将所需的 Ghidra 扩展存档文件解压缩到 <em><ghidrainstalldir></ghidrainstalldir></em>/Ghidra/Extensions 目录即可。例如，在 Linux 或 macOS 上：</p>
+<p>  要在这些情况下安装扩展，只需将所需的 Ghidra 扩展存档文件解压缩到 <em>&lt;GhidraInstallDir&gt;</em>/Ghidra/Extensions 目录即可。例如，在 Linux 或 macOS 上：</p>
 <ol>
-<li><p>将当前目录设置为<em><ghidrainstalldir></ghidrainstalldir></em>目录：</p>
+<li><p>将当前目录设置为<em>&lt;GhidraInstallDir&gt;</em>目录：</p>
 </li>
 <li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd &lt;GhidraInstallDir&gt;/Ghidra/Extensions</span><br></pre></td></tr></table></figure>
 </li>
@@ -412,19 +412,19 @@
 <li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip ../../Extensions/Ghidra/&lt;extension&gt;.zip</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>下次 Ghidra 启动时将安装扩展程序。</p>
-<p>要卸载扩展，只需从 <em><ghidrainstalldir></ghidrainstalldir></em>/Ghidra/Extensions 中删除提取的扩展目录 。下次 Ghidra 启动时，将卸载扩展程序。</p>
+<p>要卸载扩展，只需从 <em>&lt;GhidraInstallDir&gt;</em>/Ghidra/Extensions 中删除提取的扩展目录 。下次 Ghidra 启动时，将卸载扩展程序。</p>
 <p><strong>注意：</strong>如果有一个 Ghidra 运行实例在尝试删除的扩展目录上保存文件锁，则可能无法以这种方式卸载扩展。</p>
 </li>
 </ol>
 <p>（<a href="#Ghidra安装指南">返回页首</a>）</p>
 <h2 id="Ghidra开发"><a href="#Ghidra开发" class="headerlink" title="Ghidra开发"></a>Ghidra开发</h2><p>用户可以通过开发自定义 Ghidra 脚本，插件，分析器等 来扩展 Ghidra 的功能。</p>
-<p>Ghidra 通过提供一个名为 <strong>GhidraDev</strong> 的自定义 Eclipse 插件来支持 Eclipse 中的开发，该插件可以在 <em><ghidrainstalldir></ghidrainstalldir></em>/Extensions/Eclipse 目录中找到。有关安装和使用 GhidraDev Eclipse 插件的更多信息，请参阅<em><ghidrainstalldir></ghidrainstalldir></em>/Extensions/Eclipse/GhidraDev/GhidraDev_README.html。</p>
+<p>Ghidra 通过提供一个名为 <strong>GhidraDev</strong> 的自定义 Eclipse 插件来支持 Eclipse 中的开发，该插件可以在 <em>&lt;GhidraInstallDir&gt;</em>/Extensions/Eclipse 目录中找到。有关安装和使用 GhidraDev Eclipse 插件的更多信息，请参阅<em>&lt;GhidraInstallDir&gt;</em>/Extensions/Eclipse/GhidraDev/GhidraDev_README.html。</p>
 <p><strong>注意：</strong> Ghidra 不提供 Eclipse 。GhidraDev Eclipse 插件旨在预先存在的 Eclipse 中安装。</p>
 <p>（<a href="#Ghidra安装指南">返回页首</a>）</p>
 <h2 id="升级说明"><a href="#升级说明" class="headerlink" title="升级说明"></a>升级说明</h2><h3 id="一般升级说明"><a href="#一般升级说明" class="headerlink" title="一般升级说明"></a>一般升级说明</h3><p><strong>！！！很重要！！！首先备份您的旧项目！ ！！！很重要！！！</strong>通过手动将 <em>.rep</em> 目录和 <em>.gpr</em> 文件从任何 Ghidra 项目目录复制到文件系统上的安全位置进行备份。默认情况下，新安装的 Ghidra 将使用用户最新版 Ghidra 中保存的配置文件。这允许任何已保存的工具配置自动移植到新项目。但是，这也可能会阻止在某些情况下自动配置新工具选项和功能。要打开包含最新配置的新工具，用户应从项目管理器窗口中选择<strong>Tools → Default Tools…</strong>当您打开使用以前版本的 Ghidra 创建的程序时，系统将提示您升级程序，然后才能打开它。在保存之前，升级不会覆盖旧文件。如果您将其保存（原始文件），您将无法再使用旧版 Ghidra 打开它。但是，您可以选择执行“Save As”，创建新文件并保持旧版本不变。请务必小心升级共享程序文件，因为访问该文件的每个人都必须升级其安装的 Ghidra 。</p>
-<h3 id="Ghidra-Server-升级说明"><a href="#Ghidra-Server-升级说明" class="headerlink" title="Ghidra Server 升级说明"></a>Ghidra Server 升级说明</h3><p>有关升级 Ghidra Server 的详细信息， 请参阅<em><ghidrainstalldir></ghidrainstalldir></em> /server/svrREADME.html文件。</p>
+<h3 id="Ghidra-Server-升级说明"><a href="#Ghidra-Server-升级说明" class="headerlink" title="Ghidra Server 升级说明"></a>Ghidra Server 升级说明</h3><p>有关升级 Ghidra Server 的详细信息， 请参阅<em>&lt;GhidraInstallDir&gt;</em> /server/svrREADME.html文件。</p>
 <p>（<a href="#Ghidra安装指南">返回页首</a>）</p>
-<h2 id="故障排除和帮助"><a href="#故障排除和帮助" class="headerlink" title="故障排除和帮助"></a>故障排除和帮助</h2><h3 id="启动Ghidra"><a href="#启动Ghidra" class="headerlink" title="启动Ghidra"></a>启动Ghidra</h3><p>使用<em><ghidrainstalldir></ghidrainstalldir></em>和 <em><ghidrainstalldir></ghidrainstalldir></em>/support 中提供的脚本启动Ghidra时，您可能会遇到以下错误消息：</p>
+<h2 id="故障排除和帮助"><a href="#故障排除和帮助" class="headerlink" title="故障排除和帮助"></a>故障排除和帮助</h2><h3 id="启动Ghidra"><a href="#启动Ghidra" class="headerlink" title="启动Ghidra"></a>启动Ghidra</h3><p>使用<em>&lt;GhidraInstallDir&gt;</em>和 <em>&lt;GhidraInstallDir&gt;</em>/support 中提供的脚本启动Ghidra时，您可能会遇到以下错误消息：</p>
 <ul>
 <li><p>问题1：</p>
 <p>找不到<em>Java runtime</em> 。</p>
@@ -441,13 +441,13 @@
 <li><p>问题3：</p>
 <p>退出时出错。在调试模式下运行以获取更多详细信息</p>
 <ul>
-<li><strong>解决方案：</strong> Ghidra无法在后台启动，并且正在抑制描述失败原因的错误消息。使用 <em><ghidrainstalldir></ghidrainstalldir></em>/support/ghidraDebug 脚本重新运行 Ghidra 以查看错误消息。</li>
+<li><strong>解决方案：</strong> Ghidra无法在后台启动，并且正在抑制描述失败原因的错误消息。使用 <em>&lt;GhidraInstallDir&gt;</em>/support/ghidraDebug 脚本重新运行 Ghidra 以查看错误消息。</li>
 </ul>
 </li>
 </ul>
 <h3 id="使用Ghidra"><a href="#使用Ghidra" class="headerlink" title="使用Ghidra"></a>使用Ghidra</h3><p>有几种方法可以帮助您使用 Ghidra：</p>
 <ul>
-<li>可以在<em><ghidrainstalldir></ghidrainstalldir></em>/docs 中找到教程和文档。</li>
+<li>可以在<em>&lt;GhidraInstallDir&gt;</em>/docs 中找到教程和文档。</li>
 <li>当 Ghidra 运行时，可以在许多主题上获得广泛的上下文相关帮助。要访问主题的帮助，请将鼠标放在窗口，菜单或组件上，然后按<f1>键。将显示该窗口/菜单/组件的帮助。</f1></li>
 <li>在 Ghidra 运行时，索引帮助可以在<strong>Help → Topics…</strong>下找到</li>
 </ul>
@@ -470,7 +470,7 @@
 <li>在撰写本文时，在 Ubuntu 18.04 中安装 openjdk-11 软件包会导致安装 openjdk-10 ，这与 Ghidra 不兼容。</li>
 </ul>
 <h3 id="macOS（OS-X）"><a href="#macOS（OS-X）" class="headerlink" title="macOS（OS X）"></a>macOS（OS X）</h3><ul>
-<li>使用网络驱动器（包括网络映射的主目录）在macOS（OS X）上构建新的 Ghidra 模块扩展会引发 Java 异常。 Java / macOS 社区已知此问题，但尚未发布修复程序。有关从 Eclipse 构建 Ghidra 模块扩展的更多信息，请参阅  <em><ghidrainstalldir></ghidrainstalldir></em> /Extensions/Eclipse/GhidraDev/GhidraDev_README.html 。</li>
+<li>使用网络驱动器（包括网络映射的主目录）在macOS（OS X）上构建新的 Ghidra 模块扩展会引发 Java 异常。 Java / macOS 社区已知此问题，但尚未发布修复程序。有关从 Eclipse 构建 Ghidra 模块扩展的更多信息，请参阅  <em>&lt;GhidraInstallDir&gt;</em> /Extensions/Eclipse/GhidraDev/GhidraDev_README.html 。</li>
 </ul>
 <p>（<a href="#Ghidra安装指南">返回页首</a>）</p>
 
@@ -546,7 +546,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>从新年初四开始生病，在医院折腾了半个月才好，出院就开学了，好久没更博客了，最近又进了<a href="https://linux.cn/lctt" target="_blank" rel="noopener">LCTT</a>（Linux.Cn Translation Team)，又忙各种那边的事，现在也算是正式成员了，在LCTT的个人主页：<a href="https://linux.cn/lctt/zero-MK，各位大佬帮忙看看翻得如何，还请不吝赐教" target="_blank" rel="noopener">https://linux.cn/lctt/zero-MK，各位大佬帮忙看看翻得如何，还请不吝赐教</a></p>
+        <p>从新年初四开始生病，在医院折腾了半个月才好，出院就开学了，好久没更博客了，最近又进了<a href="https://linux.cn/lctt" target="_blank" rel="noopener">LCTT</a>（Linux.Cn Translation Team)，又忙各种那边的事，现在也算是正式成员了，在LCTT的个人主页：<a href="https://linux.cn/lctt/zero-MK" target="_blank" rel="noopener">https://linux.cn/lctt/zero-MK</a></p>
+<p>各位大佬帮忙看看翻得如何，还请不吝赐教</p>
 <p>后面我暂时先把那边的工作放一放，回归正业–CTF</p>
 <p>说实话，在这个上我真是个菜鸡，原先刚进战队的时候被分配到pwn，然后又被分配到Misc，反正就是挺。。。</p>
 <p>以后尽量更吧，估计也没人看，当是写笔记</p>
@@ -563,53 +564,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/03/06/lctt/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Untitled" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/04/Untitled/">展开全文 >></a>
         </p>
       
 
@@ -1394,6 +1348,432 @@
 
 
   
+    <article id="post-汇编速查表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/12/汇编速查表/">汇编速查</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/12/汇编速查表/" class="archive-article-date">
+  	<time datetime="2019-01-12T05:19:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>指令  功能
+AAA 调整加
+AAD 调整除
+AAM 调整乘
+AAS 调整减
+ADC 进位加
+ADD 加
+AND 与
+ARPL    调整优先级
+BOUND   检查数组
+BSF 位右扫描
+BSR 位左扫描
+BSWAP   交换字节
+BT  位测试
+BTC 位测试求反
+BTR 位测试清零
+BTS 位测试置一
+CALL    过程调用
+CBW 转换字节
+CDQ 转换双字
+CLC 进位清零
+CLD 方向清零
+CLI 中断清零
+CLTS    任务清除
+CMC 进位求反
+CMOVA   高于传送
+CMOVB   低于传送
+CMOVE   相等传送
+CMOVG   大于传送
+CMOVL   小于传送
+CMOVNA  不高于传送
+CMOVNB  不低于传送
+CMOVNE  不等传送
+CMOVNG  不大于传送
+CMOVNL  不小于传送
+CMOVNO  不溢出传送
+CMOVNP  非奇偶传送
+CMOVNS  非负传送
+CMOVO   溢出传送
+CMOVP   奇偶传送
+CMOVS   负号传送
+CMP 比较
+CMPSB   比较字节串
+CMPSD   比较双字串
+CMPSW   比较字串
+CMPXCHG 比较交换
+CMPXCHG486  比较交换486
+CMPXCHG8B   比较交换8字节
+CPUID   CPU标识
+CWD 转换字
+CWDE    扩展字
+DAA 调整加十
+DAS 调整减十
+DEC 减一
+DIV 除
+ENTER   建立堆栈帧
+HLT 停
+IDIV    符号整除
+IMUL    符号乘法
+IN  端口输入
+INC 加一
+INSB    端口输入字节串
+INSD    端口输入双字串
+INSW    端口输入字串
+JA  高于跳转
+JB  低于跳转
+JBE 不高于跳转
+JCXZ    计数一六零跳转
+JE  相等跳转
+JECXZ   计数三二零跳转
+JG  大于跳转
+JL  小于跳转
+JMP 跳转
+JMPE    跳转扩展
+JNB 不低于跳转
+JNE 不等跳转
+JNG 不大于跳转
+JNL 不小于跳转
+JNO 不溢出跳转
+JNP 非奇偶跳转
+JNS 非负跳转
+JO  溢出跳转
+JP  奇偶跳转
+JS  负号跳转
+LAHF    加载标志低八
+LAR 加载访问权限
+LDS 加载数据段
+LEA 加载有效地址
+LEAVE   清除过程堆栈
+LES 加载附加段
+LFS 加载标志段
+LGDT    加载全局描述符
+LGS 加载全局段
+LIDT    加载中断描述符
+LMSW    加载状态字
+LOADALL 加载所有
+LOADALL286  加载所有286
+LOCK    锁
+LODSB   加载源变址字节串
+LODSD   加载源变址双字串
+LODSW   加载源变址字串
+LOOP    计数循环
+LOOPE   相等循环
+LOOPNE  不等循环
+LOOPNZ  非零循环
+LOOPZ   为零循环
+LSL 加载段界限
+LSS 加载堆栈段
+LTR 加载任务
+MONITOR 监视
+MOV 传送
+MOVSB   传送字节串
+MOVSD   传送双字串
+MOVSW   传送字串
+MOVSX   符号传送
+MOVZX   零传送
+MUL 乘
+MWAIT   
+NEG 求补
+NOP 空
+NOT 非
+OR  或
+OUT 端口输出
+OUTSB   端口输出字节串
+OUTSD   端口输出双字串
+OUTSW   端口输出字串
+POP 出栈
+POPA    全部出栈
+POPF    标志出栈
+PUSH    压栈
+PUSHA   全部压栈
+PUSHF   标志压栈
+RCL 进位循环左移
+RCR 进位循环右移
+RDMSR   读专用模式
+RDPMC   读执行监视计数
+RDSHR   
+RDTSC   读时间戳计数
+REP 重复
+REPE    相等重复
+REPNE   不等重复
+RET 过程返回
+RETF    远过程返回
+RETN    近过程返回
+ROL 循环左移
+ROR 循环右移
+RSM 恢复系统管理
+SAHF    恢复标志低八
+SAL 算术左移
+SALC    
+SAR 算术右移
+SBB 借位减
+SCASB   扫描字节串
+SCASD   扫描双字串
+SCASW   扫描字串
+SETA    高于置位
+SETB    低于置位
+SETE    相等置位
+SETG    大于置位
+SETL    小于置位
+SETNA   不高于置位
+SETNB   不低于置位
+SETNE   不等置位
+SETNG   不大于置位
+SETNL   不小于置位
+SETNO   不溢出置位
+SETNP   非奇偶置位
+SETNS   非负置位
+SETO    溢出置位
+SETP    奇偶置位
+SETS    负号置位
+SGDT    保存全局描述符
+SHL 逻辑左移
+SHLD    双精度左移
+SHR 逻辑右移
+SHRD    双精度右移
+SIDT    保存中断描述符
+SLDT    保存局部描述符
+SMI 
+SMINT   
+SMINTOLD    
+SMSW    保存状态字
+STC 进位设置
+STD 方向设置
+STI 中断设置
+STOSB   保存字节串
+STOSD   保存双字串
+STOSW   保存字串
+STR 保存任务
+SUB 减
+SYSCALL 系统调用
+SYSENTER    系统进入
+SYSEXIT 系统退出
+SYSRET  系统返回
+TEST    数测试
+UD0 未定义指令0
+UD1 未定义指令1
+UD2 未定义指令2
+UMOV    
+VERW    校验写
+WAIT    等
+WBINVD  回写无效高速缓存
+WRMSR   写专用模式
+WRSHR   
+XADD    交换加
+XBTS    
+XCHG    交换
+XLAT    换码
+XOR 异或
+XSTORE  
+EMMS    媒体空MMX状态
+F2XM1   浮点栈顶绝对值
+FADD    浮点加
+FADDP   浮点加出栈
+FBLD    浮点加载十数
+FBSTP   浮点保存十数出栈
+FCHS    浮点正负求反
+FCLEX   浮点检查错误清除
+FCMOVB  浮点低于传送
+FCMOVBE 浮点不高于传送
+FCMOVE  浮点相等传送
+FCMOVNB 浮点不低于传送
+FCMOVNBE    浮点高于传送
+FCMOVNE 浮点不等传送
+FCMOVNU 浮点有序传送
+FCMOVU  浮点无序传送
+FCOM    浮点比较
+FCOMI   浮点比较加载标志
+FCOMIP  浮点比较加载标志出栈
+FCOMP   浮点比较出栈
+FCOMPP  浮点比较出栈二
+FCOS    浮点余弦
+FDECSTP 浮点栈针减一
+FDISI   浮点检查禁止中断
+FDIV    浮点除
+FDIVP   浮点除出栈
+FDIVR   浮点反除
+FDIVRP  浮点反除出栈
+FENI    浮点检查禁止中断二
+FFREE   浮点释放
+FFREEP  浮点释放出栈
+FIADD   浮点加整数
+FICOM   浮点比较整数
+FICOMP  浮点比较整数出栈
+FIDIV   浮点除整数
+FIDIVR  浮点反除
+FILD    浮点加载整数
+FIMUL   浮点乘整数
+FINCSTP 浮点栈针加一
+FINIT   浮点检查初始化
+FIST    浮点保存整数
+FISTP   浮点保存整数出栈
+FISTTP  
+FISUB   浮点减整数
+FISUBR  浮点反减整数
+FLD 浮点加载数
+FLD1    浮点加载一
+FLDCW   浮点加载控制器
+FLDENV  浮点加载环境
+FLDL2E  浮点加载L2E
+FLDL2T  浮点加载L2T
+FLDLG2  浮点加载LG2
+FLDLN2  浮点加载LN2
+FLDPI   浮点加载PI
+FLDZ    浮点加载零
+FMUL    浮点乘
+FMULP   浮点乘出栈
+FNCLEX  浮点不检查错误清除
+FNDISI  浮点不检查禁止中断
+FNENI   浮点不检查禁止中断二
+FNINIT  浮点不检查初始化
+FNOP    浮点空
+FNSAVE  浮点不检查保存状态
+FNSTCW  浮点不检查保存控制器
+FNSTENV 浮点不检查保存环境
+FNSTSW  浮点不检查保存状态器
+FPATAN  浮点部分反正切
+FPREM   浮点部分余数
+FPREM1  浮点部分余数二
+FPTAN   浮点部分正切
+FRNDINT 浮点舍入求整
+FRSTOR  浮点恢复状态
+FSAVE   浮点检查保存状态
+FSCALE  浮点比例运算
+FSETPM  浮点设置保护
+FSIN    浮点正弦
+FSINCOS 浮点正余弦
+FSQRT   浮点平方根
+FST 浮点保存
+FSTCW   浮点检查保存控制器
+FSTENV  浮点检查保存环境
+FSTP    浮点保存出栈
+FSTSW   浮点检查保存状态器
+FSUB    浮点减
+FSUBP   浮点减出栈
+FSUBR   浮点反减
+FSUBRP  浮点反减出栈
+FTST    浮点比零
+FUCOM   浮点无序比较
+FUCOMI  浮点反比加载标志
+FUCOMIP 浮点反比加载标志出栈
+FUCOMP  浮点无序比较出栈
+FUCOMPP 浮点无序比较出栈二
+FWAIT   浮点等
+FXAM    浮点检查
+FXCH    浮点交换
+FXTRACT 浮点分解
+FYL2X   浮点求L2X
+FYL2XP1 浮点求L2XP1
+MOVED   媒体双字传送
+MOVEQ   媒体四字传送
+PACKSSDW    媒体符号双字压缩
+PACKSSWB    媒体符号字压缩
+PACKUSWB    媒体无符号字压缩
+PADDB   媒体截断字节加
+PADDD   媒体截断双字加
+PADDSB  媒体符号饱和字节加
+PADDSIW 
+PADDSW  媒体符号饱和字加
+PADDUSB 媒体无符号饱和字节加
+PADDUSW 媒体无符号饱和字加
+PADDW   媒体截断字加
+PAND    媒体与
+PANDN   媒体与非
+PAVEB   
+PCMPEQB 媒体字节比等
+PCMPEQD 媒体双字比等
+PCMPEQW 媒体字比等
+PCMPGTB 媒体字节比大
+PCMPGTD 媒体双字比大
+PCMPGTW 媒体字比大
+PDISTIB 
+PMACHRIW    
+PMADDWD 
+PMAGW   
+PMULHRIW    
+PMULHRWC    
+PMULHW  
+PMVGEZB 
+PMVLZB  
+PMVNZB  
+PMVZB   
+POR 媒体或
+PSLLD   媒体双字左移
+PSLLQ   媒体四字左移
+PSLLW   媒体字左移
+PSRAD   媒体双字算术右移
+PSRAW   媒体字算术右移
+PSRLD   媒体双字右移
+PSRLQ   媒体四字右移
+PSRLW   媒体字右移
+PSUBB   媒体截断字节减
+PSUBSB  媒体符号饱和字节减
+PSUBSIW 
+PSUBSW  媒体符号饱和字减
+PSUBUSB 媒体无符号饱和字节减
+PSUBUSW 媒体无符号饱和字减
+PSUBW   媒体截断字减
+PUNPCKHBW   媒体字节高位解压
+PUNPCKHDQ   媒体双字高位解压
+PUNPCKHWD   媒体字高位解压
+PUNPCKLBW   媒体字节低位解压
+PUNPCKLDQ   媒体双字低位解压
+PUNPCKLWD   媒体字低位解压
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/12/汇编速查表/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1491,19 +1871,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ctf-pwn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ctf-misc</a>
+                <a href="javascript:void(0)" class="js-tag color3">ctf-pwn</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ctf-pwn assembly</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ctf-misc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1515,15 +1895,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compile vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">dcoker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">compile vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1531,11 +1907,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pwn</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">re</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pwn</a>
               </li>
              
               <li class="article-tag-list-item">

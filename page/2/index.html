@@ -150,432 +150,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-汇编速查表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/12/汇编速查表/">汇编速查</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/12/汇编速查表/" class="archive-article-date">
-  	<time datetime="2019-01-12T05:19:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>指令  功能
-AAA 调整加
-AAD 调整除
-AAM 调整乘
-AAS 调整减
-ADC 进位加
-ADD 加
-AND 与
-ARPL    调整优先级
-BOUND   检查数组
-BSF 位右扫描
-BSR 位左扫描
-BSWAP   交换字节
-BT  位测试
-BTC 位测试求反
-BTR 位测试清零
-BTS 位测试置一
-CALL    过程调用
-CBW 转换字节
-CDQ 转换双字
-CLC 进位清零
-CLD 方向清零
-CLI 中断清零
-CLTS    任务清除
-CMC 进位求反
-CMOVA   高于传送
-CMOVB   低于传送
-CMOVE   相等传送
-CMOVG   大于传送
-CMOVL   小于传送
-CMOVNA  不高于传送
-CMOVNB  不低于传送
-CMOVNE  不等传送
-CMOVNG  不大于传送
-CMOVNL  不小于传送
-CMOVNO  不溢出传送
-CMOVNP  非奇偶传送
-CMOVNS  非负传送
-CMOVO   溢出传送
-CMOVP   奇偶传送
-CMOVS   负号传送
-CMP 比较
-CMPSB   比较字节串
-CMPSD   比较双字串
-CMPSW   比较字串
-CMPXCHG 比较交换
-CMPXCHG486  比较交换486
-CMPXCHG8B   比较交换8字节
-CPUID   CPU标识
-CWD 转换字
-CWDE    扩展字
-DAA 调整加十
-DAS 调整减十
-DEC 减一
-DIV 除
-ENTER   建立堆栈帧
-HLT 停
-IDIV    符号整除
-IMUL    符号乘法
-IN  端口输入
-INC 加一
-INSB    端口输入字节串
-INSD    端口输入双字串
-INSW    端口输入字串
-JA  高于跳转
-JB  低于跳转
-JBE 不高于跳转
-JCXZ    计数一六零跳转
-JE  相等跳转
-JECXZ   计数三二零跳转
-JG  大于跳转
-JL  小于跳转
-JMP 跳转
-JMPE    跳转扩展
-JNB 不低于跳转
-JNE 不等跳转
-JNG 不大于跳转
-JNL 不小于跳转
-JNO 不溢出跳转
-JNP 非奇偶跳转
-JNS 非负跳转
-JO  溢出跳转
-JP  奇偶跳转
-JS  负号跳转
-LAHF    加载标志低八
-LAR 加载访问权限
-LDS 加载数据段
-LEA 加载有效地址
-LEAVE   清除过程堆栈
-LES 加载附加段
-LFS 加载标志段
-LGDT    加载全局描述符
-LGS 加载全局段
-LIDT    加载中断描述符
-LMSW    加载状态字
-LOADALL 加载所有
-LOADALL286  加载所有286
-LOCK    锁
-LODSB   加载源变址字节串
-LODSD   加载源变址双字串
-LODSW   加载源变址字串
-LOOP    计数循环
-LOOPE   相等循环
-LOOPNE  不等循环
-LOOPNZ  非零循环
-LOOPZ   为零循环
-LSL 加载段界限
-LSS 加载堆栈段
-LTR 加载任务
-MONITOR 监视
-MOV 传送
-MOVSB   传送字节串
-MOVSD   传送双字串
-MOVSW   传送字串
-MOVSX   符号传送
-MOVZX   零传送
-MUL 乘
-MWAIT   
-NEG 求补
-NOP 空
-NOT 非
-OR  或
-OUT 端口输出
-OUTSB   端口输出字节串
-OUTSD   端口输出双字串
-OUTSW   端口输出字串
-POP 出栈
-POPA    全部出栈
-POPF    标志出栈
-PUSH    压栈
-PUSHA   全部压栈
-PUSHF   标志压栈
-RCL 进位循环左移
-RCR 进位循环右移
-RDMSR   读专用模式
-RDPMC   读执行监视计数
-RDSHR   
-RDTSC   读时间戳计数
-REP 重复
-REPE    相等重复
-REPNE   不等重复
-RET 过程返回
-RETF    远过程返回
-RETN    近过程返回
-ROL 循环左移
-ROR 循环右移
-RSM 恢复系统管理
-SAHF    恢复标志低八
-SAL 算术左移
-SALC    
-SAR 算术右移
-SBB 借位减
-SCASB   扫描字节串
-SCASD   扫描双字串
-SCASW   扫描字串
-SETA    高于置位
-SETB    低于置位
-SETE    相等置位
-SETG    大于置位
-SETL    小于置位
-SETNA   不高于置位
-SETNB   不低于置位
-SETNE   不等置位
-SETNG   不大于置位
-SETNL   不小于置位
-SETNO   不溢出置位
-SETNP   非奇偶置位
-SETNS   非负置位
-SETO    溢出置位
-SETP    奇偶置位
-SETS    负号置位
-SGDT    保存全局描述符
-SHL 逻辑左移
-SHLD    双精度左移
-SHR 逻辑右移
-SHRD    双精度右移
-SIDT    保存中断描述符
-SLDT    保存局部描述符
-SMI 
-SMINT   
-SMINTOLD    
-SMSW    保存状态字
-STC 进位设置
-STD 方向设置
-STI 中断设置
-STOSB   保存字节串
-STOSD   保存双字串
-STOSW   保存字串
-STR 保存任务
-SUB 减
-SYSCALL 系统调用
-SYSENTER    系统进入
-SYSEXIT 系统退出
-SYSRET  系统返回
-TEST    数测试
-UD0 未定义指令0
-UD1 未定义指令1
-UD2 未定义指令2
-UMOV    
-VERW    校验写
-WAIT    等
-WBINVD  回写无效高速缓存
-WRMSR   写专用模式
-WRSHR   
-XADD    交换加
-XBTS    
-XCHG    交换
-XLAT    换码
-XOR 异或
-XSTORE  
-EMMS    媒体空MMX状态
-F2XM1   浮点栈顶绝对值
-FADD    浮点加
-FADDP   浮点加出栈
-FBLD    浮点加载十数
-FBSTP   浮点保存十数出栈
-FCHS    浮点正负求反
-FCLEX   浮点检查错误清除
-FCMOVB  浮点低于传送
-FCMOVBE 浮点不高于传送
-FCMOVE  浮点相等传送
-FCMOVNB 浮点不低于传送
-FCMOVNBE    浮点高于传送
-FCMOVNE 浮点不等传送
-FCMOVNU 浮点有序传送
-FCMOVU  浮点无序传送
-FCOM    浮点比较
-FCOMI   浮点比较加载标志
-FCOMIP  浮点比较加载标志出栈
-FCOMP   浮点比较出栈
-FCOMPP  浮点比较出栈二
-FCOS    浮点余弦
-FDECSTP 浮点栈针减一
-FDISI   浮点检查禁止中断
-FDIV    浮点除
-FDIVP   浮点除出栈
-FDIVR   浮点反除
-FDIVRP  浮点反除出栈
-FENI    浮点检查禁止中断二
-FFREE   浮点释放
-FFREEP  浮点释放出栈
-FIADD   浮点加整数
-FICOM   浮点比较整数
-FICOMP  浮点比较整数出栈
-FIDIV   浮点除整数
-FIDIVR  浮点反除
-FILD    浮点加载整数
-FIMUL   浮点乘整数
-FINCSTP 浮点栈针加一
-FINIT   浮点检查初始化
-FIST    浮点保存整数
-FISTP   浮点保存整数出栈
-FISTTP  
-FISUB   浮点减整数
-FISUBR  浮点反减整数
-FLD 浮点加载数
-FLD1    浮点加载一
-FLDCW   浮点加载控制器
-FLDENV  浮点加载环境
-FLDL2E  浮点加载L2E
-FLDL2T  浮点加载L2T
-FLDLG2  浮点加载LG2
-FLDLN2  浮点加载LN2
-FLDPI   浮点加载PI
-FLDZ    浮点加载零
-FMUL    浮点乘
-FMULP   浮点乘出栈
-FNCLEX  浮点不检查错误清除
-FNDISI  浮点不检查禁止中断
-FNENI   浮点不检查禁止中断二
-FNINIT  浮点不检查初始化
-FNOP    浮点空
-FNSAVE  浮点不检查保存状态
-FNSTCW  浮点不检查保存控制器
-FNSTENV 浮点不检查保存环境
-FNSTSW  浮点不检查保存状态器
-FPATAN  浮点部分反正切
-FPREM   浮点部分余数
-FPREM1  浮点部分余数二
-FPTAN   浮点部分正切
-FRNDINT 浮点舍入求整
-FRSTOR  浮点恢复状态
-FSAVE   浮点检查保存状态
-FSCALE  浮点比例运算
-FSETPM  浮点设置保护
-FSIN    浮点正弦
-FSINCOS 浮点正余弦
-FSQRT   浮点平方根
-FST 浮点保存
-FSTCW   浮点检查保存控制器
-FSTENV  浮点检查保存环境
-FSTP    浮点保存出栈
-FSTSW   浮点检查保存状态器
-FSUB    浮点减
-FSUBP   浮点减出栈
-FSUBR   浮点反减
-FSUBRP  浮点反减出栈
-FTST    浮点比零
-FUCOM   浮点无序比较
-FUCOMI  浮点反比加载标志
-FUCOMIP 浮点反比加载标志出栈
-FUCOMP  浮点无序比较出栈
-FUCOMPP 浮点无序比较出栈二
-FWAIT   浮点等
-FXAM    浮点检查
-FXCH    浮点交换
-FXTRACT 浮点分解
-FYL2X   浮点求L2X
-FYL2XP1 浮点求L2XP1
-MOVED   媒体双字传送
-MOVEQ   媒体四字传送
-PACKSSDW    媒体符号双字压缩
-PACKSSWB    媒体符号字压缩
-PACKUSWB    媒体无符号字压缩
-PADDB   媒体截断字节加
-PADDD   媒体截断双字加
-PADDSB  媒体符号饱和字节加
-PADDSIW 
-PADDSW  媒体符号饱和字加
-PADDUSB 媒体无符号饱和字节加
-PADDUSW 媒体无符号饱和字加
-PADDW   媒体截断字加
-PAND    媒体与
-PANDN   媒体与非
-PAVEB   
-PCMPEQB 媒体字节比等
-PCMPEQD 媒体双字比等
-PCMPEQW 媒体字比等
-PCMPGTB 媒体字节比大
-PCMPGTD 媒体双字比大
-PCMPGTW 媒体字比大
-PDISTIB 
-PMACHRIW    
-PMADDWD 
-PMAGW   
-PMULHRIW    
-PMULHRWC    
-PMULHW  
-PMVGEZB 
-PMVLZB  
-PMVNZB  
-PMVZB   
-POR 媒体或
-PSLLD   媒体双字左移
-PSLLQ   媒体四字左移
-PSLLW   媒体字左移
-PSRAD   媒体双字算术右移
-PSRAW   媒体字算术右移
-PSRLD   媒体双字右移
-PSRLQ   媒体四字右移
-PSRLW   媒体字右移
-PSUBB   媒体截断字节减
-PSUBSB  媒体符号饱和字节减
-PSUBSIW 
-PSUBSW  媒体符号饱和字减
-PSUBUSB 媒体无符号饱和字节减
-PSUBUSW 媒体无符号饱和字减
-PSUBW   媒体截断字减
-PUNPCKHBW   媒体字节高位解压
-PUNPCKHDQ   媒体双字高位解压
-PUNPCKHWD   媒体字高位解压
-PUNPCKLBW   媒体字节低位解压
-PUNPCKLDQ   媒体双字低位解压
-PUNPCKLWD   媒体字低位解压
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/12/汇编速查表/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-install-Linux" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -6993,6 +6567,91 @@ PUNPCKLWD   媒体字低位解压
 
 
   
+    <article id="post-Linux" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/28/Linux/">Linux</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/28/Linux/" class="archive-article-date">
+  	<time datetime="2018-09-28T13:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于Linux，说实话我也只是个小白<br>混过许多群，我经常见到一些纯白想着直接用kali成大牛，但一点Linux的基础都没有，连ls,cd都不会你怎么玩?</p>
+<p>我常看的有:</p>
+<p>Linux中国:<a href="https://linux.cn/" target="_blank" rel="noopener">https://linux.cn/</a></p>
+<p>开源世界旅行手册:<a href="https://i.linuxtoy.org/docs/guide/index.html" target="_blank" rel="noopener">https://i.linuxtoy.org/docs/guide/index.html</a> (很完美)</p>
+<p>先把 <a href="https://linux.cn/article-6160-1.html" target="_blank" rel="noopener">Linux 新手应该知道的 26 个命令-技术 </a>给记好，不然你连基本操作都不会玩个鬼的kali，问问题前自已先百度，还是解决不了的,问别人的时候说出你的问题和你的解决方法,这是问别人问题的方法:<a href="https://github.com/ruby-china/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md" target="_blank" rel="noopener">提问的智慧</a></p>
+<p>学Linux我不建议是先把所有的命令记下来才开始用,边学边练才是正确的方法,至于该去哪里找环境</p>
+<p>安卓手机:我博客有一篇关于termux的文章</p>
+<p>电脑:百度搜:安装Ubuntu虚拟机</p>
+<p>在线环境:</p>
+<p>实验楼:<a href="https://www.shiyanlou.com/courses/?course_type=all&amp;tag=Linux" target="_blank" rel="noopener">https://www.shiyanlou.com/courses/?course_type=all&amp;tag=Linux</a></p>
+<p>还有这个:<a href="https://bellard.org/jslinux/" target="_blank" rel="noopener">https://bellard.org/jslinux/</a></p>
+<p>如果你连看基础命令都没有耐心，那么我教你一个万能命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /*</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/28/Linux/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -7090,19 +6749,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ctf-pwn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ctf-misc</a>
+                <a href="javascript:void(0)" class="js-tag color3">ctf-pwn</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ctf-pwn assembly</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ctf-misc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -7114,15 +6773,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compile vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">dcoker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">compile vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -7130,11 +6785,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pwn</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">re</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pwn</a>
               </li>
              
               <li class="article-tag-list-item">

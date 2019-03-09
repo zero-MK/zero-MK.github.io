@@ -17,7 +17,7 @@
 <meta property="og:description" content="前几天看到 NSA 放出来的一个 re 工具，这几天有点忙，今天才安排上的，打开的时候确实有点小惊喜，个人感觉比 IDA 看得舒服，但是算是各有所长吧，废话少说上图  既然能用到这种专业性那么强的东西各种功能就不用我介绍了吧 原本的安装指南是英语，有的人看了脑阔疼，我就瞎翻译一下（机翻+校对），个人能力有限如果有错请邮件告诉我：1565328054@qq.com Ghidra安装指南所提供的安装信">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://zero-mk.github.io/2019/03/09/ghidra/1.png">
-<meta property="og:updated_time" content="2019-03-09T08:18:32.000Z">
+<meta property="og:updated_time" content="2019-03-09T10:28:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ghidra">
 <meta name="twitter:description" content="前几天看到 NSA 放出来的一个 re 工具，这几天有点忙，今天才安排上的，打开的时候确实有点小惊喜，个人感觉比 IDA 看得舒服，但是算是各有所长吧，废话少说上图  既然能用到这种专业性那么强的东西各种功能就不用我介绍了吧 原本的安装指南是英语，有的人看了脑阔疼，我就瞎翻译一下（机翻+校对），个人能力有限如果有错请邮件告诉我：1565328054@qq.com Ghidra安装指南所提供的安装信">
@@ -326,7 +326,7 @@
 </li>
 </ul>
 <p>（<a href="#Ghidra安装指南">返回页首</a>）</p>
-<h2 id="Ghidra安装目录布局"><a href="#Ghidra安装目录布局" class="headerlink" title="Ghidra安装目录布局"></a>Ghidra安装目录布局</h2><p>安装 Ghidra 后，可运行的软件将被解压缩到我们将称为 <em><ghidrainstalldir></ghidrainstalldir></em> 的新目录。下面是对分发文件的提取完成后可以在 <em><ghidrainstalldir></ghidrainstalldir></em> 中找到的顶级目录和文件的描述。</p>
+<h2 id="Ghidra安装目录布局"><a href="#Ghidra安装目录布局" class="headerlink" title="Ghidra安装目录布局"></a>Ghidra安装目录布局</h2><p>安装 Ghidra 后，可运行的软件将被解压缩到我们将称为 <em>&lt;GhidraInstallDir&gt;</em> 的新目录。下面是对分发文件的提取完成后可以在 <em>&lt;GhidraInstallDir&gt;</em> 中找到的顶级目录和文件的描述。</p>
 <table>
 <thead>
 <tr>
@@ -371,25 +371,25 @@
 </table>
 <p>（<a href="#Ghidra安装指南">返回页首</a>）</p>
 <h2 id="运行Ghidra"><a href="#运行Ghidra" class="headerlink" title="运行Ghidra"></a>运行Ghidra</h2><h3 id="GUI模式"><a href="#GUI模式" class="headerlink" title="GUI模式"></a>GUI模式</h3><ol>
-<li><p>导航到<em><ghidrainstalldir></ghidrainstalldir></em></p>
+<li><p>导航到<em>&lt;GhidraInstallDir&gt;</em></p>
 </li>
 <li><p>运行<em>ghidraRun.bat</em>（Windows）或 <em>ghidraRun</em>（Linux或macOS）</p>
 <p>如果 Ghidra 无法启动，请参阅 <a href="#故障排除和帮助">“故障排除和帮助”</a>部分。</p>
 </li>
 </ol>
-<h3 id="Ghidra服务器"><a href="#Ghidra服务器" class="headerlink" title="Ghidra服务器"></a>Ghidra服务器</h3><p>Ghidra 可以支持多个用户在一个项目上一起工作。各个 Ghidra 用户启动并处理他们自己的特定 Ghidra 项目的本地副本，检查更改到包含该存储库的所有提交的公共存储库。有关安装/配置 Ghidra Server 的详细信息，请参阅  <em><ghidrainstalldir></ghidrainstalldir></em> /server/svrREADME.html 文件。</p>
-<h3 id="Headless-Batch-模式"><a href="#Headless-Batch-模式" class="headerlink" title="Headless (Batch) 模式"></a>Headless (Batch) 模式</h3><p>Ghidra 传统上以 GUI 模式运行。但是，它也能够使用命令行在Headless (Batch) 模式下运行。有关更多信息，请参阅 <em><ghidrainstalldir></ghidrainstalldir></em> /support/analyzeHeadlessREADME.html 文件。</p>
+<h3 id="Ghidra服务器"><a href="#Ghidra服务器" class="headerlink" title="Ghidra服务器"></a>Ghidra服务器</h3><p>Ghidra 可以支持多个用户在一个项目上一起工作。各个 Ghidra 用户启动并处理他们自己的特定 Ghidra 项目的本地副本，检查更改到包含该存储库的所有提交的公共存储库。有关安装/配置 Ghidra Server 的详细信息，请参阅  <em>&lt;GhidraInstallDir&gt;</em> /server/svrREADME.html 文件。</p>
+<h3 id="Headless-Batch-模式"><a href="#Headless-Batch-模式" class="headerlink" title="Headless (Batch) 模式"></a>Headless (Batch) 模式</h3><p>Ghidra 传统上以 GUI 模式运行。但是，它也能够使用命令行在Headless (Batch) 模式下运行。有关更多信息，请参阅 <em>&lt;GhidraInstallDir&gt;</em> /support/analyzeHeadlessREADME.html 文件。</p>
 <h3 id="运行单个-Jar"><a href="#运行单个-Jar" class="headerlink" title="运行单个 Jar"></a>运行单个 Jar</h3><p>通常， Ghidra 作为整个目录结构安装，允许模块化包含或删除功能集，还提供许多可以扩展或配置的文件。但是，有时将 Ghidra 的全部或部分子集压缩到单个 jar 文件中会牺牲配置选项。这使得 Ghidra 更容易在Headless (Batch)操作的命令行运行，或者用作另一个 Java 应用程序的逆向工程功能库。</p>
-<p>可以使用<em><ghidrainstalldir></ghidrainstalldir></em>/support/buildGhidraJar 脚本创建单个 ghidra.jar 文件 。</p>
+<p>可以使用<em>&lt;GhidraInstallDir&gt;</em>/support/buildGhidraJar 脚本创建单个 ghidra.jar 文件 。</p>
 <p>（<a href="#Ghidra安装指南">返回页首</a>）</p>
 <h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>扩展是可选组件，可以：</p>
 <ul>
 <li>通过实验性或用户贡献的 Ghidra 插件或分析器扩展 Ghidra 的功能。</li>
 <li>将其他工具与 Ghidra 集成，例如 Eclipse 或 IDA Pro 。</li>
 </ul>
-<p>Ghidra 附带了以下可供使用的扩展（默认情况下不装载），可在 <em><ghidrainstalldir></ghidrainstalldir></em>/Extensions 目录中找到。</p>
+<p>Ghidra 附带了以下可供使用的扩展（默认情况下不装载），可在 <em>&lt;GhidraInstallDir&gt;</em>/Extensions 目录中找到。</p>
 <ul>
-<li><strong>Eclipse：</strong>用于预先存在的 Eclipse 安装 GhidraDev Eclipse 插件。有关安装和使用 GhidraDev Eclipse 插件的信息，请参阅 <em><ghidrainstalldir></ghidrainstalldir></em>/Extensions/Eclipse/GhidraDev/GhidraDev_README.html。</li>
+<li><strong>Eclipse：</strong>用于预先存在的 Eclipse 安装 GhidraDev Eclipse 插件。有关安装和使用 GhidraDev Eclipse 插件的信息，请参阅 <em>&lt;GhidraInstallDir&gt;</em>/Extensions/Eclipse/GhidraDev/GhidraDev_README.html。</li>
 <li><strong>Ghidra：</strong> Ghidra扩展（以前称为 contribs ）。有关更多信息，请参阅 <a href="#Ghidra扩展说明">Ghidra扩展说明</a>。</li>
 <li><strong>IDAPro：</strong>用于让 Ghidra 使用 IDAPro 插件/装载器。</li>
 </ul>
@@ -401,14 +401,14 @@
 <li>重新启动 Ghidra 以使更改生效</li>
 </ol>
 </li>
-<li><p>如果用户没有对 <em><ghidrainstalldir></ghidrainstalldir></em> 的写入权限，则安装或卸载 Ghidra 扩展可能会失败。如果用户从共享安装位置运行 Ghidra ，则可能会发生这种情况。在这种情况下， Ghidra 安装目录的所有者将负责管理Ghidra 特定安装所使用的 Ghidra 扩展。</p>
+<li><p>如果用户没有对 <em>&lt;GhidraInstallDir&gt;</em> 的写入权限，则安装或卸载 Ghidra 扩展可能会失败。如果用户从共享安装位置运行 Ghidra ，则可能会发生这种情况。在这种情况下， Ghidra 安装目录的所有者将负责管理Ghidra 特定安装所使用的 Ghidra 扩展。</p>
 </li>
 <li><p>当 Ghidra GUI 不可用时，可以手动安装和卸载 Ghidra 扩展。如果系统管理员代表用户管理共享 Ghidra 安装的 Ghidra 扩展，或者用户希望将扩展安装到 headlessly 使用的 Ghidra 安装中，则可能需要这样做。</p>
 </li>
 </ul>
-<p>  要在这些情况下安装扩展，只需将所需的 Ghidra 扩展存档文件解压缩到 <em><ghidrainstalldir></ghidrainstalldir></em>/Ghidra/Extensions 目录即可。例如，在 Linux 或 macOS 上：</p>
+<p>  要在这些情况下安装扩展，只需将所需的 Ghidra 扩展存档文件解压缩到 <em>&lt;GhidraInstallDir&gt;</em>/Ghidra/Extensions 目录即可。例如，在 Linux 或 macOS 上：</p>
 <ol>
-<li><p>将当前目录设置为<em><ghidrainstalldir></ghidrainstalldir></em>目录：</p>
+<li><p>将当前目录设置为<em>&lt;GhidraInstallDir&gt;</em>目录：</p>
 </li>
 <li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd &lt;GhidraInstallDir&gt;/Ghidra/Extensions</span><br></pre></td></tr></table></figure>
 </li>
@@ -417,19 +417,19 @@
 <li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip ../../Extensions/Ghidra/&lt;extension&gt;.zip</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>下次 Ghidra 启动时将安装扩展程序。</p>
-<p>要卸载扩展，只需从 <em><ghidrainstalldir></ghidrainstalldir></em>/Ghidra/Extensions 中删除提取的扩展目录 。下次 Ghidra 启动时，将卸载扩展程序。</p>
+<p>要卸载扩展，只需从 <em>&lt;GhidraInstallDir&gt;</em>/Ghidra/Extensions 中删除提取的扩展目录 。下次 Ghidra 启动时，将卸载扩展程序。</p>
 <p><strong>注意：</strong>如果有一个 Ghidra 运行实例在尝试删除的扩展目录上保存文件锁，则可能无法以这种方式卸载扩展。</p>
 </li>
 </ol>
 <p>（<a href="#Ghidra安装指南">返回页首</a>）</p>
 <h2 id="Ghidra开发"><a href="#Ghidra开发" class="headerlink" title="Ghidra开发"></a>Ghidra开发</h2><p>用户可以通过开发自定义 Ghidra 脚本，插件，分析器等 来扩展 Ghidra 的功能。</p>
-<p>Ghidra 通过提供一个名为 <strong>GhidraDev</strong> 的自定义 Eclipse 插件来支持 Eclipse 中的开发，该插件可以在 <em><ghidrainstalldir></ghidrainstalldir></em>/Extensions/Eclipse 目录中找到。有关安装和使用 GhidraDev Eclipse 插件的更多信息，请参阅<em><ghidrainstalldir></ghidrainstalldir></em>/Extensions/Eclipse/GhidraDev/GhidraDev_README.html。</p>
+<p>Ghidra 通过提供一个名为 <strong>GhidraDev</strong> 的自定义 Eclipse 插件来支持 Eclipse 中的开发，该插件可以在 <em>&lt;GhidraInstallDir&gt;</em>/Extensions/Eclipse 目录中找到。有关安装和使用 GhidraDev Eclipse 插件的更多信息，请参阅<em>&lt;GhidraInstallDir&gt;</em>/Extensions/Eclipse/GhidraDev/GhidraDev_README.html。</p>
 <p><strong>注意：</strong> Ghidra 不提供 Eclipse 。GhidraDev Eclipse 插件旨在预先存在的 Eclipse 中安装。</p>
 <p>（<a href="#Ghidra安装指南">返回页首</a>）</p>
 <h2 id="升级说明"><a href="#升级说明" class="headerlink" title="升级说明"></a>升级说明</h2><h3 id="一般升级说明"><a href="#一般升级说明" class="headerlink" title="一般升级说明"></a>一般升级说明</h3><p><strong>！！！很重要！！！首先备份您的旧项目！ ！！！很重要！！！</strong>通过手动将 <em>.rep</em> 目录和 <em>.gpr</em> 文件从任何 Ghidra 项目目录复制到文件系统上的安全位置进行备份。默认情况下，新安装的 Ghidra 将使用用户最新版 Ghidra 中保存的配置文件。这允许任何已保存的工具配置自动移植到新项目。但是，这也可能会阻止在某些情况下自动配置新工具选项和功能。要打开包含最新配置的新工具，用户应从项目管理器窗口中选择<strong>Tools → Default Tools…</strong>当您打开使用以前版本的 Ghidra 创建的程序时，系统将提示您升级程序，然后才能打开它。在保存之前，升级不会覆盖旧文件。如果您将其保存（原始文件），您将无法再使用旧版 Ghidra 打开它。但是，您可以选择执行“Save As”，创建新文件并保持旧版本不变。请务必小心升级共享程序文件，因为访问该文件的每个人都必须升级其安装的 Ghidra 。</p>
-<h3 id="Ghidra-Server-升级说明"><a href="#Ghidra-Server-升级说明" class="headerlink" title="Ghidra Server 升级说明"></a>Ghidra Server 升级说明</h3><p>有关升级 Ghidra Server 的详细信息， 请参阅<em><ghidrainstalldir></ghidrainstalldir></em> /server/svrREADME.html文件。</p>
+<h3 id="Ghidra-Server-升级说明"><a href="#Ghidra-Server-升级说明" class="headerlink" title="Ghidra Server 升级说明"></a>Ghidra Server 升级说明</h3><p>有关升级 Ghidra Server 的详细信息， 请参阅<em>&lt;GhidraInstallDir&gt;</em> /server/svrREADME.html文件。</p>
 <p>（<a href="#Ghidra安装指南">返回页首</a>）</p>
-<h2 id="故障排除和帮助"><a href="#故障排除和帮助" class="headerlink" title="故障排除和帮助"></a>故障排除和帮助</h2><h3 id="启动Ghidra"><a href="#启动Ghidra" class="headerlink" title="启动Ghidra"></a>启动Ghidra</h3><p>使用<em><ghidrainstalldir></ghidrainstalldir></em>和 <em><ghidrainstalldir></ghidrainstalldir></em>/support 中提供的脚本启动Ghidra时，您可能会遇到以下错误消息：</p>
+<h2 id="故障排除和帮助"><a href="#故障排除和帮助" class="headerlink" title="故障排除和帮助"></a>故障排除和帮助</h2><h3 id="启动Ghidra"><a href="#启动Ghidra" class="headerlink" title="启动Ghidra"></a>启动Ghidra</h3><p>使用<em>&lt;GhidraInstallDir&gt;</em>和 <em>&lt;GhidraInstallDir&gt;</em>/support 中提供的脚本启动Ghidra时，您可能会遇到以下错误消息：</p>
 <ul>
 <li><p>问题1：</p>
 <p>找不到<em>Java runtime</em> 。</p>
@@ -446,13 +446,13 @@
 <li><p>问题3：</p>
 <p>退出时出错。在调试模式下运行以获取更多详细信息</p>
 <ul>
-<li><strong>解决方案：</strong> Ghidra无法在后台启动，并且正在抑制描述失败原因的错误消息。使用 <em><ghidrainstalldir></ghidrainstalldir></em>/support/ghidraDebug 脚本重新运行 Ghidra 以查看错误消息。</li>
+<li><strong>解决方案：</strong> Ghidra无法在后台启动，并且正在抑制描述失败原因的错误消息。使用 <em>&lt;GhidraInstallDir&gt;</em>/support/ghidraDebug 脚本重新运行 Ghidra 以查看错误消息。</li>
 </ul>
 </li>
 </ul>
 <h3 id="使用Ghidra"><a href="#使用Ghidra" class="headerlink" title="使用Ghidra"></a>使用Ghidra</h3><p>有几种方法可以帮助您使用 Ghidra：</p>
 <ul>
-<li>可以在<em><ghidrainstalldir></ghidrainstalldir></em>/docs 中找到教程和文档。</li>
+<li>可以在<em>&lt;GhidraInstallDir&gt;</em>/docs 中找到教程和文档。</li>
 <li>当 Ghidra 运行时，可以在许多主题上获得广泛的上下文相关帮助。要访问主题的帮助，请将鼠标放在窗口，菜单或组件上，然后按<f1>键。将显示该窗口/菜单/组件的帮助。</f1></li>
 <li>在 Ghidra 运行时，索引帮助可以在<strong>Help → Topics…</strong>下找到</li>
 </ul>
@@ -475,7 +475,7 @@
 <li>在撰写本文时，在 Ubuntu 18.04 中安装 openjdk-11 软件包会导致安装 openjdk-10 ，这与 Ghidra 不兼容。</li>
 </ul>
 <h3 id="macOS（OS-X）"><a href="#macOS（OS-X）" class="headerlink" title="macOS（OS X）"></a>macOS（OS X）</h3><ul>
-<li>使用网络驱动器（包括网络映射的主目录）在macOS（OS X）上构建新的 Ghidra 模块扩展会引发 Java 异常。 Java / macOS 社区已知此问题，但尚未发布修复程序。有关从 Eclipse 构建 Ghidra 模块扩展的更多信息，请参阅  <em><ghidrainstalldir></ghidrainstalldir></em> /Extensions/Eclipse/GhidraDev/GhidraDev_README.html 。</li>
+<li>使用网络驱动器（包括网络映射的主目录）在macOS（OS X）上构建新的 Ghidra 模块扩展会引发 Java 异常。 Java / macOS 社区已知此问题，但尚未发布修复程序。有关从 Eclipse 构建 Ghidra 模块扩展的更多信息，请参阅  <em>&lt;GhidraInstallDir&gt;</em> /Extensions/Eclipse/GhidraDev/GhidraDev_README.html 。</li>
 </ul>
 <p>（<a href="#Ghidra安装指南">返回页首</a>）</p>
 
@@ -689,19 +689,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ctf-pwn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ctf-misc</a>
+                <a href="javascript:void(0)" class="js-tag color3">ctf-pwn</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ctf-pwn assembly</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ctf-misc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -713,15 +713,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compile vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">dcoker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">compile vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -729,11 +725,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pwn</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">re</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pwn</a>
               </li>
              
               <li class="article-tag-list-item">
