@@ -150,6 +150,159 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-re-base64" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/01/re-base64/">re_base64</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/01/re-base64/" class="archive-article-date">
+  	<time datetime="2019-07-01T08:01:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>题目来自: bugku—re—love</p>
+<p>ida F5 看到 main 函数调用 main_0()</p>
+<p><img src="/2019/07/01/re-base64/main0.PNG" alt=""></p>
+<p>看到 sub_4110BF 处理后得结果和 Str2 进行比较, 吻合则说明 flag 正确</p>
+<p>得在 .data 段找到 Str2</p>
+<p><img src="/2019/07/01/re-base64/str2.PNG" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e3nifIH9b_C@n@dH</span><br></pre></td></tr></table></figure>
+<p>先解决位移</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">v8 = j_strlen(Dest);</span><br><span class="line"><span class="keyword">for</span> ( j = <span class="number">0</span>; j &lt; v8; ++j )</span><br><span class="line">    Dest[j] += j;</span><br></pre></td></tr></table></figure>
+<p>就是把 Dest 数组里的的每一个字符位移 j </p>
+<p>slove:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fake_flag0 = <span class="string">''</span></span><br><span class="line">fake_flag = <span class="string">"e3nifIH9b_C@n@dH"</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(fake_flag)):</span><br><span class="line">	fake_flag0 += chr(ord(fake_flag[i]) - i)</span><br><span class="line"><span class="keyword">print</span> fake_flag0</span><br><span class="line"><span class="comment">#得到:e2lfbDB2ZV95b3V9</span></span><br></pre></td></tr></table></figure>
+<p>现在进入 sub_4110BF 函数 再进入 sub_411AB0 （为了方便分析我把部分变量重命名了）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> *__<span class="function">cdecl <span class="title">sub_411AB0</span><span class="params">(<span class="keyword">char</span> *ipt_str, <span class="keyword">unsigned</span> <span class="keyword">int</span> len, <span class="keyword">int</span> *out_str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> v4; <span class="comment">// STE0_4</span></span><br><span class="line">  <span class="keyword">int</span> v5; <span class="comment">// STE0_4</span></span><br><span class="line">  <span class="keyword">int</span> v6; <span class="comment">// STE0_4</span></span><br><span class="line">  <span class="keyword">int</span> v7; <span class="comment">// [esp+D4h] [ebp-38h]</span></span><br><span class="line">  <span class="keyword">signed</span> <span class="keyword">int</span> i; <span class="comment">// [esp+E0h] [ebp-2Ch]</span></span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">int</span> v9; <span class="comment">// [esp+ECh] [ebp-20h]</span></span><br><span class="line">  <span class="keyword">int</span> v10; <span class="comment">// [esp+ECh] [ebp-20h]</span></span><br><span class="line">  <span class="keyword">signed</span> <span class="keyword">int</span> v11; <span class="comment">// [esp+ECh] [ebp-20h]</span></span><br><span class="line">  <span class="keyword">void</span> *Dst; <span class="comment">// [esp+F8h] [ebp-14h]</span></span><br><span class="line">  <span class="keyword">char</span> *v13; <span class="comment">// [esp+104h] [ebp-8h]</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//检查我们的输入是不是为空</span></span><br><span class="line">  <span class="keyword">if</span> ( !ipt_str || !len )</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  v9 = len / <span class="number">3</span>;</span><br><span class="line">  <span class="comment">//如果字符长度不能被 3 整除</span></span><br><span class="line">  <span class="keyword">if</span> ( (<span class="keyword">signed</span> <span class="keyword">int</span>)(len / <span class="number">3</span>) % <span class="number">3</span> )</span><br><span class="line">    ++v9;</span><br><span class="line">  v10 = <span class="number">4</span> * v9;</span><br><span class="line">  *out_str = v10;</span><br><span class="line">  Dst = <span class="built_in">malloc</span>(v10 + <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">if</span> ( !Dst )</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="comment">//把 v10 全部置零</span></span><br><span class="line">  j_memset(Dst, <span class="number">0</span>, v10 + <span class="number">1</span>);</span><br><span class="line">  v13 = ipt_str;</span><br><span class="line">  v11 = len;</span><br><span class="line">  v7 = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> ( v11 &gt; <span class="number">0</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    treeCharBuf[<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line">    treeCharBuf[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    treeCharBuf[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//每次取 v13 三个字符 也就是我们的输入（ipt_str） 赋给 treeCharBuf</span></span><br><span class="line">    <span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt; <span class="number">3</span> &amp;&amp; v11 &gt;= <span class="number">1</span>; ++i )</span><br><span class="line">    &#123;</span><br><span class="line">      treeCharBuf[i] = *v13;</span><br><span class="line">      --v11;</span><br><span class="line">      ++v13;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ( !i )</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="comment">//这里我们就看 case 3 就行 </span></span><br><span class="line">    <span class="comment">//因为我们刚刚解出的字符串长度为 16 正好能被 3 整除</span></span><br><span class="line">    <span class="comment">//所以每次 i 都会是 3</span></span><br><span class="line">    <span class="keyword">switch</span> ( i )</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        *((_BYTE *)Dst + v7) = aAbcdefghijklmn[(<span class="keyword">signed</span> <span class="keyword">int</span>)(<span class="keyword">unsigned</span> __int8)treeCharBuf[<span class="number">0</span>] &gt;&gt; <span class="number">2</span>];</span><br><span class="line">        v4 = v7 + <span class="number">1</span>;</span><br><span class="line">        *((_BYTE *)Dst + v4++) = aAbcdefghijklmn[((treeCharBuf[<span class="number">1</span>] &amp; <span class="number">0xF0</span>) &gt;&gt; <span class="number">4</span>) | <span class="number">16</span> * (treeCharBuf[<span class="number">0</span>] &amp; <span class="number">3</span>)];</span><br><span class="line">        *((_BYTE *)Dst + v4++) = aAbcdefghijklmn[<span class="number">64</span>];</span><br><span class="line">        *((_BYTE *)Dst + v4) = aAbcdefghijklmn[<span class="number">64</span>];</span><br><span class="line">        v7 = v4 + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">        *((_BYTE *)Dst + v7) = aAbcdefghijklmn[(<span class="keyword">signed</span> <span class="keyword">int</span>)(<span class="keyword">unsigned</span> __int8)treeCharBuf[<span class="number">0</span>] &gt;&gt; <span class="number">2</span>];</span><br><span class="line">        v5 = v7 + <span class="number">1</span>;</span><br><span class="line">        *((_BYTE *)Dst + v5++) = aAbcdefghijklmn[((treeCharBuf[<span class="number">1</span>] &amp; <span class="number">0xF0</span>) &gt;&gt; <span class="number">4</span>) | <span class="number">16</span> * (treeCharBuf[<span class="number">0</span>] &amp; <span class="number">3</span>)];</span><br><span class="line">        *((_BYTE *)Dst + v5++) = aAbcdefghijklmn[((treeCharBuf[<span class="number">2</span>] &amp; <span class="number">0xC0</span>) &gt;&gt; <span class="number">6</span>) | <span class="number">4</span> * (treeCharBuf[<span class="number">1</span>] &amp; <span class="number">0xF</span>)];</span><br><span class="line">        *((_BYTE *)Dst + v5) = aAbcdefghijklmn[<span class="number">64</span>];</span><br><span class="line">        v7 = v5 + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">         <span class="comment">//把 treeCharBuf[0] 的进行 右位移(2) 位运算 </span></span><br><span class="line">         <span class="comment">//取高 6 位来索引 aAbcdefghijklmn 数组中的字符</span></span><br><span class="line">        *((_BYTE *)Dst + v7) = aAbcdefghijklmn[(<span class="keyword">signed</span> <span class="keyword">int</span>)(<span class="keyword">unsigned</span> __int8)treeCharBuf[<span class="number">0</span>] &gt;&gt; <span class="number">2</span>];</span><br><span class="line">        v6 = v7 + <span class="number">1</span>;</span><br><span class="line">         </span><br><span class="line">        <span class="comment">//把 treeCharBuf[1] 和 0xF0（二进制：11110000）进行 &amp; 运算 再位移 4 获得高 4bit</span></span><br><span class="line">        <span class="comment">//拼接 treeCharBuf[0] 的低 2 位来索引 aAbcdefghijklmn 数组中的字符</span></span><br><span class="line">        *((_BYTE *)Dst + v6++) = aAbcdefghijklmn[((treeCharBuf[<span class="number">1</span>] &amp; <span class="number">0xF0</span>) &gt;&gt; <span class="number">4</span>) | <span class="number">16</span> * (treeCharBuf[<span class="number">0</span>] &amp; <span class="number">3</span>)];</span><br><span class="line">            </span><br><span class="line">        <span class="comment">//把 treeCharBuf[2] 和 0xC0（二进制：11000000）进行 &amp; 运算 再位移 6 获得高 2bit</span></span><br><span class="line">        <span class="comment">//拼接 treeCharBuf[1] 的低 4 位来索引 aAbcdefghijklmn 数组中的字符</span></span><br><span class="line">        *((_BYTE *)Dst + v6++) = aAbcdefghijklmn[((treeCharBuf[<span class="number">2</span>] &amp; <span class="number">0xC0</span>) &gt;&gt; <span class="number">6</span>) | <span class="number">4</span> * (treeCharBuf[<span class="number">1</span>] &amp; <span class="number">0xF</span>)];</span><br><span class="line">         </span><br><span class="line">        <span class="comment">//把 treeCharBuf[2] 和 0x3F（二进制：00111111）进行 &amp; 运算</span></span><br><span class="line">        <span class="comment">//取得 treeCharBuf[2] 低 6bit 索引 aAbcdefghijklmn 数组中的字符</span></span><br><span class="line">        *((_BYTE *)Dst + v6) = aAbcdefghijklmn[treeCharBuf[<span class="number">2</span>] &amp; <span class="number">0x3F</span>];</span><br><span class="line">        v7 = v6 + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  *((_BYTE *)Dst + v7) = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">return</span> Dst;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 .rdata 段 拿到 aAbcdefghijklmn 数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.rdata:00417B30 aAbcdefghijklmn db &apos;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=&apos;</span><br></pre></td></tr></table></figure>
+<p>看得出来就是 base64</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import base64</span><br><span class="line">fake_flag0 = &apos;&apos;</span><br><span class="line">fake_flag = &quot;e3nifIH9b_C@n@dH&quot;</span><br><span class="line">for i in range(len(fake_flag)):</span><br><span class="line">	fake_flag0 += chr(ord(fake_flag[i]) - i)</span><br><span class="line">#print fake_flag0</span><br><span class="line">#得到:e2lfbDB2ZV95b3V9</span><br><span class="line">flag = base64.b64decode(fake_flag0)</span><br><span class="line">print flag</span><br><span class="line">#&#123;i_l0ve_you&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">RE</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/01/re-base64/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-fastbin" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/22/fastbin/">fastbin</a>
+    </h1>
+  
+
+        
+        <a href="/2019/06/22/fastbin/" class="archive-article-date">
+  	<time datetime="2019-06-22T01:12:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/06/22/fastbin/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="第十二届全国大学生信息安全竞赛-WriteUp" class="article article-type-第十二届全国大学生信息安全竞赛  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1246,160 +1399,6 @@
 
 
   
-    <article id="post-汇编英文全称" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>汇编指令的英文全称<br>一、数据传送指令<br>1.通用数据传送指令. </p>
-<p>MOV—-&gt; move<br>MOVSX—-&gt;extended move with sign data<br>MOVZX—-&gt;extended move with zero data<br>PUSH—-&gt;push<br>POP—-&gt;pop<br>PUSHA—-&gt;push all<br>POPA—-&gt;pop all<br>PUSHAD—-&gt;push all data<br>POPAD—-&gt;pop all data<br>BSWAP—-&gt;byte swap<br>XCHG—-&gt;exchange<br>CMPXCHG—-&gt;compare and change<br>XADD—-&gt;exchange and add<br>XLAT—-&gt;translate<br>2.输入输出端口传送指令.<br>IN—-&gt;input<br>OUT—-&gt;output<br>3.目的地址传送指令.<br>LEA—-&gt;load effective address<br>LDS—-&gt;load DS<br>LES—-&gt;load ES<br>LFS—-&gt;load FS<br>LGS—-&gt;load GS<br>LSS—-&gt;load SS<br>4.标志传送指令.<br>LAHF—-&gt;load AH from flag<br>SAHF—-&gt;save AH to flag<br>PUSHF—-&gt;push flag<br>POPF—-&gt;pop flag<br>PUSHD—-&gt;push dflag<br>POPD—-&gt;pop dflag<br>二、算术运算指令<br>ADD—-&gt;add<br>ADC—-&gt;add with carry<br>INC—-&gt;increase 1<br>AAA—-&gt;ascii add with adjust<br>DAA—-&gt;decimal add with adjust<br>SUB—-&gt;substract<br>SBB—-&gt;substract with borrow<br>DEC—-&gt;decrease 1<br>NEC—-&gt;negative<br>CMP—-&gt;compare<br>AAS—-&gt;ascii adjust on substract<br>DAS—-&gt;decimal adjust on substract<br>MUL—-&gt;multiplication<br>IMUL—-&gt;integer multiplication<br>AAM—-&gt;ascii adjust on multiplication<br>DIV—-&gt;divide<br>IDIV—-&gt;integer divide<br>AAD—-&gt;ascii adjust on divide<br>CBW—-&gt;change byte to word<br>CWD—-&gt;change word to double word<br>CWDE—-&gt;change word to double word with sign to EAX<br>CDQ—-&gt;change double word to quadrate word<br>三、逻辑运算指令<br>AND—-&gt;and<br>OR—-&gt;or<br>XOR—-&gt;xor   Exclusive OR<br>NOT—-&gt;not<br>TEST—-&gt;test<br>SHL—-&gt;shift left<br>SAL—-&gt;arithmatic shift left算术<br>SHR—-&gt;shift right<br>SAR—-&gt;arithmatic shift right<br>ROL—-&gt;rotate left<br>ROR—-&gt;rotate right<br>RCL—-&gt;rotate left with carry<br>RCR—-&gt;rotate right with carry<br>四、串指令<br>MOVS—-&gt;move string<br>CMPS—-&gt;compare string<br>SCAS—-&gt;scan string<br>LODS—-&gt;load string<br>STOS—-&gt;store string<br>REP—-&gt;repeat<br>REPE—-&gt;repeat when equal<br>REPZ—-&gt;repeat when zero flag<br>REPNE—-&gt;repeat when not equal<br>REPNZ—-&gt;repeat when zero flag<br>REPC—-&gt;repeat when carry flag<br>REPNC—-&gt;repeat when not carry flag<br>五、程序转移指令<br>1&gt;无条件转移指令(长转移)<br>JMP—-&gt;jump<br>CALL—-&gt;call<br>RET—-&gt;return<br>RETF—-&gt;return far<br>2&gt;条件转移指令(短转移,-128到+127的距离内)<br>JAE—-&gt;jump when above or equal<br>JNB—-&gt;jump when not below<br>JB—-&gt;jump when below<br>JNAE—-&gt;jump when not above or equal<br>JBE—-&gt;jump when below or equal<br>JNA—-&gt;jump when not above<br>JG—-&gt;jump when greater<br>JNLE—-&gt;jump when not less or equal<br>JGE—-&gt;jump when greater or equal<br>JNL—-&gt;jump when not less<br>JL—-&gt;jump when less<br>JNGE—-&gt;jump when not greater or equal<br>JLE—-&gt;jump when less or equal<br>JNG—-&gt;jump when not greater<br>JE—-&gt;jump when equal<br>JZ—-&gt;jump when has zero flag<br>JNE—-&gt;jump when not equal<br>JNZ—-&gt;jump when not has zero flag<br>JC—-&gt;jump when has carry flag<br>JNC—-&gt;jump when not has carry flag<br>JNO—-&gt;jump when not has overflow flag<br>JNP—-&gt;jump when not has parity flag<br>JPO—-&gt;jump when parity flag is odd<br>JNS—-&gt;jump when not has sign flag<br>JO—-&gt;jump when has overflow flag<br>JP—-&gt;jump when has parity flag<br>JPE—-&gt;jump when parity flag is even<br>JS—-&gt;jump when has sign flag<br>3&gt;循环控制指令(短转移)<br>LOOP—-&gt;loop<br>LOOPE—-&gt;loop equal<br>LOOPZ—-&gt;loop zero<br>LOOPNE—-&gt;loop not equal<br>LOOPNZ—-&gt;loop not zero<br>JCXZ—-&gt;jump when CX is zero<br>JECXZ—-&gt;jump when ECX is zero<br>4&gt;中断指令<br>INT—-&gt;interrupt<br>INTO—-&gt;overflow interrupt<br>IRET—-&gt;interrupt return<br>5&gt;处理器控制指令<br>HLT—-&gt;halt<br>WAIT—-&gt;wait<br>ESC—-&gt;escape<br>LOCK—-&gt;lock<br>NOP—-&gt;no operation<br>STC—-&gt;set carry<br>CLC—-&gt;clear carry<br>CMC—-&gt;carry make change<br>STD—-&gt;set direction<br>CLD—-&gt;clear direction<br>STI—-&gt;set interrupt<br>CLI—-&gt;clear interrupt<br>六、伪指令<br>DW—-&gt;definw word<br>PROC—-&gt;procedure<br>ENDP—-&gt;end of procedure<br>SEGMENT—-&gt;segment<br>ASSUME—-&gt;assume<br>ENDS—-&gt;end segment<br>END—-&gt;end</p>
-<p>Move)<br>MOVC (Move Code)<br>MOVX (Move External)<br>XCH     (Exchange)<br>PUSH<br>POP<br>AJMP   (Absolute Jump)<br>LJMP    (Long Jump)<br>SJMP    (Short Jump)<br>JMP      (Jump Indirect)<br>JZ         (Jump Zero)<br>JNZ      (Jump Not Zero)<br>JC         (Jump if Carry)<br>JNC      (Jump if Not Carry)<br>JB         (Jump if Bit is set)<br>JNB      (Jump if Not Bit)<br>JBC       (If Bit is set and Clear Bit)<br>CJNE    (Compare and Jump if Not Equal)<br>DJNZ    (Decrement and Jump if Not Zero)<br>ACALL (Absolute Call)<br>LCALL  (Long Call)<br>RET       (Return)<br>NOP      (No Operation)<br>ADD<br>ADDC  (Add with Carry)<br>SUBB   (Substract with Borrow)<br>MUL     (Multiply)<br>DIV       (Divide)<br>INC      (Increment)<br>DEC     (Decrement)<br>ANL     (Logical AND)<br>ORL     (Logical OR)<br>XRL     (Logical Exclusive OR)<br>CPL     (Complement)<br>CLR     (Clear)<br>SEBT   (Set Bit)<br>RL        (Rotate Left)<br>RR        (Rotate Right)<br>RLC     (Rotate Left throught the Carry flag)<br>RRC     (Rotate Right throught the Carry flag)<br>XCHD<br>SWAP<br>DA       (Decimal Adjust)</p>
-<p>ORG    (Origin)<br>DB       (Define Byte)<br>DW      (Define Word)<br>EQU     (Equal)<br>DATA<br>XDATA (External Data)<br>BIT<br>END</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/17/汇编英文全称/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-docker" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/15/docker/">docker</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/15/docker/" class="archive-article-date">
-  	<time datetime="2019-01-14T19:39:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="0x0-前言"><a href="#0x0-前言" class="headerlink" title="0x0.前言"></a>0x0.前言</h2><p>前言</p>
-<p>前几天上了黑苹果,想着直接用docker布置个pwn解题环境就好了,不想再用VM装kali了,于是就开始了折腾docker,忙完,写写总结</p>
-<p>关于docker的学习,我是看 <a href="https://yeasy.gitbooks.io/docker_practice/content/" target="_blank" rel="noopener">Docker —— 从入门到实践</a> 很好的一本书,也不多,看完你对docker的理解会提升一个等级,当然,如果你是docker高手当我没说</p>
-<h2 id="0x1-安装docker"><a href="#0x1-安装docker" class="headerlink" title="0x1.安装docker"></a>0x1.安装docker</h2><h4 id="1-用brew安装"><a href="#1-用brew安装" class="headerlink" title="1.用brew安装"></a>1.用brew安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install docker</span><br></pre></td></tr></table></figure>
-<h4 id="2-自己上官网下载二进制文件"><a href="#2-自己上官网下载二进制文件" class="headerlink" title="2.自己上官网下载二进制文件"></a>2.自己上官网下载二进制文件</h4><p><a href="https://hub.docker.com/editions/community/docker-ce-desktop-mac" target="_blank" rel="noopener">get docker for Mac</a></p>
-<h2 id="0x2-部署环境"><a href="#0x2-部署环境" class="headerlink" title="0x2.部署环境"></a>0x2.部署环境</h2><p>我参考了<a href="https://github.com/skysider/pwndocker" target="_blank" rel="noopener">pwndocker</a>自己瞎改了,用的是kali的镜像</p>
-<p>我的垃圾Dockerfile:</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> kalilinux/kali-linux-docker</span><br><span class="line"><span class="keyword">MAINTAINER</span> l0ser &lt;<span class="number">1565328054</span>@qq.com&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">#关于镜像源,没必要改,因为,kali源会根据你的IP重定向源</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"deb http://http.kali.org/kali kali-rolling main contrib non-free"</span> &gt; /etc/apt/sources.list &amp;&amp; \</span></span><br><span class="line"><span class="bash">    <span class="built_in">echo</span> <span class="string">"deb-src http://http.kali.org/kali kali-rolling main contrib non-free"</span> &gt;&gt; /etc/apt/sources.list</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">RUN dpkg --add-architecture i386 &amp;&amp; \</span></span><br><span class="line"><span class="bash">    apt-get -y update &amp;&amp; \</span></span><br><span class="line"><span class="bash">    apt install -y \</span></span><br><span class="line"><span class="bash">    libc6:i386 \</span></span><br><span class="line"><span class="bash">    libc6-dbg:i386 \</span></span><br><span class="line"><span class="bash">    libc6-dbg \</span></span><br><span class="line"><span class="bash">    lib32stdc++6 \</span></span><br><span class="line"><span class="bash">    g++-multilib \</span></span><br><span class="line"><span class="bash">    cmake \</span></span><br><span class="line"><span class="bash">    ipython \</span></span><br><span class="line"><span class="bash">    vim \</span></span><br><span class="line"><span class="bash">    net-tools \</span></span><br><span class="line"><span class="bash">    libffi-dev \</span></span><br><span class="line"><span class="bash">    libssl-dev \</span></span><br><span class="line"><span class="bash">    python-dev \</span></span><br><span class="line"><span class="bash">    python3-dev \</span></span><br><span class="line"><span class="bash">    python-pip \</span></span><br><span class="line"><span class="bash">    python3-pip \</span></span><br><span class="line"><span class="bash">    build-essential \</span></span><br><span class="line"><span class="bash">    ruby \</span></span><br><span class="line"><span class="bash">    tmux \</span></span><br><span class="line"><span class="bash">    strace \</span></span><br><span class="line"><span class="bash">    ltrace \</span></span><br><span class="line"><span class="bash">    nasm \</span></span><br><span class="line"><span class="bash">    wget \</span></span><br><span class="line"><span class="bash">    radare2 \</span></span><br><span class="line"><span class="bash">    gdb \</span></span><br><span class="line"><span class="bash">    gdb-multiarch \</span></span><br><span class="line"><span class="bash">    netcat \</span></span><br><span class="line"><span class="bash">    socat \</span></span><br><span class="line"><span class="bash">    git \</span></span><br><span class="line"><span class="bash">    patchelf \</span></span><br><span class="line"><span class="bash">    gawk \</span></span><br><span class="line"><span class="bash">    file \</span></span><br><span class="line"><span class="bash">    binwalk \</span></span><br><span class="line"><span class="bash">    ctags \</span></span><br><span class="line"><span class="bash">    silversearcher-ag \</span></span><br><span class="line"><span class="bash">    bison \</span></span><br><span class="line"><span class="bash">    metasploit-framework \</span></span><br><span class="line"><span class="bash">    nmap \</span></span><br><span class="line"><span class="bash">    sqlmap \</span></span><br><span class="line"><span class="bash">    peepdf --fix-missing</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">RUN pip install --upgrade pip &amp;&amp; \</span></span><br><span class="line"><span class="bash">    pip install --upgrade setuptools &amp;&amp; \</span></span><br><span class="line"><span class="bash">    pip install --no-cache-dir \</span></span><br><span class="line"><span class="bash">    ROPgadget \</span></span><br><span class="line"><span class="bash">    pwntools \</span></span><br><span class="line"><span class="bash">    zio \</span></span><br><span class="line"><span class="bash">    lief \</span></span><br><span class="line"><span class="bash">    smmap2 \</span></span><br><span class="line"><span class="bash">    z3-solver \</span></span><br><span class="line"><span class="bash">    apscheduler \</span></span><br><span class="line"><span class="bash">    flake8 \</span></span><br><span class="line"><span class="bash">    yapf &amp;&amp; \</span></span><br><span class="line"><span class="bash">    pip install --upgrade pwntools</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">RUN pip install --upgrade pip3 &amp;&amp; \</span></span><br><span class="line"><span class="bash">    pip3 install --no-cache-dir \</span></span><br><span class="line"><span class="bash">    ropper \</span></span><br><span class="line"><span class="bash">    unicorn \</span></span><br><span class="line"><span class="bash">    capstone \</span></span><br><span class="line"><span class="bash">    angr </span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">RUN <span class="built_in">cd</span> <span class="variable">$HOME</span>/ctf-tools &amp;&amp; git <span class="built_in">clone</span> https://github.com/longld/peda.git ~/peda &amp;&amp; \</span></span><br><span class="line"><span class="bash">    <span class="built_in">echo</span> <span class="string">"source /root/ctf-tools/peda/peda.py"</span> &gt;&gt; ~/.gdbinit</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment">#配置vim自动代码补全</span></span></span><br><span class="line"><span class="bash">RUN git <span class="built_in">clone</span> https://github.com/wklken/k-vim.git &amp;&amp; \</span></span><br><span class="line"><span class="bash">    <span class="built_in">cd</span> k-vim &amp;&amp; sh -x install.sh</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">ENV DEBIAN_FRONTEND noninteractive</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">RUN <span class="built_in">set</span> -x \</span></span><br><span class="line"><span class="bash">    &amp;&amp; apt-get -yqq update \</span></span><br><span class="line"><span class="bash">    &amp;&amp; apt-get -yqq dist-upgrade \</span></span><br><span class="line"><span class="bash">    &amp;&amp; apt-get clean</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">CMD [<span class="string">"bash"</span>]</span></span><br></pre></td></tr></table></figure>
-<p>用法:复制,建立一个文件夹再在里面新建一个Dockerfile文件,把上面的代码粘贴进去</p>
-<p>在文件夹目录下运行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dcoker build -t pwn .</span><br></pre></td></tr></table></figure>
-<p>等构建完成</p>
-<h2 id="0x3-docker常用操作"><a href="#0x3-docker常用操作" class="headerlink" title="0x3.docker常用操作"></a>0x3.docker常用操作</h2><p>查看镜像(<code>docker images</code>)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@VM-0-17-ubuntu:~# docker images</span><br><span class="line">REPOSITORY                    TAG        IMAGE ID            CREATED             SIZE</span><br><span class="line">kalilinux/kali-linux-docker   latest     f26f3ae90aee        2 months ago        1.57GB</span><br></pre></td></tr></table></figure>
-<p>现在我们要运行kalilinux/kali-linux-docker这个镜像可以(docker run -it [REPOSITORY/IMAGE ID] /bin/bash)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@VM-0-17-ubuntu:~# docker run -it kalilinux/kali-linux-docker /bin/bash</span><br><span class="line">root@0d6c7f4d1060:/#</span><br></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@VM-0-17-ubuntu:~# docker run -it f26f3ae90aee /bin/bash</span><br><span class="line">root@0d6c7f4d1060:/#</span><br></pre></td></tr></table></figure>
-<p><code>docker run -it xxxxx /bin/bash</code>的意思是运行xxxxx容器的/bin/bash,也就是shell,就可以进行交互</p>
-<p>如果运行交互的时候要后台运行回到主机可以</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">按下 ctrl + p + q就可以后台运行</span><br></pre></td></tr></table></figure>
-<p>后台运行的容器要怎么重新回到里面,我的做法是(<code>docker attach aca5c32a9cec</code>)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@aca5c32a9cec:/<span class="comment"># </span></span><br><span class="line">root@VM-0-17-ubuntu:~<span class="comment"># docker ps -a</span></span><br><span class="line">CONTAINER ID   IMAGE    COMMAND   CREATED          STATUS   PORTS      NAMES</span><br><span class="line">aca5c32a9cec   f26f     <span class="string">"bash"</span>    24 seconds ago     Up                thirsty_mccarthy</span><br><span class="line"></span><br><span class="line">root@VM-0-17-ubuntu:~<span class="comment"># docker attach aca5c32a9cec</span></span><br><span class="line"></span><br><span class="line">root@aca5c32a9cec:/<span class="comment">#</span></span><br></pre></td></tr></table></figure>
-<p>很多时候我们需要修该容器的文件内容,但是每次exit容器后你所做的更改是不会保存的所以(<code>docker commit [CONTAINER ID]</code>)这样操作的话会生成另一个容器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">root@aca5c32a9cec:/<span class="comment"># read escape sequence</span></span><br><span class="line">root@VM-0-17-ubuntu:~<span class="comment"># docker ps -a</span></span><br><span class="line">CONTAINER ID   IMAGE    COMMAND   CREATED          STATUS   PORTS      NAMES</span><br><span class="line">aca5c32a9cec   f26f     <span class="string">"bash"</span>    24 seconds ago     Up                thirsty_mccarthy </span><br><span class="line"></span><br><span class="line">root@VM-0-17-ubuntu:~<span class="comment"># docker commit aca5c32a9cec</span></span><br><span class="line">sha256:1ba3be34808075ed328fd5932026872a6bba41b801886eb57d40cfc98705d913</span><br><span class="line"></span><br><span class="line">root@VM-0-17-ubuntu:~<span class="comment"># docker images</span></span><br><span class="line">REPOSITORY                   TAG         IMAGE ID            CREATED             SIZE</span><br><span class="line">&lt;none&gt;                       &lt;none&gt;      1ba3be348080        12 seconds ago      1.57GB</span><br><span class="line">kalilinux/kali-linux-docker  latest       f26f3ae90aee       2 months ago        1.57GB</span><br><span class="line"></span><br><span class="line">root@VM-0-17-ubuntu:~<span class="comment">#</span></span><br></pre></td></tr></table></figure>
-<p>我平常是(<code>docker commit [CONTAINER ID]原容器REPOSITORY</code>)这样就不会生成新容器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">root@aca5c32a9cec:/<span class="comment"># read escape sequence</span></span><br><span class="line">root@VM-0-17-ubuntu:~<span class="comment"># docker ps -a</span></span><br><span class="line">CONTAINER ID   IMAGE    COMMAND   CREATED          STATUS   PORTS      NAMES</span><br><span class="line">aca5c32a9cec   f26f     <span class="string">"bash"</span>    24 seconds ago     Up                thirsty_mccarthy </span><br><span class="line"></span><br><span class="line">root@VM-0-17-ubuntu:~<span class="comment"># docker commit aca5c32a9cec</span></span><br><span class="line">sha256:1ba3be34808075ed328fd5932026872a6bba41b801886eb57d40cfc98705d913</span><br><span class="line"></span><br><span class="line">root@VM-0-17-ubuntu:~<span class="comment"># docker images</span></span><br><span class="line">REPOSITORY                   TAG         IMAGE ID            CREATED             SIZE </span><br><span class="line">kalilinux/kali-linux-docker  latest       f26f3ae90aee       12 seconds ago      1.57GB</span><br><span class="line"></span><br><span class="line">root@VM-0-17-ubuntu:~<span class="comment">#</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">docker search  hello-docker  <span class="comment"># 搜索hello-docker的镜像</span></span><br><span class="line">docker search centos <span class="comment"># 搜索centos镜像</span></span><br><span class="line">docker pull hello-docker <span class="comment"># 获取centos镜像</span></span><br><span class="line">docker run  hello-world   <span class="comment">#运行一个docker镜像，产生一个容器实例（也可以通过镜像id前三位运行）</span></span><br><span class="line">docker image ls  <span class="comment"># 查看本地所有镜像</span></span><br><span class="line">docker images  <span class="comment"># 查看docker镜像</span></span><br><span class="line">docker image rmi hello-docker <span class="comment"># 删除hello-docker镜像</span></span><br><span class="line">docker ps  <span class="comment">#列出正在运行的容器（如果创建容器中没有进程正在运行，容器就会立即停止）</span></span><br><span class="line">docker ps -a  <span class="comment"># 列出所有运行过的容器记录</span></span><br><span class="line">docker save centos &gt; /opt/centos.tar.gz  <span class="comment"># 导出docker镜像至本地</span></span><br><span class="line">docker load &lt; /opt/centos.tar.gz   <span class="comment">#导入本地镜像到docker镜像库</span></span><br><span class="line">docker stop  `docker ps -aq`  <span class="comment"># 停止所有正在运行的容器</span></span><br><span class="line">docker  rm `docker ps -aq`    <span class="comment"># 一次性删除所有容器记录</span></span><br><span class="line">docker rmi  `docker images -aq`   <span class="comment"># 一次性删除所有本地的镜像记录</span></span><br></pre></td></tr></table></figure>
-<h2 id="0x4-docker-–help"><a href="#0x4-docker-–help" class="headerlink" title="0x4.docker –help"></a>0x4.docker –help</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">docker [OPTIONS] COMMAND [arg...]</span><br><span class="line"></span><br><span class="line">       docker daemon [ --<span class="built_in">help</span> | ... ]</span><br><span class="line"></span><br><span class="line">       docker [ --<span class="built_in">help</span> | -v | --version ]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">A</span><br><span class="line">self-sufficient runtime <span class="keyword">for</span> containers.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  --config=~/.docker              Location of client config files  <span class="comment">#客户端配置文件的位置</span></span><br><span class="line"></span><br><span class="line">  -D, --debug=<span class="literal">false</span>               Enable debug mode  <span class="comment">#启用Debug调试模式</span></span><br><span class="line"></span><br><span class="line">  -H, --host=[]                   Daemon socket(s) to connect to  <span class="comment">#守护进程的套接字（Socket）连接</span></span><br><span class="line"></span><br><span class="line">  -h, --<span class="built_in">help</span>=<span class="literal">false</span>                Print usage  <span class="comment">#打印使用</span></span><br><span class="line"></span><br><span class="line">  -l, --<span class="built_in">log</span>-level=info            Set the logging level  <span class="comment">#设置日志级别</span></span><br><span class="line"></span><br><span class="line">  --tls=<span class="literal">false</span>                     Use TLS; implied by--tlsverify  <span class="comment">#</span></span><br><span class="line"></span><br><span class="line">  --tlscacert=~/.docker/ca.pem    Trust certs signed only by this CA  <span class="comment">#信任证书签名CA</span></span><br><span class="line"></span><br><span class="line">  --tlscert=~/.docker/cert.pem    Path to TLS certificate file  <span class="comment">#TLS证书文件路径</span></span><br><span class="line"></span><br><span class="line">  --tlskey=~/.docker/key.pem      Path to TLS key file  <span class="comment">#TLS密钥文件路径</span></span><br><span class="line"></span><br><span class="line">  --tlsverify=<span class="literal">false</span>               Use TLS and verify the remote  <span class="comment">#使用TLS验证远程</span></span><br><span class="line"></span><br><span class="line">  -v, --version=<span class="literal">false</span>             Print version information and quit  <span class="comment">#打印版本信息并退出</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line"></span><br><span class="line">    attach    Attach to a running container  <span class="comment">#当前shell下attach连接指定运行镜像</span></span><br><span class="line"></span><br><span class="line">    build     Build an image from a Dockerfile  <span class="comment">#通过Dockerfile定制镜像</span></span><br><span class="line"></span><br><span class="line">    commit    Create a new image from a container<span class="string">'s changes  #提交当前容器为新的镜像</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    cp    Copy files/folders from a container to a HOSTDIR or to STDOUT  #从容器中拷贝指定文件或者目录到宿主机中</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    create    Create a new container  #创建一个新的容器，同run 但不启动容器</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    diff    Inspect changes on a container'</span>s filesystem  <span class="comment">#查看docker容器变化</span></span><br><span class="line"></span><br><span class="line">    events    Get real time events from the server<span class="comment">#从docker服务获取容器实时事件</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">exec</span>    Run a <span class="built_in">command</span> <span class="keyword">in</span> a running container<span class="comment">#在已存在的容器上运行命令</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">export</span>    Export a container<span class="string">'s filesystem as a tar archive  #导出容器的内容流作为一个tar归档文件(对应import)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    history    Show the history of an image  #展示一个镜像形成历史</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    images    List images  #列出系统当前镜像</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    import    Import the contents from a tarball to create a filesystem image  #从tar包中的内容创建一个新的文件系统映像(对应export)</span></span><br><span class="line"><span class="string">s z s</span></span><br><span class="line"><span class="string">    info    Display system-wide information  #显示系统相关信息</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    inspect    Return low-level information on a container or image  #查看容器详细信息</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    kill    Kill a running container  #kill指定docker容器</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    load    Load an image from a tar archive or STDIN  #从一个tar包中加载一个镜像(对应save)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    login    Register or log in to a Docker registry#注册或者登陆一个docker源服务器</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    logout    Log out from a Docker registry  #从当前Docker registry退出</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    logs    Fetch the logs of a container  #输出当前容器日志信息</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    pause    Pause all processes within a container#暂停容器</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    port    List port mappings or a specific mapping for the CONTAINER  #查看映射端口对应的容器内部源端口</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    ps    List containers  #列出容器列表</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    pull    Pull an image or a repository from a registry  #从docker镜像源服务器拉取指定镜像或者库镜像</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    push    Push an image or a repository to a registry  #推送指定镜像或者库镜像至docker源服务器</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    rename    Rename a container  #重命名容器</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    restart    Restart a running container  #重启运行的容器</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    rm    Remove one or more containers  #移除一个或者多个容器</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    rmi    Remove one or more images  #移除一个或多个镜像(无容器使用该镜像才可以删除，否则需要删除相关容器才可以继续或者-f强制删除)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    run    Run a command in a new container  #创建一个新的容器并运行一个命令</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    save    Save an image(s) to a tar archive#保存一个镜像为一个tar包(对应load)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    search    Search the Docker Hub for images  #在docker</span></span><br><span class="line"><span class="string">hub中搜索镜像</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    start    Start one or more stopped containers#启动容器</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    stats    Display a live stream of container(s) resource usage statistics  #统计容器使用资源</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    stop    Stop a running container  #停止容器</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    tag         Tag an image into a repository  #给源中镜像打标签</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    top       Display the running processes of a container #查看容器中运行的进程信息</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    unpause    Unpause all processes within a container  #取消暂停容器</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    version    Show the Docker version information#查看容器版本号</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    wait         Block until a container stops, then print its exit code  #截取容器停止时的退出状态值</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Run '</span>docker COMMAND --<span class="built_in">help</span><span class="string">' for more information on a command.  #运行docker命令在帮助可以获取更多信息</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">dcoker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/15/docker/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1497,15 +1496,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ctf-pwn</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ctf-misc</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1513,11 +1508,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pwn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compile vim</a>
+                <a href="javascript:void(0)" class="js-tag color4">ctf-misc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1529,6 +1520,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pwn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">compile vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pwntools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">RE</a>
               </li>
              
@@ -1537,15 +1540,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pwntools</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">termux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
