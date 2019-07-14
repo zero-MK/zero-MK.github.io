@@ -150,6 +150,158 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-FMT" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/17/FMT/">格式化字符漏洞</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/17/FMT/" class="archive-article-date">
+  	<time datetime="2018-12-17T08:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>长度：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">字符</th>
+<th style="text-align:center">长度(byte)</th>
+<th style="text-align:center">使用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">hh</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">char</td>
+</tr>
+<tr>
+<td style="text-align:center">h</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">short int</td>
+</tr>
+<tr>
+<td style="text-align:center">l</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">long int</td>
+</tr>
+<tr>
+<td style="text-align:center">Ll</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">long long int</td>
+</tr>
+</tbody>
+</table>
+<p>转换符：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">字符</th>
+<th style="text-align:center">长度 (byte)</th>
+<th style="text-align:center">使用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">d</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">integer</td>
+</tr>
+<tr>
+<td style="text-align:center">u</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">Unsigned integer</td>
+</tr>
+<tr>
+<td style="text-align:center">x</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">hex</td>
+</tr>
+<tr>
+<td style="text-align:center">s</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">String</td>
+</tr>
+<tr>
+<td style="text-align:center">c</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Character</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32位："><a href="#32位：" class="headerlink" title="32位："></a>32位：</h3><p>读：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">'%&#123;&#125;$x'.format(index)           // 读4个字节</span><br><span class="line">'%&#123;&#125;$p'.format(index)           // 同上面</span><br><span class="line">'$&#123;&#125;$s'.format(index)</span><br></pre></td></tr></table></figure>
+<p>写：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">'%&#123;&#125;$n'.format(index)           // 解引用，写入四个字节</span><br><span class="line">'%&#123;&#125;$hn'.format(index)          // 解引用，写入两个字节</span><br><span class="line">'%&#123;&#125;$hhn'.format(index)         // 解引用，写入一个字节</span><br><span class="line">'%&#123;&#125;$lln'.format(index)         // 解引用，写入八个字节</span><br></pre></td></tr></table></figure></p>
+<h3 id="64位："><a href="#64位：" class="headerlink" title="64位："></a>64位：</h3><p>读：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">'%&#123;&#125;$x'.format(index, num)      // 读4个字节</span><br><span class="line">'%&#123;&#125;$lx'.format(index, num)     // 读8个字节</span><br><span class="line">'%&#123;&#125;$p'.format(index)           // 读8个字节</span><br><span class="line">'$&#123;&#125;$s'.format(index)</span><br></pre></td></tr></table></figure></p>
+<p>写：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">'%&#123;&#125;$n'.format(index)           // 解引用，写入四个字节</span><br><span class="line">'%&#123;&#125;$hn'.format(index)          // 解引用，写入两个字节</span><br><span class="line">'%&#123;&#125;$hhn'.format(index)         // 解引用，写入一个字节</span><br><span class="line">'%&#123;&#125;$lln'.format(index)         // 解引用，写入八个字节</span><br><span class="line">%<span class="number">1</span>$lx: RSI</span><br><span class="line">%<span class="number">2</span>$lx: RDX</span><br><span class="line">%<span class="number">3</span>$lx: RCX</span><br><span class="line">%<span class="number">4</span>$lx: R8</span><br><span class="line">%<span class="number">5</span>$lx: R9</span><br><span class="line">%<span class="number">6</span>$lx: 栈上的第一个QWORD</span><br></pre></td></tr></table></figure></p>
+<h3 id="附加："><a href="#附加：" class="headerlink" title="附加："></a>附加：</h3><p>fmtstr_payload是pwntools提供的函数，用于自动生成格式化字符串。</p>
+<p>fmtstr_payload有两个参数<br>第一个参数是int，用于表示取参数的偏移个数</p>
+<p>第二个参数是字典，字典的意义是往key的地址，写入value的值</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fmtstr_payload(<span class="number">7</span>, &#123;printf_got: system_add&#125;)</span><br></pre></td></tr></table></figure>
+<p>这个函数调用会往printf_got中写入system_add</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ctf-pwn</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/17/FMT/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-my-ctf-pwn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -888,19 +1040,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">compile vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ctf-pwn assembly</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ctf-misc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">dcoker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">re</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -908,7 +1052,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compile vim</a>
+                <a href="javascript:void(0)" class="js-tag color2">dcoker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ctf-misc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">re</a>
               </li>
              
               <li class="article-tag-list-item">
