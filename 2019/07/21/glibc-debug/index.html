@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zero-mk.github.io">
-  <title>Archives | Datura stramonium L.</title>
+  <title>glibc_debug | Datura stramonium L.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Datura stramonium L.">
-<meta property="og:url" content="http://zero-mk.github.io/archives/page/3/index.html">
+  <meta name="description" content="关于源码及调式 glibc 我以前想的是编译带 symbol 的 libc 但是失败了，太麻烦了，所以我在网上找到了一种更方便的方法 1.首先 去注释 源码源，就是那些 # deb-src 开头的1sudo sed -i &quot;s/# deb-src/deb-src/g&quot; /etc/apt/sources.list 如果 /etc/apt/sources.list 里面没有的话自己百度找到符合的源添加">
+<meta name="keywords" content="glibc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="glibc_debug">
+<meta property="og:url" content="http://zero-mk.github.io/2019/07/21/glibc-debug/index.html">
 <meta property="og:site_name" content="Datura stramonium L.">
+<meta property="og:description" content="关于源码及调式 glibc 我以前想的是编译带 symbol 的 libc 但是失败了，太麻烦了，所以我在网上找到了一种更方便的方法 1.首先 去注释 源码源，就是那些 # deb-src 开头的1sudo sed -i &quot;s/# deb-src/deb-src/g&quot; /etc/apt/sources.list 如果 /etc/apt/sources.list 里面没有的话自己百度找到符合的源添加">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://zero-mk.github.io/2019/07/21/glibc-debug/dl.png">
+<meta property="og:image" content="http://zero-mk.github.io/2019/07/21/glibc-debug/malloc.png">
+<meta property="og:updated_time" content="2019-07-21T05:54:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Datura stramonium L.">
+<meta name="twitter:title" content="glibc_debug">
+<meta name="twitter:description" content="关于源码及调式 glibc 我以前想的是编译带 symbol 的 libc 但是失败了，太麻烦了，所以我在网上找到了一种更方便的方法 1.首先 去注释 源码源，就是那些 # deb-src 开头的1sudo sed -i &quot;s/# deb-src/deb-src/g&quot; /etc/apt/sources.list 如果 /etc/apt/sources.list 里面没有的话自己百度找到符合的源添加">
+<meta name="twitter:image" content="http://zero-mk.github.io/2019/07/21/glibc-debug/dl.png">
   
     <link rel="alternative" href="/atom.xml" title="Datura stramonium L." type="application/atom+xml">
   
@@ -148,307 +156,166 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-glibc-debug" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      glibc_debug
+    </h1>
+  
+
+        
+        <a href="/2019/07/21/glibc-debug/" class="archive-article-date">
+  	<time datetime="2019-07-21T04:41:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于源码及调式 glibc 我以前想的是编译带 symbol 的 libc 但是失败了，太麻烦了，所以我在网上找到了一种更方便的方法</p>
+<h3 id="1-首先-去注释-源码源，就是那些-deb-src-开头的"><a href="#1-首先-去注释-源码源，就是那些-deb-src-开头的" class="headerlink" title="1.首先 去注释 源码源，就是那些 # deb-src 开头的"></a>1.首先 去注释 源码源，就是那些 # deb-src 开头的</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sed -i "s/# deb-src/deb-src/g" /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<p>如果 <code>/etc/apt/sources.list</code> 里面没有的话自己百度找到符合的源添加</p>
+<h3 id="2-update"><a href="#2-update" class="headerlink" title="2. update"></a>2. update</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+<h3 id="3-安装带-debug-symbol-的-libc"><a href="#3-安装带-debug-symbol-的-libc" class="headerlink" title="3.安装带 debug symbol 的 libc"></a>3.安装带 debug symbol 的 libc</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libc6-dev</span><br></pre></td></tr></table></figure>
+<h3 id="4-获取-libc6-dev-的源码"><a href="#4-获取-libc6-dev-的源码" class="headerlink" title="4.获取 libc6-dev 的源码"></a>4.获取 libc6-dev 的源码</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt source libc6-dev</span><br></pre></td></tr></table></figure>
+<p>完事后你会发现当前文件夹下面会有一个 glibc-xxx 的文件夹，这就是源码</p>
+<p>就比如我们要在 gdb 中 debug 时能查看 malloc 的源码我们可以这样做</p>
+<p>我的是      ubuntu16       glibc-2.23</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">root@82374599b04f:~# cd glibc-2.23</span><br><span class="line">root@82374599b04f:~/glibc-2.23# find ./ -name "malloc.c"</span><br><span class="line">./malloc/malloc.c</span><br><span class="line">./.pc/any/cvs-harden-glibc-malloc-metadata.patch/malloc/malloc.c</span><br><span class="line">./.pc/git-updates.diff/malloc/malloc.c</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">可以看到malloc.c 位于 ./malloc/malloc.c</span></span><br><span class="line"></span><br><span class="line">root@82374599b04f:~/glibc-2.23# pwd</span><br><span class="line">/root/glibc-2.23</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">那么它的路径就在 /root/glibc-2.23/malloc/malloc.c</span></span><br><span class="line"><span class="meta">#</span><span class="bash">现在我们来试试</span></span><br><span class="line"></span><br><span class="line">root@82374599b04f:~/glibc-2.23# cd</span><br><span class="line">root@82374599b04f:~# cat t.c</span><br><span class="line"><span class="meta">#</span><span class="bash">include&lt;stdio.h&gt;</span></span><br><span class="line"><span class="meta">#</span><span class="bash">include&lt;stdlib.h&gt;</span></span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">  int *var_a = malloc(8);</span><br><span class="line"></span><br><span class="line">  fprintf(stderr, "malloc(8): %p\n", var_a);</span><br><span class="line"></span><br><span class="line">  free(var_a);</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br><span class="line">root@82374599b04f:~# gcc -g t.c -o malloc</span><br><span class="line">root@82374599b04f:~# gdb malloc</span><br></pre></td></tr></table></figure>
+<p>gdb操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(gdb) b main</span><br><span class="line">Breakpoint 1 at 0x4005fa</span><br><span class="line">(gdb) directory /root/glibc-2.23/malloc</span><br><span class="line">(gdb) lay src</span><br></pre></td></tr></table></figure>
+<p>然后运行到 malloc 那一行的时候就一直 si </p>
+<p>就能看到有源码了，先进入的是 dl</p>
+<p><img src="/2019/07/21/glibc-debug/dl.png" alt="dl-trampoline.h"></p>
+<p>然后是 malloc.c</p>
+<p><img src="/2019/07/21/glibc-debug/malloc.png" alt="malloc.c"></p>
+<h3 id="5-总结"><a href="#5-总结" class="headerlink" title="5.总结"></a>5.总结</h3><p>malloc 只是个演示</p>
+<p>debug 别的函数也是一样</p>
+<p>1.先找到源文件的位置</p>
+<p>2.然后在 gdb 里 directory</p>
+<p>3.步入那个函数就OK</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/20/syscall/" class="archive-article-date">
-  	<time datetime="2018-12-20T08:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/20/syscall/">Linux_System_Call_Table</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ctf-pwn</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">glibc</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3a226DQAxFUf7/p+lrqxayjw0VjPc8RQmBWankji/bhtf+bZ2/v/9aR3c7en30rQuWDBkyXsvYT9f55vgj93DxvcmQIWMOg4fF8++m3yIM8lwZMmTIqG2uFqxlyJAh4z4GufL8ePeIgCtDhowHM9IjWloaqyWot+TiMmTIeCGDb+L/X9/S35AhQ8arGLViPSm0kSDb2cmP+8iQIWNpBg9wteGJdKOt/ciQIWNRBg9/tUIbSTgvSJVlyJCxNKMWWHlZvxOOeVtUhgwZazOuajd2rknT3Ru7pjJkyHgwozNUcf5g0pIkP3EwZiFDhozlGOQisq0nsGXIkLE2ozMAQZJM3tpMD6mH/Q0ZMmQszUiPaP0KH29nfrinDBkyFmXwoxh/vzZGRq7/8HeQIUPGAAZvQKakTtqM3pEhQ8ZIRm0kghzsOoEbHQ1lyJCxKINPMtS2Xhs7azUsZciQMYDBE05+uKyRUCtChgwZSzN4iT8Ogjjg1oYt/tiDDBkyxjDiMBeOZdQA6GeSIUPGAAYfg0iL/rXjIy/PyZAhYzIjHd7qFO/4QfPwDjJkyFiUsYeLPCA9brYSV/6fQYYMGa9l1IIdGRrr83hDQoYMGRMYrZGsSwN3OsYhQ4aMaYw08KUls04DAKXBMmTIkBEmsbVEl7dCN/6BDBkyRjLSlmc/q0ZpsAwZMgYweJOyVtDn4bgWvmXIkLE2g6eOaWqa3jNtTsiQIWMA4wvqPGC+HVi/jwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/17/FMT/" class="archive-article-date">
-  	<time datetime="2018-12-17T08:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/13/arrOF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于内存中的数组和数组越界</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/17/FMT/">格式化字符漏洞</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ctf-pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/15/my-ctf-pwn/" class="archive-article-date">
-  	<time datetime="2018-12-14T16:00:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/15/my-ctf-pwn/">记录我学习pwn</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ctf-pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/01/termux/" class="archive-article-date">
-  	<time datetime="2018-10-01T01:41:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/01/termux/">termux</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">termux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/29/shellcoding/" class="archive-article-date">
-  	<time datetime="2018-09-29T13:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/29/shellcoding/">shell编程基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/28/Linux/" class="archive-article-date">
-  	<time datetime="2018-09-28T13:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/28/Linux/">Linux</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/29/TorMetal2018/" class="archive-article-date">
-  	<time datetime="2018-07-29T13:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/29/TorMetal2018/">TorMetal2018</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/28/网络匿名/" class="archive-article-date">
-  	<time datetime="2018-07-28T13:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/28/网络匿名/">关于网络匿名</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
   
 
 
@@ -472,8 +339,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

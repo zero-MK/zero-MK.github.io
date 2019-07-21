@@ -6,10 +6,34 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zero-mk.github.io/"/>
-  <updated>2019-07-14T09:57:21.000Z</updated>
+  <updated>2019-07-21T05:54:06.000Z</updated>
   <id>http://zero-mk.github.io/</id>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>glibc_debug</title>
+    <link href="http://zero-mk.github.io/2019/07/21/glibc-debug/"/>
+    <id>http://zero-mk.github.io/2019/07/21/glibc-debug/</id>
+    <published>2019-07-21T04:41:17.000Z</published>
+    <updated>2019-07-21T05:54:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>关于源码及调式 glibc 我以前想的是编译带 symbol 的 libc 但是失败了，太麻烦了，所以我在网上找到了一种更方便的方法</p><h3 id="1-首先-去注释-源码源，就是那些-deb-src-开头的"><a href="#1-首先-去注释-源码源，就是那些-deb-src-开头的" class="headerlink" title="1.首先 去注释 源码源，就是那些 # deb-src 开头的"></a>1.首先 去注释 源码源，就是那些 # deb-src 开头的</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sed -i "s/# deb-src/deb-src/g" /etc/apt/sources.list</span><br></pre></td></tr></table></figure><p>如果 <code>/etc/apt/sources.list</code> 里面没有的话自己百度找到符合的源添加</p><h3 id="2-update"><a href="#2-update" class="headerlink" title="2. update"></a>2. update</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure><h3 id="3-安装带-debug-symbol-的-libc"><a href="#3-安装带-debug-symbol-的-libc" class="headerlink" title="3.安装带 debug symbol 的 libc"></a>3.安装带 debug symbol 的 libc</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libc6-dev</span><br></pre></td></tr></table></figure><h3 id="4-获取-libc6-dev-的源码"><a href="#4-获取-libc6-dev-的源码" class="headerlink" title="4.获取 libc6-dev 的源码"></a>4.获取 libc6-dev 的源码</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt source libc6-dev</span><br></pre></td></tr></table></figure><p>完事后你会发现当前文件夹下面会有一个 glibc-xxx 的文件夹，这就是源码</p><p>就比如我们要在 gdb 中 debug 时能查看 malloc 的源码我们可以这样做</p><p>我的是      ubuntu16       glibc-2.23</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">root@82374599b04f:~# cd glibc-2.23</span><br><span class="line">root@82374599b04f:~/glibc-2.23# find ./ -name "malloc.c"</span><br><span class="line">./malloc/malloc.c</span><br><span class="line">./.pc/any/cvs-harden-glibc-malloc-metadata.patch/malloc/malloc.c</span><br><span class="line">./.pc/git-updates.diff/malloc/malloc.c</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">可以看到malloc.c 位于 ./malloc/malloc.c</span></span><br><span class="line"></span><br><span class="line">root@82374599b04f:~/glibc-2.23# pwd</span><br><span class="line">/root/glibc-2.23</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">那么它的路径就在 /root/glibc-2.23/malloc/malloc.c</span></span><br><span class="line"><span class="meta">#</span><span class="bash">现在我们来试试</span></span><br><span class="line"></span><br><span class="line">root@82374599b04f:~/glibc-2.23# cd</span><br><span class="line">root@82374599b04f:~# cat t.c</span><br><span class="line"><span class="meta">#</span><span class="bash">include&lt;stdio.h&gt;</span></span><br><span class="line"><span class="meta">#</span><span class="bash">include&lt;stdlib.h&gt;</span></span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">  int *var_a = malloc(8);</span><br><span class="line"></span><br><span class="line">  fprintf(stderr, "malloc(8): %p\n", var_a);</span><br><span class="line"></span><br><span class="line">  free(var_a);</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br><span class="line">root@82374599b04f:~# gcc -g t.c -o malloc</span><br><span class="line">root@82374599b04f:~# gdb malloc</span><br></pre></td></tr></table></figure><p>gdb操作：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(gdb) b main</span><br><span class="line">Breakpoint 1 at 0x4005fa</span><br><span class="line">(gdb) directory /root/glibc-2.23/malloc</span><br><span class="line">(gdb) lay src</span><br></pre></td></tr></table></figure><p>然后运行到 malloc 那一行的时候就一直 si </p><p>就能看到有源码了，先进入的是 dl</p><p><img src="/2019/07/21/glibc-debug/dl.png" alt="dl-trampoline.h"></p><p>然后是 malloc.c</p><p><img src="/2019/07/21/glibc-debug/malloc.png" alt="malloc.c"></p><h3 id="5-总结"><a href="#5-总结" class="headerlink" title="5.总结"></a>5.总结</h3><p>malloc 只是个演示</p><p>debug 别的函数也是一样</p><p>1.先找到源文件的位置</p><p>2.然后在 gdb 里 directory</p><p>3.步入那个函数就OK</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;关于源码及调式 glibc 我以前想的是编译带 symbol 的 libc 但是失败了，太麻烦了，所以我在网上找到了一种更方便的方法&lt;/p&gt;
+&lt;h3 id=&quot;1-首先-去注释-源码源，就是那些-deb-src-开头的&quot;&gt;&lt;a href=&quot;#1-首先-去注释-源码源，就是那些
+      
+    
+    </summary>
+    
+    
+      <category term="glibc" scheme="http://zero-mk.github.io/tags/glibc/"/>
+    
+  </entry>
   
   <entry>
     <title>关于内存中的数组和数组越界</title>
