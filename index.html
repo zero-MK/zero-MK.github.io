@@ -150,6 +150,157 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-xman2019-reverse" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/09/xman2019-reverse/">xman2019-reverse</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/09/xman2019-reverse/" class="archive-article-date">
+  	<time datetime="2019-08-09T02:39:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>十天的训练赛</p>
+<h3 id="1-Re1-100"><a href="#1-Re1-100" class="headerlink" title="1.Re1-100"></a>1.Re1-100</h3><p>IDA 查看主要逻辑</p>
+<p><img src="/2019/08/09/xman2019-reverse/./xman2019-reverse/re100.png" alt="check_flag"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">responseTrue(); #flag正确</span><br><span class="line">responseFalse(); #flag错误</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strncmp(bufParentRead, &quot;&#123;daf29f59034938ae4efd53fc275d81053ed5be8c&#125;&quot;, 0x2AuLL)</span><br></pre></td></tr></table></figure>
+<p>经过变换后的 flag 和 <code>{daf29f59034938ae4efd53fc275d81053ed5be8c}</code> 对比</p>
+<p>退回上一层的检查:</p>
+<p>confuseKey(bufParentRead, 42)</p>
+<p><img src="/2019/08/09/xman2019-reverse/./xman2019-reverse/re1001.png" alt="confuseKey"></p>
+<p>可以看到是把一个字符串分割成了四段然后重组 3 4 1 2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">原文：&#123;daf29f5903 4938ae4efd 53fc275d81 053ed5be8c&#125;</span><br><span class="line">重组：&#123;53fc275d81 053ed5be8c 4938ae4efd daf29f5903&#125;</span><br></pre></td></tr></table></figure>
+<p>往上看那几个判断</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">strncmp(&amp;bufParentRead[31], &quot;4938ae4efd&quot;, 10uLL)</span><br><span class="line">strncmp(&amp;bufParentRead[1], &quot;53fc275d81&quot;, 10uLL)</span><br></pre></td></tr></table></figure>
+<p>31 到 41 位是 4938ae4efd</p>
+<p>1 到 11 位是 53fc275d81</p>
+<p>对得上flag就是 {53fc275d81053ed5be8c4938ae4efddaf29f5903}</p>
+<h3 id="2-APK-逆向2"><a href="#2-APK-逆向2" class="headerlink" title="2.APK-逆向2"></a>2.APK-逆向2</h3><p>这个东西是个 .net 文件 当时我傻傻的拿 IDA 去看，问了一下队友，用 <a href="https://github.com/0xd4d/dnSpy/" target="_blank" rel="noopener">dnSpy</a> 逆</p>
+<p><img src="/2019/08/09/xman2019-reverse/./xman2019-reverse/apk.PNG" alt=""></p>
+<p>看到程序启动后会连接到本地的 31337 端口然后就把一个 CTF{ 开头的东西发给我们</p>
+<p>我用的是 ncat 监听本地的 31337 端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ncat -kl 31337</span><br></pre></td></tr></table></figure>
+<p>打开文件得到flag</p>
+<p><img src="/2019/08/09/xman2019-reverse/./xman2019-reverse/apk2.PNG" alt=""></p>
+<h3 id="3-Shuffle"><a href="#3-Shuffle" class="headerlink" title="3.Shuffle"></a>3.Shuffle</h3><p>这个没什么好说的</p>
+<p><img src="/2019/08/09/xman2019-reverse/./xman2019-reverse/shuffle.png" alt=""></p>
+<h3 id="4-key"><a href="#4-key" class="headerlink" title="4.key"></a>4.key</h3><p>IDA 打开发现是个 C++ 很多函数，一开始我是手逆，逆了几个，被劝退了</p>
+<p><img src="/2019/08/09/xman2019-reverse/Volumes/program/blog/source/_posts/xman2019-reverse/key.PNG" alt=""></p>
+<p>后面动态调试，在  sub_4020C0 函数（这个就是最终检查 flag 的函数）下断点 </p>
+<p><img src="/2019/08/09/xman2019-reverse/./xman2019-reverse/key2.PNG" alt=""></p>
+<p>flag  就是 eax 中的 “idg_cni~bjbfi|gsxb”</p>
+<h3 id="5-zorropub"><a href="#5-zorropub" class="headerlink" title="5.zorropub"></a>5.zorropub</h3><p>这个题我用了极其暴力的一种做法</p>
+<p><img src="/2019/08/09/xman2019-reverse/./xman2019-reverse/zorropub.png" alt=""></p>
+<p>这是一个 MD5</p>
+<p>然后你输入一个大于等于 16 小于 0xFFF 的东西，后面验证通过就会给你 flag</p>
+<p>我把服务挂到本机的 4444 端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ncat -vc zorro_bin -kl 4444</span><br></pre></td></tr></table></figure>
+<p>然后就是</p>
+<p><img src="/2019/08/09/xman2019-reverse/./xman2019-reverse/zorro_bin.jpg" alt=""></p>
+<h3 id="6-babymips"><a href="#6-babymips" class="headerlink" title="6.babymips"></a>6.babymips</h3><p>给的是一个 mips 指令的 ELF</p>
+<p>我是用  ghidra 逆</p>
+<p>main 函数：</p>
+<p><img src="/2019/08/09/xman2019-reverse/./xman2019-reverse/babymips.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scanf(&quot;%32s&quot;,ipt);</span><br><span class="line">i = 0;</span><br><span class="line">while (i &lt; 0x20) &#123;</span><br><span class="line">   ipt[i] = ipt[i] ^ 0x20U - (char)i;</span><br><span class="line">   i = i + 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里的加密是把我们的输入和 0x20 - i 异或了一遍</p>
+<p>这里要注意的是运算符的优先级</p>
+<p>先是 - 然后才是 ^ </p>
+<p>然后把前五位和 _fdata（ Q|j{g ） 进行对比</p>
+<p><img src="/2019/08/09/xman2019-reverse/Volumes/program/blog/source/_posts/xman2019-reverse/mips1.png" alt=""></p>
+<p>解出前五位</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">enc = <span class="string">"Q|j&#123;g"</span></span><br><span class="line">msg = <span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(enc)):</span><br><span class="line">	msg += chr(ord(enc[i]) ^ <span class="number">0x20</span> - i)</span><br><span class="line"><span class="keyword">print</span> msg</span><br></pre></td></tr></table></figure>
+<p>得到 ：<code>qctf{</code></p>
+<p>分析flag后 27 位的加密 ：</p>
+<p><img src="/2019/08/09/xman2019-reverse/./xman2019-reverse/mips2.png" alt=""></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (flag_len = <span class="built_in">strlen</span>(ipt), i &lt; flag_len) &#123;</span><br><span class="line">    <span class="keyword">if</span> ((i &amp; <span class="number">1</span>) == <span class="number">0</span>) &#123;</span><br><span class="line">        ipt[i] = ((<span class="keyword">int</span>)ipt[i] &lt;&lt; <span class="number">0x1a</span>) &gt;&gt; <span class="number">0x18</span>) | ipt[i] &gt;&gt; <span class="number">6</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        ipt[i] = ipt[i] &gt;&gt; <span class="number">2</span> | ((<span class="keyword">int</span>)ipt[i] &lt;&lt; <span class="number">0x1e</span>) &gt;&gt; <span class="number">0x18</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    i = i + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个主要是交换了二进制位的位置</p>
+<p>例如：字符的二进制位（数字代表位置不是立即数）：</p>
+<p><code>76543210</code></p>
+<p><code>(i &amp; 1) == 0</code> 代表下标为偶数</p>
+<p><code>((int)ipt[i] &lt;&lt; 0x1a) &gt;&gt; 0x18) | ipt[i] &gt;&gt; 6;</code></p>
+<p>先是 <code>&lt;&lt; 0x1a</code> </p>
+<p>相当于变成了：<code>7654321000000000000000000000000000</code></p>
+<p>再 <code>&gt;&gt; 0x18</code> 变成了 ：<code>7654321000</code></p>
+<p><code>ipt[i] &gt;&gt; 6</code> 得出：<code>76</code></p>
+<p>现在把第七第六位<code>（76）|（7654321000）</code></p>
+<p>变成了<code>7654321076</code></p>
+<p> 下标为单数的同理</p>
+<p>然后是最后一步的验证：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">iVar1 = strncmp(ipt + 5,enc,0x1b);</span><br><span class="line">if (iVar1 == 0) &#123;</span><br><span class="line">   puts(&quot;Right!&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else &#123;</span><br><span class="line">   puts(&quot;Wrong!&quot;);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>enc可以在我截图的左栏看到</p>
+<p>双击 enc 再双击 DAT_00400b98 就有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">                  DAT_00400b98                                    XREF[2]:     encrypto:0040094c(*), </span><br><span class="line">                                                                                  00410d04(*)  </span><br><span class="line">00400b98 52              ??         52h    R</span><br><span class="line">00400b99 fd              ??         FDh</span><br><span class="line">00400b9a 16              ??         16h</span><br><span class="line">00400b9b a4              ??         A4h</span><br><span class="line">00400b9c 89              ??         89h</span><br><span class="line">00400b9d bd              ??         BDh</span><br><span class="line">00400b9e 92              ??         92h</span><br><span class="line">00400b9f 80              ??         80h</span><br><span class="line">00400ba0 13              ??         13h</span><br><span class="line">00400ba1 41              ??         41h    A</span><br><span class="line">00400ba2 54              ??         54h    T</span><br><span class="line">00400ba3 a0              ??         A0h</span><br><span class="line">00400ba4 8d              ??         8Dh</span><br><span class="line">00400ba5 45              ??         45h    E</span><br><span class="line">00400ba6 18              ??         18h</span><br><span class="line">00400ba7 81              ??         81h</span><br><span class="line">00400ba8 de              ??         DEh</span><br><span class="line">00400ba9 fc              ??         FCh</span><br><span class="line">00400baa 95              ??         95h</span><br><span class="line">00400bab f0              ??         F0h</span><br><span class="line">00400bac 16              ??         16h</span><br><span class="line">00400bad 79              ??         79h    y</span><br><span class="line">00400bae 1a              ??         1Ah</span><br><span class="line">00400baf 15              ??         15h</span><br><span class="line">00400bb0 5b              ??         5Bh    [</span><br><span class="line">00400bb1 75              ??         75h    u</span><br><span class="line">00400bb2 1f              ??         1Fh</span><br><span class="line">00400bb3 00              ??         00h</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enc = 52 FD 16 A4 89 BD 92 80 13 41 54 A0 8D 45 18 81 DE FC 95 F0 16 79 1A 15 5B 75 1F 00</span><br></pre></td></tr></table></figure>
+<p>完整的脚本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">enc = <span class="string">b'\x52\xFD\x16\xA4\x89\xBD\x92\x80\x13\x41\x54\xA0\x8D\x45\x18\x81\xDE\xFC\x95\xF0\x16\x79\x1A\x15\x5B\x75\x1F'</span></span><br><span class="line">flag_head = <span class="string">b'Q|j&#123;g'</span></span><br><span class="line">flag = <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">    flag += chr(ord(flag_head[i]) ^ <span class="number">0x20</span> - i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">27</span>):</span><br><span class="line">    <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">      	<span class="comment">#取 enc[i] 的 (前 6 个 bit &gt;&gt; 2) 或上 enc[i] 的 （后两个 bit &lt;&lt; 6)</span></span><br><span class="line">        flag += chr((((ord(enc[i]) &amp; <span class="number">0b11111100</span>) &gt;&gt; <span class="number">2</span> ) | ((ord(enc[i]) &amp; <span class="number">0b00000011</span>) &lt;&lt; <span class="number">6</span> )) ^ <span class="number">0x20</span> - <span class="number">5</span> - i)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      	<span class="comment">#取 enc[i] 的 (后 6 个 bit &lt;&lt; 2) 或上 enc[i] 的 （前两个 bit &gt;&gt; 6)</span></span><br><span class="line">        flag += chr((((ord(enc[i]) &amp; <span class="number">0b00111111</span>) &lt;&lt; <span class="number">2</span> ) | ((ord(enc[i]) &amp; <span class="number">0b11000000</span>) &gt;&gt; <span class="number">6</span> )) ^ <span class="number">0x20</span> - <span class="number">5</span> - i)</span><br><span class="line"></span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+<h3 id="7-secret-galaxy"><a href="#7-secret-galaxy" class="headerlink" title="7.secret-galaxy"></a>7.secret-galaxy</h3><p> 这个运行了没啥输入的地方，看代码也看不出啥（我太菜了），就 OD 运行完了之后 搜字符串，得到 flag</p>
+<h3 id="8-serial"><a href="#8-serial" class="headerlink" title="8.serial"></a>8.serial</h3><p>这个东西有花指令</p>
+<p><img src="/2019/08/09/xman2019-reverse/./xman2019-reverse/serial.png" alt=""></p>
+<p>写个脚本去花：</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">reverse</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/09/xman2019-reverse/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-glibc-debug" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1301,111 +1452,6 @@
 
 
   
-    <article id="post-compile-vim" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/compile-vim/">编译最新vim并支持python</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/22/compile-vim/" class="archive-article-date">
-  	<time datetime="2019-01-22T14:37:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>每次看到vim不支持Python的时候，心情是崩溃的，要自己compile，Linux下的编译都烦，上次编译edb，emmmm，心理阴影，废话不多说，言归正传</p>
-<p><code>vim --version</code>查看vim支持，前面有+的都是支持的，有-的都是不支持的，可以看到-python3 ，-python3 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247 ~<span class="comment"># vim --version</span></span><br><span class="line">VIM - Vi IMproved 8.1 (2018 May 18, compiled Jan 05 2019 20:53:12)</span><br><span class="line">Included patches: 1-693</span><br><span class="line">Modified by team+vim@tracker.debian.org</span><br><span class="line">Compiled by team+vim@tracker.debian.org</span><br><span class="line">Huge version without GUI.  Features included (+) or not (-):</span><br><span class="line">+acl               +extra_search      +mouse_netterm     +tag_old_static</span><br><span class="line">+arabic            +farsi             +mouse_sgr         -tag_any_white</span><br><span class="line">+autocmd           +file_in_path      -mouse_sysmouse    -tcl</span><br><span class="line">+autochdir         +find_in_path      +mouse_urxvt       +termguicolors</span><br><span class="line">-autoservername    +<span class="built_in">float</span>             +mouse_xterm       +terminal</span><br><span class="line">-balloon_eval      +folding           +multi_byte        +terminfo</span><br><span class="line">+balloon_eval_term -footer            +multi_lang        +termresponse</span><br><span class="line">-browse            +fork()            -mzscheme          +textobjects</span><br><span class="line">++builtin_terms    +gettext           +netbeans_intg     +textprop</span><br><span class="line">+byte_offset       -hangul_input      +num64             +timers</span><br><span class="line">+channel           +iconv             +packages          +title</span><br><span class="line">+cindent           +insert_expand     +path_extra        -toolbar</span><br><span class="line">-clientserver      +job               -perl              +user_commands</span><br><span class="line">-clipboard         +jumplist          +persistent_undo   +vartabs</span><br><span class="line">+cmdline_compl     +keymap            +postscript        +vertsplit</span><br><span class="line">+cmdline_hist      +lambda            +printer           +virtualedit</span><br><span class="line">+cmdline_info      +langmap           +profile           +visual</span><br><span class="line">+comments          +libcall           -python            +visualextra</span><br><span class="line">+conceal           +linebreak         -python3           +viminfo</span><br><span class="line">+cryptv            +lispindent        +quickfix          +vreplace</span><br><span class="line">+cscope            +listcmds          +reltime           +wildignore</span><br><span class="line">+cursorbind        +localmap          +rightleft         +wildmenu</span><br><span class="line">+cursorshape       -lua               -ruby              +windows</span><br><span class="line">+dialog_con        +menu              +scrollbind        +writebackup</span><br><span class="line">+diff              +mksession         +signs             -X11</span><br><span class="line">+digraphs          +modify_fname      +smartindent       -xfontset</span><br><span class="line">-dnd               +mouse             +startuptime       -xim</span><br><span class="line">-ebcdic            -mouseshape        +statusline        -xpm</span><br><span class="line">+emacs_tags        +mouse_dec         -sun_workshop      -xsmp</span><br><span class="line">+<span class="built_in">eval</span>              +mouse_gpm         +syntax            -xterm_clipboard</span><br><span class="line">+ex_extra          -mouse_jsbterm     +tag_binary        -xterm_save</span><br><span class="line">   system vimrc file: <span class="string">"<span class="variable">$VIM</span>/vimrc"</span></span><br><span class="line">     user vimrc file: <span class="string">"<span class="variable">$HOME</span>/.vimrc"</span></span><br><span class="line"> 2nd user vimrc file: <span class="string">"~/.vim/vimrc"</span></span><br><span class="line">      user exrc file: <span class="string">"<span class="variable">$HOME</span>/.exrc"</span></span><br><span class="line">       defaults file: <span class="string">"<span class="variable">$VIMRUNTIME</span>/defaults.vim"</span></span><br><span class="line">  fall-back <span class="keyword">for</span> <span class="variable">$VIM</span>: <span class="string">"/usr/share/vim"</span></span><br><span class="line">Compilation: gcc -c -I. -Iproto -DHAVE_CONFIG_H   -Wdate-time  -g -O2 -fdebug-prefix-map=/build/vim-SsPCMM/vim-8.1.0693=. -fstack-protector-strong -Wformat -Werror=format-security -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1</span><br><span class="line">Linking: gcc   -Wl,-z,relro -Wl,-z,now -Wl,--as-needed -o vim        -lm -ltinfo -lnsl  -lselinux -lacl -lattr -lgpm -ldl</span><br></pre></td></tr></table></figure>
-<h3 id="0x1-现在，把最新源码从vim的Github仓库下来"><a href="#0x1-现在，把最新源码从vim的Github仓库下来" class="headerlink" title="0x1.现在，把最新源码从vim的Github仓库下来"></a>0x1.现在，把最新源码从<a href="https://link.jianshu.com/?t=https://github.com/vim/vim" target="_blank" rel="noopener">vim的Github仓库</a>下来</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/vim/vim.git</span><br></pre></td></tr></table></figure>
-<h3 id="0x2-安装依赖"><a href="#0x2-安装依赖" class="headerlink" title="0x2.安装依赖"></a>0x2.安装依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python-dev python3-dev libncurses5-dev</span><br></pre></td></tr></table></figure>
-<h3 id="0x3-编译"><a href="#0x3-编译" class="headerlink" title="0x3.编译"></a>0x3.编译</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd vim #进入你刚刚clone下来的vim</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make clean #清除上一次的编译</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --with-features=huge --<span class="built_in">enable</span>-python3interp --<span class="built_in">enable</span>-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu/ --<span class="built_in">enable</span>-rubyinterp --<span class="built_in">enable</span>-luainterp --<span class="built_in">enable</span>-perlinterp --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu/ --<span class="built_in">enable</span>-multibyte --<span class="built_in">enable</span>-cscope --prefix=/usr/<span class="built_in">local</span>/vim/</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install #编译并安装到上面--prefix参数指定的位置</span><br></pre></td></tr></table></figure>
-<p>现在编译和安装OK了，接下来就是怎么启动的问题</p>
-<h3 id="0x4-设置启动命令"><a href="#0x4-设置启动命令" class="headerlink" title="0x4.设置启动命令"></a>0x4.设置启动命令</h3><p>我们现在执行vim –version看看</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247 /u/l/v/bin<span class="comment"># vim --version</span></span><br><span class="line">VIM - Vi IMproved 8.1 (2018 May 18, compiled Jan 05 2019 20:53:12)</span><br><span class="line">Included patches: 1-693</span><br><span class="line">Modified by team+vim@tracker.debian.org</span><br><span class="line">Compiled by team+vim@tracker.debian.org</span><br><span class="line">Huge version without GUI.  Features included (+) or not (-):</span><br><span class="line">+acl               +extra_search      +mouse_netterm     +tag_old_static</span><br><span class="line">+arabic            +farsi             +mouse_sgr         -tag_any_white</span><br><span class="line">+autocmd           +file_in_path      -mouse_sysmouse    -tcl</span><br><span class="line">+autochdir         +find_in_path      +mouse_urxvt       +termguicolors</span><br><span class="line">-autoservername    +<span class="built_in">float</span>             +mouse_xterm       +terminal</span><br><span class="line">-balloon_eval      +folding           +multi_byte        +terminfo</span><br><span class="line">+balloon_eval_term -footer            +multi_lang        +termresponse</span><br><span class="line">-browse            +fork()            -mzscheme          +textobjects</span><br><span class="line">++builtin_terms    +gettext           +netbeans_intg     +textprop</span><br><span class="line">+byte_offset       -hangul_input      +num64             +timers</span><br><span class="line">+channel           +iconv             +packages          +title</span><br><span class="line">+cindent           +insert_expand     +path_extra        -toolbar</span><br><span class="line">-clientserver      +job               -perl              +user_commands</span><br><span class="line">-clipboard         +jumplist          +persistent_undo   +vartabs</span><br><span class="line">+cmdline_compl     +keymap            +postscript        +vertsplit</span><br><span class="line">+cmdline_hist      +lambda            +printer           +virtualedit</span><br><span class="line">+cmdline_info      +langmap           +profile           +visual</span><br><span class="line">+comments          +libcall           -python            +visualextra</span><br><span class="line">+conceal           +linebreak         -python3           +viminfo</span><br><span class="line">+cryptv            +lispindent        +quickfix          +vreplace</span><br><span class="line">+cscope            +listcmds          +reltime           +wildignore</span><br><span class="line">+cursorbind        +localmap          +rightleft         +wildmenu</span><br><span class="line">+cursorshape       -lua               -ruby              +windows</span><br><span class="line">+dialog_con        +menu              +scrollbind        +writebackup</span><br><span class="line">+diff              +mksession         +signs             -X11</span><br><span class="line">+digraphs          +modify_fname      +smartindent       -xfontset</span><br><span class="line">-dnd               +mouse             +startuptime       -xim</span><br><span class="line">-ebcdic            -mouseshape        +statusline        -xpm</span><br><span class="line">+emacs_tags        +mouse_dec         -sun_workshop      -xsmp</span><br><span class="line">+<span class="built_in">eval</span>              +mouse_gpm         +syntax            -xterm_clipboard</span><br><span class="line">+ex_extra          -mouse_jsbterm     +tag_binary        -xterm_save</span><br><span class="line">   system vimrc file: <span class="string">"<span class="variable">$VIM</span>/vimrc"</span></span><br><span class="line">     user vimrc file: <span class="string">"<span class="variable">$HOME</span>/.vimrc"</span></span><br><span class="line"> 2nd user vimrc file: <span class="string">"~/.vim/vimrc"</span></span><br><span class="line">      user exrc file: <span class="string">"<span class="variable">$HOME</span>/.exrc"</span></span><br><span class="line">       defaults file: <span class="string">"<span class="variable">$VIMRUNTIME</span>/defaults.vim"</span></span><br><span class="line">  fall-back <span class="keyword">for</span> <span class="variable">$VIM</span>: <span class="string">"/usr/share/vim"</span></span><br><span class="line">Compilation: gcc -c -I. -Iproto -DHAVE_CONFIG_H   -Wdate-time  -g -O2 -fdebug-prefix-map=/build/vim-SsPCMM/vim-8.1.0693=. -fstack-protector-strong -Wformat -Werror=format-security -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1</span><br><span class="line">Linking: gcc   -Wl,-z,relro -Wl,-z,now -Wl,--as-needed -o vim        -lm -ltinfo -lnsl  -lselinux -lacl -lattr -lgpm -ldl</span><br></pre></td></tr></table></figure>
-<p>你会惊奇的发现，-python，-python3，心生疑问，我刚刚不是重新编译了一个支持python的vim了吗，现在怎么还是不支持。其实是我们刚刚指定安装到—prefix指定的路径去了（我是指定了/usr/local/vim），我们去看看</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247 /u/l/vim<span class="comment"># cd /usr/local/vim/bin</span></span><br><span class="line">root@cca41a231247 /u/l/v/bin<span class="comment"># ls</span></span><br><span class="line">ex@  rview@  rvim@  view@  vim*  vimdiff@  vimtutor*  xxd*</span><br><span class="line">root@cca41a231247 /u/l/v/bin<span class="comment"># ./vim --version</span></span><br><span class="line">VIM - Vi IMproved 8.1 (2018 May 18, compiled Jan 22 2019 15:28:12)</span><br><span class="line">Included patches: 1-739</span><br><span class="line">Compiled by root@cca41a231247</span><br><span class="line">Huge version without GUI.  Features included (+) or not (-):</span><br><span class="line">+acl               +extra_search      +mouse_netterm     +tag_old_static</span><br><span class="line">+arabic            +farsi             +mouse_sgr         -tag_any_white</span><br><span class="line">+autocmd           +file_in_path      -mouse_sysmouse    -tcl</span><br><span class="line">+autochdir         +find_in_path      +mouse_urxvt       +termguicolors</span><br><span class="line">-autoservername    +<span class="built_in">float</span>             +mouse_xterm       +terminal</span><br><span class="line">-balloon_eval      +folding           +multi_byte        +terminfo</span><br><span class="line">+balloon_eval_term -footer            +multi_lang        +termresponse</span><br><span class="line">-browse            +fork()            -mzscheme          +textobjects</span><br><span class="line">++builtin_terms    -gettext           +netbeans_intg     +textprop</span><br><span class="line">+byte_offset       -hangul_input      +num64             +timers</span><br><span class="line">+channel           +iconv             +packages          +title</span><br><span class="line">+cindent           +insert_expand     +path_extra        -toolbar</span><br><span class="line">-clientserver      +job               -perl              +user_commands</span><br><span class="line">-clipboard         +jumplist          +persistent_undo   +vartabs</span><br><span class="line">+cmdline_compl     +keymap            +postscript        +vertsplit</span><br><span class="line">+cmdline_hist      +lambda            +printer           +virtualedit</span><br><span class="line">+cmdline_info      +langmap           +profile           +visual</span><br><span class="line">+comments          +libcall           +python/dyn        +visualextra</span><br><span class="line">+conceal           +linebreak         +python3/dyn       +viminfo</span><br><span class="line">+cryptv            +lispindent        +quickfix          +vreplace</span><br><span class="line">+cscope            +listcmds          +reltime           +wildignore</span><br><span class="line">+cursorbind        +localmap          +rightleft         +wildmenu</span><br><span class="line">+cursorshape       -lua               +ruby              +windows</span><br><span class="line">+dialog_con        +menu              +scrollbind        +writebackup</span><br><span class="line">+diff              +mksession         +signs             -X11</span><br><span class="line">+digraphs          +modify_fname      +smartindent       -xfontset</span><br><span class="line">-dnd               +mouse             +startuptime       -xim</span><br><span class="line">-ebcdic            -mouseshape        +statusline        -xpm</span><br><span class="line">+emacs_tags        +mouse_dec         -sun_workshop      -xsmp</span><br><span class="line">+<span class="built_in">eval</span>              -mouse_gpm         +syntax            -xterm_clipboard</span><br><span class="line">+ex_extra          -mouse_jsbterm     +tag_binary        -xterm_save</span><br><span class="line">   system vimrc file: <span class="string">"<span class="variable">$VIM</span>/vimrc"</span></span><br><span class="line">     user vimrc file: <span class="string">"<span class="variable">$HOME</span>/.vimrc"</span></span><br><span class="line"> 2nd user vimrc file: <span class="string">"~/.vim/vimrc"</span></span><br><span class="line">      user exrc file: <span class="string">"<span class="variable">$HOME</span>/.exrc"</span></span><br><span class="line">       defaults file: <span class="string">"<span class="variable">$VIMRUNTIME</span>/defaults.vim"</span></span><br><span class="line">  fall-back <span class="keyword">for</span> <span class="variable">$VIM</span>: <span class="string">"/usr/local/vim/share/vim"</span></span><br><span class="line">Compilation: gcc -c -I. -Iproto -DHAVE_CONFIG_H     -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1</span><br><span class="line">Linking: gcc   -L. -Wl,-z,relro -Wl,-z,now -fstack-protector -rdynamic -Wl,-<span class="built_in">export</span>-dynamic  -L/usr/<span class="built_in">local</span>/lib -Wl,--as-needed -o vim        -lm -ltinfo -lnsl    -ldl       -lruby-2.5 -lpthread -lgmp -ldl -lcrypt -lm</span><br></pre></td></tr></table></figure>
-<p>这不就是了嘛，每次都用绝对路径打开，不方便，现在有两种方法解决这种尴尬</p>
-<h4 id="1-设置环境变量"><a href="#1-设置环境变量" class="headerlink" title="1.设置环境变量"></a>1.设置环境变量</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247 /u/l/v/bin<span class="comment"># env |grep PATH #查看PATH变量</span></span><br><span class="line">PATH=/usr/<span class="built_in">local</span>/sbin:/usr/<span class="built_in">local</span>/bin:/usr/sbin:/usr/bin:/sbin:/bin</span><br></pre></td></tr></table></figure>
-<p>现在我们临时修改</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247:~<span class="comment"># export PATH=/usr/local/vim/bin:$PATH</span></span><br><span class="line">root@cca41a231247:~<span class="comment"># env | grep PATH</span></span><br><span class="line">PATH=/usr/<span class="built_in">local</span>/vim/bin:/usr/<span class="built_in">local</span>/sbin:/usr/<span class="built_in">local</span>/bin:/usr/sbin:/usr/bin:/sbin:/bin</span><br><span class="line">_=/usr/bin/env</span><br></pre></td></tr></table></figure>
-<p>可以看到/usr/local/vim/bin已经加到PATH变量中，现在<code>vim --version</code>看看</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247:~<span class="comment"># vim --version</span></span><br><span class="line">VIM - Vi IMproved 8.1 (2018 May 18, compiled Jan 22 2019 15:28:12)</span><br><span class="line">Included patches: 1-739</span><br><span class="line">Compiled by root@cca41a231247</span><br><span class="line">Huge version without GUI.  Features included (+) or not (-):</span><br><span class="line">+acl               +extra_search      +mouse_netterm     +tag_old_static</span><br><span class="line">+arabic            +farsi             +mouse_sgr         -tag_any_white</span><br><span class="line">+autocmd           +file_in_path      -mouse_sysmouse    -tcl</span><br><span class="line">+autochdir         +find_in_path      +mouse_urxvt       +termguicolors</span><br><span class="line">-autoservername    +<span class="built_in">float</span>             +mouse_xterm       +terminal</span><br><span class="line">-balloon_eval      +folding           +multi_byte        +terminfo</span><br><span class="line">+balloon_eval_term -footer            +multi_lang        +termresponse</span><br><span class="line">-browse            +fork()            -mzscheme          +textobjects</span><br><span class="line">++builtin_terms    -gettext           +netbeans_intg     +textprop</span><br><span class="line">+byte_offset       -hangul_input      +num64             +timers</span><br><span class="line">+channel           +iconv             +packages          +title</span><br><span class="line">+cindent           +insert_expand     +path_extra        -toolbar</span><br><span class="line">-clientserver      +job               -perl              +user_commands</span><br><span class="line">-clipboard         +jumplist          +persistent_undo   +vartabs</span><br><span class="line">+cmdline_compl     +keymap            +postscript        +vertsplit</span><br><span class="line">+cmdline_hist      +lambda            +printer           +virtualedit</span><br><span class="line">+cmdline_info      +langmap           +profile           +visual</span><br><span class="line">+comments          +libcall           +python/dyn        +visualextra</span><br><span class="line">+conceal           +linebreak         +python3/dyn       +viminfo</span><br><span class="line">+cryptv            +lispindent        +quickfix          +vreplace</span><br><span class="line">+cscope            +listcmds          +reltime           +wildignore</span><br><span class="line">+cursorbind        +localmap          +rightleft         +wildmenu</span><br><span class="line">+cursorshape       -lua               +ruby              +windows</span><br><span class="line">+dialog_con        +menu              +scrollbind        +writebackup</span><br><span class="line">+diff              +mksession         +signs             -X11</span><br><span class="line">+digraphs          +modify_fname      +smartindent       -xfontset</span><br><span class="line">-dnd               +mouse             +startuptime       -xim</span><br><span class="line">-ebcdic            -mouseshape        +statusline        -xpm</span><br><span class="line">+emacs_tags        +mouse_dec         -sun_workshop      -xsmp</span><br><span class="line">+<span class="built_in">eval</span>              -mouse_gpm         +syntax            -xterm_clipboard</span><br><span class="line">+ex_extra          -mouse_jsbterm     +tag_binary        -xterm_save</span><br><span class="line">   system vimrc file: <span class="string">"<span class="variable">$VIM</span>/vimrc"</span></span><br><span class="line">     user vimrc file: <span class="string">"<span class="variable">$HOME</span>/.vimrc"</span></span><br><span class="line"> 2nd user vimrc file: <span class="string">"~/.vim/vimrc"</span></span><br><span class="line">      user exrc file: <span class="string">"<span class="variable">$HOME</span>/.exrc"</span></span><br><span class="line">       defaults file: <span class="string">"<span class="variable">$VIMRUNTIME</span>/defaults.vim"</span></span><br><span class="line">  fall-back <span class="keyword">for</span> <span class="variable">$VIM</span>: <span class="string">"/usr/local/vim/share/vim"</span></span><br><span class="line">Compilation: gcc -c -I. -Iproto -DHAVE_CONFIG_H     -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1</span><br><span class="line">Linking: gcc   -L. -Wl,-z,relro -Wl,-z,now -fstack-protector -rdynamic -Wl,-<span class="built_in">export</span>-dynamic  -L/usr/<span class="built_in">local</span>/lib -Wl,--as-needed -o vim        -lm -ltinfo -lnsl    -ldl       -lruby-2.5 -lpthread -lgmp -ldl -lcrypt -lm</span><br></pre></td></tr></table></figure>
-<p>现在PATH只在当前shell生效，退出再登录就失效。要永久生效，方法有好几种，我列举两种，其他的，自行baidu</p>
-<h5 id="方法一：【对所有用户生效-永久的-】在-etc-profile文件末尾另起一行，添加一句"><a href="#方法一：【对所有用户生效-永久的-】在-etc-profile文件末尾另起一行，添加一句" class="headerlink" title="方法一：【对所有用户生效(永久的)】在/etc/profile文件末尾另起一行，添加一句"></a>方法一：【对所有用户生效(永久的)】在/etc/profile文件末尾另起一行，添加一句</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/vim/bin:$PATH</span><br></pre></td></tr></table></figure>
-<h5 id="方法二：【对所有用户生效-永久的-】在用户目录下的-bashrc文件（-bashrc）末尾另起一行，添加一句"><a href="#方法二：【对所有用户生效-永久的-】在用户目录下的-bashrc文件（-bashrc）末尾另起一行，添加一句" class="headerlink" title="方法二：【对所有用户生效(永久的)】在用户目录下的.bashrc文件（~/.bashrc）末尾另起一行，添加一句"></a>方法二：【对所有用户生效(永久的)】在用户目录下的.bashrc文件（~/.bashrc）末尾另起一行，添加一句</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/vim/bin:$PATH</span><br></pre></td></tr></table></figure>
-<h4 id="2-ln链接"><a href="#2-ln链接" class="headerlink" title="2.ln链接"></a>2.ln链接</h4><p>这个就很简单了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247:/# ln -s /usr/local/vim/bin/vim /bin/vimn #链接/usr/local/vim/bin/vim到/bin/vimn</span><br></pre></td></tr></table></figure>
-<p>现在执行vimn就是等于在执行/usr/local/vim/bin/vim</p>
-<h3 id="0x5-完工-amp-amp-补充"><a href="#0x5-完工-amp-amp-补充" class="headerlink" title="0x5.完工&amp;&amp;补充"></a>0x5.完工&amp;&amp;补充</h3><p>关于上面./configure那一句的说明：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">--with-features=huge  支持最大特性</span><br><span class="line">--enable-rubyinterp  打开对ruby编写的插件的支持</span><br><span class="line">--enable-pythoninterp  打开对python编写的插件的支持</span><br><span class="line">--enable-python3interp  打开对python3编写的插件的支持</span><br><span class="line">--enable-luainterp  打开对lua编写的插件的支持</span><br><span class="line">--enable-perlinterp  打开对perl编写的插件的支持</span><br><span class="line">--enable-multibyte  打开多字节支持，可以在Vim中输入中文</span><br><span class="line">--enable-cscope  打开对cscope的支持</span><br><span class="line">--with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu/ 指定python路径</span><br><span class="line">--with-python-config-dir=/usr/lib/python3.7/config-3.7m-x86_64-linux-gnu/ 指定python3路径</span><br><span class="line">--prefix=/usr/local/vim：指定将要安装到的路径</span><br></pre></td></tr></table></figure>
-<p>上面提到的python的路径的获取方法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247 ~<span class="comment"># cd /usr/lib/ &amp;&amp; ls |grep python</span></span><br><span class="line">python2.7</span><br><span class="line">python3</span><br><span class="line">python3.6</span><br><span class="line">python3.7</span><br></pre></td></tr></table></figure>
-<p>看到有python2.7，python3，python3.6，python3.7选一个，python3的路径一般是python3.x，python一样是python2.x，你cd进去找到config-xxxxx-linux-gnu/，cd进去，然后pwd就可以得到路径，看我操作</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@cca41a231247 ~<span class="comment"># cd /usr/lib/ &amp;&amp; ls |grep python</span></span><br><span class="line">python2.7</span><br><span class="line">python3</span><br><span class="line">python3.6</span><br><span class="line">python3.7</span><br><span class="line">root@cca41a231247 /u/lib<span class="comment"># cd python3.7</span></span><br><span class="line">root@cca41a231247 /u/l/python3.7<span class="comment"># cd config-3.7m-x86_64-linux-gnu/</span></span><br><span class="line">root@cca41a231247 /u/l/p/config-3.7m-x86_64-linux-gnu<span class="comment"># pwd</span></span><br><span class="line">/usr/lib/python3.7/config-3.7m-x86_64-linux-gnu</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">compile vim</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/22/compile-vim/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1503,11 +1549,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">ctf-pwn</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ctf-pwn</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1519,19 +1565,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ctf-misc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">re</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">dcoker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">glibc</a>
+                <a href="javascript:void(0)" class="js-tag color4">ctf-misc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1539,7 +1577,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+                <a href="javascript:void(0)" class="js-tag color3">re</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">glibc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1547,7 +1589,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pwntools</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1555,7 +1605,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pwntools</a>
+                <a href="javascript:void(0)" class="js-tag color3">reverse</a>
               </li>
              
               <li class="article-tag-list-item">
